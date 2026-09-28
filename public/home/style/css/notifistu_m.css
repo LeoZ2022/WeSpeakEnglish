@@ -1,0 +1,63 @@
+nav{box-shadow: none}
+nav>.logobox{display: none}
+nav .backar{background: url("../img/backar.png") center center no-repeat;
+    background-size: contain;
+    width: 13px;
+    height: 22px;}
+nav a.blue{text-transform: none;
+    font-size: 1.4rem;
+    color: #007edb;}
+nav .hanbugrmenu{
+    background-image: url("../img/habmenu_b.png");
+} 
+nav.wBG + .wb.myclass .ht {
+    position: fixed;
+    z-index: 2;
+    left: 20px;
+    right: 20px;
+    background: #fff;
+    top: 78px;
+}
+body{background: #fff}
+p.topT{
+    font-size: 4.6rem;align-items: center;
+    text-align: center;
+    margin-top: 0px;}
+p.topT::after {
+    width: 180px;
+    height: 16px;}
+P.topT > a{
+    display: none;}
+.main{
+    padding-left: 20px;
+    margin-top: 20px;
+    padding-right: 20px;}
+.myclass .ht a{
+    display: none;}
+.myclass{box-shadow: none;
+    margin-top: 0;
+	margin-bottom: 0;
+padding:0 20px}
+.notimsg{background-size: 40px auto;
+    padding-left: 55px;}
+.classbox rightt{text-align: right;
+    width: 49.9%;}
+.classbox  price{
+    margin-top: 6px;
+    display: block;}
+.balancebox left > pays{
+    margin-right: 0;}
+.balancebox left > time{
+    margin-left: 53px;
+    display: block;}
+.footer{
+    display: none;}
+.footwrap{
+    height: 90px;}
+
+nav.dif{
+	box-shadow: none;
+}
+.n_footerMain{
+	display: none;
+}

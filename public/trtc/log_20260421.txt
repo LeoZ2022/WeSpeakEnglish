@@ -1,0 +1,232 @@
+2026-04-21 10:30:11 callback
+{
+	"EventGroupId":	1,
+	"EventType":	103,
+	"CallbackTs":	1776738611621,
+	"EventInfo":	{
+		"RoomId":	15458,
+		"EventTs":	1776738611,
+		"EventMsTs":	1776738611548,
+		"UserId":	"2345",
+		"Role":	20,
+		"TerminalType":	2,
+		"UserType":	3,
+		"Reason":	1,
+		"ClientIpv4":	"203.26.240.122"
+	}
+}
+
+2026-04-21 10:30:11 callback
+{
+	"EventGroupId":	1,
+	"EventType":	101,
+	"CallbackTs":	1776738611624,
+	"EventInfo":	{
+		"RoomId":	15458,
+		"EventTs":	1776738611,
+		"EventMsTs":	1776738611543,
+		"UserId":	"2345"
+	}
+}
+
+2026-04-21 10:37:11 callback
+{
+	"EventGroupId":	1,
+	"EventType":	104,
+	"CallbackTs":	1776739031717,
+	"EventInfo":	{
+		"RoomId":	15458,
+		"EventTs":	1776739031,
+		"EventMsTs":	1776739031644,
+		"UserId":	"2345",
+		"Role":	20,
+		"Reason":	1
+	}
+}
+
+2026-04-21 10:37:11 callback
+{
+	"EventGroupId":	1,
+	"EventType":	102,
+	"CallbackTs":	1776739031766,
+	"EventInfo":	{
+		"RoomId":	15458,
+		"EventTs":	1776739031,
+		"EventMsTs":	1776739031695
+	}
+}
+
+2026-04-21 19:58:10 callback
+{
+	"EventGroupId":	1,
+	"EventType":	103,
+	"CallbackTs":	1776772689878,
+	"EventInfo":	{
+		"RoomId":	15453,
+		"EventTs":	1776772689,
+		"EventMsTs":	1776772689860,
+		"UserId":	"745",
+		"Role":	20,
+		"TerminalType":	2,
+		"UserType":	3,
+		"Reason":	1,
+		"ClientIpv4":	"223.104.132.128"
+	}
+}
+
+2026-04-21 19:58:10 callback
+{
+	"EventGroupId":	1,
+	"EventType":	101,
+	"CallbackTs":	1776772689933,
+	"EventInfo":	{
+		"RoomId":	15453,
+		"EventTs":	1776772689,
+		"EventMsTs":	1776772689852,
+		"UserId":	"745"
+	}
+}
+
+2026-04-21 20:00:53 callback
+{
+	"EventGroupId":	1,
+	"EventType":	104,
+	"CallbackTs":	1776772853632,
+	"EventInfo":	{
+		"RoomId":	15453,
+		"EventTs":	1776772853,
+		"EventMsTs":	1776772853614,
+		"UserId":	"745",
+		"Role":	20,
+		"Reason":	1
+	}
+}
+
+2026-04-21 20:00:53 callback
+{
+	"EventGroupId":	1,
+	"EventType":	102,
+	"CallbackTs":	1776772853725,
+	"EventInfo":	{
+		"RoomId":	15453,
+		"EventTs":	1776772853,
+		"EventMsTs":	1776772853654
+	}
+}
+
+2026-04-21 20:00:58 callback
+{
+	"EventGroupId":	1,
+	"EventType":	101,
+	"CallbackTs":	1776772857970,
+	"EventInfo":	{
+		"RoomId":	15453,
+		"EventTs":	1776772857,
+		"EventMsTs":	1776772857891,
+		"UserId":	"745"
+	}
+}
+
+2026-04-21 20:00:58 callback
+{
+	"EventGroupId":	1,
+	"EventType":	103,
+	"CallbackTs":	1776772857984,
+	"EventInfo":	{
+		"RoomId":	15453,
+		"EventTs":	1776772857,
+		"EventMsTs":	1776772857897,
+		"UserId":	"745",
+		"Role":	20,
+		"TerminalType":	2,
+		"UserType":	3,
+		"Reason":	1,
+		"ClientIpv4":	"223.104.132.128"
+	}
+}
+
+2026-04-21 20:03:37 callback
+{
+	"EventGroupId":	1,
+	"EventType":	104,
+	"CallbackTs":	1776773017482,
+	"EventInfo":	{
+		"RoomId":	15453,
+		"EventTs":	1776773017,
+		"EventMsTs":	1776773017469,
+		"UserId":	"745",
+		"Role":	20,
+		"Reason":	1
+	}
+}
+
+2026-04-21 20:03:37 callback
+{
+	"EventGroupId":	1,
+	"EventType":	102,
+	"CallbackTs":	1776773017637,
+	"EventInfo":	{
+		"RoomId":	15453,
+		"EventTs":	1776773017,
+		"EventMsTs":	1776773017559
+	}
+}
+
+2026-04-21 20:03:44 callback
+{
+	"EventGroupId":	1,
+	"EventType":	101,
+	"CallbackTs":	1776773024862,
+	"EventInfo":	{
+		"RoomId":	15453,
+		"EventTs":	1776773024,
+		"EventMsTs":	1776773024791,
+		"UserId":	"745"
+	}
+}
+
+2026-04-21 20:03:44 callback
+{
+	"EventGroupId":	1,
+	"EventType":	103,
+	"CallbackTs":	1776773024876,
+	"EventInfo":	{
+		"RoomId":	15453,
+		"EventTs":	1776773024,
+		"EventMsTs":	1776773024803,
+		"UserId":	"745",
+		"Role":	20,
+		"TerminalType":	2,
+		"UserType":	3,
+		"Reason":	1,
+		"ClientIpv4":	"223.104.132.128"
+	}
+}
+
+2026-04-21 20:04:46 callback
+{
+	"EventGroupId":	1,
+	"EventType":	104,
+	"CallbackTs":	1776773086448,
+	"EventInfo":	{
+		"RoomId":	15453,
+		"EventTs":	1776773086,
+		"EventMsTs":	1776773086373,
+		"UserId":	"745",
+		"Role":	20,
+		"Reason":	1
+	}
+}
+
+2026-04-21 20:04:46 callback
+{
+	"EventGroupId":	1,
+	"EventType":	102,
+	"CallbackTs":	1776773086520,
+	"EventInfo":	{
+		"RoomId":	15453,
+		"EventTs":	1776773086,
+		"EventMsTs":	1776773086442
+	}
+}
+

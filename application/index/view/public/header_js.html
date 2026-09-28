@@ -1,0 +1,26 @@
+<script src="__HOME_JS__/jquery-3.5.1.min.js"></script>
+<script src="__HOME_JS__/comm.js"></script>
+<script src="__LIBS__/layer/layer.js"></script>
+<link rel="stylesheet" href="__HOME_CSS__/iconfont.css">
+<!--<script src="__HOME_JS__/mydate.js"></script>-->
+<script language="JavaScript">
+    function showloading() {
+        var index = layer.load(1, {
+            shade: [0.1,'#fff'] //0.1透明度的白色背景
+        });
+    }
+
+    /**
+     * 公共弹出框
+     * @param msg
+     * @param type：200正确，其他错误
+     */
+    function showmsg(msg, type) {
+        layer.closeAll();
+        layer.msg(msg,{
+            time: 20000,
+            closeBtn: 1,
+            skin: 'layui-bg-blue'
+        });
+    }
+</script>

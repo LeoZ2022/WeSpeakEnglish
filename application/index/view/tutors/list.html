@@ -1,0 +1,41 @@
+{volist name="list" id="vo"}
+<div class="tutorholder">
+    <div class="tutor">
+        <dif class="namer"><a href="{:url('detail',['teacher_id'=>$vo.id])}"><name><span>{$vo.username}</span> {notempty name="vo.ico_file"}<img src="{$vo.ico_file}" alt="{$vo.country_name}">{/notempty}</name></a>
+            <stars>
+                {php}echo str_repeat('<img src="/public/home/style/img/star.png" alt="">', $vo['star']);{/php}
+                <span>({$vo.star})</span></stars></dif>
+				<dif class="info audioInfo">
+					<class class="audioRow">
+						<label for="">Introduction</label>
+						<!-- ///這個播放 -->
+                        {if($vo.desc_type eq 1)}
+						<div class="audioRowCont" ><span class="xk_play" data-mp3="{$vo.mp3file}"></span><span class="playTime"></span></div>
+                        {else}
+						<!-- 文字的 -->
+						<div class="audioRowCont">
+                           <p> {$vo.descr|nl2br|raw}</p>
+						</div>
+                        {/if}
+					</class>
+					<!-- <class><label for="">Chat(s)</label><b>{$vo.class_num}</b></class>
+
+					<learner><label for="">Learner(s)</label><b>{$vo.learner_num}</b></learner> -->
+					<!--<fee><label for="">Chat rate</label><b>${$vo.price+config('price_class_fee')}<g>/30 mins</g></b></fee>-->
+						<fee><label for="">Chat Qty</label><b align="center">{$vo.class_num} </b></fee>
+				</dif>
+        <p>
+            <span class="pinfo">
+{$vo.descr|nl2br|raw}
+        {neq name="user_type" value="2"}</span>
+            <a href="{:url('detail',['teacher_id'=>$vo.id])}">BOOK</a>
+            {/neq}
+        </p>
+
+    </div>
+
+</div>
+{/volist}
+<div class="pages">
+    {$list->render()|raw}
+</div>

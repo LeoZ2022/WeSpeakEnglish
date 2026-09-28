@@ -1,0 +1,116 @@
+2026-05-25 01:31:22 callback
+{
+	"EventGroupId":	1,
+	"EventType":	101,
+	"CallbackTs":	1779643881878,
+	"EventInfo":	{
+		"RoomId":	15561,
+		"EventTs":	1779643881,
+		"EventMsTs":	1779643881811,
+		"UserId":	"1799"
+	}
+}
+
+2026-05-25 01:31:22 callback
+{
+	"EventGroupId":	1,
+	"EventType":	103,
+	"CallbackTs":	1779643882090,
+	"EventInfo":	{
+		"RoomId":	15561,
+		"EventTs":	1779643881,
+		"EventMsTs":	1779643881913,
+		"UserId":	"1799",
+		"Role":	20,
+		"TerminalType":	2,
+		"UserType":	3,
+		"Reason":	1,
+		"ClientIpv4":	"87.195.83.104"
+	}
+}
+
+2026-05-25 01:37:31 callback
+{
+	"EventGroupId":	1,
+	"EventType":	104,
+	"CallbackTs":	1779644251195,
+	"EventInfo":	{
+		"RoomId":	15561,
+		"EventTs":	1779644251,
+		"EventMsTs":	1779644251076,
+		"UserId":	"1799",
+		"Role":	20,
+		"Reason":	1
+	}
+}
+
+2026-05-25 01:37:31 callback
+{
+	"EventGroupId":	1,
+	"EventType":	102,
+	"CallbackTs":	1779644251303,
+	"EventInfo":	{
+		"RoomId":	15561,
+		"EventTs":	1779644251,
+		"EventMsTs":	1779644251229
+	}
+}
+
+2026-05-25 01:37:39 callback
+{
+	"EventGroupId":	1,
+	"EventType":	101,
+	"CallbackTs":	1779644259465,
+	"EventInfo":	{
+		"RoomId":	15561,
+		"EventTs":	1779644259,
+		"EventMsTs":	1779644259400,
+		"UserId":	"1799"
+	}
+}
+
+2026-05-25 01:37:39 callback
+{
+	"EventGroupId":	1,
+	"EventType":	103,
+	"CallbackTs":	1779644259631,
+	"EventInfo":	{
+		"RoomId":	15561,
+		"EventTs":	1779644259,
+		"EventMsTs":	1779644259515,
+		"UserId":	"1799",
+		"Role":	20,
+		"TerminalType":	2,
+		"UserType":	3,
+		"Reason":	1,
+		"ClientIpv4":	"87.195.83.104"
+	}
+}
+
+2026-05-25 01:39:41 callback
+{
+	"EventGroupId":	1,
+	"EventType":	104,
+	"CallbackTs":	1779644381121,
+	"EventInfo":	{
+		"RoomId":	15561,
+		"EventTs":	1779644381,
+		"EventMsTs":	1779644381000,
+		"UserId":	"1799",
+		"Role":	20,
+		"Reason":	2
+	}
+}
+
+2026-05-25 01:39:41 callback
+{
+	"EventGroupId":	1,
+	"EventType":	102,
+	"CallbackTs":	1779644381239,
+	"EventInfo":	{
+		"RoomId":	15561,
+		"EventTs":	1779644381,
+		"EventMsTs":	1779644381178
+	}
+}
+

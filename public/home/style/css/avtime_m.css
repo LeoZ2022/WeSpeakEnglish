@@ -1,0 +1,219 @@
+nav{box-shadow: none}
+nav.wBG{box-shadow: 0 5px 25px rgba(220,220,220,0.6);}
+nav>.logobox{display: none}
+nav .backar{background: url("../img/backar.png") center center no-repeat;
+    background-size: contain;
+    width: 13px;
+    height: 22px;}
+nav a.blue{text-transform: none;
+    font-size: 1.4rem;
+    color: #007edb;}
+nav .hanbugrmenu{
+    background-image: url("../img/habmenu_b.png");
+}
+nav div.who\? span a.sout{
+   /* background-image: url("../img/signout.png"); */
+}
+.logined{
+    width: 300px;}
+.main{
+    padding-left: 20px;
+    margin-top: 20px;
+    background: none;
+    padding-right: 20px;}
+.main .ht{
+    display: none;}
+.cal-day{
+    border-right: none;
+    width: 100%;}
+.cal-day li{
+    display: flex;justify-content: space-between;
+    padding: 20px;
+    border: none;
+    border-radius: 12px;
+    margin-bottom: 10px;
+    background:#fff;
+    width: 100%;}
+.cal-day li .set{position: relative;    background-size: auto 16px;
+    left: initial;
+    bottom: initial;
+    background-position: top right;
+}
+.cal-day li.past,
+.cal-day li.grayo{
+    display: none;}
+.avtime{
+    padding-top: 40px;}
+.avtime .title-month{
+    position: fixed;
+    top: 78px;
+    left: 20px;
+    right: 20px;
+    padding: 26px 0 10px;
+    z-index: 1;
+    background: #F8F8F8;
+}
+.avtime .title-month .upm{
+    width: 10px;
+    height: 18px;
+}
+.avtime .title-month .downm{
+    width: 10px;
+    height: 18px;
+}
+.cal-day li .timeli{
+    margin-top: 0;}
+.day-num{text-align:center}
+.day-num span.w{
+    font-size: 1.4rem;
+    color: #666;
+    padding-bottom: 5px;
+    display: block;}
+.week{
+    display: none;}
+.setpop{
+    top: 0;
+    left: 0;
+    padding-left: 20px;
+    padding-right: 20px;
+    border-radius: 0;
+    transform: translate(0,0);
+    bottom: 0;}
+.setpop .timehour{justify-content: space-between;
+    
+    }
+.setpop .timehour div{padding: 0 10px;
+    margin-right: 0;}
+.setpop .headt .staues span{
+    margin-right: 10px;}
+.setpop .timehour button{
+    margin: 20px auto;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 3;
+}
+/* .setpop .timehour div.nighthour:last-of-type{
+    margin-bottom: 100px;
+} */
+
+.footwrap{
+    display: none;}
+footnav .cur{
+    background: url("../img/mytable-blue.png") no-repeat center center;
+    background-size:auto 24px;
+}
+footnav .cur img{visibility: hidden}
+
+.setpopMain{
+	position: absolute;
+	top: 0;
+	left: 20px;
+	right: 20px;
+	bottom: 129px;
+}
+.setpop .headt h2 span{
+	display: none;
+}
+.setpop .headt{
+	margin-top: 60px;
+	padding-bottom: 20px;
+}
+.setpop .headt h2{
+	font-size: 2.2rem;
+}
+.anotherdayFoot{
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	padding:0 20px 20px 20px;
+}
+.setpopMainOv{
+    top: 105px;
+    left: 0;
+    bottom: 0;
+	right: 0;
+    position: absolute;
+    transform: translate(0,0);
+	overflow-y: auto;
+}
+.setpopBox{
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+}
+.anotherdayHeader{
+	display: block !important;
+	position: initial;
+	width: 100%;
+}
+
+
+.anotherday day{
+	margin: 26px 0 0 0;
+	width: 20%;
+	box-sizing: content-box;
+	float: left;
+	border: none;
+	position: relative;
+}
+.anotherday day::after{
+	display: block;
+	content: '';
+	border: 1px solid #BCBCBC;
+	position: ;
+	width: 40px;
+	top: 0;
+	bottom: 0;
+	position: absolute;
+	left: 50%;
+	margin-left: -21px;
+	border-radius: 4px;
+}
+.anotherday day span{
+	left: 50%;
+	margin-left: -20px;
+}
+.anotherday day.cthis{
+	background: none;
+}
+.anotherday day.cthis::after{
+	border: 1px solid #E1FAF7;
+	background: #E1FAF7;
+	z-index: -1;
+}
+
+.anotherdayFoot .ctoanother{
+	position: initial;
+	padding: 16px 0 0 0;
+	font-size: 20px;
+}
+.setpop .closex{
+	right: auto;
+	left: 0;
+	top: 22px;
+}
+.anotherdayFoot button{
+	border-radius:6px;
+    font-size:26px;
+    width: 100%;
+	max-width: 480px;
+    height: 40px;
+	margin: 20px auto 0 auto;
+}
+p.toweek{
+	font-size: 16px;
+	padding-top: 18px;
+}
+.avbt{
+	padding-bottom: 70px;
+}
+.avbtTips{
+	display: none;
+}.n_footerMain{
+	display: none;
+}

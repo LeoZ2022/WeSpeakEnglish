@@ -1,0 +1,123 @@
+nav{background:#fff;box-shadow:0 5px 25px rgba(220,220,220,0.6);}
+nav a{vertical-align: middle;
+    color: #424242;}
+nav .logo{
+    background-image: url("../img/logoblue.png");
+}
+nav div span a{text-transform: none;text-decoration: none}
+nav div span line{
+    padding-left: 14px;
+    padding-right: 14px;}
+nav div span .blue{
+    color: #007edb;}
+nav div span a:first-child{    background-image: url("../img/tutor_b.png");background-repeat: no-repeat;background-position: left center;
+    padding-left: 26px;}
+nav .on{
+    color: #3fadff;}
+nav .on::after {
+    background: #3fadff;
+    width: 40px;
+    height: 2px;
+    content: " ";
+    top: 10px;
+    position: relative;
+}
+.main{
+    width: 100%;max-width: 1024px;
+    margin: 56px auto 0;
+}
+.logpic{
+    margin-right: 80px;
+    margin-bottom: 193px;}
+.logform{
+    width: 440px;vertical-align: top;
+    display: inline-block;}
+p.topT{
+    font-size: 7.2rem;text-transform: uppercase;
+    font-family: Fjalla;
+    margin-top: 24px;
+    margin-bottom: 30px;
+    display: flex;flex-direction: column;
+    color: #1b76b7;}
+p.topT::after{
+	width: 80%;
+	height: 20px;
+	content: '';
+	display: block;
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	background: #e3f1fb;
+	border-radius: 20px;
+	z-index: -1;
+}
+P.topT>a{
+    font-size:16px;font-style: italic;
+    text-transform: none;
+    left: 400px;
+    top: -16px;
+    color: #007edb;}
+
+.logform dib{
+    margin-bottom: 40px;
+         width: 100%;}
+.logform dib.w100{
+    width: 100%;}
+.logform dib label{
+    position: absolute;
+    left: 4px;
+    z-index: -1;
+    bottom: 24px;
+    color: #666; }
+.logform dib label o{
+    color: #ffa286;
+    font-size: 1.4rem;
+    padding-left: 10px;
+}
+.logform dib label span{
+    color: #999;
+    line-height: 17px;
+    float: right;}
+.logform dib .border {
+    position: absolute; left: 0; right: 0; bottom: 0;
+    border-bottom: 1px solid #d7d7d7;
+}
+.logform dib input{
+    width: 65%;
+    font-size: 16px;
+    background: none;
+    margin: 12px 0 12px 4px;
+}
+.logform dib input.veri{
+    width: 76%;}
+.logform dib input:focus ~ label{
+    color: #555;
+}
+.logform dib input:focus ~ .border {
+    border-color:#1b76b7;
+}
+
+.logform .vrimg{vertical-align: middle;
+    width:95px;}
+.logform dib span{
+    color: #999;}
+.logform input[type="submit"]{
+    width: 260px;background: #007edb;
+    font-size: 2.4rem;
+    font-family: Fjalla;text-transform: uppercase;
+    box-shadow:0 1px 20px rgba(220,220,220,0.8);
+    cursor: pointer;
+    color: #fff;
+    border-radius: 10px;
+    text-align: center;
+    height: 60px;
+    flex-wrap: wrap;
+    display: block;}
+.logform input[type="submit"]:hover{
+	background: #179dff;
+}
+.formal{
+    width: 100%;
+    margin-top: 58px;
+    font-size: 1.6rem;
+    color: #555;}

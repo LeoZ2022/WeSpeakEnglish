@@ -1,0 +1,162 @@
+nav{box-shadow: none}
+nav.wBG{box-shadow: 0 5px 25px rgba(220,220,220,0.6);}
+nav>.logobox{display: none}
+nav .backar{background: url("../img/backar.png") center center no-repeat;
+    background-size: contain;
+    width: 13px;
+    height: 22px;}
+nav a.blue{text-transform: none;
+    font-size: 1.4rem;
+    color: #007edb;}
+nav .hanbugrmenu{
+    background-image: url("../img/habmenu_b.png");
+}
+nav div.who\? span a.sout{
+    
+}
+nav.expend div.who\? span a:first-child.acct{
+    
+}
+p.topT{
+    font-size: 4.6rem;align-items: center;
+    text-align: center;
+    margin-top: 0px;}
+p.topT::after {
+    width: 180px;
+    height: 16px;}
+P.topT > a{
+    display: none;}
+.main{
+    padding-left: 20px;
+    margin-top: 20px;
+    padding-right: 20px;}
+.mainly{
+    width: 100%;}
+.mainly .topic .topicli li{
+    width: 100%;
+    padding-left: 0!important;
+text-align: center}
+.mainly .topic .topicli li dt::after{
+    left: 50%;
+    transform: translateX(-50%);
+}
+.mainly .timetable{
+    padding: 0;
+background: none}
+.timetable .class{
+    display: none;}
+.timetable .cal-day{
+    margin-top: -10px;
+}
+.timetable .cal-day .day{
+    background-color: #fff;
+    height: auto;
+    width: 140px;
+    padding: 20px 18px;
+}
+.timetable .cal-day .daybox{width: auto;white-space: nowrap;
+    }
+.timetable .cal-day .day:nth-child(1){
+	margin-left: 0;
+}
+.timetable .cal-day .day:last-child{
+	margin-right: 0;
+}
+.timetable .cal-day .day .namer name{
+    color: #007edb;font-size: 1.8rem;
+    margin-top: 10px;
+    margin-bottom: 15px;
+    display: block;
+}
+.timetable .cal-day .day .btbox  a{
+    text-align: center;
+    border-radius: 12px;
+    display: block;
+    font-family: Fjalla;
+    margin-top: 20px;
+    text-decoration: none;
+    font-size: 1.6rem;
+    background: #007edb;
+    color: #fff;
+    line-height: 36px;
+}
+.timetable .cal-day .day .cdate{
+    text-align: left;
+}
+.timetable .cal-day .day .cdate{
+    text-align: left;
+}
+.timetable .r{text-align: left;
+padding: 10px 0 0 0;}
+.mainly .topic .topicli{
+    padding-bottom: 40px;}
+.mainly .topic .topicli>div{clear: both;position: absolute;bottom: 0;border-radius: 10px;
+    background: #f5fafe;text-align: center;cursor: pointer;
+    width: 100%;}
+.mainly .topic .topicli>div span{
+    font-family: Fjalla;    color: #007edb;    font-size: 2.6rem;
+    margin-right: 10px;
+}.class_list>.namer{
+     display: none;}
+.logined.user_type_2,.logined.user_type_1{width: 300px;}
+.btimg{
+    height: 566px;
+    padding: 0 25px;}
+.btimg p{line-height: 30px;
+    padding-top: 40px;}
+.btimg a{
+    margin-top: 20px;
+    font-size: 2rem;
+    width: 100%;}
+.side{
+    width: 100%;}
+.side .tutor{
+    padding: 20px 18px;
+    }
+.side .tutor a.setting{
+    right: 18px;
+    top: 18px;
+}
+.side .balance{
+    display: none;}
+.side .incode{
+    display: none;}
+.side .tutor .color > dif b{
+    font-size: 1.8rem;}
+.side .tutor .color stars{
+    margin-bottom: 0;}
+.side .tutor .color{flex-direction: row;justify-content: space-between}
+.avtime{
+    display: none;}
+.popstu{
+    top: 0;
+    bottom: 0;
+    right: 0;
+    border-radius: 0;
+    left: 0;
+    padding: 20px;
+    transform: translate(0,0);
+}
+.popstu > img{right: initial;
+    left: 20px;}
+.popstu topt{
+    flex-wrap: wrap;
+    margin-top: 50px;}
+.usertype_2 .timetable .popstu topt name{
+    color: #007edb;
+    display: block;
+    width: 100%;
+}
+.popstu topt vline{
+    display: none;}
+.popstu topt div{
+    width: 100%;
+    padding-right: 0;
+    padding-top: 15px;}
+.popstu topt div label{
+    width: 61%;
+    display: inline-block;
+}
+.side .tutor .color>dif{
+	margin-top: -5px;
+}

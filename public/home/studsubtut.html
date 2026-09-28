@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"  content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no,initial-scale=1.0">
+    <title>Stud Booking TUTOR</title>
+    <link rel="stylesheet" href="style/css/layout.css">
+    <link rel="stylesheet" href="style/css/studsubtut.css">
+    <link rel="stylesheet" type="text/css" href="style/css/studsubtut_m.css" media="(max-width: 750px) "/>
+    <script src="style/js/jquery-3.5.1.min.js"></script>
+    <script src="style/js/comm.js"></script>
+</head>
+<body>
+    <nav class="dif"><div class="backar"></div>
+        <div class="ncenter">Book a tutor</div>
+        <div  class="logobox"><a href="" class="logo"></a><a href="">for Tutor</a><a href=""  class="on">for learner</a></div>
+        <dif class="logined"><a class="searchtu" href="">Search tutor</a> <a class="bell" href=""><newmsg></newmsg><img src="style/img/bell.png" alt=""></a><div class="logeduser"><div class="rar"></div><ul class="logmenu">
+            <li><imgbox><img width="23" src="style/img/Timetable.png" alt=""></imgbox><a href="">Timetable</a></li>
+            <li><imgbox><img width="23" src="style/img/myclass.png" alt=""></imgbox><a href="">My chats</a></li>
+            <li><imgbox><img src="style/img/asetting_b.png" alt=""></imgbox><a href="">Account Settings</a></li>
+            <li><imgbox><img width="17" src="style/img/abalance.png" alt=""></imgbox><a href="">Account Balance</a></li>
+            <li><imgbox><img src="style/img/signout_b.png" alt=""></imgbox><a href="">Sign Out</a></li></ul></div>
+        </dif>
+    </nav>
+
+<div class="main">
+<dif class="flow">
+    <div class="flowbox on">1 <span>Book a tutor</span></div><line></line>
+    <div class="flowbox"><span>Pay</span></div><line></line>
+    <div class="flowbox"><span>Go to chatroom</span></div>
+</dif>
+<div class="boxt">Booking Information</div>
+<dif class="subinfo">
+    <lt>Selected tutor</lt> <div><p class="red b">Brandy</p></div>
+</dif>
+<dif  class="subinfo">
+        <lt>Selected time</lt> <div><p>5 chats</p><times>07 Sept Tuesday  05:30-06:00</times><times>07 Sept Tuesday  05:30-06:00</times> <times>07 Sept Tuesday  05:30-06:00</times><times>07 Sept Tuesday  05:30-06:00</times><times>07 Sept Tuesday  05:30-06:00</times></div>
+</dif>
+<dif  class="subinfo">
+        <lt>Tuition fee</lt> <div><p  class="b">$ 10.00</p></div>
+</dif>
+    <div class="boxt">payment method</div>
+    <input name="method" value="paypal" id="paypal" type="radio">
+    <label value="paypal" for="paypal"><img src="style/img/paypal.png" alt=""> <check></check> </label>
+    <input name="method" value="wechat" id="wechat" type="radio">
+    <label value="wechat" for="wechat"><img src="style/img/Wechat.png" alt=""><check></check> </label>
+    <input name="method" value="alipay" id="alipay" type="radio">
+    <label value="alipay" for="alipay"><img src="style/img/alipay.png" alt=""><check></check> </label>
+    <div class="boxt">Payment Information</div>
+    <div class="payinfo">
+        <dif><lt>Invitation code deduction</lt> <p>-$ 2.00</p></dif>
+        <div class="exinfo">The invitation code you get can be used to deduct the cost of the lowest rate chat($2.5 / 30 mins)</div>
+    </div>
+    <div class="payinfo">
+        <dif><lt>Subtotal</lt> <p>-$ 2.00</p></dif>
+    </div>
+    <div class="payinfo">
+        <dif><lt>
+            <input name="ubalance" value="ubalance" id="ubalance" type="radio">
+            <label value="ubalance" for="ubalance"></label>Use account balance</lt> <p>-$ 6.00</p></dif>
+        <p class="exinfo">Your balance is $6</p>
+    </div>
+    <div class="payinfo">
+        <dif><lt>The amount you need to pay</lt> <p class="red">$ 6.00</p></dif>
+    </div>
+    <div class="reservation">
+        <div><input name="reserva" value="reserva" id="reserva" type="radio">
+            <label  value="reserva" for="reserva"></label> I already understand the course reservation instructions</div>
+        <p>After the order confirmation, if either the learner or the tutor cancel the chat(s), or quit the classroom within 10 mins of chat start, the tuition fee will go
+            to your account. You can use your balance to pay other chats. No cash refund due to high transcation fee.</p>
+    </div>
+</div>
+
+    <div class="paypop">
+        <img src="style/img/closex.png" class="closex" alt="">
+        <p>Thank you for your booking.
+            You need to complete the payment within 10 minutes.
+            If it is overtime, you need to make a new booking.</p>
+        <dif><a href="">pay again</a><a href="">payment successful</a></dif>
+    </div>
+   <div class="paybarouter fixed">
+       <dif class="paybar">
+           <a href=""><img src="style/img/rback.png" alt=""></a>
+           <div class="btbox">
+<dib><b>$ 2.00</b>
+<p>The amount you need to pay</p></dib>
+               <input type="submit" value="confirm">
+           </div>
+       </dif>
+   </div>
+    <popbg></popbg>
+    <div class="footwrap">
+    <a class="getintouch-icon" href=""><img src="style/img/getintouch-icon.png" alt=""></a>
+    <dif class="footer">
+    <rights class="mn">© 2020. ALL RIGHTS RESERVED</rights>  <ul><li><a href="">about us</a></li><li class="rdot"></li><li><a href="">contact us</a></li><li class="rdot"></li><li><a href="">HELP</a></li><li class="rdot"></li><li><a href="">TERMS OF USE</a></li><li class="rdot"></li><li><a href="">PRIVACY POLICY</a></li></ul>   <dib class="ftsocail"><a href=""><img src="style/img/wx_b.png" alt=""></a><a href=""><img src="style/img/facebook_b.png" alt=""></a><a href=""><img src="style/img/twitter_b.png" alt=""></a></dib><rights class="pn">© 2020. ALL RIGHTS RESERVED</rights></dif>
+        </div>
+</body>
+<script>
+    $(document).scroll(
+        function (){
+            if(   $(document.body).width() > 760    ){
+        if( $(document).scrollTop()>350 ){
+            $(".paybarouter").removeClass("fixed");
+        }else {
+            $(".paybarouter").addClass("fixed");
+        }
+    }} );
+
+    $(document).on('click', '.paybar input', function () {
+        $("popbg").show();
+        $(".paypop").show();
+    });
+    $(document).on('click', '.paypop .closex', function () {
+        $("popbg").hide();
+        $(".paypop").hide();
+    });
+
+
+</script>
+</html>

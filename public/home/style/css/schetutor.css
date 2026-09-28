@@ -1,0 +1,69 @@
+nav{background:#fff;box-shadow:0 5px 25px rgba(220,220,220,0.6);}
+nav a{vertical-align: middle;
+    color: #424242;}
+nav .logo {
+    background-image: url("../img/logoblue.png");
+}
+.logined{
+    width: 100px;}
+a{
+    color: #007edb;}
+nav .logo{
+    background-image: url("../img/logoblue.png");
+}
+.usertype_1 img.tut{
+    display: none;}
+.usertype_2 img.stu{
+    display: none;}
+body{background: #f8f8f8}
+nav div span a{text-transform: none;text-decoration: none}
+nav div span line{
+    padding-left: 14px;
+    padding-right: 14px;}
+nav div span .blue{
+    color: #007edb;}
+nav div.who\?{
+    display: none;}
+nav .on{
+    color: #007edb;}
+nav .on::after {
+    background: #007edb;
+    width: 40px;
+    height: 2px;
+    content: " ";
+    top: 10px;
+    position: relative;
+}
+.main{
+    width: 100%;max-width: 1260px;
+    margin: 54px auto 0;
+}
+.side{
+    float: right;
+    width: 300px;
+    margin-bottom: 20px;
+}
+
+.side .help{ padding: 30px 24px;
+    background: #fff;
+    border-radius:10px ;
+    font-size: 1.4rem;
+    width: 100%;
+	margin-bottom: 100px;}
+.side .help t{
+    font-family: Fjalla;
+    color: #aaa;
+    font-size: 2rem ;
+}
+.side .help p{
+    font-size:1.4rem;
+    margin-top: 30px;
+    margin-bottom:20px;
+}
+.side .help a{
+
+}
+.mainly{
+    width: 930px;
+    float: left;}
+

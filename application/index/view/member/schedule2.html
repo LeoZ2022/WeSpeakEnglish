@@ -1,0 +1,1024 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no,initial-scale=1.0">
+    <title>Scheduled_{:config('web_site_title')}</title>
+    <link rel="stylesheet" href="__HOME_CSS__/layout.css">
+    {eq name="user_type" value="1"}
+    <link rel="stylesheet" href="__HOME_CSS__/schestu.css">
+    <link rel="stylesheet" type="text/css" href="__HOME_CSS__/schestu_m.css" media="(max-width: 750px) "/>
+    {else}
+    <link rel="stylesheet" href="__HOME_CSS__/schestu.css">
+    <link rel="stylesheet" type="text/css" href="__HOME_CSS__/schestu_m.css" media="(max-width: 750px) "/>
+    <link rel="stylesheet" href="__HOME_CSS__/schetutor.css">
+    <link rel="stylesheet" type="text/css" href="__HOME_CSS__/schetutor_m.css" media="(max-width: 750px) "/>
+    {/eq}
+    {include file="public/header_js"}
+    <script src="__HOME_JS__/vue.js"></script>
+	<!-- Google Tag Manager -->
+	<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+	new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+	j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+	'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+	})(window,document,'script','dataLayer','GTM-MTCT69F');</script>
+	<!-- End Google Tag Manager -->
+</head>
+<body class="usertype_{$user_type} partner{$is_partner|default=0}">
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MTCT69F"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+<nav class="dif">
+    <a class="backar pn" href="javascript:history.go(-1);"></a>
+    {include file="public/nav_menu"}
+</nav>
+
+<div class="main clearfix">
+    <div class="mainly">
+        <div class="timetable">
+            <dif class="ht"><b>Timetable</b> 
+			<a  href="{:url('member/index')}">back</a> <a class="help" href="{:url('about/help')}"><img src="__HOME_IMG__/qw_gray.png" alt=""></a></dif>
+            <div class="cal-day" >
+                <div class="mm pn">
+                    {{TdateLists[ei][1] | ntoenm}}
+                </div>
+                <div class="upweek" @click="upWeek"  :class="{ go: si>0 }" ></div>
+                <!-- <div class="daybox"  @touchstart="touch($event)" @touchmove="touchM($event)"  @touchend="touched($event)" @touchcancel="touched($event)"> -->
+				<div class="daybox">
+                    <div class="day" v-for="(item,index) in TdateLists" v-if=" si<=index && index<= ei " :class="{today: item[0]==cyw && item[1]==cmw && item[2] == initD, clicked:item[0]==clicky && item[1]==clickm && item[2] == clickd ,
+                    gray: (item[1]< cm || item[2]< initD) && item[0]<= cy,  tgray:item[4]< trueD-86400000,  choosed:choosed(item[0],item[1],item[2]),grayo: item[5]>nextMonth }"  @click="getlist(item[0],item[1],item[2])">
+                        <div class="cdate">
+                            <div class="date">{{item[2]}}  <span class="m">{{item[1] | ntoenm}}</span></div>
+                            <div class="week">{{item[3] | ntoenw}}</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="downweek" @click="downWeek"  :class="{ stop: ei>DaysBetw }"  v-if=" ei+1 < TdateLists.length" ></div>
+            </div>
+            <div class="class_list"></div>
+            <div class="popreview">
+                <img src="__HOME_IMG__/closex.png" alt="">
+                <topt></topt>
+				<div style="color: rgba(85,85,85,.5); padding-bottom: 20px;">Goal of speaking English &nbsp;&nbsp; <span class="speaking"></span></div>
+                <p></p>
+			</div>
+            <!-- <div class="r"><img class="stu" src="__HOME_IMG__/qw.png" alt=""><img class="tut" src="__HOME_IMG__/qw_blue.png" alt=""> Don’t know how to attend class? <a href="{:url('about/help')}">click here</a></div> -->
+       </div>
+    </div>
+
+    <div class="popstimeouter" :class="{show:popstimeouter}" v-if="popstimeouter" style="display: none;">
+
+		
+        <div class="selectime" @scroll="scrollcdate">
+			<div class="popstimeouterFix">
+				<div class="popstimeouterFixMain">
+					<div class="upweek" @click="upWeek"    :class="{ go: si>0 }"></div>
+					<div class="downweek" @click="downWeek"  :class="{ stop:ei>DaysBetw }"   v-if=" ei+1 < TdateLists.length"   ></div>
+				</div>
+			</div>
+            <img src="__HOME_IMG__/closex.png" class="closex" @click="closepop" alt="">
+            <dif class="headt">
+				<div class="ht">
+					<h2>Change time</h2>
+					<div class="namer">
+					<name>
+						<span>{{redata.teacher.username}}</span> 
+						<img v-if="redata.location_country.ico_file" :src=" redata.location_country.ico_file"  alt="">
+					</name>
+                <stars><img v-for="i in redata.teacher.star" src="__HOME_IMG__/star.png" alt=""><span>({{redata.teacher.star}})</span>
+                </stars>
+            </div></div>
+                <div class="staues"><span>Availale</span><span>Original time</span><span>Unavailable</span></div></dif>
+            <div class="timeslots">
+                <div class="mm pn">
+                    {{TdateLists[ei][1] | ntoenm}}
+                </div>
+                <ul class="cal-hour">
+                    <li class="timehour" v-for="(time, i) in HourList" >{{time}}</li>
+                </ul>
+                <ul class="cal-day">
+                    <!--<div class="upweek" @click="upWeek"    :class="{ go: si>0 }"></div> <div class="downweek" @click="downWeek"  :class="{ stop: ei>initW+31 }"  ></div>-->
+                    <!--<div class="touchouter"   @touchstart="touch($event)" @touchmove="touchM($event)"  @touchend="touched($event)" @touchcancel="touched($event)">-->
+                    <div class="touchouter">
+                    <li class="day"  :class="{tgray:item[4]< trueD} " v-for="(item,index) in TdateLists" v-if=" si<=index && index<= ei ">
+                        <div class="cdate" :class="{thisavday:thisavday(item[0],item[1],item[2])}">
+                            <div class="date" :class="{today: item[0]==cy && item[1]==cm && item[2] == initD, grayo: item[5]>nextMonth}" >{{item[2]}}<span class="m">{{item[1] | ntoenm}}</span></div>
+                            <div class="week" :class="{today: item[0]==cy && item[1]==cm && item[2] == initD, grayo: item[5]>nextMonth }"  >{{item[3] | ntoenw}}</div>
+                        </div>
+                        <div class="timecell" v-for="(time, i) in HourList"
+                             :class="{avaitime:avaitimes(item[0],item[1],item[2],time,index,i), booked:cbooked(item[0],item[1],item[2],time),changeto:i==ctoy && index==ctox}"
+                             @click="changebook(item[0],item[1],item[2],time, index,i)" >
+                            <pn>{{item[2]}}  {{item[1] | ntoenm}}<br>{{HourList[i]}}-<br>{{HourList[i+1]}}</pn>
+                            <div class="timepop">{{item[2]}} {{item[1] | ntoenm}} <br> {{HourList[i]}}-{{HourList[i+1]}}</div>
+                        </div>
+                    </li>
+                    </div>
+                </ul>
+            </div>
+            <div class="timezone">Displays  in your time zone (UTC{$location_user.timezone|change_time})</div>
+        </div>
+        <div class="paybarouter">
+            <dif class="paybar">
+                <dif class="timeouter">
+                <div class="otime">
+<span>Original time</span>
+<p>{{redata.class.book_date.split("-")[2]}} {{redata.class.book_date.split("-")[1] | ntoenm_s}} {{new Date(redata.class.datetime*1000).getDay() | ntoenw}} {{redata.class.time_begin}}-{{redata.class.time_end}}</p>
+                </div>
+                <p class="pn">Change to</p>
+                <div class="ctime">
+                    <span>Change the time</span>
+                    <p>{{ctimed}} {{ctimem | ntoenm}} {{ctimew | ntoenw}} {{ctimet}}</p>
+                </div>
+                </dif>
+                <div class="btbox">
+                    <input type="submit" onclick="to_change()" value="CONFIrM">
+                </div>
+            </dif>
+        </div>
+    </div>
+
+    <div class="side">
+        <div class="avtime">
+            <p class="title-month">
+				<span @click="upMonth" class="upm">  < </span>
+				{{dateYM | ntom}}
+				<span @click="downMonth"  class="downm"> >  </span>
+			</p>
+            <ul class="week"><li>S</li><li>M</li><li>T</li><li>W</li><li>T</li><li>F</li><li>S</li></ul>
+            <ul class="cal-day">
+                <template v-for="(item,index) in 42">
+                    <li v-if="item - beginDay <= 0">
+                        <p class="day-num gay">{{item - beginDay + prevMdays}}</p>
+                    </li>
+					<li class="day" v-else-if="item - beginDay > 0 && item - beginDay <= nowMdays"  :class="{booked:booked(item- beginDay),today: initY==cy && initM==cm && (item - beginDay == initD), past:item - beginDay<new Date(trueD).getDate() && mindex==0, grayo:(item - beginDay> initD) && mindex==1}" @click="toDclassli(item- beginDay,index)">
+                    <p class="day-num">{{item - beginDay}}</p>
+                </li><li v-else>
+                    <p class="day-num gay">{{item - beginDay - nowMdays}}</p>
+                </li>
+                </template>
+            </ul>
+        </div>
+        <div class="help">
+            <t>HELP</t>
+            <p>Don’t know how to start a chat? </p>
+            <a href="{:url('about/help')}">click here</a>
+        </div>
+    </div>
+</div>
+{include file="member/footer_menu"}
+{include file="public/footer"}
+{include file="member/member_js"}
+
+<div class="classQrFix">
+	<div class="classQrFixPad">
+		<div class="classQrFixHead">
+			ENTER CHATROOM
+			<a href="javascript:;" class="classQrFixClose" onclick="hideClass()"><i class="iconfont iconclose"></i></a>
+		</div>
+		<div class="classQrText">
+			Please scan the QR code at the top right of the app to enter the chatroom
+		</div>
+		<div class="classQrMainInfo">
+			<div class="classQrImg">
+				<img src="" id="qrcode_img">
+			</div>
+			<div class="classQrId">
+				Log in to our APP and enter the chatroom ID
+				<div class="class_info_id"></div>
+				
+			</div>
+			<i class="classQrClear"></i>
+		</div>
+		<div class="classQrFoot">
+			If you haven't downloaded our app, you can use <b style="color: #615756;">Wechat to scan</b> and download, or you can enter <b style="color: #615756;">the app store</b> to search for the <b style="color: #615756;">En Chat</b> app to download.
+			
+		</div> 
+	</div>
+</div>
+</body>
+<script>
+	//课程列表
+
+
+    $('#foot_a_2').addClass('cur');
+    //打开修改课程的弹窗
+    var _change_id;
+    //新时间的id
+    var _daytime_id;
+    var popstimeouter;
+    var redata;
+    var _id, _page, _date;
+    //取消课程
+    function confirm_cancel(id, page, date) {
+        _id = id;
+        _page = page;
+        _date = date;
+        if (confirm('Do you want to cancel the chat?')) {
+            showloading();
+            $.ajax({
+                data: {id: _id},
+                url: '/index/member/cancel',
+                type: 'post',
+                dataType: 'json',
+                success: function (res) {
+                    showmsg(res.msg);
+                    if (res.code == 200) {
+                        get_list(_date, _page);
+						vm.$forceUpdate();
+						location.reload();
+                    }
+                }
+            })
+        }
+    }
+
+    //打开弹窗
+  function  change_time(_id) {
+        _change_id = _id;
+        _daytime_id = 0;
+		$("popbg").show();
+        $.ajax({
+           async:false,
+            url: '/index/member/change_time',
+            type: 'post',
+            data: {id: _id, ajax: 1},
+            dataType: 'json',
+            success: function (res) {
+                redata=res
+            }
+        })
+        popstimeouter=true;
+		
+        popchange();
+		setTimeout(function() {
+			$(".selectime").addClass("fixed")
+		}, 150);
+    }
+    var loading = 1;
+    //修改时间
+    function to_change() {
+        //测试用
+        // _daytime_id = 32;
+        if (!_change_id || !_daytime_id) {
+            showmsg('Please select time');
+            return false;
+        }
+        if (loading == 0) {
+            return false;
+        }
+        loading = 0;
+        showloading();
+        $.ajax({
+            url: '/index/member/to_change',
+            data: {id: _change_id, daytime_id: _daytime_id },
+            type: 'post',
+            dataType: 'json',
+            success: function (res) {
+                loading = 1;
+                if (res.code == 200) {
+                    get_list(_date, 1);
+                    $('.popstimeouter').removeClass("show")
+                    vm.$forceUpdate();
+                    location.reload();
+                } else {
+                    showmsg(res.msg);
+                }
+            }
+        })
+    }
+
+    //分页跳转
+    function goto(_obj) {
+        var _url = $(_obj).data('url');
+        $.ajax({
+            url: _url,
+            type: 'post',
+            success: function (res) {
+                $('.class_list').html(res);
+            }
+        })
+    }
+
+    //点击日期获取课程列表
+    function get_list(_date, _page) {
+        layer.closeAll();
+        $.ajax({
+            url: '/index/member/get_list',
+            data: {date: _date, page: _page},
+            type: 'post',
+            success: function (res) {
+                $('.class_list').html(res);
+            }
+        })
+    }
+    var _date_sys = new Date({:date('Y', $time_now)},{:date('m', $time_now)-1},{:date('d', $time_now)},{:date('H', $time_now)},{:date('i', $time_now)},{:date('s', $time_now)});
+
+    var _date = _date_sys;
+    // 初始化 当前时间 y-m-d
+    initY = _date.getFullYear();
+    initM = _date.getMonth() + 1;
+    initD = _date.getDate();
+    var _date2 = '{:input('date')}';
+    if (_date2) {
+        get_list(_date2, 1);
+    } else {
+        get_list(initY + '-' + initM + '-' + initD, 1);
+    }
+    $(document).on('click', '.class .namer name', function () {
+        var _sid = $(this).data('sid');
+
+
+        if (_sid) {
+            _topt = $(this).parent().find('topt').html();
+			$('.speaking').html($(this).parent().find('.descrText').html())
+            $('.popreview topt').html(_topt);
+            _topt = $(this).parent().find('p').html();
+            $('.popreview p').html(_topt);
+            $("popbg").show();
+            $(".popreview").show();
+        }
+    });
+    $(document).on('click', '.popreview>img', function () {
+        $("popbg").hide();
+        $(".popreview").hide();
+    });
+
+ /*   $(".selectime.fixed").scroll(function() {
+        console.log("sadf")
+        if($(".selectime").scrollTop()>120){
+            $(".selectime.fixed .cal-day li.day").addClass("fixed")
+        }else {
+            $(".selectime.fixed .cal-day li.day").removeClass("fixed")
+        }
+    })
+
+    $(document).on('scroll', '.selectime', function () {
+        console.log("sadf")
+        if($(".selectime").scrollTop()>120){
+            $(".selectime .cal-day li.day").addClass("fixed")
+        }else {
+            $(".selectime .cal-day li.day").removeClass("fixed")
+        }
+    });*/
+
+</script>
+<script>
+    var _date_next_month = new Date({:date('Y', $time_now)},{:date('m', $time_now)-1},{:date('d', $time_now)},{:date('H', $time_now)},{:date('i', $time_now)},{:date('s', $time_now)});
+    _date_next_month.setMonth(_date_next_month.getMonth()+1);
+    DaysBetw = DaysBetw(_date_sys, _date_next_month);
+    week_num = WeeksBetw(_date_sys, _date_next_month);
+	
+    var vm = new Vue({
+        el: '.main',
+        data:{
+            preDate: 0, //上个月时间
+            _date: 0,
+            _datet: 0 ,
+            t_date: 0,
+            initY: 0, //当前 年
+            initM: 0, //当前 月
+            initD: 0, //当前 日
+            initW: 0, //当前 周
+            finitD: 0,
+            trueD:_date_sys.getTime(),
+            daynums: week_num * 7,
+            si: 0,
+            ei: 6,
+            tinitD: _date_sys,
+            nextMonth: _date_next_month,
+            mindex:0,//标示是上月还是下月
+            timehour: 0,
+            enMonth: '',
+            tablestatus:[],
+            avaitime:true,
+            booktime:true,
+            popstimeouter:false,
+            tempdatelists:[],
+            touchx:0,
+            redata:[],
+            docStyle : document.documentElement.style,
+            mdown:true,
+            timeclicked:[],
+            ctoy:-999,
+            ctox:-999,
+            otime:0,
+            DateList: [],
+            Datelists: [],
+			DaysBetw: DaysBetw,
+            TdateLists: [],
+            //  HourList: [],		//钟点时间 24小时  赋值写死
+            HourList: [
+                '00:00', '00:30', '01:00', '01:30', '02:00', '03:00', '03:30', '04:00', '04:30', '05:00', '05:00', '06:30', '06:00', '07:30', '07:00'
+                , '08:00', '08:30', '09:00', '09:30', '10:00', '10:30', '11:00', '11:30', '12:00', '12:30', '13:00', '13:30', '14:00', '14:30',
+                '15:00', '15:30', '16:00', '16:30', '17:00', '17:30', '18:00', '18:30', '19:00', '19:30', '20:00', '20:30', '21:00', '21:30',
+                '21:00', '21:30', '22:00', '22:30', '23:00', '23:30'
+            ],
+            cy: 0, //temp 上下年变化
+            cm: 0, //temp 上下月变化
+            cyw:0,
+            cmw:0,
+            cd: 0,
+            clicky:0,
+            clickm:0,
+            clickd:0,
+            dateYM: 0, // 标题显示
+            beginDay: 0, //当月开始是周几
+            prevMdays: 0, //上个月总天数
+            nowMdays: 0, // 当月天数
+
+            ctimem:"",
+            ctimed:"-",
+            ctimew:"",
+            ctimet:"",
+        },
+        created: function () {
+			
+			
+            this.popstimeouter=false;
+            this._date = _date_sys;
+            this._datet = new Date({:date('Y', $time_now)},{:date('m', $time_now)-1},{:date('d', $time_now)},{:date('H', $time_now)},{:date('i', $time_now)},{:date('s', $time_now)});;
+            //永为当前天的定值
+
+            // 初始化 当前时间 y-m-d
+            this.initY = this._date.getFullYear()
+            this.initM = this._date.getMonth() + 1
+            this.initD = this._date.getDate();
+            this.initW = this._date.getDay();
+            this.enMonth = _date_sys.toDateString().split(" ")[1];
+            this.timehour = _date_sys.getHours()
+
+            // 初始化&切换上下月使用
+            this.cy = this._date.getFullYear()
+            this.cm = this._date.getMonth() + 1
+            this.cd = this._date.getDate();
+
+            this.cyw   = this.cy
+            this.cmw = this.cm
+			
+//alert(_date_sys)
+			//var n_initD = new Date(this.initD.getTime())
+			//alert(this.initD.getTime())
+			//alert(n_initD)
+            this.finitD = new Date(this._datet.setDate(   this.initD  - this.initW  )).getDate()//算出当前日期的上一个周日的日期
+        
+			// 标题
+            this.dateYM = this.initY + '-' + this.initM
+            //生成日期数组
+			
+            for (i = 0; i < this.daynums; i++) {
+                // this.tinitD=_date_sys; this.t_date = new Date(this.tinitD.setDate(   this.initD - this.initW  ));//重置日期
+             // this.DateList[i] = this.t_date.setDate(this.finitD + i);//从重置日期处往后循环出日期
+                let td=new Date(initY,initM-1,initD)
+                this.t_date = new Date(td.setDate(   this.initD - this.initW  ));//重置日期
+                this.DateList[i] = this.t_date.setDate(this.finitD + i);  //从重置日期处往后循环出日期
+            }
+			
+            //分年、月、日塞进数组
+            for (i = 0; i < this.daynums; i++) {
+                this.Datelists[i] = new Array();
+                this.Datelists[i][0] = new Date(this.DateList[i]).getFullYear();
+                //this. Datelists[i][1] =new Date(this.DateList[i]).toDateString().split(" ")[1];
+                this.Datelists[i][1] = new Date(this.DateList[i]).getMonth() + 1;
+                this.Datelists[i][2] = new Date(this.DateList[i]).getDate();
+                this.Datelists[i][3] = new Date(this.DateList[i]).getDay();
+                this.Datelists[i][5] = new Date(this.DateList[i]);
+                this.Datelists[i][4]=this.DateList[i]
+            }
+            this.TdateLists = this.Datelists;
+ 
+
+            // 当前日期
+            this.nowMdays = this.getGetDate(this.initY, this.initM)
+            this.beginDay = this.dayStart(this.initY, this.initM) || 7 ;
+
+            //计算上一月天数 填充当月
+            this.getPreMonthDay();
+
+            //模拟数据
+    /*   this.tablestatus =[
+                {"datetime":1606953600000,"booked":1,"date":"2020-12-11","time":"06:00","time_end":"06:30"}
+                ,{"datetime":1606953600000,"booked":1,"date":"2020-12-11","time":"16:00","time_end":"16:30"}
+                ,{"datetime":1607558400000 ,"booked":1,"date":"2020-12-10","time":"08:00","time_end":"08:30"}
+                ,{"datetime":1607558400000 ,"booked":1,"date":"2020-12-11","time":"08:30","time_end":"09:00"}
+                ,{"datetime":1607558400000 ,"booked":1,"date":"2020-12-12","time":"09:00","time_end":"09:30"}
+                ,{"datetime":1607558400000 ,"booked":1,"date":"2020-12-11","time":"10:00","time_end":"10:30"}
+            ]*/
+
+            //真实数据
+            this.tablestatus = {$datetime_txt|raw}
+			
+			
+            //  this.tablestatus =  redata.daytimes;
+            for(k in this.tablestatus)
+            {
+                this.tempdatelists[k] = this.tablestatus[k].date;
+				
+            }
+
+        },
+		
+        mounted: function () {
+			
+            window.popchange = this.popchange;
+            this.redata= {
+                "daytimes":[{
+                    "datetime":1608228000,
+                    "time": "22:30"
+                }],
+                "teacher":[{
+                    "username":"tehacername",
+                    "star":"3.0",
+                }],
+                "location_teacher":[{
+                    "ico_file":"/",
+                }],
+                "class":[
+                    {
+
+                    }
+                ]
+            };
+        },
+        filters:{
+			ntom:function(num){
+			    let enm;
+			    switch (num.split("-")[1].trim()) {
+			        case "1":
+			            enm = "Jan";
+			            break;
+			        case "2":
+			            enm = "Feb";
+			            break;
+			        case "3":
+			            enm = "Mar";
+			            break;
+			        case "4":
+			            enm = "Apr";
+			            break;
+			        case "5":
+			            enm = "May";
+			            break;
+			        case "6":
+			            enm = "Jun";
+			            break;
+			        case "7":
+			            enm = "Jul";
+			            break;
+			        case "8":
+			            enm = "Aug";
+			            break;
+			        case "9":
+			            enm = "Sep";
+			            break;
+			        case "10":
+			            enm = "Oct";
+			            break;
+			        case "11":
+			            enm = "Nov";
+			            break;
+			        case "12":
+			            enm = "Dec";
+			            break;
+			    }
+			    return enm+". " + num.split("-")[0].trim();
+			},
+            ntoenm:function(num){
+                let enm;
+                switch (num) {
+                    case 1:
+                        enm = "Jan";
+                        break;
+                    case 2:
+                        enm = "Feb";
+                        break;
+                    case 3:
+                        enm = "Mar";
+                        break;
+                    case 4:
+                        enm = "Apr";
+                        break;
+                    case 5:
+                        enm = "May";
+                        break;
+                    case 6:
+                        enm = "Jun";
+                        break;
+                    case 7:
+                        enm = "Jul";
+                        break;
+                    case 8:
+                        enm = "Aug";
+                        break;
+                    case 9:
+                        enm = "Sep";
+                        break;
+                    case 10:
+                        enm = "Oct";
+                        break;
+                    case 11:
+                        enm = "Nov";
+                        break;
+                    case 12:
+                        enm = "Dec";
+                        break;
+                }
+                return enm;
+            },
+            ntoenm_s:function(num){
+                let enm;
+                switch (num) {
+                    case '01':
+                        enm = "Jan.";
+                        break;
+                    case '02':
+                        enm = "Feb.";
+                        break;
+                    case '03':
+                        enm = "Mar.";
+                        break;
+                    case '04':
+                        enm = "Apr.";
+                        break;
+                    case '05':
+                        enm = "May.";
+                        break;
+                    case '06':
+                        enm = "Jun.";
+                        break;
+                    case '07':
+                        enm = "Jul.";
+                        break;
+                    case '08':
+                        enm = "Aug.";
+                        break;
+                    case '09':
+                        enm = "Sep.";
+                        break;
+                    case '10':
+                        enm = "Oct.";
+                        break;
+                    case '11':
+                        enm = "Nov.";
+                        break;
+                    case '12':
+                        enm = "Dec.";
+                        break;
+                }
+                return enm;
+            },
+            ntoenw:function (num){
+                let enw;
+                switch (num) {
+                    case 0:
+                        enw = "SUNDAY";
+                        break;
+                    case 1:
+                        enw = "MONDAY";
+                        break;
+                    case 2:
+                        enw = "TUESDAY";
+                        break;
+                    case 3:
+                        enw = "WEDNESDAY";
+                        break;
+                    case 4:
+                        enw = "THURSDAY";
+                        break;
+                    case 5:
+                        enw = "FRIDAY";
+                        break;
+                    case 6:
+                        enw = "SATURDAY";
+                        break;
+                    }
+                return enw;
+            }
+        },
+
+   methods: {
+            closepop:function (){
+                this.popstimeouter=false;
+                $("popbg").hide();
+                $(".popstimeouter").hide();
+            },
+
+popchange:function (){
+   this.popstimeouter=popstimeouter;
+    this.redata=redata;
+    this.$forceUpdate();
+},
+  scrollcdate:function (){
+     let cdatewidth = $(".selectime.fixed .cal-day li").width()
+      if($(".selectime").scrollTop()>120){
+          $(".selectime .cal-day li.day").addClass("fixed")
+		  $(".popstimeouterFix").addClass("fixed")
+          $(".selectime .cal-day li.day .cdate").css("width",cdatewidth)
+
+      }else {
+          $(".selectime .cal-day li.day").removeClass("fixed")
+		  $(".popstimeouterFix").removeClass("fixed")
+      }
+       },
+// 当前天数
+            getGetDate: function (year, month) {
+                var d = new Date(year, month, 0);
+                return d.getDate();
+            },
+            // 获取当月第一周几
+            dayStart: function (year, month) {
+                var tmpDate = new Date(year, month - 1, 1);
+                return (tmpDate.getDay());
+            },
+            dayFun: function (idx, e) {
+             //   console.log(e.currentTarget)
+                alert(idx + 1)
+            },
+            // 上个月
+            upMonth: function () {
+                $(".upm").css("visibility","hidden");
+                $(".downm").css("visibility","visible");
+                this.mChange(-1);
+                this.mindex=0;
+            },
+            //下个月
+            downMonth: function () {
+                $(".downm").css("visibility","hidden");
+                $(".upm").css("visibility","visible");
+                this.mChange(1);
+                this.mindex=1; 
+            },
+            // 上一周
+            upWeek: function () {
+                if( this.ei-this.si<6){
+                    this.ei=this.si+6
+                }
+                this.si = this.si - 7
+                this.ei = this.ei - 7
+                if (this.si < 0) {
+                    this.si = 0;
+                    this.ei = 6;
+                }
+                //this.initD = this._date.getDate();
+				var h = $('.selectime').scrollTop()
+				$('.selectime').scrollTop(h-1)
+				$('.selectime').scrollTop(h+1)
+            },
+            //下一周
+            downWeek: function () {
+                let tsi = this.si + 7
+                let tei = this.ei + 7
+                if (tei >= this.TdateLists.length) {
+                    this.ei = this.TdateLists.length-1
+                } else {
+                    this.ei = this.ei + 7
+                }
+                this.si = this.si + 7
+                //this.initD = this._date.getDate();
+				
+				var h = $('.selectime').scrollTop()
+				$('.selectime').scrollTop(h-1)
+				$('.selectime').scrollTop(h+1)
+            },
+            mChange: function (m){  
+                // this.clicky =0
+                // this.clickm =0
+                // this.clickd =0
+				
+                 //let tD =new Date().getDate()
+                let tD = this.initD;
+	
+                if(m>0){
+                    this._date.setMonth(this._date.getMonth() + m, tD);
+                } else {
+                    this._date.setMonth(this._date.getMonth() + m,tD);
+                }
+
+                this.cy = this._date.getFullYear();
+                this.cm = this._date.getMonth()+1;
+
+                this.dateYM = this.cy + '-' + this.cm;
+                this.nowMdays = this.getGetDate(this.cy, this.cm)
+                this.beginDay = this.dayStart(this.cy, this.cm) || 7
+                this.getPreMonthDay();
+                this.initD = this._date.getDate();
+                // this.si=0;
+                // this.ei=6;
+            },
+            //获取上个月天数
+            getPreMonthDay: function () {
+                // 当月
+                var cyear = this._date.getFullYear();
+                var cMonth = this._date.getMonth();
+                this.preDate = new Date(cyear, cMonth);
+                this.preDate.setMonth(this.preDate.getMonth());
+                this.prevMdays = this.getGetDate(this.preDate.getFullYear(), this.preDate.getMonth());
+            },
+            //判断侧栏小日历日期是否有被选
+            booked:function(d){ 
+                let tof;
+                let   YMarr=this.dateYM.split("-");
+				
+				
+                for (k in this.tempdatelists){ 
+                    if(
+                        // YMarr[0] == new Date(this.tempdatelists[k]).getFullYear() &&
+                        // YMarr[1] == new Date(this.tempdatelists[k]).getMonth() + 1 &&
+                        // d=== new Date(this.tempdatelists[k]).getDate()
+						YMarr[0] == this.tempdatelists[k].split("-")[0] &&
+						YMarr[1] == this.tempdatelists[k].split("-")[1]*1 &&
+						d == this.tempdatelists[k].split("-")[2]*1
+                        && this.tablestatus[k].booked===1
+                    ){
+						
+						
+                        tof = true
+                        return tof
+                    }
+                }
+            },
+			thisavday:function(ye,m,d){
+			    let tof;
+			    for (k in this.redata.daytimes){
+			        if(
+			            ye*1=== this.redata.daytimes[k].date.split("-")[0]*1 &&
+			            m*1=== this.redata.daytimes[k].date.split("-")[1]*1 &&
+			            d*1=== this.redata.daytimes[k].date.split("-")[2]*1
+			        ){
+			            tof = true
+			            return tof
+			        }
+			    }
+			},
+
+      //判断主栏顶日历日期是否有被选
+            choosed:function(y,m,d){
+                let tof;
+              //  let   YMarr=this.dateYM.split("-");
+                              for (k in this.tempdatelists){
+                    if(
+                        y == this.tempdatelists[k].split("-")[0]*1 &&
+                        m == this.tempdatelists[k].split("-")[1]*1 &&
+                        d== this.tempdatelists[k].split("-")[2]*1
+                        && this.tablestatus[k].booked==1
+                    ){
+                        tof = true
+                        return tof
+                    }
+                }
+            },
+
+//判断弹窗内是否可选
+            avaitimes:function(ye,m,d,t,index,i){
+                let tof;
+                for (k in this.redata.daytimes){
+                    if(
+                        ye*1=== this.redata.daytimes[k].date.split("-")[0]*1 &&
+                        m*1=== this.redata.daytimes[k].date.split("-")[1]*1 &&
+                        d*1=== this.redata.daytimes[k].date.split("-")[2]*1 &&
+                        t === this.redata.daytimes[k].time
+                    ){
+                        tof = true
+                        return tof
+                    }
+                }
+            },
+
+//判断弹窗内是否选中
+            cbooked:function(ye,m,d,t){
+                let tof;
+                    if(
+                        ye*1=== this.redata.class.book_date.split("-")[0]*1 &&
+                        m*1=== this.redata.class.book_date.split("-")[1]*1 &&
+                        d*1=== this.redata.class.book_date.split("-")[2]*1 &&
+                        t === this.redata.class.time_begin
+                    ){
+                        tof = true
+                        return tof
+                    }
+            },
+
+            //修改预约时间
+            changebook:function(ye,m,d,t,index,i){
+                for(b in this.redata.daytimes){
+                    if(
+                        ye=== this.redata.daytimes[b].date.split("-")[0]*1 &&
+                        m=== this.redata.daytimes[b].date.split("-")[1]*1 &&
+                        d=== this.redata.daytimes[b].date.split("-")[2]*1 &&
+                        t === this.redata.daytimes[b].time
+                    ){
+                        this.ctimem=m;
+                        this.ctimed=d;
+                        this.ctimew=new Date(this.redata.daytimes[b].datetime*1000).getDay();
+                        this.ctimet=t+"-"+this.redata.daytimes[b].time_end;
+
+                        if( this.ctoy==i&&
+                            this.ctox==index){
+                        //    console.log('op1',this.redata.daytimes[b].id)//这里取的是daytimesid
+                            this.ctoy=-99
+                            this.ctox=-99
+                            window._daytime_id = 0;
+                        } else {
+                            window._daytime_id = this.redata.daytimes[b].id;
+                        //    console.log('op2',this.redata.daytimes[b].id)//这里取的是daytimesid
+                            this.ctoy=i
+                            this.ctox=index
+                        }
+                        //高亮点击时间
+                    }
+                }
+            },
+
+       touch:function (e){
+           //  console.log(e)
+           var touch=e.touches[0];
+           this.touchx=parseInt(touch.pageX);
+           if( this.ei+1 >= this.TdateLists.length){
+               this.mdown=false;
+           }
+           // e.preventDefault();
+       },
+       touchM:function (e){
+           if(this.mflag){
+               var touch=e.touches[0];
+               var  end_x=parseInt(touch.pageX);
+               this.docStyle.setProperty('--mdis', (this.touchx-end_x)/10);
+               //     this.docStyle.setProperty('--opa', Math.abs(this.touchx-end_x)/500);
+               if(end_x -this.touchx >100){
+                   this.upWeek();
+                   this.mflag=false;
+                   //  this.docStyle.setProperty('--opa', 1);
+                   this.docStyle.setProperty('--mdis', 0);
+                   //   e.preventDefault();
+               } else if(end_x -this.touchx < -100 &&  this.mdown ){
+                   this.downWeek();
+                   this.mflag=false;
+                   //  this.docStyle.setProperty('--opa', 1);
+                   this.docStyle.setProperty('--mdis', 0);
+                   //e.preventDefault();
+               }
+           }
+       },
+       touched:function(){
+           this.mflag=true;  this.mdown=true;
+           this.docStyle.setProperty('--mdis', 0);
+           //       this.docStyle.setProperty('--opa', 1);
+           setTimeout(function() {
+               $(".selectime").removeClass("fixed")
+           }, 50);
+           setTimeout(function() {
+               $(".selectime").addClass("fixed")
+           }, 100);
+       },
+
+            toDclassli:function(d,index){
+                // let cwr = Math.ceil((this.beginDay+this.cd) / 7) //当天所在行
+                // let twr = Math.ceil((index+1) / 7)// 点击日期所在行
+                // let  YMarr=this.dateYM.split("-");
+                // this.cyw = YMarr[0]
+                // this.cmw = YMarr[1]
+                // this.initD = d
+                // this.clicky =0
+                // this.clickm =0
+                // this.clickd =0
+                // if(this.mindex==0){
+                //     this.si = (twr - cwr)*7
+                //     this.ei= (twr - cwr)*7+6
+                // }else {
+                //     this.si = 2+7*twr - 7*cwr+this.nowMdays-this.beginDay//21
+                //     this.ei= 8+7*twr - 7*cwr+this.nowMdays-this.beginDay
+                // }
+                // console.log(YMarr[0])//这里拿到的是年
+                // console.log(YMarr[1])//这里拿到的是月
+                // console.log(d)//这里拿到的是日
+                // window._date = YMarr[0]+'-'+YMarr[1]+'-'+d;
+                // window.get_list(YMarr[0]+'-'+YMarr[1]+'-'+d, 1);
+            },
+            getlist:function (y,m,d){
+                let  YMarr=this.dateYM.split("-");
+                this.clicky = y
+                this.clickm = m
+                this.clickd = d
+
+
+                window._date = YMarr[0]+'-'+YMarr[1]+'-'+d;
+                window.get_list(y+'-'+m+'-'+d, 1);
+            }
+        },
+    })
+
+    function showclass(classin_id, class_id) {
+    	$("popbg").show();
+    	$('.classQrFix').show()
+        $('.class_info_id').html(classin_id);
+        $('#qrcode_img').attr('src', '{:url('member/get_room')}?class_id='+ class_id);
+    }
+    function hideClass(classin_id, class_id) {
+    	$("popbg").hide();
+    	$('.classQrFix').hide()
+    }
+	
+	
+</script>
+</html>

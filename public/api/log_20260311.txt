@@ -1,0 +1,174 @@
+2026-03-11 00:00:05 Member/get_class_one
+{"id":"15335"}
+2026-03-11 00:00:05 Member/get_class_one
+{"id":"15335"}
+2026-03-11 00:00:40 Index/login
+{"email":"jm.mazzuca@yahoo.com","password":"11fdcd35e9ee143ada27ab83bca16e38"}
+2026-03-11 00:00:41 Member/set_push_id
+{"push_id":"3c1fe5bca21d176e0aaf00aedb9796fe"}
+2026-03-11 00:00:41 Member/get_class_list
+{"page":"1","type":"2","pagesize":"1000"}
+2026-03-11 00:00:41 Member/get_class_list
+{"page":"1","type":"1","pagesize":"48"}
+2026-03-11 00:00:41 Member/get_class_list
+{"page":"1","type":"3","pagesize":"1000"}
+2026-03-11 00:00:44 Member/get_class_one
+{"id":"15335"}
+2026-03-11 00:00:44 Member/get_class_one
+{"id":"15335"}
+2026-03-11 00:00:44 Member/class_begin
+{"classin_id":"094562467566"}
+2026-03-11 00:00:44 Member/class_begin
+{"classin_id":"094562467566"}
+2026-03-11 00:00:55 Member/class_begin
+{"classin_id":"094562467566"}
+2026-03-11 00:01:03 Member/class_begin
+{"classin_id":"094562467566"}
+2026-03-11 00:02:05 Member/get_class_list
+{"page":"1","type":"3","pagesize":"1000"}
+2026-03-11 00:02:06 Member/get_class_list
+{"page":"1","type":"1","pagesize":"48"}
+2026-03-11 00:02:06 Member/get_class_list
+{"page":"1","type":"2","pagesize":"1000"}
+2026-03-11 00:02:07 Member/get_class_one
+{"id":"15335"}
+2026-03-11 00:02:07 Member/get_class_one
+{"id":"15335"}
+2026-03-11 00:02:09 Member/class_begin
+{"classin_id":"094562467566"}
+2026-03-11 00:17:54 Index/index
+{"query":"query IntrospectionQuery{__schema{queryType{name} types{name} directives{name}}}"}
+2026-03-11 00:31:05 Member/out_room
+{"classin_id":"15335","act":"0"}
+2026-03-11 00:31:07 Member/out_room
+{"classin_id":"15335","act":"0"}
+2026-03-11 00:31:14 Member/comment_class
+{"comment":"It was awesome.\u2764\ufe0f\u200d\ud83d\udd25","class_id":"15335","score":"5"}
+2026-03-11 00:31:22 Member/set_push_id
+{"push_id":"8bb0ea478d151aa10a12e8acf0306cfb"}
+2026-03-11 00:31:23 Member/get_class_list
+{"page":"1","type":"1","pagesize":"48"}
+2026-03-11 00:31:23 Member/get_class_list
+{"page":"1","type":"2","pagesize":"1000"}
+2026-03-11 00:31:23 Member/get_class_list
+{"page":"1","type":"3","pagesize":"1000"}
+2026-03-11 00:31:58 Member/comment_class
+{"comment":"I missed chatting with Jony. It was nice to speak with him again as he practices his English. \ud83d\ude0a","class_id":"15335","score":"5"}
+2026-03-11 00:32:07 Member/set_push_id
+{"push_id":"3c1fe5bca21d176e0aaf00aedb9796fe"}
+2026-03-11 00:32:07 Member/get_class_list
+{"page":"1","type":"1","pagesize":"48"}
+2026-03-11 00:32:08 Member/get_class_list
+{"page":"1","type":"2","pagesize":"1000"}
+2026-03-11 00:32:08 Member/get_class_list
+{"page":"1","type":"3","pagesize":"1000"}
+2026-03-11 03:13:58 Index/login
+{"email":"christian.carriere@hotmail.com","password":"8e3269093d2b9d7f4d9292e97042f1a9"}
+2026-03-11 03:13:58 Member/set_push_id
+{"push_id":"8e373395d4d391200810c676edcce719"}
+2026-03-11 03:13:59 Member/get_class_list
+{"page":"1","type":"3","pagesize":"1000"}
+2026-03-11 03:13:59 Member/get_class_list
+{"page":"1","type":"1","pagesize":"48"}
+2026-03-11 03:13:59 Member/get_class_list
+{"page":"1","type":"2","pagesize":"1000"}
+2026-03-11 03:14:12 Member/set_push_id
+{"push_id":"8e373395d4d391200810c676edcce719"}
+2026-03-11 03:14:12 Member/get_class_list
+{"page":"1","type":"1","pagesize":"48"}
+2026-03-11 03:14:12 Member/get_class_list
+{"page":"1","type":"2","pagesize":"1000"}
+2026-03-11 03:14:12 Member/get_class_list
+{"page":"1","type":"3","pagesize":"1000"}
+2026-03-11 10:37:07 Index/get_config
+[]
+2026-03-11 10:37:07 Member/get_class_list
+{"page":"1","type":"3pagesize=1000"}
+2026-03-11 10:37:07 Member/get_class_list
+{"page":"1","type":"1","pagesize":"48"}
+2026-03-11 10:37:07 Member/get_class_list
+{"page":"1","type":"2","pagesize":"1000"}
+2026-03-11 10:37:08 Index/get_config
+[]
+2026-03-11 10:37:08 Index/get_config
+[]
+2026-03-11 12:19:19 Member/get_class_list
+{"page":"1","type":"2","pagesize":"1000"}
+2026-03-11 12:19:19 Member/get_class_list
+{"page":"1","type":"3pagesize=1000"}
+2026-03-11 12:19:19 Member/get_class_list
+{"page":"1","type":"1","pagesize":"48"}
+2026-03-11 12:19:19 Index/get_config
+[]
+2026-03-11 12:19:20 Index/get_config
+[]
+2026-03-11 12:19:21 Index/get_config
+[]
+2026-03-11 13:40:15 Index/index
+[]
+2026-03-11 13:40:16 Index/index
+[]
+2026-03-11 13:40:17 Index/index
+[]
+2026-03-11 13:40:17 Index/index
+[]
+2026-03-11 13:42:04 Index/index
+[]
+2026-03-11 13:42:05 Index/index
+[]
+2026-03-11 13:42:06 Index/index
+[]
+2026-03-11 13:42:06 Index/index
+[]
+2026-03-11 14:37:34 Member/get_class_list
+{"page":"1","type":"3","pagesize":"1000"}
+2026-03-11 14:37:34 Member/get_class_list
+{"page":"1","type":"1","pagesize":"48"}
+2026-03-11 14:37:34 Member/get_class_list
+{"page":"1","type":"2","pagesize":"1000"}
+2026-03-11 14:37:35 Index/get_config
+[]
+2026-03-11 14:37:36 Index/get_config
+[]
+2026-03-11 14:37:36 Index/get_config
+[]
+2026-03-11 14:37:37 Index/get_config
+[]
+2026-03-11 14:37:37 Index/get_config
+[]
+2026-03-11 14:37:50 Index/login
+{"email":"anusankar.94.as@gmail.com","password":"Arunaa@1994"}
+2026-03-11 14:37:54 Member/set_push_id
+{"push_id":"null"}
+2026-03-11 14:37:54 Member/get_class_list
+{"page":"1","type":"1","pagesize":"48"}
+2026-03-11 14:37:54 Member/get_class_list
+{"page":"1","type":"2","pagesize":"1000"}
+2026-03-11 14:37:54 Member/get_class_list
+{"page":"1","type":"3","pagesize":"1000"}
+2026-03-11 14:38:11 Member/set_push_id
+{"push_id":"null"}
+2026-03-11 14:38:11 Member/get_class_list
+{"page":"1","type":"1","pagesize":"48"}
+2026-03-11 14:38:11 Member/get_class_list
+{"page":"1","type":"2","pagesize":"1000"}
+2026-03-11 14:38:11 Member/get_class_list
+{"page":"1","type":"3","pagesize":"1000"}
+2026-03-11 14:38:24 Member/set_push_id
+{"push_id":"null"}
+2026-03-11 14:38:24 Member/get_class_list
+{"page":"1","type":"1","pagesize":"48"}
+2026-03-11 14:38:24 Member/get_class_list
+{"page":"1","type":"2","pagesize":"1000"}
+2026-03-11 14:38:24 Member/get_class_list
+{"page":"1","type":"3","pagesize":"1000"}
+2026-03-11 23:59:30 Index/login
+{"email":"jm.mazzuca@yahoo.com","password":"11fdcd35e9ee143ada27ab83bca16e38"}
+2026-03-11 23:59:30 Member/set_push_id
+{"push_id":"3c1fe5bca21d176e0aaf00aedb9796fe"}
+2026-03-11 23:59:31 Member/get_class_list
+{"page":"1","type":"2","pagesize":"1000"}
+2026-03-11 23:59:31 Member/get_class_list
+{"page":"1","type":"3","pagesize":"1000"}
+2026-03-11 23:59:31 Member/get_class_list
+{"page":"1","type":"1","pagesize":"48"}

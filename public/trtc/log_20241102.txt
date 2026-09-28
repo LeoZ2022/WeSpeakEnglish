@@ -1,0 +1,116 @@
+2024-11-02 10:30:26 callback
+{
+	"EventGroupId":	1,
+	"EventType":	103,
+	"CallbackTs":	1730514626549,
+	"EventInfo":	{
+		"RoomId":	14159,
+		"EventTs":	1730514626,
+		"EventMsTs":	1730514626525,
+		"UserId":	"831",
+		"Role":	20,
+		"TerminalType":	3,
+		"UserType":	3,
+		"Reason":	1,
+		"ClientIpv4":	"27.66.21.66"
+	}
+}
+
+2024-11-02 10:30:26 callback
+{
+	"EventGroupId":	1,
+	"EventType":	101,
+	"CallbackTs":	1730514626597,
+	"EventInfo":	{
+		"RoomId":	14159,
+		"EventTs":	1730514626,
+		"EventMsTs":	1730514626520,
+		"UserId":	"831"
+	}
+}
+
+2024-11-02 10:34:05 callback
+{
+	"EventGroupId":	1,
+	"EventType":	104,
+	"CallbackTs":	1730514845714,
+	"EventInfo":	{
+		"RoomId":	14159,
+		"EventTs":	1730514845,
+		"EventMsTs":	1730514845687,
+		"UserId":	"831",
+		"Role":	20,
+		"Reason":	1
+	}
+}
+
+2024-11-02 10:34:05 callback
+{
+	"EventGroupId":	1,
+	"EventType":	102,
+	"CallbackTs":	1730514845849,
+	"EventInfo":	{
+		"RoomId":	14159,
+		"EventTs":	1730514845,
+		"EventMsTs":	1730514845770
+	}
+}
+
+2024-11-02 10:34:20 callback
+{
+	"EventGroupId":	1,
+	"EventType":	101,
+	"CallbackTs":	1730514860675,
+	"EventInfo":	{
+		"RoomId":	14159,
+		"EventTs":	1730514860,
+		"EventMsTs":	1730514860603,
+		"UserId":	"831"
+	}
+}
+
+2024-11-02 10:34:20 callback
+{
+	"EventGroupId":	1,
+	"EventType":	103,
+	"CallbackTs":	1730514860692,
+	"EventInfo":	{
+		"RoomId":	14159,
+		"EventTs":	1730514860,
+		"EventMsTs":	1730514860607,
+		"UserId":	"831",
+		"Role":	20,
+		"TerminalType":	3,
+		"UserType":	3,
+		"Reason":	1,
+		"ClientIpv4":	"27.66.21.66"
+	}
+}
+
+2024-11-02 10:36:02 callback
+{
+	"EventGroupId":	1,
+	"EventType":	104,
+	"CallbackTs":	1730514962141,
+	"EventInfo":	{
+		"RoomId":	14159,
+		"EventTs":	1730514962,
+		"EventMsTs":	1730514962116,
+		"UserId":	"831",
+		"Role":	20,
+		"Reason":	1
+	}
+}
+
+2024-11-02 10:36:02 callback
+{
+	"EventGroupId":	1,
+	"EventType":	102,
+	"CallbackTs":	1730514962301,
+	"EventInfo":	{
+		"RoomId":	14159,
+		"EventTs":	1730514962,
+		"EventMsTs":	1730514962219
+	}
+}
+

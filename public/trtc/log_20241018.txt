@@ -1,0 +1,116 @@
+2024-10-18 07:30:22 callback
+{
+	"EventGroupId":	1,
+	"EventType":	103,
+	"CallbackTs":	1729207822010,
+	"EventInfo":	{
+		"RoomId":	14135,
+		"EventTs":	1729207821,
+		"EventMsTs":	1729207821922,
+		"UserId":	"1309",
+		"Role":	20,
+		"TerminalType":	3,
+		"UserType":	3,
+		"Reason":	1,
+		"ClientIpv4":	"200.63.47.145"
+	}
+}
+
+2024-10-18 07:30:22 callback
+{
+	"EventGroupId":	1,
+	"EventType":	101,
+	"CallbackTs":	1729207822005,
+	"EventInfo":	{
+		"RoomId":	14135,
+		"EventTs":	1729207821,
+		"EventMsTs":	1729207821922,
+		"UserId":	"1309"
+	}
+}
+
+2024-10-18 07:41:51 callback
+{
+	"EventGroupId":	1,
+	"EventType":	104,
+	"CallbackTs":	1729208511119,
+	"EventInfo":	{
+		"RoomId":	14135,
+		"EventTs":	1729208511,
+		"EventMsTs":	1729208511034,
+		"UserId":	"1309",
+		"Role":	20,
+		"Reason":	1
+	}
+}
+
+2024-10-18 07:41:51 callback
+{
+	"EventGroupId":	1,
+	"EventType":	102,
+	"CallbackTs":	1729208511113,
+	"EventInfo":	{
+		"RoomId":	14135,
+		"EventTs":	1729208511,
+		"EventMsTs":	1729208511034
+	}
+}
+
+2024-10-18 07:42:37 callback
+{
+	"EventGroupId":	1,
+	"EventType":	103,
+	"CallbackTs":	1729208557439,
+	"EventInfo":	{
+		"RoomId":	14135,
+		"EventTs":	1729208557,
+		"EventMsTs":	1729208557356,
+		"UserId":	"1309",
+		"Role":	20,
+		"TerminalType":	3,
+		"UserType":	3,
+		"Reason":	1,
+		"ClientIpv4":	"200.63.47.145"
+	}
+}
+
+2024-10-18 07:42:37 callback
+{
+	"EventGroupId":	1,
+	"EventType":	101,
+	"CallbackTs":	1729208557443,
+	"EventInfo":	{
+		"RoomId":	14135,
+		"EventTs":	1729208557,
+		"EventMsTs":	1729208557356,
+		"UserId":	"1309"
+	}
+}
+
+2024-10-18 07:42:39 callback
+{
+	"EventGroupId":	1,
+	"EventType":	104,
+	"CallbackTs":	1729208559798,
+	"EventInfo":	{
+		"RoomId":	14135,
+		"EventTs":	1729208559,
+		"EventMsTs":	1729208559718,
+		"UserId":	"1309",
+		"Role":	20,
+		"Reason":	1
+	}
+}
+
+2024-10-18 07:42:39 callback
+{
+	"EventGroupId":	1,
+	"EventType":	102,
+	"CallbackTs":	1729208559805,
+	"EventInfo":	{
+		"RoomId":	14135,
+		"EventTs":	1729208559,
+		"EventMsTs":	1729208559718
+	}
+}
+

@@ -1,0 +1,121 @@
+2022-10-13 07:59:54 callback
+{
+	"EventGroupId":	1,
+	"EventType":	101,
+	"CallbackTs":	1665619194046,
+	"EventInfo":	{
+		"RoomId":	11111,
+		"EventTs":	1665619194,
+		"EventMsTs":	1665619194040,
+		"UserId":	"327"
+	}
+}
+2022-10-13 07:59:54 callback
+
+{
+	"EventGroupId":	1,
+	"EventType":	103,
+	"CallbackTs":	1665619194050,
+	"EventInfo":	{
+		"RoomId":	11111,
+		"EventTs":	1665619194,
+		"EventMsTs":	1665619194040,
+		"UserId":	"327",
+		"Role":	20,
+		"TerminalType":	2,
+		"UserType":	3,
+		"Reason":	1
+	}
+}
+
+2022-10-13 08:00:19 callback
+{
+	"EventGroupId":	1,
+	"EventType":	103,
+	"CallbackTs":	1665619219654,
+	"EventInfo":	{
+		"RoomId":	11111,
+		"EventTs":	1665619219,
+		"EventMsTs":	1665619219645,
+		"UserId":	"306",
+		"Role":	20,
+		"TerminalType":	3,
+		"UserType":	3,
+		"Reason":	1
+	}
+}
+
+2022-10-13 08:06:49 callback
+{
+	"EventGroupId":	1,
+	"EventType":	104,
+	"CallbackTs":	1665619609510,
+	"EventInfo":	{
+		"RoomId":	11111,
+		"EventTs":	1665619609,
+		"EventMsTs":	1665619609507,
+		"UserId":	"327",
+		"Role":	20,
+		"Reason":	1
+	}
+}
+
+2022-10-13 08:06:53 callback
+{
+	"EventGroupId":	1,
+	"EventType":	103,
+	"CallbackTs":	1665619613865,
+	"EventInfo":	{
+		"RoomId":	11111,
+		"EventTs":	1665619613,
+		"EventMsTs":	1665619613859,
+		"UserId":	"327",
+		"Role":	20,
+		"TerminalType":	2,
+		"UserType":	3,
+		"Reason":	1
+	}
+}
+
+2022-10-13 08:30:58 callback
+{
+	"EventGroupId":	1,
+	"EventType":	104,
+	"CallbackTs":	1665621058788,
+	"EventInfo":	{
+		"RoomId":	11111,
+		"EventTs":	1665621058,
+		"EventMsTs":	1665621058783,
+		"UserId":	"306",
+		"Role":	20,
+		"Reason":	1
+	}
+}
+
+2022-10-13 08:31:02 callback
+{
+	"EventGroupId":	1,
+	"EventType":	104,
+	"CallbackTs":	1665621062831,
+	"EventInfo":	{
+		"RoomId":	11111,
+		"EventTs":	1665621062,
+		"EventMsTs":	1665621062828,
+		"UserId":	"327",
+		"Role":	20,
+		"Reason":	1
+	}
+}
+
+2022-10-13 08:31:02 callback
+{
+	"EventGroupId":	1,
+	"EventType":	102,
+	"CallbackTs":	1665621062831,
+	"EventInfo":	{
+		"RoomId":	11111,
+		"EventTs":	1665621062,
+		"EventMsTs":	1665621062828
+	}
+}
+

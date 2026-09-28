@@ -1,0 +1,97 @@
+{include file="public/header"}
+{gt name="user_id" value="0"}
+<dif class="logined user_type_{$user_type|default=0}">
+    {if condition="$user_type eq 1 && $is_partner eq 0"}
+    <a class="searchtu" href="{:url('tutors/index')}">Search tutor</a>
+    {/if}
+	{if condition="$is_partner eq 0"}
+    <a class="bell" href="{:url('member/notices')}">{notempty name="has_wait_read"}<newmsg></newmsg>{/notempty}<img src="__HOME_IMG__/bell.png" alt="bell icon"></a>
+	{/if}
+    <div class="logeduser">
+		<div class="rar"></div>
+		<ul class="logmenu">
+			{eq name="is_partner" value="1"}
+			<li>
+				<a href="{:url('partner/index')}"><i class="iconfont iconpartner"></i> Account</a>
+			</li>
+			<li><a href="{:url('partner/chats')}"><i class="iconfont iconchats"></i> Chats</a></li>
+			{eq name="user_type" value="1"}
+			<li><a href="{:url('partner/members')}"><i class="stu iconfont iconleaner-myclass"></i> Learners</a></li>
+			{else}
+			<li><a href="{:url('partner/members')}"><i class="iconfont icontutors"></i> Tutors</a></li>
+			{/eq}
+			<li><a href="{:url('partner/profile')}"><i class="iconfont iconsetting"></i> Account settings</a></li>
+			<li><a href="{:url('partner/accounts')}"><i class="iconfont iconaccount-balanceandtutor-list-price"></i> Balance</a></li>
+			<li><a href="{:url('partner/helps')}"><i class="iconfont iconpartner-help"></i> Partner Help</a></li>
+			<li><a href="{:url('partner/logout')}"><i class="iconfont iconaccount-signout"></i> Sign out</a></li>
+			{else}
+			<li>
+				<a href="{:url('member/index')}"><i class="iconfont iconaccount-learner"></i><i class="iconfont iconaccount-tutor"></i> Account</a>
+			</li>
+			{eq name="user_type" value="1"}
+			<li>
+				<a href="{:url('member/orders')}"><i class="iconfont iconleaner-mycart"></i> My cart</a>
+			</li>
+			{/eq}
+			{eq name="user_type" value="2"}
+			<li><a href="{:url('member/calendar')}"><i class="iconfont icontutor-account-avli"></i> My availability</a></li>
+			{/eq}
+			<li><a href="{:url('member/schedule')}"><i class="iconfont iconTUTOR-icon-timetable"></i> Timetable</a></li>
+			<li><a href="{:url('member/classs')}"><i class="stu iconfont iconleaner-myclass"></i> <i class="tut iconfont iconTUTOR-icon-myclass"></i> My chats</a></li>
+			<li><a href="{:url('member/profile')}"><i class="iconfont iconsetting"></i> Account settings</a></li>
+			<!--<li><a href="{:url('member/accounts')}"><i class="iconfont iconaccount-balanceandtutor-list-price"></i> Account balance</a></li>20260428 removed-->
+			<li><a href="{:url('member/logout')}"><i class="iconfont iconaccount-signout"></i> Sign out</a></li>
+			{/eq}
+		</ul>
+	</div>
+</dif>
+<div class="navLink who? user_type_{$user_type|default=0}">
+	<span>
+		{eq name="is_partner" value="1"}
+		<a class="acct" href="{:url('partner/index')}" ><i class="iconfont iconpartner"></i>ACCOUNT</a>
+		<a href="{:url('partner/chats')}"><i class="iconfont iconchats"></i> Chats</a>
+		{eq name="user_type" value="1"}
+		<a href="{:url('partner/members')}"><i class="iconfont icontutor-account-avli"></i> Learners</a>
+		{else}
+		<a href="{:url('partner/members')}"><i class="iconfont icontutors"></i> Tutors</a>
+		{/eq}
+		<li><a href="{:url('partner/profile')}"><i class="iconfont iconsetting"></i> Account settings</a></li>
+		<a href="{:url('partner/accounts')}"><i class="iconfont iconaccount-balanceandtutor-list-price"></i> Balance</a>
+		<a href="{:url('partner/helps')}"><i class="iconfont iconpartner-help"></i> Partner help</a>
+
+		<a class="sout" href="{:url('partner/logout')}"><i class="iconfont iconaccount-signout"></i>SIGN OUT</a>
+		{else}
+		<a class="acct" href="{:url('member/index')}" ><i class="iconfont iconaccount-learner"></i><i class="iconfont iconaccount-tutor"></i>ACCOUNT</a>
+		{eq name="user_type" value="1"}
+		<a href="{:url('tutors/index')}"><i class="iconfont iconleaner-tutor-list"></i> Search tutor</a>
+		<a href="{:url('member/orders')}"><i class="iconfont iconleaner-mycart"></i> My cart</a>
+		{/eq}
+		{eq name="user_type" value="2"}
+		<a href="{:url('member/calendar')}"><i class="iconfont icontutor-account-avli"></i> My availability</a>
+		{/eq}
+		<a href="{:url('member/schedule')}"><i class="iconfont iconTUTOR-icon-timetable"></i> Timetable</a>
+		<a href="{:url('member/classs')}"><i class="stu iconfont iconleaner-myclass"></i> <i class="tut iconfont iconTUTOR-icon-myclass"></i> My chats</a>
+		 <a href="{:url('member/profile')}"><i class="iconfont iconsetting"></i> Account settings</a></li> 
+		<!--<a href="{:url('member/accounts')}"><i class="iconfont iconaccount-balanceandtutor-list-price"></i> Account balance</a>20260428 removed-->
+		
+		<!--<a href="{:url('member/share')}"><i class="iconfont iconaccount-icon-code"></i> Invitation code</a>-->
+		<a class="sout" href="{:url('member/logout')}"><i class="iconfont iconaccount-signout"></i>SIGN OUT</a>
+		{/eq}
+	</span>
+</div>
+{else}
+<div class="who? user_type_{$user_type|default=0}">
+    {eq name="show_lang" value="1"}
+    <a href="{:url('index/learner', ['lang'=>'zh'])}">中文</a>
+    {/eq}
+    {eq name="show_lang" value="2"}
+    <a href="{:url('index/learner')}">En</a>
+    {/eq}
+    <span>
+		<a href="{:url('sign/learner')}" ><i class="iconfont iconaccount-learner"></i>I'M A LEARNER</a>
+		<a href="{:url('sign/tutor')}"><i class="iconfont iconaccount-tutor"></i>I'M A TUTOR</a>
+	</span>
+</div>
+{/gt}
+<div class="hanbugrmenu pn"></div>
+{include file="public/menu"}

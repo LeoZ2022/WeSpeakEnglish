@@ -1,0 +1,11 @@
+<script language="JavaScript">
+    {eq name="is_partner" value="1"}
+    $('.nav_parnter').addClass('on');
+    {else}
+    {eq name="user_type" value="1"}
+    $('.nav_learner').addClass('on');
+    {else}
+    $('.nav_tutor').addClass('on');
+    {/eq}
+    {/eq}
+</script>

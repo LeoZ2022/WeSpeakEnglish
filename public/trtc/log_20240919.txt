@@ -1,0 +1,116 @@
+2024-09-19 07:25:28 callback
+{
+	"EventGroupId":	1,
+	"EventType":	101,
+	"CallbackTs":	1726701927862,
+	"EventInfo":	{
+		"RoomId":	14103,
+		"EventTs":	1726701927,
+		"EventMsTs":	1726701927777,
+		"UserId":	"736"
+	}
+}
+
+2024-09-19 07:25:28 callback
+{
+	"EventGroupId":	1,
+	"EventType":	103,
+	"CallbackTs":	1726701927857,
+	"EventInfo":	{
+		"RoomId":	14103,
+		"EventTs":	1726701927,
+		"EventMsTs":	1726701927777,
+		"UserId":	"736",
+		"Role":	20,
+		"TerminalType":	3,
+		"UserType":	3,
+		"Reason":	1,
+		"ClientIpv4":	"49.229.162.218"
+	}
+}
+
+2024-09-19 07:30:03 callback
+{
+	"EventGroupId":	1,
+	"EventType":	104,
+	"CallbackTs":	1726702203534,
+	"EventInfo":	{
+		"RoomId":	14103,
+		"EventTs":	1726702203,
+		"EventMsTs":	1726702203455,
+		"UserId":	"736",
+		"Role":	20,
+		"Reason":	1
+	}
+}
+
+2024-09-19 07:30:03 callback
+{
+	"EventGroupId":	1,
+	"EventType":	102,
+	"CallbackTs":	1726702203537,
+	"EventInfo":	{
+		"RoomId":	14103,
+		"EventTs":	1726702203,
+		"EventMsTs":	1726702203455
+	}
+}
+
+2024-09-19 07:30:13 callback
+{
+	"EventGroupId":	1,
+	"EventType":	103,
+	"CallbackTs":	1726702213436,
+	"EventInfo":	{
+		"RoomId":	14103,
+		"EventTs":	1726702213,
+		"EventMsTs":	1726702213350,
+		"UserId":	"736",
+		"Role":	20,
+		"TerminalType":	3,
+		"UserType":	3,
+		"Reason":	1,
+		"ClientIpv4":	"49.229.162.218"
+	}
+}
+
+2024-09-19 07:30:13 callback
+{
+	"EventGroupId":	1,
+	"EventType":	101,
+	"CallbackTs":	1726702213432,
+	"EventInfo":	{
+		"RoomId":	14103,
+		"EventTs":	1726702213,
+		"EventMsTs":	1726702213350,
+		"UserId":	"736"
+	}
+}
+
+2024-09-19 07:36:19 callback
+{
+	"EventGroupId":	1,
+	"EventType":	104,
+	"CallbackTs":	1726702578963,
+	"EventInfo":	{
+		"RoomId":	14103,
+		"EventTs":	1726702578,
+		"EventMsTs":	1726702578880,
+		"UserId":	"736",
+		"Role":	20,
+		"Reason":	1
+	}
+}
+
+2024-09-19 07:36:19 callback
+{
+	"EventGroupId":	1,
+	"EventType":	102,
+	"CallbackTs":	1726702578955,
+	"EventInfo":	{
+		"RoomId":	14103,
+		"EventTs":	1726702578,
+		"EventMsTs":	1726702578880
+	}
+}
+

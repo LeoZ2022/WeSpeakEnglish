@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+		<!-- Google Tag Manager -->
+	<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+	new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+	j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+	'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+	})(window,document,'script','dataLayer','GTM-MTCT69F');</script>
+	<!-- End Google Tag Manager -->
+</head>
+<body class="usertype_{$user_type} partner{$is_partner|default=0}">
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MTCT69F"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+<form method="post" action="{:url('confirm')}">
+    Date：<br/>
+    <input type="text" name="dates[]" value="2020-12-10" />
+    <input type="text" name="dates[]" value="2020-12-10" /><br/>
+    Time：<br/>
+    <input type="text" name="times[]" value="05:30">
+    <input type="text" name="times[]" value="08:30"><br/>
+    Day id：<br/>
+    <input type="text" name="dayids[]" value="4">
+    <input type="text" name="dayids[]" value="6"><br/>
+    Teacher id：<input type="text" name="teacher_id" value="4"><br/>
+    <button>Submit</button>
+</form>
+</body>
+</html>

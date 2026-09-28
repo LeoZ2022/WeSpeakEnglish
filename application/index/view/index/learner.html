@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+  
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-190244183-1">
+</script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-190244183-1');
+</script>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"  content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no,initial-scale=1.0">
+    <title>Practice speaking English with English Native, find speaking partner</title>
+    <meta name="description" content="Practice speaking English with a native English speaker, improve speaking skills fast.">
+    <link rel="canonical" href="https://wespeakenglish.chat/learner.html"/>
+    <link rel="stylesheet" href="__HOME_CSS__/swiper-bundle.min.css">
+    <link rel="stylesheet" href="__HOME_CSS__/layout.css">
+    <link rel="stylesheet" href="__HOME_CSS__/student.css">
+    <link rel="stylesheet" type="text/css" href="__HOME_CSS__/student_m.css" media="(max-width: 750px) "/>
+    {include file="public/header_js"}
+    <script src="__HOME_JS__/swiper-bundle.min.js"></script>
+	<!-- Google Tag Manager -->
+	<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+	new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+	j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+	'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+	})(window,document,'script','dataLayer','GTM-MTCT69F');</script>
+	<!-- End Google Tag Manager -->
+    <style type="text/css">
+        .pc_pic {
+            width: 100%;
+            /* 已知图片尺寸 544x184px，图片宽度等同 100vw，比例约为：2.96 */
+            height: calc(100vw/2.318);
+        }
+        .wap_pic {
+            width: 100%;
+            height: calc(100vw/0.595);
+        }
+        .wap_pic img, .pc_pic img {
+            background-color: #fff;
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+<body class="usertype_{$user_type} partner{$is_partner|default=0}">
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MTCT69F"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+<header>
+    <nav class="dif homeNav">
+        {include file="public/nav_menu"}
+    </nav>
+    <div class="htxt pcHtxt">
+        <h1><b><!--{$ads_top.name}-->PRACTICE WITH NATIVE ENGLISH SPEAKERS</b></h1>
+        <s><!--{$ads_top.content|nl2br|raw}-->
+			<p>Most partners from 5 English countries (US, UK, Canada, Australia, New Zealand)</p>
+			<p>Improve your speaking skills fast</p>
+			<p>Correct your errors with a specific explanation not normally given by your examiners</p>
+			<p>Practice speaking with a native speaker as your parent teaches you your language</p>
+			<p>Low cost that starts from $1.5, first tries are free</p>
+			
+        </s>
+        {if condition="!$user_id"}
+        <div class="btbox"><a href="{:url('register/learner')}">Become a  Learner</a><a href="{:url('sign/learner')}">sign in</a></div>
+        {/if}
+    </div>
+	
+	<div class="htxt phoneHtxt">
+	    <b><!--{$ads_top.name}-->PRACTICE WITH NATIVE ENGLISH SPEAKERS</b>
+	    <s><!--{$ads_top.content2|nl2br|raw}-->
+		<p>Partner from English countries</p>
+		<p>Improve speaking skills fast</p>
+		<p>Correct errors examiner never told you</p>
+		<p>Low cost that starts from $1.5</p>
+		<p>First tries are free</p>
+		</s>
+	    {if condition="!$user_id"}
+	    <div class="btbox"><a href="{:url('register/learner')}">Become a  Learner</a><a href="{:url('sign/learner')}">sign in</a></div>
+	    {/if}
+	</div>
+	    <!--<img src="{$ads_top.src|get_file_path}" class="mn" alt="{$ads_top.name}">
+    <img src="{$ads_top.src_wap|get_file_path}" class="pn" alt="{$ads_top.name}">-->
+    <!--<div class="mn pc_pic">-->
+    <img src="__HOME_IMG__/leaner_bg.jpg" class="mn lazyload" alt="Practice English with a native">
+    
+    <!--<div class="pn wap_pic">-->
+    <img src="__HOME_IMG__/leaner_wap.jpg" class="pn lazyload" alt="Practice English with a native">
+   
+</header>
+
+<div class="main clearfix">
+ <div class="intor">
+     <picture><img src="__HOME_IMG__/studentimg.jpg" alt="Speaking English"><img src="__HOME_IMG__/stripround.png" alt=""></picture>
+     <div>
+         <t>Who will be your             partner?</t>
+         <p>Native English speakers from US, UK, Canada, Australia and New Zealand.
+Nice, patient, warmhearted seniors; energetic high school students.
+ </p></div>
+ </div>
+
+   <div class="teacherbox">
+       <div class="swiper-button-prev mn"><i class="iconfont iconback-arrow1"></i></div>
+	   <div class="swiper-button-next mn"><i class="iconfont iconback-arrow1-copy"></i></div>
+<div class="swipouter">
+       <div class="swiper-wrapper">
+          {volist name="teachers" id="vo"}
+          <div  class="swiper-slide">
+              <div class="teacher">
+              <div class="avantar"><img src="{$vo.country_ico|get_file_path}" alt=""><a href=""><img src="{$vo.headpic|get_file_path}" alt=""></a></div>
+              <div class="sinfo">
+                  <name>{$vo.name}</name>
+                  <star>
+                      <?php echo str_repeat('<img src="/public/home/style/img/star.png" alt="">', $vo['star']); ?>
+                      <span>{$vo.star}</span></star>
+                  <!--<price>$ {$vo.price} / 30 mins</price>-->
+              </div>
+              </div>
+          </div>
+              {/volist}
+       </div>
+</div>
+   </div>
+    <a href="{:url('tutors/index')}" class="redabt">FIND MORE TUTORS</a>
+    <p class="topT">how to start</p>
+    <ul class="howtostar">
+		
+        <li class="step1"><div class="icon"><img src="__HOME_IMG__/step1_red.png" alt=""></div><div class="startxt"><t>Step 1</t><p><a href="{:url('register/learner')}" style="font-style: oblique;">Sign up</a> to create your account or sign in.</p></div></li>
+        <li class="step2"><div class="icon"><img src="__HOME_IMG__/step2_red.png" alt=""></div><div class="startxt"><t>Step 2</t><p><a href="{:url('tutors/index')}" style="font-style: oblique;">Search your tutor</a>, choose your favorite time and pay for that chat.</p></div></li>
+        <li class="step3"><div class="icon"><img src="__HOME_IMG__/step3_red.png" alt=""></div><div class="startxt"><t>Step 3</t><p>Download the En Chat app from your smartphone app Store and install it on your device.</p></div></li>
+        <li class="step4"><div class="icon"><img src="__HOME_IMG__/step4_red.png" alt=""></div><div class="startxt"><t>Step 4</t><p>Set Allow notification for this app on your smartphone to receive reminders for your chats.</p></div></li>
+        <li class="step5"><div class="icon"><img src="__HOME_IMG__/step5_red.png" alt=""></div><div class="startxt"><t>Step 5</t><p>You will get a notification before the chat starts time from the app. Then you can open the app to view the timetable and enter the chat room.  </p></div></li>
+    </ul>
+	
+    <p class="topT">how to chat</p>
+<div class="howtochat">
+    <videoer>
+        <div href="" class="video">
+			<i class="iconfont iconplay"></i>
+			<!--<img src="{:get_file_path(config('video_student_pic'))}" alt="">
+			<video src="{:config('video_student')}" controls="controls" poster=""></video>-->
+			<img src="__HOME_IMG__/video play.jpg" alt="">
+			<video src="__HOME_IMG__/movie.mp4" controls="controls" poster="">
+			
+        </div>
+    <p><!--<a href="/public/ClassIn_learner_manual.pdf" target="_blank" style="font-style: oblique;">Download</a> the learner manual.<br>-->
+        Once choose a tutor and pay that chat(s), you will receive an email notification that chat(s) created. Log in to your account to check your timetable. Your smartphone will receive a notification message 30 mins and 5 mins prior to the appointment starting. Open the En Chat around 5 mins before the chat starts and check your audio device functionality, then wait for your partner to enter the chatroom.  During the chat, you can type a message to your partner if necessary. Each chat is allowed a maximum of 31 mins. After that time, the chatroom will be forced to close by the app.
+       </p>
+    </videoer>
+    <dif><lt>end the chat</lt><p>If you don’t like to chat with your partner you can quit without any penalty in 10 mins. Please quit respectfully. Don’t quit the chat if the chat has started for more than 10 mins, otherwise, your partner can report a complaint against you and the chat fee won’t be refunded. Write a review for each chat as detailed as possible. The review should contain but not limit these topics: tutor’s attitude, skills, helpfulness…
+        <img src="__HOME_IMG__/stripround.png" alt="">
+    </p></dif>
+    <dif><lt>Choose a tutor</lt><p>You can search for tutors on the tutor list. If you want to choose the tutor with who you have chatted before, you can find your previous partner in the chat list in your account. Click the tutor name then check his/her availability. 
+        <img src="__HOME_IMG__/stripround.png" alt="">
+    </p></dif>
+    <dif><lt>Reminder</lt><p>We build this bridge to connect the tutors and the learners. Hope everyone could enjoy chatting with your partner but we are not responsible for the chat content which may cause any unexpected results such as offending language or fraud…  If you happen to meet a disrespectful partner or do not feel comfortable with the chatting, you can directly tell your partner your thoughts or quit the conversation and report it to us. Any topic related to money transferring or your private information disclosure must be precautioned. Your partner never has chance to know your email from our website or app unless you disclose it.
+        <img src="__HOME_IMG__/stripround.png" alt=""></p></dif>
+</div>
+</div>
+<div class="btimg">
+    <p>We Speak English Network is founded by a group of caring Canadians to help native English speakers and overseas young people to set up a fabulous connection, help the participants find more fun, and help young people improve their English at a very low cost. Whether our platform survives or not depends on how many users support us. As a not-for-profit organization, we cannot afford expensive advertisements for promotion. If you like us, feel free to reach out or tell your friends to join us as a learner. Your support would encourage us to go further.
+    </p>
+    <!--    {gt name="user_id" value="0"}-->
+    <!--<a href="{:url('member/topup')}"></a>-->
+    <!--{else}-->
+    <!--<a href="{:url('sign/tutor')}"></a>-->
+    <!--{/gt}-->
+<!--     {gt name="user_id" value="0"}
+    <a href="{:url('member/donate')}">DONATE / SUPPORT US</a>
+    {else}
+    <a href="{:url('sign/learner')}">DONATE / SUPPORT US</a>
+    {/gt}-->
+</div>
+{include file="public/footer"}
+
+</body>
+<script>
+    var swiper = new Swiper('.swipouter', {
+        navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+        },
+        breakpoints: {
+            750: {  //当屏幕宽度大于等于750
+                slidesPerView: 4,
+                slidesPerGroup : 4,
+                spaceBetween: 47,
+            }
+        }
+    });
+    $(document).on('click', '.video', function () {
+        $("popbg").show();
+        $("videoer video").show();
+    });
+    $(document).on('click', 'popbg', function () {
+        $("popbg").hide();
+        $("videoer video").hide();
+        $("videoer video")[0].pause();
+    });
+    $('.nav_learner').addClass('on');
+</script>
+<script type="text/javascript" charset="utf-8">
+    const [img] = $('.pc_pic img');
+    img.onload = (evt) => {
+        evt.currentTarget.style.backgroundColor = 'transparent';
+    }
+</script>
+</html>

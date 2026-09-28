@@ -1,0 +1,42 @@
+nav{box-shadow: none}
+nav.wBG{box-shadow: 0 5px 25px rgba(220,220,220,0.6);}
+nav >div {
+    display: none;}
+.ncenter{
+    color: #e54a3a;}
+.logined{
+    display: none;}
+.main{
+    margin-top: 15px;}
+.ht>a{
+    display: none;}
+.withdrawinput{flex-wrap: wrap}
+.withdrawinput > label{
+    width: 85px;
+}
+.withdrawinput.amount label{
+    margin-bottom: 15px;
+    width: 100%;
+    }
+.withdrawinput .msinfo{
+    left: 0;
+    padding-left: 5px;
+    text-align: left;
+    width: 100%;
+	font-size: 15px;
+	bottom: -28px;}
+.footwrap{
+    display: none;}
+.withdrawinput.paypal label{    width: 100%;
+    margin-bottom: 10px;}
+.withdrawinput.paypal > input{
+    width: 210px;}
+
+.withdrawinput input[type="submit"]{
+	width: 100%;
+	height: 50px;
+	line-height: 50px;
+}
+.n_footerMain{
+	display: none;
+}

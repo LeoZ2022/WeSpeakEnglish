@@ -1,0 +1,250 @@
+nav{background:#fff;box-shadow:0 5px 25px rgba(220,220,220,0.6);}
+nav a{vertical-align: middle;
+    color: #424242;}
+nav .logo {
+    background-image: url("../img/logoblue.png");
+}
+.clearfix:before,
+.clearfix:after {
+  display: table;
+  content: "";
+  line-height: 0;
+}
+.clearfix:after {
+  clear: both;
+}
+a{
+    color: #83523b;
+text-decoration: none}
+nav .logo{
+    background-image: url("../img/logoblue.png");
+}
+.logined{
+    width: 100px;}
+body{background: #f8f8f8}
+nav div span a{text-transform: none;text-decoration: none}
+nav div span line{
+    padding-left: 14px;
+    padding-right: 14px;}
+nav div span .blue{
+    color: #83523b;}
+nav div.who\?{
+    display: none;}
+nav .on{
+    color: #83523b;}
+nav .on::after {
+    background: #83523b;
+    width: 40px;
+    height: 2px;
+    content: " ";
+    top: 10px;
+    position: relative;
+}
+.usertype_2 nav .on{
+    color: #83523b;}
+.usertype_2 nav .on::after {    background: #83523b;
+}
+.usertype_1 .logeduser{
+    background-image: url("../img/partner_b.png");
+	padding-left: 25px;
+}
+.usertype_2 .logeduser{
+    background-image: url("../img/partner_b.png");
+	padding-left: 25px;
+    /* padding-left: 38px; */
+    /* background-size: auto 17px; */
+}
+.logined.user_type_2 .logeduser.click,
+.logined.user_type_1 .logeduser.click,
+.logeduser.click{
+	background-image: url("../img/partner_o.png") !important;
+}
+.logeduser.click .rar{
+	background-color: #83523b !important;
+}
+.main{
+    width: 100%;max-width: 1260px;
+    margin: 56px auto;
+}
+.myclass{
+    width: 100%;
+    border-radius: 10px;
+    padding:40px 46px; 
+    background: #fff}
+.myclass .ht{
+    margin-bottom: 60px;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 30px;
+    justify-content: space-between}
+.myclass .ht b{
+    font-size: 2.6rem;
+    font-family: Fjalla;
+    text-transform: uppercase;
+    color: #83523b;}
+.myclass .ht a{
+    font-size: 2rem;
+    color: #83523b;
+    font-family: Fjalla;
+    text-transform: uppercase;
+    text-decoration: none;
+    line-height: 34px;
+    padding-left: 36px;
+    background:url("../img/backarbrown.png") left center no-repeat;
+}
+.usertype_2 .myclass .ht b{
+    color: #83523b
+}
+.usertype_2 .myclass .ht a{
+    color: #83523b;
+    background-image: url("../img/backarbrown.png");
+}
+.usertype_2 .submit input[type="submit"]{
+    background-color: #83523b;
+}
+.profilebox{
+    display: inline-block;
+    width: 620px;
+	position: relative;
+	}
+.profilebox::after{
+	width: 0;
+	content: '';
+	display: block;
+	position: absolute;
+	right: 0;
+	top: 0;
+	bottom: 142px;
+	border-right: 1px dashed #e3e3e3;
+}
+.profilebox bt{
+    color: #685654 !important;
+    margin-bottom: 40px;
+    display: block;
+    font-family: Fjalla;
+    font-size: 2rem;}
+.inputbox{
+    margin-bottom: 20px;
+	line-height: 44px;}
+.inputbox>label{
+    font-size: 1.4rem;
+    display: inline-block;
+    vertical-align: middle;
+    width: 200px;
+	font-weight: bold;
+	line-height: 44px;}
+.usertype_2 .inputbox>label{
+    font-size: 1.6rem;
+}
+.inputbox > label.top{vertical-align:top}
+.inputbox span{
+    color: #999;
+	font-size: 16px;
+}
+.inputbox  .edd-root{
+    vertical-align: middle;
+    width: 360px;}
+.inputbox  .edd-head{border-radius: 6px;
+    font-size: 1.4rem;
+border: 1px solid #d7d7d7}
+.edd-value{
+    padding-left: 15px;
+	font-size: 16px;}
+.inputbox input[type="text"]{
+    border-radius: 6px;width: 360px;
+    height: 40px;
+    padding-left: 15px;
+    border: 1px solid #d7d7d7;
+	font-size: 16px;}
+.inputbox dib label{
+    background: #f5f5f5;
+    text-align: center;
+    cursor: pointer;
+    padding-left:12px;
+    display: inline-block;
+    line-height: 30px;
+    font-size: 14px;
+    padding-right: 12px;    border-radius: 10px;
+}
+.inputbox dib input[type="radio"]{
+    display: none;}
+.inputbox dib input[type="radio"]:checked+ label{
+    background: #fdf2f1;
+    color: #83523b;
+}
+.inputbox textarea{border: 1px solid #d7d7d7;
+    display: inline-block;
+	font-size: 16px;
+border-radius:6px;
+    padding: 16px 19px;
+    width: 360px;
+    height: 160px;}
+.chpassword{
+    width: 480px;
+    float: right;
+}
+.chpassword bt{
+    color: #685654 !important;
+    margin-bottom: 40px;
+    display: block;
+    font-family: Fjalla;
+    font-size: 2rem;}
+.chpassword .inputbox input[type="password"]{
+    border-radius: 6px;width: 320px;
+    height: 40px;
+    width: 314px;
+    padding-left: 15px;
+	font-size: 16px;
+    border: 1px solid #d7d7d7}
+.chpassword .inputbox>label{
+    width: 160px;
+	}
+.chpassword .inputbox{margin-bottom:20px }
+.inputbox vtips{
+    color: #83523b;
+    font-size: 1.2rem;
+    margin-left: 180px;
+}
+
+.inputbox input[type="password"]:focus,.inputbox input[type="text"]:focus{
+    border-color: #83523b;
+}
+    .submit{
+        margin-top: 45px;
+        
+        width: 100%;}
+.submit input[type="submit"]{
+    text-align: center;
+    color: #fff;
+    width: 260px;
+    line-height: 60px;
+    font-size: 2.4rem;cursor: pointer;
+    font-family: Fjalla;
+    background: #83523b;
+    border-radius:12px ;
+    }
+	
+	#accept_email+label{
+	    vertical-align: middle;
+	    width: 18px;
+	    height: 18px;
+	    display: inline-block;
+	    border-radius: 4px;
+	    cursor: pointer;
+	    background-color: #fff;
+	    border: 1px solid #ccc;
+		padding-left: 0;
+		margin-right: 8px;
+	}
+	#accept_email:checked+label{
+	    background: #83523b url("../img/brownwche.png") no-repeat center center;
+	    background-size: contain;
+	    border: none;
+	}
+	#accept_email[disabled]+label,#accept_email[disabled=disabled]+label{
+	    pointer-events: none;
+	    opacity: 0.6;
+	}
+	#accept_email[disabled]+label+p,#accept_email[disabled=disabled]+label+p{
+	    opacity: 0.5;
+	    font-size: 14px;
+	}

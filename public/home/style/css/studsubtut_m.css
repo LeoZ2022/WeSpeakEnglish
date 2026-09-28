@@ -1,0 +1,123 @@
+.logobox{display: none}
+nav .ncenter{
+    color: #e54a3a;}
+.flow{
+    display: none;}
+.main{overflow-x: hidden;
+    width: 100%;
+    margin-top: 0;
+    margin-bottom: 110px;
+    padding-left: 20px;
+    padding-right: 20px;}
+.boxt{
+    margin-bottom: 22px;
+    margin-top: 36px;
+	font-size: 2.8rem;}
+.subinfo{flex-direction: column}
+.subinfo lt{
+    margin-bottom: 8px;}
+.paybarouter{
+    padding-top: 15px;
+    padding-bottom: 15px;
+	position: fixed;
+	left: 0;
+	    right: 0;
+	    bottom: 0;
+	z-index: 6;}
+.btbox dib{
+    padding-right: 15px;}
+.boxt ~ input + label{
+    text-align: left;
+    padding-left: 12px;
+    background: #f8f8f8;
+    margin-right: 2%;
+    margin-left: 2%;
+    width: 96%;
+    margin-bottom: 16px;}
+
+.boxt~ input+label check{
+    margin-right: 10px;
+    display: inline-block;
+    float: right;
+    margin-top: 16px;
+    vertical-align: middle;
+    width: 24px;
+    height: 24px; border-radius:12px;cursor: pointer;
+    background: transparent;    border:1px solid #b6b6b6;
+}
+.boxt~ input:checked+label{border-color:#ffd0c2;background: #fff}
+
+.boxt~ input:checked+label check{display: block;border: none;
+    width: 24px;
+    height: 24px;
+    background:url("../img/rcheck.png") center center no-repeat;background-size: contain;
+    top: initial;
+    position: relative;
+    right: initial; }
+.payinfo div.exinfo{
+    padding-left: 0;}
+.reservation div{
+    font-size: 12px;}
+.reservation p{
+    margin-top: 10px;
+    line-height: 20px;}
+.paybar{padding-right: 20px;}
+.paybar img{
+    display: none;}
+.paybar input{
+    width: 139px;
+    height: 50px;}
+.paypop{
+    top: 20%;}
+.paypop dif{justify-content: space-between;
+    width:100%;
+    flex-wrap: wrap;
+    margin: 20px auto 0;
+}
+.paypop dif a{
+    padding: 12px 20px;
+    width: 100%;}
+.paypop dif a:last-of-type{
+    margin-top: 14px;
+}
+.footwrap{
+    display: none;}
+nav .hanbugrmenu {
+    background-image: url(../img/habmenu_b.png);
+}
+.boxt~ input+label img {
+    height: 28px;
+    float: left;
+    margin: 15px 0 0 0;
+}
+.payinfo dif{
+	position: relative;
+}
+.payinfo dif p{
+	position: absolute;
+	right: 0;
+}
+.paybarouter.fixed{
+	z-index: 6;
+}
+.btbox dib p{
+	padding-top: 5px;
+}
+.main .bz{
+	font-size: 2.4rem;
+}
+.main classt{
+	margin: 6px 10px;
+}
+.payinfo{
+	padding-left: 10px;
+}
+.reservation{
+	padding-left: 10px;
+}
+.reservation label{
+	margin-left: 0;
+}
+.n_footerMain{
+	display: none;
+}

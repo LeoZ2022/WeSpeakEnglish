@@ -1,0 +1,493 @@
+nav{background:#fff;box-shadow:0 5px 25px rgba(220,220,220,0.6);}
+nav a{vertical-align: middle;
+    color: #424242;}
+nav .logo {
+    background-image: url("../img/logoblue.png");
+}
+a{
+    color: #e54a3a;}
+nav .logo{
+    background-image: url("../img/logoblue.png");
+}
+body{background: #f8f8f8}
+nav div span a{text-transform: none;text-decoration: none}
+nav div span line{
+    padding-left: 14px;
+    padding-right: 14px;}
+nav div span .blue{
+    color: #e54a3a;}
+nav div.who\?{
+    display: none;}
+nav .on{
+    color: #e54a3a;}
+nav .on::after {
+    background: #e54a3a;
+    width: 40px;
+    height: 2px;
+    content: " ";
+    top: 10px;
+    position: relative;
+}
+.usertype_1 nav a.on,
+.usertype_1 nav.wBG a.on{
+	color: #e54a3a;
+}
+.usertype_2 nav a.on,
+.usertype_2 nav.wBG a.on{
+	color: #007edb;
+}
+
+.usertype_1 nav a.on::after,
+.usertype_1 nav.wBG a.on::after{
+	background: #e54a3a;
+}
+
+.usertype_2 nav a.on::after,
+.usertype_2 nav.wBG a.on::after{
+	background: #007edb;
+}
+
+
+.main{
+    width: 100%;max-width: 1260px;
+    margin: 54px auto 80px auto;
+}
+.side{
+    float: left;
+    width: 300px;
+    margin-bottom: 20px;
+}
+.side .learner{
+    padding: 30px 24px 20px 24px;
+    background: #fff;
+    border-radius:10px ;
+    width: 100%;}
+.side .learner a.setting{position: absolute;
+    z-index: 1;
+    right: 24px;
+    top: 30px;}
+.side .learner b{
+    display: block;
+    font-size: 2rem;
+    margin-bottom: 10px;
+    font-family: Fjalla;
+}
+.side .learner b+span{
+    font-size: 1.4rem;
+    color: #999;}
+.side .learner name{
+    display: block;
+    clear: both;
+    margin-bottom: 30px;    }
+.side .learner level{
+    float: left;
+}
+.side .learner class{
+    float: left;
+    margin-left: 90px;
+}
+.side .learner local{clear: both;
+    padding-top: 30px;
+    font-size: 1.2rem;
+    color: #aaa;
+    display: block;}
+.side .balance{ padding: 30px 24px;
+    background: #fff;
+    border-radius:10px ;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    width: 100%;}
+.side .balance t{
+    font-family: Fjalla;
+    color: #aaa;
+    font-size: 2rem ;
+}
+.side .balance a.abalance{
+    position: absolute;
+    z-index: 1;
+    right: 24px;
+    top: 30px;}
+.side .balance price{
+    display: block;
+    font-size:2.6rem;
+    color: #e54a3a;
+    margin-top: 12px;
+    font-family: Fjalla;
+
+}
+.side .incode{ padding: 30px 24px;
+    background: #fff;
+    border-radius:10px ;
+    width: 100%;}
+.side .incode t{
+    font-family: Fjalla;
+    color: #aaa;
+    font-size: 2rem ;
+}
+.side .incode dif{
+    align-items: center;
+    justify-content: space-between;
+    margin: 20px auto;
+}
+.side .incode dif strong{
+    font-size: 2.6rem;
+    font-family: Fjalla;
+}
+.side .incode dif a{
+    border: 1px solid #e54a3a;
+    color: #e54a3a; text-align: center;
+    border-radius: 6px;
+    line-height: 36px; text-decoration: none;
+    padding:0 24px; text-transform: uppercase;
+    font-family: Fjalla;
+    height: 36px;
+}
+.usertype_2 .side .incode dif a{
+    border: 1px solid #007edb;
+    color: #007edb;
+}
+
+.side .incode p{
+    color: #bbb;
+    font-size: 1.4rem;
+	line-height: 160%;}
+.mainly{
+    width: 930px;
+    float: right;}
+.mainly .incard{
+    padding: 30px 24px;
+    background: #fff;
+    border-radius:10px ;
+    margin-bottom: 30px;
+    justify-content: space-between;
+    display: flex;align-items: center;
+    width: 100%;
+}
+.mainly .incard .codeinfo t>*{
+    font-family: Fjalla;
+    font-size: 2rem;
+    text-transform: uppercase;
+    vertical-align: middle;
+    color: #e54a3a;}
+.mainly .incard .codeinfo .iconfont{
+	font-size: 32px;
+	font-weight: bold;
+	margin-right: 5px;
+	display: inline-block;
+}
+.mainly .incard .codeinfo t num{
+    font-size: 2.6rem;}
+.mainly .incard .codeinfo >p{
+    margin-top: 12px;
+    font-size: 1.4rem;
+}
+.mainly .incard>a{
+    border: 2px solid #e54a3a;
+    color: #e54a3a; text-align: center;
+    border-radius: 6px;
+    line-height: 36px; text-decoration: none;
+    padding:0 24px; text-transform: uppercase;
+    font-family: Fjalla;
+    height: 36px;
+}
+
+.mainly .timetable{
+    padding: 30px 24px;
+    background: #fff;
+    border-radius:10px ;
+    margin-bottom: 30px;
+    width: 100%;
+}
+.mainly .timetable t{clear: both;
+    width: 100%;
+    font-size: 2rem;
+    color: #bcbcbc;
+    margin-bottom: 30px;
+    font-family: Fjalla;
+    display: flex;
+align-items: center;
+justify-content: space-between}
+.cal-day{border-bottom: 1px solid #ebebeb;
+    display: flex;
+    padding-bottom:19px;
+    align-items: center;
+justify-content: space-between}
+.cal-day .upweek{
+    width: 16px;
+   cursor: pointer;
+    display: block;z-index: 1;
+    background: url("../img/redar_l.png") center center no-repeat;
+    filter: grayscale(100%);
+    pointer-events: none;opacity: 0.2;
+    height: 28px;}
+.cal-day .upweek.go{
+    filter: grayscale(0%);
+    pointer-events: auto;opacity: 1;
+}
+.cal-day .downweek{
+    width: 16px;cursor: pointer;
+    display: block;
+   z-index: 1;
+    background: url("../img/redar.png") center center no-repeat;
+    height: 28px;}
+.cal-day .downweek.stop{
+    filter: grayscale(100%);
+    pointer-events: none;opacity: 0.2;
+}
+.cal-day .day{
+    width: 100px;
+    cursor: pointer;
+    margin-left: 10px;
+    margin-right: 10px;
+    height: 70px;
+    padding-top: 12px;
+    border-radius: 10px;
+    display: inline-block;}
+.timetable >.cal-day .day.clicked{background: #ffd0c2;}
+.timetable >.cal-day .day.clicked .cdate .week{
+    color: #fff;
+    font-size:1.4rem;
+}
+.timetable >.cal-day .day.clicked .cdate .date{
+    color: #fff;
+}
+.timetable >.cal-day .day.clicked .cdate .date span.m{
+    color: #fff;
+}
+.cal-day .daybox{flex-grow: 1}
+.cal-day .daybox .date .m{
+    font-family: Fjalla;
+}
+.cal-day .day .cdate{
+    text-align: center;
+}
+.cal-day .day .cdate .week{
+    margin-top: 10px;}
+.cal-day .day .cdate .date{
+    font-family: Fjalla;
+    font-size: 2rem;}
+.tgray{pointer-events: none}
+.cal-day .day.tgray .cdate .week{
+    color: #bababa;
+}
+.cal-day .day.tgray .cdate .date{
+    color: #bababa;
+}
+.cal-day .day.tgray .cdate .date .m{
+    color: #bababa;
+}
+.timetable  .cal-day .day.today{
+    background: #ffa286;
+}
+.timetable >.cal-day .day.grayo{
+    pointer-events: none;
+}
+.timetable >.cal-day .day.grayo .cdate .week{
+    color: #bababa;
+}
+.timetable> .cal-day .day.grayo .cdate .date{
+    color: #bababa;
+}
+.timetable> .cal-day .day.grayo .cdate .date .m{
+    color: #bababa;
+}
+.timetable  .cal-day .day.booked::after{
+    content: " ";
+    display: block;
+    margin-top:5px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 6px; height: 6px;
+    border-radius: 3px;
+    background: #FFA37F;}
+.cal-day .day.today .cdate .week{
+    color: #fff;
+}
+.cal-day .day.today .cdate .date{
+    color: #fff;
+}
+.cal-day .day.today .cdate .date .m{
+    color: #fff;
+}
+.timetable .r{text-align: right;
+    font-size: 1.4rem;
+    color: #bcbcbc;
+}
+.timetable .r img{
+    margin-right: 10px;
+    width:17px ;
+    margin-top: 20px;
+}
+.timetable>.class_list .class{
+    padding-top: 20px;
+    padding-bottom: 20px;
+    justify-content: space-between;
+    align-items:start;
+	position: relative;
+    display: flex;}
+.timetable>.class_list .class:after {
+    display: block;
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 1px;
+    background-image: linear-gradient(to right, #e3e3e3 0%, #e3e3e3 50%, transparent 0%);
+    background-size: 10px 1px;
+    background-repeat: repeat-x;
+	
+}
+.timetable>.class_list .class>.namer{
+    /* padding-top: 10px; */
+    width: 430px;}
+.timetable>.class_list .class>.namer a{
+	text-decoration: none;
+}
+.timetable>.class_list .class>.namer .nameinfo{
+    float: left;}
+.timetable>.class_list .class>.namer name{
+    display: block;
+    font-size: 1.4rem;
+    cursor: pointer;
+    padding-right: 40px;    margin-bottom: 14px;
+    color: #e54a3a;}
+.timetable>.class_list .class>.namer>.price{
+    float: right;
+}
+
+.timetable > .cal-day .day.choosed::after {
+    content: " ";
+    display: block;
+    margin-top: 3px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 6px;
+    height: 6px;
+    border-radius: 3px;
+    background: #FFA37F;
+}
+.timetable>.class_list .class>.namer name{
+    display: block;
+    font-size: 1.4rem;
+    cursor: pointer;
+    padding-right: 40px;    margin-bottom: 14px;
+    color: #e54a3a;}
+.timetable .class time{
+    font-size: 1.4rem;
+    font-family: Fjalla;
+    }
+.timetable>.class_list .class .btbox a.bt{
+    border-radius: 6px;
+    display: block;text-align: center;
+    line-height: 36px;
+    background: #e54a3a;
+    color: #fff;
+    font-family: Fjalla;
+    text-decoration: none;
+    font-size: 1.6rem;
+    width: 170px;
+    height: 36px;
+}
+.timetable>.class_list .class .btbox a{   text-align: center;    text-decoration: none;
+    margin: 0px auto 12px; cursor: pointer;
+    display: block;}
+.mainly .mytutor{
+    padding: 30px 24px;
+    background: #fff;
+    border-radius:10px ;
+    margin-bottom: 30px;
+    width: 100%;
+}
+.mainly .mytutor t{clear: both;
+    width: 100%;
+    margin-bottom: 40px;
+    font-size: 2rem;
+    color: #bcbcbc;
+    font-family: Fjalla;
+    display: block;}
+.mytutor .namer{
+    
+	position: relative;
+    float: left;width: 33.333%;
+    padding-bottom: 20px;
+    margin-bottom: 20px;}
+.mytutor .namer:after {
+    display: block;
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 1px;
+    background-image: linear-gradient(to right, #e3e3e3 0%, #e3e3e3 50%, transparent 0%);
+    background-size: 10px 1px;
+    background-repeat: repeat-x;
+}
+.mytutor .namer name{
+    display: block;
+    width: 100%;
+    margin-bottom:14px;}
+.mytutor .namer name span{vertical-align: middle;
+    color: #e54a3a;
+}
+.mytutor .namer name a{
+	text-decoration: none;
+}
+.mytutor .namer name img{vertical-align: middle;
+    height:20px;
+	border-radius: 4px;
+	margin-left: 4px;
+	display: inline-block;
+}
+.mytutor .namer stars img{vertical-align: middle;
+    margin-right: 5px;
+    height:16px ;}
+.mytutor .namer stars span{vertical-align: middle;
+    color: #e9ae54;
+    font-size: 1.4rem;}
+.btimg{background: url("../img/btpic1.jpg") center center no-repeat;
+    width: 100%;
+    height:400px;
+	margin-top: 70px;}
+.btimg p{
+    width:100% ;max-width: 1260px;
+    padding-top: 80px;
+    margin: 0 auto 20px;
+    color: #fff;
+    font-size: 2rem;
+    line-height: 36px;
+    font-style: italic}
+.btimg a{display: block;
+    width: 360px;
+    margin:40px auto 0;
+    height: 60px;text-align: center;
+    line-height: 58px;
+    color: #fff;
+    font-size: 2.4rem;
+    font-family: Fjalla;text-decoration: none;
+    border-radius:10px;border: 2px solid #fff}
+.shareMain{
+	display: block !important;
+}
+.shareSide{
+	width: auto;
+	float: none;
+}
+.shareSide .incode dif{
+	justify-content:initial;
+}
+.shareSide .incode dif a{
+	margin-left: 10px;
+}
+
+ .rightpop{
+	 z-index: 14;
+ }
+ .mainly .timetable t img{
+ 	width: 32px;
+ }
+ 
+.searchTutor{
+	display: none;
+}

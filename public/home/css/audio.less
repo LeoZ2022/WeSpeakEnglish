@@ -1,0 +1,197 @@
+.audioBox{
+	.uploadBtn{
+		width: 160px;
+		height: 30px;
+		background: #F5F5F5;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		color: #555;
+		font-size: 14px;
+		margin-right: 10px;
+		border-radius: 6px;
+	}
+	.uploadError{
+		padding-left: 10px;
+		color: rgba(229, 74, 58, 1);
+		font-size: 16px;
+		padding: 0 0 15px 10px;
+		display: none;
+	}
+	.uploadBox{
+		padding: 15px;			
+		border-radius:10px;
+		background: #F5F5F5;
+		width: 450px;
+		display: none;
+		box-sizing: border-box;
+		-webkit-box-sizing: border-box;
+		-moz-box-sizing: border-box;
+	}
+	.uploadBox p{
+		font-size: 14px;
+		color: rgba(85, 85, 85, 0.8);
+	}
+	.uploadBoxSetting{
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		margin-top: 10px;
+	}
+	.expBox{
+		border: 1px #007EDB solid;
+		position: relative;
+		border-radius: 20px;
+		height: 10px;
+		overflow: hidden;
+		width: 100px;
+	}
+	.expItem{
+		background: #007EDB;
+		border-radius: 20px;
+		width: 40%;
+		height: 100%;
+	}
+	.expNum{
+		color: rgba(85, 85, 85, 1);
+		font-size: 12px;
+		margin-left: 10px;
+	}
+	.uploadBoxSettingLeft{
+		display: flex;
+		align-items: center;
+	}
+	.uploadBoxSetting a{
+		color: #0F9AD6;
+		font-size: 14px;
+	}
+	.checkLi{
+		padding: 15px 0;
+	}
+	.checkLiBody{
+		display: none;
+	}
+	.active .checkLiBody{
+		display: block;
+	}			
+	.checkLiBodyOne{
+		display: flex;
+		align-items: center;
+		color: rgba(85, 85, 85, .5);
+		font-size: 16px;
+		padding-bottom: 15px;
+		&.flex_clounm{
+			flex-flow: column;
+			align-items: flex-start;
+			.uploadBtn{
+				margin-bottom: 10px;
+			}
+		}
+	}
+	.checkLiHread{
+		padding-bottom: 22px;
+		display: flex;
+		align-items: center;
+		color: #555;
+		font-size: 16px;
+	}
+	.justifyBetween{
+		justify-content: space-between;
+	}
+	.checkIcon{
+		width: 20px;
+		height: 20px;
+		display: inline-block;
+		background: url(../img/audio/check.png) no-repeat;
+		background-size: 20px;
+		margin-right: 10px;
+		cursor: pointer;
+	}
+	.active  .checkIcon{				
+		background: url(../img/audio/checkActive.png) no-repeat;
+		background-size: 20px;
+	}
+	.selfBox h1{
+		font-weight: normal;
+		padding-bottom: 22px;
+		color: #555;
+		font-size: 16px;
+	}
+	.p_left20{
+		padding-left: 20px;
+	}
+	.checkLiBody textarea{
+		border: 1px #eee solid;
+		height: 85px;
+		width: 100%;
+		padding: 15px;
+		font-size: 14px;				
+		box-sizing: border-box;
+		-webkit-box-sizing: border-box;
+		-moz-box-sizing: border-box;
+	}
+	.checkLiHreadLeft{
+		display: flex;
+		align-items: center;
+	}
+	.redTxt{				
+		font-size: 16px;
+		color: rgba(85, 85, 85, .5);
+	}
+	.red{
+		color: #E54A3A;
+	}
+}
+
+.xk_play{
+	width: 30px;
+	height: 30px;
+	cursor: pointer;
+	display: inline-block;
+	background: url(../img/audio/Play.png) no-repeat;
+	background-size: 30px;
+}
+.xk_play.pause{
+	background: url(../img/audio/Pause.png) no-repeat;
+	background-size: 30px;
+}
+@media screen and (max-width:768px) {	
+	.audioBox{
+		.checkLiBodyOne{
+			flex-flow: column;
+			align-items: flex-start;
+		}
+		.uploadBtn{
+			margin-bottom: 5px;
+		}
+		.uploadError{
+			padding-left: 0;
+		}
+		.uploadBox{
+			width: 100%;
+			display: block;
+		}
+		.uploadBoxSetting{
+			flex-flow: column;
+			align-items: flex-start;
+		}
+		.uploadBoxSettingLeft{
+			flex-flow: column;
+			align-items: flex-start;
+		}
+		.expNum{
+			font-size: 14px;
+			padding: 8px 0;
+			margin-left: 0;
+		}
+		.redTxt{
+			display: none;
+		}
+		.checkLi{
+			padding: 10px 0;
+		}
+		.checkLiHread{
+			padding-bottom: 10px;
+		}
+	}
+}

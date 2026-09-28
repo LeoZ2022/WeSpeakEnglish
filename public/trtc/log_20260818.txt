@@ -1,0 +1,116 @@
+2026-08-18 01:58:48 callback
+{
+	"EventGroupId":	1,
+	"EventType":	101,
+	"CallbackTs":	1786989528308,
+	"EventInfo":	{
+		"RoomId":	15884,
+		"EventTs":	1786989528,
+		"EventMsTs":	1786989528234,
+		"UserId":	"3801"
+	}
+}
+
+2026-08-18 01:58:48 callback
+{
+	"EventGroupId":	1,
+	"EventType":	103,
+	"CallbackTs":	1786989528536,
+	"EventInfo":	{
+		"RoomId":	15884,
+		"EventTs":	1786989528,
+		"EventMsTs":	1786989528347,
+		"UserId":	"3801",
+		"Role":	20,
+		"TerminalType":	3,
+		"UserType":	3,
+		"Reason":	1,
+		"ClientIpv4":	"135.0.47.35"
+	}
+}
+
+2026-08-18 02:04:10 callback
+{
+	"EventGroupId":	1,
+	"EventType":	104,
+	"CallbackTs":	1786989850806,
+	"EventInfo":	{
+		"RoomId":	15884,
+		"EventTs":	1786989850,
+		"EventMsTs":	1786989850614,
+		"UserId":	"3801",
+		"Role":	20,
+		"Reason":	1
+	}
+}
+
+2026-08-18 02:04:10 callback
+{
+	"EventGroupId":	1,
+	"EventType":	102,
+	"CallbackTs":	1786989850849,
+	"EventInfo":	{
+		"RoomId":	15884,
+		"EventTs":	1786989850,
+		"EventMsTs":	1786989850783
+	}
+}
+
+2026-08-18 02:04:23 callback
+{
+	"EventGroupId":	1,
+	"EventType":	101,
+	"CallbackTs":	1786989863418,
+	"EventInfo":	{
+		"RoomId":	15884,
+		"EventTs":	1786989863,
+		"EventMsTs":	1786989863358,
+		"UserId":	"3801"
+	}
+}
+
+2026-08-18 02:04:23 callback
+{
+	"EventGroupId":	1,
+	"EventType":	103,
+	"CallbackTs":	1786989863649,
+	"EventInfo":	{
+		"RoomId":	15884,
+		"EventTs":	1786989863,
+		"EventMsTs":	1786989863466,
+		"UserId":	"3801",
+		"Role":	20,
+		"TerminalType":	3,
+		"UserType":	3,
+		"Reason":	1,
+		"ClientIpv4":	"135.0.47.35"
+	}
+}
+
+2026-08-18 02:04:30 callback
+{
+	"EventGroupId":	1,
+	"EventType":	104,
+	"CallbackTs":	1786989870284,
+	"EventInfo":	{
+		"RoomId":	15884,
+		"EventTs":	1786989870,
+		"EventMsTs":	1786989870103,
+		"UserId":	"3801",
+		"Role":	20,
+		"Reason":	1
+	}
+}
+
+2026-08-18 02:04:30 callback
+{
+	"EventGroupId":	1,
+	"EventType":	102,
+	"CallbackTs":	1786989870322,
+	"EventInfo":	{
+		"RoomId":	15884,
+		"EventTs":	1786989870,
+		"EventMsTs":	1786989870260
+	}
+}
+

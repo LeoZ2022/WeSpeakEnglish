@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"  content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no,initial-scale=1.0">
+    <title>Withdraw_{:config('web_site_title')}</title>
+    <link rel="stylesheet" href="__HOME_CSS__/layout.css">
+    <link rel="stylesheet" href="__HOME_CSS__/partnerwidthdraw.css">
+    <link rel="stylesheet" type="text/css" href="__HOME_CSS__/partnerwidthdraw_m.css" media="(max-width: 750px) "/>
+{include file="public/header_js"}
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-MTCT69F');</script>
+<!-- End Google Tag Manager -->
+</head>
+<body class="usertype_{$user_type} partner{$is_partner|default=0}">
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MTCT69F"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+<nav class="dif">
+    <a class="backar pn" href="{:url('index')}"></a>
+    {include file="public/nav_menu"}
+</nav>
+
+<div class="main">
+    <dif class="ht"><b>Apply withdrawal</b> <a href="{:url('index')}">back</a></dif>
+	<div class="applyTips">
+		<p>You can only redeem with an account balance above $50, that is, each redemption cannot be less than $50; </p>
+		<p>The interval between two redemptions must be greater than 2 weeks.</p>
+	</div>
+    <dif class="withdrawinput">
+        <label >Balance</label> <b class="">$ {$user_info.moneys}</b>
+    </dif>
+    <form method="post" action="{:url('withdrawal')}" id="form_pass" onsubmit="return chk_form()">
+    <dif class="withdrawinput amount">
+        <label >Withdrawal Amount(USD)</label> <input type="text" name="money" id="money" oninput="chkmoney(this.value)" placeholder="">
+        <span class="msinfo">Please enter the amount you want to withdraw</span>
+    </dif>
+    <dif class="withdrawinput paypal">
+        <label >To Paypal account</label> <input class="paypal_account" placeholder="Please enter account" name="paypal_account" id="paypal_account" type="text" value="{$user_info.paypal_account}" readonly>
+        <button onclick="update_account()" type="button">Update</button><img src="__HOME_IMG__/pencilbrown.png" alt="">
+    </dif>
+    <dif class="withdrawinput amount">
+        <label >Note</label> <textarea name="note" id="note" placeholder="You can make a note of what you want to say"></textarea>
+    </dif>
+	<dif class="withdrawinput amount">
+		<label >Email Verification code</label> <input type="text" style="background: none; padding-left: 15px;" class="withdrawinputCode" name="code" id="code" placeholder="">
+		<input type="button" id="send_button" class="withdrawinputBtn" value="SEND CODE" />
+		<span class="msinfo">Please enter the verification code we just emailed to you</span>
+	</dif>
+    <dif class="withdrawinput paypal {if condition="!$user_info.paypal_account || $user_info.moneys lt 50"}disable{/if}" >
+        <label ></label> <input type="submit" value="withdraw" id="withdraw_btn">
+    </dif>
+    </form>
+</div>
+
+{include file="public/footer"}
+{include file="member/member_js"}
+</body>
+<script src="__HOME_JS__/easydropdown.js"></script>
+<script>
+    var s;
+    var sending = 1;
+    //发送验证码，登录
+    $('#send_button').click(function () {
+        if (sending == 1) {
+            sending = 0;
+            document.getElementById('send_button').disabled = 'disabled';
+            document.getElementById('send_button').value = 'Sending';
+            $.ajax({
+                type: 'post',
+                dataType: 'json',
+                url: '/index/partner/send_email',
+                success: function (res) {
+                    sending = 1;
+                    document.getElementById('send_button').value = 'SEND CODE';
+                    if (res.code == 200) {
+                        $('#email_notice').show();
+                        s = 60;
+                        countdown($('#send_button'));
+                    } else if (res.code == 202) {
+                        showmsg(res.msg, 300);
+                        s = res.times;
+                        countdown($('#send_button'));
+                    } else {
+                        showmsg(res.msg, 300);
+                    }
+                }
+            })
+        } else {
+            showmsg('Wait', 300);
+        }
+    });
+    //倒计时
+    function countdown(obj) {
+        //改变按钮状态
+        $(obj).attr('disabled','true');
+        // document.getElementById('send_button').disabled = 'disabled';
+        //循环定时器
+        var T = window.setInterval(callback,1000);
+        function callback()
+        {
+            console.log(s);
+            if(s <= 0){
+                //移除定时器
+                window.clearInterval(T);
+                _innerHTML='SEND CODE';
+                $(obj).attr('disabled','false');
+                $(obj).removeAttr('disabled');
+				$(obj).val(_innerHTML);
+				return
+                // document.getElementById('send_button').disabled = 'false';
+            }else{
+                if(s<=10){
+                    _innerHTML = '0'+ --s + '';
+                }else{
+                    _innerHTML = --s+ '';
+                }
+            }
+            // document.getElementById($(obj).attr('id')).value = _innerHTML;
+            $(obj).val('RESEND IN ' + _innerHTML + ' SECS');
+        }
+    }
+    $(document).on('click', '.paypal>img', function () {
+        $(this).hide();
+        $(this).siblings("button").show();
+        $(this).siblings("input").addClass("edit").removeAttr("readonly");
+    });
+
+    $(document).on('click', '.paypal>button', function () {
+        $(this).siblings("input.edit").attr("readonly","readonly").removeClass("edit");
+        $(this).hide()
+        $(this).siblings("img").show();
+    });
+
+    var _user_money = {$user_info.moneys|default=0};
+    function chkmoney(_money) {
+        emptyacc(_money)
+    }
+    function emptyacc(_money){
+        if ($("#paypal_account").val()==""){
+            $('#withdraw_btn').prop('disabled', true);
+        } else {
+            if (_user_money < _money   ) {
+                $('#withdraw_btn').prop('disabled', true);
+            } else {
+                $('#withdraw_btn').attr('disabled', false);
+            }
+
+        }
+    }
+    $(document).ready(function(){
+        emptyacc(0)
+    });
+
+    easydropdown.all();
+    function update_account() {
+        var _account = $('#paypal_account').val();
+        if (!_account) {
+            $('#paypal_account').focus();
+        }
+        $.ajax({
+            url: '/index/member/edit_account',
+            data: {paypal_account: _account},
+            type: 'post',
+            dataType: 'json',
+            success: function (res) {
+                if (res.code == 200) {
+                    $('#withdraw_btn').removeAttr('disabled');
+                    $('#account').html(_account);
+                } else {
+                    showmsg(res.msg, res.code);
+                }
+            }
+        })
+        emptyacc();
+    }
+
+    function chk_form(){
+        if (!$('#money').val() || $('#money').val() < 50) {
+            $('#money').focus();
+            return false;
+        }
+        showloading();
+        $.ajax({
+            data: $('#form_pass').serialize(),
+            type: 'post',
+            url: $('#form_pass').attr('action'),
+            dataType: 'json',
+            success: function (res) {
+                showmsg(res.msg, res.code);
+                if (res.code == 200) {
+                    setTimeout("location.href='{:url("index")}'", 2000);
+                }
+            }
+        })
+        return false;
+    }
+</script>
+</html>

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no,initial-scale=1.0">
+    <title>Mcenter_{:config('web_site_title')}</title>
+    <link rel="stylesheet" href="__HOME_CSS__/layout.css">
+    <link rel="stylesheet" href="__HOME_CSS__/membercenterstu.css">
+    <link rel="stylesheet" type="text/css" href="__HOME_CSS__/membercenterstu_m.css" media="(max-width: 750px) "/>
+    {include file="public/header_js"}
+    <script src="__HOME_JS__/vue.js"></script>
+	<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-MTCT69F');</script>
+<!-- End Google Tag Manager -->
+</head>
+<body class="usertype_{$user_type} shareBody">
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MTCT69F"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+<nav class="dif">
+    <a class="backar pn" href="javascript:history.go(-1);"></a>
+    {include file="public/nav_menu"}
+</nav>
+
+<div class="main clearfix">
+    <div class="side shareSide">
+        <div class="incode pn shareMain">
+            <t>Invitation code</t>
+            <dif><strong id="biao1">{$user_info.invitation_code}</strong> <a class="copy" onclick="copyToClipboard('{$user_info.invitation_code}')" href="###">copy</a></dif>
+            {eq name="user_type" value="2"}
+            <!-- 老师 -->
+            <p>Copy and send this code to your friends. If they become tutor, you could get $1 reward in your account.</p>
+            {else}
+            <p>Send this code to your friends. Both you and the beneficiary will get a reward to redeem a free chat.</p>
+            {/eq}
+
+            <div class="rightpop">
+                <img src="__HOME_IMG__/closex.png" class="closex"  alt="">
+                <img src="__HOME_IMG__/sucess.png" class="tico" width="32px" alt="">
+                <p>Copy successfully,<br>Please send your invitation code to your friends!</p>
+            </div>
+        </div>
+    </div>
+</div>
+{include file="member/footer_menu"}
+
+{include file="public/footer"}
+{include file="member/member_js"}
+
+</body>
+<script>
+    $('#foot_a_5').addClass('cur');
+    function copyToClipboard(txt) {
+        if (window.clipboardData) {
+            window.clipboardData.clearData();
+            clipboardData.setData("Text", txt);
+            alert("复制成功！");
+        } else if (navigator.userAgent.indexOf("Opera") != -1) {
+            window.location = txt;
+        } else if (window.netscape) {
+            try {
+                netscape.security.PrivilegeManager.enablePrivilege("UniversalXPConnect");
+            } catch (e) {
+                alert("被浏览器拒绝！\n请在浏览器地址栏输入'about:config'并回车\n然后将 'signed.applets.codebase_principal_support'设置为'true'");
+            }
+            var clip = Components.classes['@mozilla.org/widget/clipboard;1'].createInstance(Components.interfaces.nsIClipboard);
+            if (!clip)
+                return;
+            var trans = Components.classes['@mozilla.org/widget/transferable;1'].createInstance(Components.interfaces.nsITransferable);
+            if (!trans)
+                return;
+            trans.addDataFlavor("text/unicode");
+            var str = new Object();
+            var len = new Object();
+            var str = Components.classes["@mozilla.org/supports-string;1"].createInstance(Components.interfaces.nsISupportsString);
+            var copytext = txt;
+            str.data = copytext;
+            trans.setTransferData("text/unicode", str, copytext.length * 2);
+            var clipid = Components.interfaces.nsIClipboard;
+            if (!clip)
+                return false;
+            clip.setData(trans, null, clipid.kGlobalClipboard);
+            alert("复制成功！");
+        }
+        $(".rightpop").show();
+        $("popbg").show();
+    }
+    $(document).on('click', '.closex', function () {
+        $(".rightpop").hide();
+        $("popbg").hide();
+    });
+</script>
+<style>
+	.shareSide .incode t{
+	 font-size: 52px;
+	 text-transform: uppercase;
+	}
+	.usertype_2 .shareSide .incode t{
+		color: #007edb;
+	 }
+	.usertype_1  .shareSide .incode t{
+		color: #e54a3a;
+	 }
+	 .usertype_1 .shareSide .incode dif a{
+		     border: 1px solid #e54a3a;
+		     color: #e54a3a;
+	 }
+	 @media screen and (max-width: 750px){
+		 .shareSide .incode t{
+		  font-size: 24px;
+		 }
+	 }
+</style>
+</html>

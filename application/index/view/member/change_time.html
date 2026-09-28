@@ -1,0 +1,32 @@
+    <img src="__HOME_IMG__/closex.png" class="closex" alt="">
+    <dif class="headt"><div class="ht"><h2>Change time</h2>   <div class="namer">
+        <name><span>{$teacher.username}</span> {notempty name="location_country.ico_file"}<img src="{$location_country.ico_file}" alt="{$location_country.country_name}">{/notempty}</name>
+        <stars>
+            {php}echo str_repeat('<img src="/public/home/style/img/star.png" alt="">', $teacher['star']);{/php}
+            <span>({$teacher.star})</span>
+        </stars>
+    </div></div>
+        <div class="staues"><span>Availale</span><span>Original time</span><span>Unavailable</span></div></dif>
+    <div class="timeslots">
+        <ul class="cal-hour">
+            <li class="timehour" v-for="(time, i) in HourList" >{{time}}</li>
+        </ul>
+        <ul class="cal-day" @touchmove="touchtoR()">
+            <div class="upweek" @click="upWeek"  v-if="si>0"></div> <div class="downweek" @click="downWeek" v-if=" ei+1 < TdateLists.length" ></div>
+            <li class="day" v-for="(item,index) in TdateLists" v-if=" si<=index && index<= ei ">
+                <div class="cdate">
+                    <div class="date" :class="{today: item[0]==cy && item[1]==cm && item[2] == initD, gray:  (item[1]< cm || item[2]< initD || item[5]>nextMonth) && item[0]<= cy }" >{{item[2]}} {{item[1]}}</div>
+                    <div class="week" :class="{today: item[0]==cy && item[1]==cm && item[2] == initD, gray:  (item[1]< cm || item[2]< initD || item[5]>nextMonth) && item[0]<= cy }"  >{{item[3]}}</div>
+                </div>
+                <div class="timecell" v-for="(time, i) in HourList"
+                     :class="{avaitime:thisday(item[0],item[1],item[2],time,index,i),booked:cbooked(item[0],item[1],item[2],time)}"
+                     @click="book(item[0],item[1],item[2],time,index,i)" >  <div class="timepop">  {{item[1]}}  {{item[2]}}<br> {{HourList[i]}}-{{HourList[i+1]}} </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <div class="timezone">Displays  in your time zone (UTC{$location_teacher.timezone|change_time})</div>
+
+    <script language="JavaScript">
+        var _tablestatus = {$daytimes|raw|default='[]'};
+    </script>

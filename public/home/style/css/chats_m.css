@@ -1,0 +1,241 @@
+nav{box-shadow: none}
+nav.wBG{box-shadow: 0 5px 25px rgba(220,220,220,0.6);}
+nav>.logobox{display: none}
+nav .backar{background: url("../img/backar.png") center center no-repeat;
+    background-size: contain;
+    width: 13px;
+    height: 22px;}
+nav a.blue{text-transform: none;
+    font-size: 1.4rem;
+    color: #007edb;}
+nav .hanbugrmenu{
+    background-image: url("../img/habmenu_b.png");
+}
+nav div.who\? span a.sout{
+   /* background-image: url("../img/signout.png"); */
+}
+body{background: #fff}
+p.topT{
+    font-size: 4.6rem;align-items: center;
+    text-align: center;
+    margin-top: 0px;}
+p.topT::after {
+    width: 180px;
+    height: 16px;}
+P.topT > a{
+    display: none;}
+.main{padding-bottom: 0;
+    padding-left: 20px;
+    margin-top: 20px;
+    padding-right: 20px;
+	margin-bottom: 40px;}
+.classli{
+    padding-top: 60px;}
+.myclass .tabs{
+    position: fixed;
+    left: 20px;
+    right: 20px;
+    background: #fff;
+    top: 125px;z-index: 1;
+}
+.myclass .ht{
+    position: fixed;
+    top: 78px;
+    background: #fff;
+    z-index: 1;
+    left: 20px;
+    right: 20px;
+    padding: 18px 0;
+}
+.myclass .ht a{
+    display: none;}
+.myclass{box-shadow: none;
+padding: 40px 0 0 0}
+.classbox rightt{text-align: right;
+    width: 49.9%;}
+
+.classbox  price{
+    margin-top: 8px;
+    display: block;}
+rightt staus{
+    display: block;}
+.classbox headinfo{
+    width: 100%;}
+.classbox staus{
+    width: 100%;
+    margin-top: 0;
+    margin-left: 0;}
+.classbox headinfo time{
+    line-height: 1.5;}
+.popreview{
+    border-radius: 0;
+    height: 100%;
+    overflow-y: auto;
+}
+.popreview rt{
+    padding-top: 20px;}
+.popreview rt b{
+    margin-bottom: 20px;
+    display: block;}
+.popreview > img{
+    left: 30px;
+    top: 20px;}
+.popstu{
+    top: 0;
+    bottom: 0;
+    right: 0;
+    border-radius: 0;
+    left: 0;
+    padding: 20px;
+    transform: translate(0,0);
+}
+.popstu > img{right: initial;
+    left: 20px;}
+.popstu topt{
+    flex-wrap: wrap;
+    margin-top: 50px;}
+.usertype_2 .timetable .popstu topt name{
+    color: #007edb;
+    display: block;
+    width: 100%;
+}
+.popstu topt vline{
+    display: none;}
+.popstu topt div{
+    width: 100%;
+    padding-right: 0;
+    padding-top: 15px;}
+.popstu topt div label{
+    width: 61%;
+    display: inline-block;
+}
+.footwrap{
+    display: none;}
+footnav .cur{
+    background: url("../img/myclass-red.png") no-repeat center center;
+    background-size:auto 24px;
+}
+.usertype_2 footnav #foot_a_3.cur{
+    background: url("../img/stuclass-blue.png") no-repeat center center;
+    background-size:auto 24px;
+}
+.usertype_1 footnav #foot_a_6.cur{
+    background: url("../img/mycart_red.png") no-repeat center center;
+    background-size:auto 24px;
+}
+footnav .cur img{visibility: hidden}
+/**/
+/**/
+.mycart .classli{
+    padding-top: 10px;}
+.mycart .classbox{
+    flex-wrap: wrap;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+.mycart .classbox rightt{
+    width: 100%;flex-direction: initial;
+    justify-content:flex-end;
+}
+.mycart midt{
+    flex-direction: column;
+    text-align:right;
+    height: 100%;
+}
+.mycart rightt{
+    margin-top:25px;}
+.mycart a.bt{
+    border-radius:12px;
+    margin-left:20px;
+    margin-bottom:0;}
+.mycart .classbox headinfo name{
+    font-size: 18px;
+    color: #e54a3a;}
+.mycart uprice{
+    line-height: 24px;
+}
+.mycart .classbox leftt{
+    width: 40%;
+}
+.myclass .boxt{
+	margin-right: 10px;
+}
+.classbox.comp staus{
+	text-align: right;
+}
+.classbox{
+	padding: 20px 0;
+}
+.classbox:last-child:after{
+	background: #e3e3e3;
+}
+.n_footerMain{
+	display: none;
+}
+.x_datePre::after,
+.x_dateNext::after{
+	font-size: 20px;
+}
+
+.chatsListTime br{
+	display: block;
+}
+.chatsListTime{
+	line-height: 20px;
+	font-weight: normal;
+} 
+.chatsList li{
+	width: 50%; 
+}
+
+.chatsList{
+	 
+	padding: 0 10px;
+}
+.chatListTool{
+	margin-top: 0;
+}
+
+
+.popreview{
+    border-radius: 0;
+    height: 100%;
+    overflow-y: auto;
+}
+.popreview rt{
+    padding-top: 20px;}
+.popreview rt b{
+    margin-bottom: 20px;
+    display: block;}
+.popreview > img{
+    left: 30px;
+    top: 20px;}
+.popstuNew{
+    top: 0;
+    bottom: 0;
+    right: 0;
+    border-radius: 0;
+    left: 0;
+    padding: 20px;
+    transform: translate(0,0);
+}
+.popstuNew > img{right: initial;
+    left: 20px;}
+.popstuNew topt{
+    flex-wrap: wrap;
+    margin-top: 50px;}
+.usertype_2 .timetable .popstuNew topt name{
+    color: #007edb;
+    display: block;
+    width: 100%;
+}
+.popstuNew topt vline{
+    display: none;}
+.popstuNew topt div{
+    width: 100%;
+    padding-right: 0;
+    padding-top: 15px;}
+.popstuNew topt div label{
+    width: 61%;
+    display: inline-block;
+}

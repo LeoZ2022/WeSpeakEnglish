@@ -1,0 +1,16 @@
+{volist name="comment_list" id="vo"}
+<div class="reviewbox">
+    <div class="learnamer">
+        <name><span>{$vo.username}</span></name>
+        <stars>
+            {php}echo str_repeat('<img src="/public/home/style/img/star.png" alt="">', $vo['score_student']);{/php}
+            <span>({$vo.score_student})</span>
+        </stars>
+    </div>
+    <p>{$vo.comment_student}</p>
+    <btime>{php} echo time_to_date($vo['comment_student_time'], $location_login, 'd M Y');{/php} | From {$vo.country_name}</btime>
+</div>
+{/volist}
+<div class="pages">
+    {$comment_list->render()|raw}
+</div>

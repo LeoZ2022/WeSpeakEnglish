@@ -1,0 +1,56 @@
+<table class="table table-builder table-hover table-bordered table-striped js-table-checkable">
+    <tbody>
+    <tr>
+        <td>新生买课数</td>
+        <td>0</td>
+        <td>1</td>
+        <td>2</td>
+        <td>3</td>
+        <td>4</td>
+        <td>5</td>
+        <td>6</td>
+        <td>7</td>
+        <td>8</td>
+        <td>9</td>
+        <td>10及以上</td>
+    </tr>
+    <tr>
+        <td>当日人数</td>
+        {volist name="buy_cnts" id="val"}
+        <td>{$val}</td>
+        {/volist}
+    </tr>
+    <tr>
+        <td>历史总计人数</td>
+        {volist name="buy_alls" id="val"}
+        <td>{$val}</td>
+        {/volist}
+    </tr>
+    <tr>
+        <td>老师设置天数</td>
+        <td>0</td>
+        <td>1</td>
+        <td>2</td>
+        <td>3</td>
+        <td>4</td>
+        <td>5</td>
+        <td>6</td>
+        <td>7</td>
+        <td>8</td>
+        <td>9</td>
+        <td>10及以上</td>
+    </tr>
+    <tr>
+        <td>当日人数</td>
+        {volist name="class_cnts" id="val"}
+        <td>{$val}</td>
+        {/volist}
+    </tr>
+    <tr>
+        <td>历史总计人数</td>
+        {volist name="class_alls" id="val"}
+        <td>{$val}</td>
+        {/volist}
+    </tr>
+    </tbody>
+</table>

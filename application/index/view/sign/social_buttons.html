@@ -1,0 +1,11 @@
+<div class="social-login" aria-label="Sign in or sign up with an account">
+    <p>Or continue with</p>
+    <div class="social-login__buttons">
+        <a href="{:url('social_auth/start', ['provider' => 'google'])}" class="social-login__button social-login__button--google"><b>G</b><span>Google</span></a>
+        <a href="{:url('social_auth/start', ['provider' => 'apple'])}" class="social-login__button social-login__button--apple"><b></b><span>Apple</span></a>
+        <a href="{:url('social_auth/start', ['provider' => 'microsoft'])}" class="social-login__button social-login__button--microsoft"><b>⊞</b><span>Outlook</span></a>
+    </div>
+</div>
+<style>
+.social-login{margin:24px 0 20px;text-align:center}.social-login p{color:#888;font-size:14px;margin:0 0 12px}.social-login__buttons{display:flex;gap:8px}.social-login__button{align-items:center;border:1px solid #ddd;border-radius:5px;color:#444;display:flex;flex:1;font:14px Arial,sans-serif;gap:7px;justify-content:center;min-height:40px;text-decoration:none}.social-login__button:hover{border-color:#999;color:#222}.social-login__button b{font-size:20px;line-height:1}.social-login__button--google b{color:#4285f4}.social-login__button--apple b{color:#111}.social-login__button--microsoft b{color:#00a4ef}@media(max-width:480px){.social-login__buttons{flex-direction:column}}
+</style>

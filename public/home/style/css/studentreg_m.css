@@ -1,0 +1,51 @@
+nav{box-shadow: none}
+nav.wBG{box-shadow: 0 5px 25px rgba(220,220,220,0.6);}
+nav>div{display: none}
+
+nav a.blue{text-transform: none;
+    font-size: 1.4rem;
+    color: #e54a3a;
+	font-style: oblique;}
+p.topT{
+    font-size: 4.6rem;
+    margin-top: 20px;}
+P.topT > a{
+    display: none;}
+p.topT::after {
+    top: -15px;}
+.reform{
+    margin-top: 30px;
+    padding-left: 20px;
+    margin-bottom: 30px;
+    padding-right: 20px;}
+.reform dib{
+    margin-bottom: 34px;}
+.reform dib label span{
+    font-size: 12px;}
+.reform dib input{
+    width: 100%;
+	font-size: 16px;}
+.reform dib input.veri{
+    width: 70%;}
+.reform dib>p.pn{
+    padding-left: 4px;
+    padding-top: 10px;
+}
+.footwrap{
+    display: none;}
+.formal{
+    margin-top: 0;}
+.reform dib div>label{
+	margin-bottom: 0;	
+}
+.reform dib>label{
+	font-size: 18px;
+}
+.reform dib textarea{
+	font-size: 16px;
+}
+.reform input[type="submit"]{
+	width: 100%;
+	height: 50px;
+	margin-bottom: 20px;
+}

@@ -1,0 +1,20 @@
+{eq name="user_type" value="2"}
+{volist name="lists" id="v"}
+<li>
+    <div class="chatsListBox">
+        <div class="chatsListUserName teacherName"><a href="{:url('tutors/detail', ['teacher_id'=>$v.teacher_id])}" target="_blank">{$v.username}</a></div>
+        <div class="chatsListTime"><?php echo date('d M', strtotime($v['book_date'])); ?> </br>{$v.time_begin}-{$v.time_end}</div>
+    </div>
+</li>
+{/volist}
+{else}
+{volist name="lists" id="v"}
+<li>
+    <div class="chatsListBox">
+        <div class="chatsListUserName teacherName"><a href="javascript:;"
+                                                      class="learnerNameClick" data-language="{$native_languages[$v.native_language]|default=''}" data-level="{$english_levels[$v.english_level]|default=''}" data-descr="{$v.descr}" data-goals="{$v.goals}" data-locaion="{$countrys[$v.country_id]|default=''}">{$v.username}</a></div>
+        <div class="chatsListTime"><?php echo date('d M', strtotime($v['book_date'])); ?> </br>{$v.time_begin}-{$v.time_end}</div>
+    </div>
+</li>
+{/volist}
+{/eq}

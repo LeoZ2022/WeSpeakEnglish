@@ -1,0 +1,121 @@
+2023-06-27 07:30:03 callback
+{
+	"EventGroupId":	1,
+	"EventType":	101,
+	"CallbackTs":	1687822203558,
+	"EventInfo":	{
+		"RoomId":	12180,
+		"EventTs":	1687822203,
+		"EventMsTs":	1687822203485,
+		"UserId":	"306"
+	}
+}
+
+2023-06-27 07:30:03 callback
+{
+	"EventGroupId":	1,
+	"EventType":	103,
+	"CallbackTs":	1687822203561,
+	"EventInfo":	{
+		"RoomId":	12180,
+		"EventTs":	1687822203,
+		"EventMsTs":	1687822203485,
+		"UserId":	"306",
+		"Role":	20,
+		"TerminalType":	3,
+		"UserType":	3,
+		"Reason":	1
+	}
+}
+
+2023-06-27 07:30:21 callback
+{
+	"EventGroupId":	1,
+	"EventType":	103,
+	"CallbackTs":	1687822221540,
+	"EventInfo":	{
+		"RoomId":	12180,
+		"EventTs":	1687822221,
+		"EventMsTs":	1687822221465,
+		"UserId":	"327",
+		"Role":	20,
+		"TerminalType":	2,
+		"UserType":	3,
+		"Reason":	1
+	}
+}
+
+2023-06-27 07:43:29 callback
+{
+	"EventGroupId":	1,
+	"EventType":	104,
+	"CallbackTs":	1687823009364,
+	"EventInfo":	{
+		"RoomId":	12180,
+		"EventTs":	1687823009,
+		"EventMsTs":	1687823009275,
+		"UserId":	"327",
+		"Role":	20,
+		"Reason":	1
+	}
+}
+
+2023-06-27 07:43:51 callback
+{
+	"EventGroupId":	1,
+	"EventType":	103,
+	"CallbackTs":	1687823031717,
+	"EventInfo":	{
+		"RoomId":	12180,
+		"EventTs":	1687823031,
+		"EventMsTs":	1687823031641,
+		"UserId":	"327",
+		"Role":	20,
+		"TerminalType":	2,
+		"UserType":	3,
+		"Reason":	1
+	}
+}
+
+2023-06-27 08:02:05 callback
+{
+	"EventGroupId":	1,
+	"EventType":	104,
+	"CallbackTs":	1687824124910,
+	"EventInfo":	{
+		"RoomId":	12180,
+		"EventTs":	1687824124,
+		"EventMsTs":	1687824124840,
+		"UserId":	"327",
+		"Role":	20,
+		"Reason":	1
+	}
+}
+
+2023-06-27 08:02:05 callback
+{
+	"EventGroupId":	1,
+	"EventType":	102,
+	"CallbackTs":	1687824125765,
+	"EventInfo":	{
+		"RoomId":	12180,
+		"EventTs":	1687824125,
+		"EventMsTs":	1687824125684
+	}
+}
+
+2023-06-27 08:02:05 callback
+{
+	"EventGroupId":	1,
+	"EventType":	104,
+	"CallbackTs":	1687824125764,
+	"EventInfo":	{
+		"RoomId":	12180,
+		"EventTs":	1687824125,
+		"EventMsTs":	1687824125684,
+		"UserId":	"306",
+		"Role":	20,
+		"Reason":	1
+	}
+}
+

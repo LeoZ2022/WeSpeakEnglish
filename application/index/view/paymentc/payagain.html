@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+    
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?4a6c48c79b79effb3722c8e5e07f391f";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-190244183-1">
+</script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-190244183-1');
+</script>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"  content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no,initial-scale=1.0">
+    <title>Payment_{:config('web_site_title')}</title>
+    <link rel="stylesheet" href="__HOME_CSS__/layout.css">
+    <link rel="stylesheet" href="__HOME_CSS__/donate.css">
+    <link rel="stylesheet" type="text/css" href="__HOME_CSS__/donate_m.css" media="(max-width: 750px) "/>
+    {include file="public/header_js"}
+		<!-- Google Tag Manager -->
+	<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+	new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+	j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+	'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+	})(window,document,'script','dataLayer','GTM-MTCT69F');</script>
+	<!-- End Google Tag Manager -->
+</head>
+<body class="usertype_{$user_type} partner{$is_partner|default=0}">
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MTCT69F"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+<nav class="dif" style="box-shadow: 0 5px 25px rgb(220 220 220 / 60%);">
+    <a class="backar pn" href="{:url('member/orders')}"></a>
+	<div class="ncenter" style="color: #e54a3a;">PAY</div>
+    {include file="public/nav_menu"}
+</nav>
+<div class="main">
+    <div class="payMain">
+        <p class="payMainText">Thank you for your booking. <br>You need to complete the payment <br>within 10 minutes. <br>If it is overtime, <br>you need to make a new booking.</p>
+        <div class="payFoot">
+            <a href="{:url('payment/index', ['pay_id'=>$pay_id])}" class="payBtn_1">pay again</a>
+            <a href="{:url('member/schedule')}" class="payBtn_2">payment successful</a>
+        </div>
+    </div>
+</div>
+{include file="public/footer"}
+{include file="member/member_js"}
+</body>
+<script src="__HOME_JS__/jquery-3.5.1.min.js"></script>
+<script src="__HOME_JS__/comm.js"></script>
+<script src="__HOME_JS__/jquery.qrcode.min.js"></script>
+<script type="text/javascript">
+</script>
+<style>
+    .payMain{
+        text-align: center;
+        padding: 50px 10px 0 10px;
+    }
+    .payMainText{
+        font-family: Fjalla;
+        font-size: 20px;
+        color: #555;
+		line-height: 180%;
+		
+    }
+    .payFoot{
+        padding: 20px 0 0 0;
+    }
+    .payBtn_1{
+        display: inline-block;
+        width: 320px;
+        height: 60px;
+        line-height: 60px;
+        font-size: 24px;
+        font-family: Fjalla;
+        color: #E65445;
+        border: 2px solid #E65445;
+        border-radius: 6px;
+		text-transform:uppercase;
+        margin: 10px;
+        text-decoration: none;
+    }
+    .payBtn_2{
+		text-transform:uppercase;
+        text-decoration: none;
+        display: inline-block;
+        width: 320px;
+        height: 60px;
+        line-height: 60px;
+        font-size: 24px;
+        font-family: Fjalla;
+        color: #fff;
+        background: #E54A3A;
+        border: 2px solid #E65445;
+        border-radius: 6px;
+        margin:10px;
+    }
+    .payBtn_1:hover{
+        color: #f85b36;
+        border: 2px solid #f85b36;
+    }
+    .payBtn_2:hover{
+        color: #fff;
+        background: #f85b36;
+        border: 2px solid #f85b36;
+    }
+    .usertype_2 .payBtn_1{
+        color: #007edb;
+        border: 2px solid #007edb;
+    }
+    .usertype_2 .payBtn_2{
+        color: #fff;
+        background:#007edb;
+    }
+    .usertype_2 .payBtn_1:hover{
+        color: #179dff;
+        border: 2px solid #179dff;
+    }
+    .usertype_2 .payBtn_2:hover{
+        color: #fff;
+        background: #179dff;
+        border: 2px solid #179dff;
+    }
+    @media screen and (max-width: 750px)  {
+        .payBtn_2,
+        .payBtn_1{
+            display:block;
+            margin: 25px auto;
+            width: 225px;
+            height: 40px;
+            line-height: 40px;
+            font-size: 20px;
+        }
+    }
+</style>
+</html>

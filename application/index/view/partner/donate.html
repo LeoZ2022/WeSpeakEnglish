@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?4a6c48c79b79effb3722c8e5e07f391f";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-190244183-1">
+</script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-190244183-1');
+</script>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"  content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no,initial-scale=1.0">
+    <title>Donate_{:config('web_site_title')}</title>
+    <link rel="stylesheet" href="__HOME_CSS__/layout.css">
+    <link rel="stylesheet" href="__HOME_CSS__/partnerdonate.css">
+    <link rel="stylesheet" type="text/css" href="__HOME_CSS__/partnerdonate_m.css" media="(max-width: 750px) "/>
+    {include file="public/header_js"}
+</head>
+<body class="usertype_{$user_type} partner{$is_partner|default=0}">
+    <nav class="dif">
+        <a class="backar pn" href="{:url('accounts')}"></a>
+        {include file="public/nav_menu"}
+    </nav>
+<div class="main">
+    <dif class="ht"><b>Donate</b> <a href="{:url('accounts')}">back</a></dif>
+    <dif class="withdrawinput amount">
+        <label >Amount(USD)</label> <input type="text" id="money">
+        <span class="msinfo">Please enter the amount you want to donate</span>
+    </dif>
+    <dif class="withdrawinput">
+        <label >Account balance</label> <b class="">
+        <input name="withdraw" value="1" id="withdraw" onclick="use_money()" type="checkbox">
+        <label value="withdraw" class="withdraw" for="withdraw"></label>
+        <span class="user_money">- $ <strong style="font-weight: bold;">0</strong></span></b>
+        <span class="msinfo">You have  Balance total of <span style="font-weight: bold;">{$user_info.moneys}</span></span>
+    </dif>
+    <dif class="withdrawinput">
+        <label >Payment method</label>
+        <div class="paymethod">
+            <input name="method" value="1" id="paypal" type="radio">
+            <label value="paypal" for="paypal"><img src="__HOME_IMG__/paypal.png" alt=""> <check></check> </label>
+            {if condition="config('custom.wechat_snap_state') eq 1"}
+            <input name="method" value="2" id="wechat" type="radio">
+            <label value="wechat" for="wechat"><img src="__HOME_IMG__/Wechat.png" alt=""><check></check> </label>
+            {/if}
+            <input name="method" value="3" id="alipay" type="radio">
+            <label value="alipay" for="alipay"><img src="__HOME_IMG__/alipay.png" alt=""><check></check> </label>
+            {if condition="config('custom.wechat_china_state') eq 1"}
+            <input name="method" value="4" id="wechat2" type="radio">
+            <label value="wechat" for="wechat2"><img src="__HOME_IMG__/Wechat.png" alt=""><check></check> </label>
+            {/if}
+        </div>
+    </dif>
+    <dif class="withdrawinput">
+        <label >Payment amount</label> <b class="pay_money">$ 0.00</b>
+    </dif>
+</div>
+   <div class="paybarouter fixed">
+       <dif class="paybar">
+           <span></span>
+           <div class="btbox">
+<dib><b class="pay_money">$ 0.00</b>
+<p>Payment amount</p></dib>
+               <input type="submit" value="Donate" class="confirm_button">
+           </div>
+       </dif>
+   </div>
+    {include file="public/footer"}
+    {include file="member/member_js"}
+</body>
+<script>
+    var _user_money = {$user_info.moneys|default=0};
+    var _pay_money = 0;
+    $(document).on('blur', '#money', function () {
+        use_money();
+    });
+    function use_money() {
+        var _money = $('#money').val();
+        if (_money > 0) {
+            if(document.getElementById('withdraw').checked) {
+                _use_money = _user_money;
+                if (_money > _use_money) {
+                    _use = _use_money;
+                } else {
+                    _use = _money;
+                }
+            } else {
+                _use = 0;
+            }
+            $('.user_money').html('- $' + _use);
+            _pay_money = _money - _use;
+            $('.pay_money').html('$ '+ _pay_money);
+        } else {
+            $('#money').focus();
+        }
+    }
+    $(document).on('click', '.confirm_button', function () {
+        var _money = $('#money').val();
+        if (_money > 0) {
+            var _method = $("input[name='method']:checked").val();
+            if (_pay_money >0 && !_method) {
+                showmsg('Please select Payment method', 201);
+                return false;
+            }
+            if (document.getElementById('withdraw').checked) {
+                _withdraw = 1;
+            } else {
+                _withdraw = 0;
+            }
+            var _data = {money: _money, pay_type: _method, withdraw: _withdraw};
+            $.ajax({
+                data: _data,
+                type: 'post',
+                dataType: 'json',
+                url: '/index/member/donate',
+                success: function (res) {
+                    if (res.code == 200) {
+                        if (res.pay_money > 0) {
+                            //需要在线支付
+                            location.href = res.pay_url;
+                        } else {
+                            showmsg(res.msg, res.code);
+                            setTimeout('location.href="/index/member/accounts"', 1000);
+                        }
+                    } else {
+                        showmsg(res.msg, 201);
+                    }
+                }
+            })
+        } else {
+            $('#money').focus();
+        }
+    })
+    // $(document).scroll(
+    //     function (){
+    //         if(   $(document.body).width() > 760    ){
+    //             if( $(document).scrollTop()>350 ){
+    //                 $(".paybarouter").removeClass("fixed");
+    //             }else {
+    //                 $(".paybarouter").addClass("fixed");
+    //             }
+    //         }
+    //     }
+    // );
+	
+	$(window).scroll(function() {
+	    //底浮动
+	    if( $(document).height()-$(document).scrollTop()-$(window).height()>165){
+	        $(".paybarouter").addClass("fixed")
+	    }else {
+	        $(".paybarouter").removeClass("fixed")
+	    }
+	})
+</script>
+</html>

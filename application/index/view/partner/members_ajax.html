@@ -1,0 +1,23 @@
+{eq name="user_type" value="2"}
+{volist name="lists" id="v"}
+<div class="membersRow membersRowMain clearfix">
+    <i class="membersRowLine"></i>
+    <div class="membersRowName"><a href="{:url('tutors/detail', ['teacher_id'=>$v.id])}" target="_blank">{$v.username}</a></div>
+    <div class="membersRowScore"><i class="iconfont iconstar"></i> ({$v.star})</div>
+    <div class="membersRowChat">{$v.class_num}</div>
+    <div class="membersRowStatus"  {$v.has_active>0 ? 'style="color: #22ac38;"' : 'style="color: #ccc;"'; } >{$v.has_active ? 'Active' : 'Inactive'}</div>
+</div>
+{/volist}
+
+{else}
+{volist name="lists" id="v"}
+<div class="membersRow membersRowMain clearfix">
+    <i class="membersRowLine"></i>
+    <div class="membersRowName"><a href="javascript:;"
+                                   class="learnerNameClick" data-language="{$native_languages[$v.native_language]|default=''}" data-level="{$english_levels[$v.english_level]|default=''}" data-descr="{$v.descr}" data-goals="{$v.goals}" data-locaion="{$countrys[$v.country_id]|default=''}">{$v.username}</a></div>
+    <div class="membersRowScore"><i class="iconfont iconstar"></i> ({$v.star})</div>
+    <div class="membersRowChat">{$v.class_num}</div>
+    <div class="membersRowStatus"  {$v.has_active>0 ? 'style="color: #22ac38;"' : 'style="color: #ccc;"'; } >{$v.has_active ? 'Active' : 'Inactive'}</div>
+</div>
+{/volist}
+{/eq}

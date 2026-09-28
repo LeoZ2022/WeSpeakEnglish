@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<!--[if IE 9]>         <html class="ie9 no-focus" lang="zh"> <![endif]-->
+<!--[if gt IE 9]><!--> <html class="no-focus" lang="zh"> <!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+
+    <title>{:config('web_site_title')}</title>
+
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1.0">
+
+    <!-- Icons -->
+    <!-- The following icons can be replaced with your own, they are used by desktop and mobile browsers -->
+    <link rel="shortcut icon" href="__STATIC__/img/favicons/favicon.png">
+    <link rel="stylesheet" href="__HOME_CSS__/iconfont.css">
+    <!-- END Icons -->
+
+    <!-- Stylesheets -->
+    <!-- Bootstrap and OneUI CSS framework -->
+    <link rel="stylesheet" href="__ADMIN_CSS__/bootstrap.min.css">
+    <link rel="stylesheet" href="__ADMIN_CSS__/oneui.css">
+    <link rel="stylesheet" href="__ADMIN_CSS__/dolphin.css">
+    <!-- END Stylesheets -->
+</head>
+<body style="background: #fff;" class="usertype_{$user_type}">
+<!-- Error Content -->
+<div class="content bg-white text-center pulldown overflow-hidden" style="display: none;">
+    <div class="row" >
+        <div class="col-sm-6 col-sm-offset-3">
+            <!-- Error Titles -->
+            <h1 class="font-w300 {$code? 'text-success' : 'text-city'} push-10 animated flipInX">
+                <i class="fa fa-{$code? 'check' : 'times'}-circle"></i>
+            </h1>
+            <p class="font-w300 push-20 animated fadeInUp">
+                Auto <a id="href" href="<?php echo($url);?>">jump </a>
+                Waiting time  seconds
+            </p>
+            <div class="push-50">
+                <a class="btn btn-minw btn-rounded btn-success" href=""><i class="fa fa-external-link-square"></i> Jump now</a>
+                <button class="btn btn-minw btn-rounded btn-warning" type="button"><i class="fa fa-ban"></i> Stay here</button>
+            </div>
+            <!-- END Error Titles -->
+
+        </div>
+    </div>
+</div>
+
+<div style="text-align: center; padding: 15% 20px 0 20px; margin: 0 auto;">
+
+    {notempty name="code"}
+    <div class="jgIcon" style=" background: #42C9B9;"><i class="iconfont iconcheck-right"></i></div>
+    <div class="jgTitle" style="color: #42C9B9;"><?php echo(strip_tags($msg));?></div>
+    {else}
+    <div class="jgIcon" style=" background: #FF9A00;"><i class="iconfont iconwrong"></i></div>
+    <div class="jgTitle" style="color: #FF9A00;"><?php echo(strip_tags($msg));?> </div>
+    {/notempty}
+    <div class="jgText">Auto jump Waiting time <b id="wait"><?php echo($wait);?></b> seceonds</div>
+    <div class="jgFoot">
+        <a href="javascript:;" class="btn_1" onclick="stop()">NO JUMPING</a>
+        <a href="<?php echo($url);?>" class="btn_2">JUMP NOW</a>
+    </div>
+</div>
+<style>
+    .jgIcon{
+        width: 50px;
+        height: 50px;
+        border-radius: 100%;
+        line-height: 50px;
+        text-align: center;
+        margin: 0 auto;
+        color: #fff;
+
+    }
+    .jgIcon i{
+        font-size: 28px;
+    }
+    .jgTitle{
+        font-size: 26px;
+        padding: 10px 0 0 0;
+        font-family: Fjalla;
+    }
+    .jgText{
+        font-size: 22px;
+        color: rgba(85,85,85,.8);
+        padding: 15px 0 0 0;
+    }
+    .btn_1{
+        display: inline-block;
+        line-height: 56px;
+        width: 260px;
+        background: #FFFFFF;
+        border: 2px solid #E54A3A;
+        border-radius: 12px;
+        font-size: 24px;
+        font-family: Fjalla One;
+        font-weight: 400;
+        color: #E65445;
+        line-height: 60px;
+        margin: 0 10px;
+    }
+    .btn_1:hover{
+        color: #E65445;
+        opacity: .8;
+    }
+    .btn_2{
+        display: inline-block;
+        line-height: 56px;
+        width: 260px;
+        background: #E54A3A;
+        border: 2px solid #E54A3A;
+        border-radius: 12px;
+        border-radius: 12px;
+        font-size: 24px;
+        font-family: Fjalla One;
+        font-weight: 400;
+        color: #fff;
+        line-height: 60px;
+        margin: 0 10px;
+    }
+    .btn_2:hover{
+        color: #fff;
+        opacity: .8;
+    }
+    .jgFoot{
+        padding: 45px 0 0 0;
+    }
+</style>
+<!-- END Error Content -->
+
+<!-- Error Footer -->
+<!-- END Error Footer -->
+
+<script type="text/javascript">
+    (function(){
+        let wait  = document.getElementById('wait'),
+            href  = document.getElementById('href').href,
+            pop   = '{$Request.param._pop}'; //获取窗口索引
+
+        let interval = setInterval(function(){
+            let time = --wait.innerHTML;
+            if(time <= 0) {
+                if (pop === '1' && parent.layer !== undefined) {
+                    let index = parent.layer.getFrameIndex(window.name);
+                    parent.layer.close(index);
+                } else {
+                    location.href = href;
+                }
+                clearInterval(interval);
+            }
+        }, 1000);
+
+        // 禁止跳转
+        window.stop = function (){
+            clearInterval(interval);
+        }
+    })();
+</script>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<style type="text/css">
+    .col-sm-12{ padding: 0; }
+</style>
+
+<div class="col-sm-12">
+    <div class="block-header bg-gray-lighter">
+        <ul class="block-options">
+            <li><button type="button" class="page-reload"><i class="si si-refresh"></i></button></li>
+            <li><button type="button" data-toggle="block-option" data-action="fullscreen_toggle"><i class="si si-size-fullscreen"></i></button></li>
+        </ul>
+        <h3 class="block-title">老师账户余额  平均值：{$datas.avg.avg|number_format=2}</h3>
+    </div>
+    <div class="tab-content">
+        <div class="tab-pane active">
+            <div class="col-sm-6">
+                <table class="table table-builder table-hover table-bordered table-striped js-table-checkable">
+                    <tbody>
+                    <tr><td>序号</td><td>余额</td><td>ID</td></tr>
+                    {volist name="datas.teachers" id="row"}
+                    <tr><td>{$i}</td><td> {$row.moneys} </td><td>{$row.id}</td></tr>
+                    {/volist}
+                    </tbody>
+                </table>
+            </div>
+            <div class="col-sm-6">
+                <table class="table table-builder table-hover table-bordered table-striped js-table-checkable">
+                    <tbody>
+                    <tr><td>序号</td><td>余额范围</td><td>人数</td></tr>
+                    {volist name="datas.levels" id="row"}
+                    <tr><td>{$i}</td><td> {$row.money*5} - {$row.money*5+5} </td><td>{$row.cnt}</td></tr>
+                    {/volist}
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="col-sm-6">
+                <table class="table table-builder table-hover table-bordered table-striped js-table-checkable">
+                    <tbody>
+                    <tr><td>付款方式</td><td>PayPal</td><td>支付宝</td><td>微信</td></tr>
+                    <tr><td>数量</td><td class="pay_cnt_1">{$datas.pay_types.pay_cnt_1}</td><td class="pay_cnt_2">{$datas.pay_types.pay_cnt_2}</td><td class="pay_cnt_3">{$datas.pay_types.pay_cnt_3}</td></tr>
+                    <tr><td>占比</td><td class="pay_per_1">{$datas.pay_types.pay_per_1}</td><td class="pay_per_2">{$datas.pay_types.pay_per_2}</td><td class="pay_per_3">{$datas.pay_types.pay_per_3}</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+        <div class="clearfix"></div>
+    </div>
+</div>

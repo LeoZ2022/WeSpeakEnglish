@@ -1,0 +1,278 @@
+nav{background:#fff;}
+nav a{vertical-align: middle;
+    color: #424242;}
+nav .logo {
+    background-image: url("../img/logoblue.png");
+}
+a{
+    color: #83523b;}
+nav .logo{
+    background-image: url("../img/logoblue.png");
+}
+/* body{background: #F8F8F8} */
+nav div span a{text-transform: none;text-decoration: none}
+nav div span line{
+    padding-left: 14px;
+    padding-right: 14px;}
+nav div span .blue{
+    color: #83523b;}
+nav div.who\?{
+    display: none;}
+nav .on{
+    color: #83523b;}
+nav .on::after {
+    background: #83523b;
+    width: 40px;
+    height: 2px;
+    content: " ";
+    top: 10px;
+    position: relative;
+}
+.main{
+    width: 100%;max-width: 1260px;
+    margin: 56px auto 0;
+}
+.myclass{
+    width: 100%;
+    border-radius: 10px;
+    padding:40px 20px;
+    /* box-shadow: 0 0 10px rgba(225,225,225,0.4); */
+    }
+.wb.myclass{background: #fff;
+    padding-top: 0;}
+.myclass .ht{
+    margin-bottom: 30px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 30px;
+    justify-content: space-between}
+.myclass .ht b{
+    font-size: 2.6rem;
+    font-family: Fjalla;
+    text-transform: uppercase;
+    color: #83523b;}
+.usertype_2 .myclass .ht b{
+    color: #83523b !important;
+}
+.myclass .ht a{
+    font-size: 2rem;
+    color: #83523b;
+    font-family: Fjalla;
+    text-transform: uppercase;
+    text-decoration: none;
+    line-height: 34px;
+    padding-left: 36px;
+    background:url("../img/backarred.png") left center no-repeat;
+}
+nav.wBG+.wb.myclass .ht{
+    position: fixed;z-index: 2;
+    left: 20px;
+    right: 20px;   background: #fff;
+    top: 78px;
+}
+nav.wBG{
+	box-shadow: none;
+}
+.profilebox{
+    display: block;
+    width: 100%;
+border-right:none}
+.inputbox>label{
+    margin-bottom: 14px;}
+.myclass .abt{
+    display: block; 
+    color: #685654;
+    margin-bottom: 25px;
+    font-family: Fjalla;
+    font-size: 2rem;
+    padding-bottom: 25px;
+    text-decoration: none;
+	position: relative;
+}
+.myclass .abt::after {
+    display: block;
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 1px;
+    background-image: linear-gradient(to right, #dedede 0%, #dedede 50%, transparent 0%);
+    background-size: 10px 1px;
+    background-repeat: repeat-x;
+	
+}
+.myclass .abt>img{
+    width: 7px;
+    float: right;
+    opacity: 0.4;
+    transform: rotate(180deg);
+}
+.myclass .abt:last-child::after {
+    display: block;
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 1px;
+    background:#e9e9e9;
+	
+}
+.inputbox vtips{
+    color: #83523b;
+    font-size: 1.2rem;
+    margin-left: 6px;
+}
+.inputbox{
+    margin-bottom: 20px;}
+.inputbox>label{
+    font-size: 1.4rem;
+    display: block;
+   }
+.inputbox > label.top{vertical-align:top}
+.inputbox span{
+    color: #999;
+}
+.inputbox  .edd-root{
+    margin-top: 0;
+    vertical-align: middle;
+    width: 100%;}
+.inputbox  .edd-head{border-radius: 6px;
+    font-size: 1.4rem;
+border: 1px solid #e7eaef}
+.edd-value{
+    padding-left: 15px;
+	font-size: 16px;}
+.inputbox input[type="text"]{
+    border-radius: 6px;width: 100%;
+    height: 40px;
+    padding-left: 15px;
+    border: 1px solid #e7eaef;
+	font-size: 16px;}
+.inputbox dib label{
+    background: #f5f5f5;
+    text-align: center;
+    cursor: pointer;
+    padding-left:12px;
+    display: inline-block;
+    line-height: 30px;
+    font-size: 14px;
+    padding-right: 12px;    border-radius: 10px;
+}
+.inputbox dib input[type="radio"]{
+    display: none;}
+.inputbox dib input[type="radio"]:checked+ label{
+    background: #fdf2f1;
+    color: #83523b;
+}
+.inputbox textarea{border: 1px solid #e7eaef;
+    display: inline-block;
+	font-size: 16px;
+border-radius:6px;
+    padding: 16px 19px;
+    width: 100%;
+    height: 160px;}
+.chpassword{
+    width: 100%;
+    float: none;
+}
+.chpassword bt{
+	padding: 0 0 20px 0;
+    color: #685654 !important;
+    margin-bottom: 20px;
+    display: block;
+    font-family: Fjalla;
+    font-size: 2rem;
+	border-bottom: 1px solid #eee;}
+.chpassword .inputbox input[type="password"]{
+    border-radius: 6px;
+    height: 40px;
+    width: 100%;
+    padding-left: 15px;
+    border: 1px solid #e7eaef;
+	font-size: 16px;}
+.chpassword .inputbox>label{
+    width: 160px;
+	font-size: 14px;
+	color: #555;}
+.chpassword input::-webkit-input-placeholder{
+	color:rgba(85,85,85,.5);
+}
+.chpassword input::-moz-placeholder{   /* Mozilla Firefox 19+ */
+	color:rgba(85,85,85,.5);
+}
+.chpassword input:-moz-placeholder{    /* Mozilla Firefox 4 to 18 */
+	color:rgba(85,85,85,.5);
+}
+.chpassword input:-ms-input-placeholder{  /* Internet Explorer 10-11 */
+	color:rgba(85,85,85,.5);
+}
+.inputbox input[type="password"]:focus,.inputbox input[type="text"]:focus{
+    border-color: #83523b;
+}
+.usertype_2 .inputbox input[type="password"]:focus,.usertype_2 .inputbox input[type="text"]:focus{
+    border-color: #83523b;
+}
+.submit{text-align: center;
+        margin-top: 45px;
+        padding-top: 0;
+        width: 100%; 
+}
+.submit input[type="submit"]{
+	width: 100%;
+    text-align: center;
+    color: #fff;
+    line-height: 50px;
+	height: 50px;
+    font-size: 2.4rem;
+    cursor:pointer;
+    font-family: Fjalla;
+    background: #83523b;
+    border-radius:12px;
+	text-transform: uppercase;
+}
+.usertype_2 .submit input[type="submit"]{
+    background: #83523b;
+}
+.usertype_2 .stu{
+    display: none;
+}
+.usertype_1 .tut{
+    display: none;
+}
+.usertype_2 .tut{
+    display: block;
+}
+.usertype_1 .stu{
+    display: block;
+}
+.footwrap{
+    display: none;}
+.n_footerMain{
+	display: none;
+}
+
+#accept_email+label{
+	    vertical-align: middle;
+	    width: 18px;
+	    height: 18px;
+	    display: inline-block;
+	    border-radius: 4px;
+	    cursor: pointer;
+	    background-color: #fff;
+	    border: 1px solid #ccc;
+		padding-left: 0;
+	}
+	#accept_email:checked+label{
+	    background: #83523b url("../img/brownwche.png") no-repeat center center;
+	    background-size: contain;
+	    border: none;
+	}
+	#accept_email[disabled]+label,#accept_email[disabled=disabled]+label{
+	    pointer-events: none;
+	    opacity: 0.6;
+	}
+	#accept_email[disabled]+label+p,#accept_email[disabled=disabled]+label+p{
+	    opacity: 0.5;
+	    font-size: 14px;
+	}

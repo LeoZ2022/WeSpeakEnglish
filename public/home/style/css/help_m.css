@@ -1,0 +1,124 @@
+nav{box-shadow: 0 5px 25px rgba(220,220,220,0.6);}
+nav>div{display: none}
+nav .backar{background: url("../img/backar.png") center center no-repeat;
+    background-size: contain;
+    width: 13px;
+    height: 22px;}
+nav a.blue{text-transform: none;
+    font-size: 1.4rem;
+    color: #007edb;}
+nav .hanbugrmenu{
+    background-image: url("../img/habmenu_b.png");
+}
+p.topT{
+    font-size: 4.6rem;align-items: center;
+    text-align: center;
+    margin: 50px 0 40px 0;}
+p.topT::after {
+    width: 180px;
+    height: 16px;}
+P.topT > a{
+    display: none;}
+.logpic{display: none}
+.main{
+    padding-left: 0;
+    margin-top: 20px;
+    padding-right: 0;
+	margin-bottom: 40px;}
+body{
+	min-height: auto;
+	 
+}
+.helpbt {
+    padding: 0 20px;}
+.helpbt a{
+    width: 100%;
+margin-bottom: 30px   }
+.helpbt a.tutor span{
+    margin: 0;
+}
+.helpbt a.learner span{
+    margin: 0;
+}
+
+.helpbt .tutor span{
+    background-color:#f3f7fd;
+	color: #6288c9;
+}
+.helpbt .tutor span i{
+	color: #6288c9;
+}
+.helpbt .learner span{
+	color: #e54a3a;
+    background-color:#FEF5F1;
+}
+.helpbt .learner span i{
+	color: #e54a3a;
+}
+.helpbt .partner span{
+	color: #83523b;
+    background-color:#fbf6f3;
+}
+.helpbt .partner span i{
+	color: #83523b;
+}
+
+div.help{display: none !important;}
+.main div.help.mb{
+    display: block !important;}
+.main div.help .tabs{
+    margin-top: 0;
+	padding-top: 5px;
+    width: 100%;
+    overflow-x: scroll;
+    white-space: nowrap;
+	padding-left: 5px;
+}
+.help .boxt{
+    display: inline-block;}
+.help .boxt::after {
+    width:initial;
+    left: 10px;
+    bottom: -3px;
+    right: -10px;
+}
+.usertype_1 .help .boxt.g{
+    color: #e54a3a;
+}
+.usertype_1 .help .boxt.g::after{
+    background-color: #FEF5F1 ;
+}
+.usertype_1 .help .helpli .help_head{
+    color: #e54a3a;
+    border-bottom: 1px solid #FEF5F1;
+}
+.usertype_1  .tutorhelp .help_body {
+    border-bottom: 1px solid #FEF5F1;
+}
+.usertype_1 .help .helpli .help_head{
+    background-image: url("../img/helpsh.png");
+}
+.usertype_1 .help .helpli .help_head.show{
+    background-image: url("../img/helpex.png");
+
+}
+.footwrap{    display: none;}
+.logined.user_type_2{
+    width: 300px;
+}
+.usertype_2 .tabs{
+	border-bottom:1px solid #F3F8FD;
+}
+.usertype_1 .tabs{
+	border-bottom:1px solid #FEF5F1;
+}
+.help .boxt{
+	margin:0 14px 20px 14px;
+}
+.helpli{
+	padding: 0 20px;
+}
+
+.n_footerMain{
+	display: none;
+}

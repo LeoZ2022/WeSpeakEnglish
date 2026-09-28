@@ -1,0 +1,258 @@
+{extend name="$_admin_base_layout" /}
+{block name="plugins-css"}
+<link rel="stylesheet" href="__LIBS__/bootstrap-datepicker/bootstrap-datepicker3.min.css">
+{/block}
+
+{block name="content"}
+<div class="row">
+    <div class="col-md-12">
+        <div class="block">
+            <div class="block-header bg-gray-lighter">
+                <ul class="block-options">
+                    <li>
+                        <button type="button" class="page-reload"><i class="si si-refresh"></i></button>
+                    </li>
+                    <li>
+                        <button type="button" data-toggle="block-option" data-action="fullscreen_toggle"><i
+                                class="si si-size-fullscreen"></i></button>
+                    </li>
+                </ul>
+                <h3 class="block-title">Learner MG</h3>
+            </div>
+            <div class="tab-content">
+                <div class="tab-pane active">
+                    <div class="block-content">
+                        <div class="row data-table-toolbar">
+                            <div class="col-sm-12">
+                                <form method="get" action="{:url('index')}">
+                                    <div class="pull-right search-bar">
+                                        <div class="toolbar-btn-action">
+                                        </div>
+                                    </div>
+                                    <div class="toolbar-btn-action">
+                                        <div class="form-inline time-filter">
+                                            <div class="time-filter">
+                                                <div class="input-daterange input-group" data-date-format="yyyy-mm-dd">
+                                                    <input class="form-control" type="text" id="_filter_time_from" name="_filter_time_from" value="{:input('_filter_time_from')}" placeholder="开始日期">
+                                                    <span class="input-group-addon"><i class="fa fa-chevron-right"></i></span>
+                                                    <input class="form-control" type="text" id="_filter_time_to" name="_filter_time_to" value="{:input('_filter_time_to')}" placeholder="结束日期">
+                                                </div>
+                                                <div class="input-group">
+                                                    <div class="input-group-btn">
+                                                        {php}$location = input('location');{/php}
+                                                        <select name="location" class="form-control">
+                                                            <option value="">Location</option>
+                                                            {volist name="locations" id="vo"}
+                                                            <option value="{$i}" {if condition="$location eq $i"}selected{/if}>{$vo}</option>
+                                                            {/volist}
+                                                        </select>
+                                                    </div>
+                                                    <div>
+                                                        <input type="hidden" name="search_field" value="username|email" />
+                                                        <input type="text" class="form-control" value="{:input('keyword')}" id="search-input" name="keyword" placeholder="请输入昵称">
+                                                    </div>
+                                                </div>
+                                                <input type="hidden" id="_filter_time" name="_filter_time" value="create_time">
+                                                <button type="submit" class="btn btn-default">Search</button>
+                                                <!--<input type="submit" name="export" class="btn btn-primary" value="导出" style="margin-left: 30px;">-->
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+
+                        <div class="builder-table-wrapper" id="builder-table-wrapper">
+                            <div class="builder-table" id="builder-table">
+                                <div class="builder-table-head" id="builder-table-head">
+                                    <table class="table table-builder table-hover table-bordered table-striped js-table-checkable">
+                                        <colgroup>
+                                            <col width="50">
+                                            <col width="120">
+                                            <col width="200">
+                                            <col width="50">
+                                            <col width="40">
+                                            <col width="40">
+                                            <col width="40">                                            
+                                            <col width="190">
+                                            <col width="40">
+                                            <col width="120">
+                                            <col width="120">
+                                            <col width="50">
+                                            <col width="40">
+                                        </colgroup>
+                                        <thead>
+                                        <tr>
+                                            <th>ID</th>
+                                            <th>name</th>
+                                            <th>EMAIL</th>
+                                            <th>Bal</th>
+                                            <th>Pay</th>
+                                            <th>Chat</th>
+                                            <th>Veri</th>                                            
+                                            <th>Time Zone</th>
+                                            <th>Zone</th>
+                                            <th>Language</th>
+                                            <th>Sign up time</th>
+                                            <th>St</th>
+                                            <th>Op</th>
+                                        </tr>
+                                        </thead>
+                                    </table>
+                                </div>
+                                <div class="builder-table-body" id="builder-table-body">
+                                    <table class="table table-builder table-hover table-bordered table-striped js-table-checkable-target" id="builder-table-main">
+                                        <colgroup>
+                                            <col width="50">
+                                            <col width="120">
+                                            <col width="200">
+                                            <col width="50">
+                                            <col width="40">
+                                            <col width="40">
+                                            <col width="40">
+                                            <col width="190">
+                                            <col width="40">
+                                            <col width="120">
+                                            <col width="120">
+                                            <col width="50">
+                                            <col width="40">
+                                        </colgroup>
+                                        <tbody>
+                                        {volist name="list" id="vo"}
+                                        <tr>
+                                            <td class=" ">{$vo.id}</td>
+                                            <td class=" ">{$vo.username}</td>
+                                            <td class=" ">{$vo.email}</td>
+                                            <td class=" ">{$vo.moneys}</td>
+                                            <td class=" ">{$vo.paid_num}</td>
+                                            <td class=" ">{$vo.class_num}</td>
+                                            <td class=" ">{$vo.email_verify}</td>                                            
+                                            <td class=" ">{$locations[$vo.location]|default='-'}</td>
+                                            <td class=" ">{$zone[$vo.location]|substr=0,2}</td>
+                                            <td class=" ">{$native_language[$vo.native_language]|default=''}</td>
+                                            <td class=" ">{$vo.create_time|date='Y-m-d H:i'}</td>
+                                            <td class=" ">{eq name="vo.is_locked" value="1"}禁用{else}正常{/eq}</td>
+
+                                            <td class=" "><a href="{:url('edit',['id'=>$vo.id])}">查看</a> </td>
+                                        </tr>
+                                        {/volist}
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="data-table-toolbar">
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    {$list->render()|raw}
+                                    <div class="pagination-info pull-right">
+                                        <div>
+                                            {:input('param.page', '1')}
+                                            / <strong>{$list->lastPage()|raw}</strong> 页，共 <strong>{$list->total()|raw}</strong> 条数据，每页显示数量{php}echo input('param.list_rows', '') == '' ? $list->listRows() : input('param.list_rows');{/php}条
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{/block}
+
+{block name="script"}
+
+<script src="__LIBS__/bootstrap-datepicker/bootstrap-datepicker.min.js"></script>
+<script src="__LIBS__/bootstrap-datepicker/locales/bootstrap-datepicker.en-GB.min.js"></script>
+
+<script src="__LIBS__/jquery-tags-input/jquery.tagsinput.min.js"></script>
+<script src="__LIBS__/jquery-ui/jquery-ui.min.js"></script>
+<script src="__LIBS__/webuploader/webuploader.min.js"></script>
+<script src="__STATIC__/admin/js/custom.js"></script>
+<script>
+    jQuery(function () {
+        App.initHelpers(["datepicker"]);
+    });
+    $(document).ready(function () {
+        var builder_table_head = $('#builder-table-head');
+        var builder_table_left_body = $('#builder-table-left-body');
+        var builder_table_right_body = $('#builder-table-right-body');
+        var table_main = $('#builder-table-main');
+        var table_body = $('#builder-table-body');
+        var table_right = $('#builder-table-right');
+        var table_head_col  = builder_table_head.find('col');
+        var table_body_col  = table_body.find('col');
+        var table_left_head_col  = $('#builder-table-left-head').find('col');
+        var table_right_head_col = $('#builder-table-right-head').find('col');
+        var table_left_body_col = builder_table_left_body.find('col');
+        var table_right_body_col = builder_table_right_body.find('col');
+
+        $('#builder-table-wrapper').css('max-height', ($(window).height() - 380)+'px');
+
+        table_body.css('max-height', $('#builder-table-wrapper').outerHeight() - 50);
+
+        $.each(table_body_col, function (i, e) {
+            var width = $(this).attr('width');
+            table_head_col.eq(i).attr('width', width);
+            table_left_head_col.eq(i).attr('width', width);
+            table_left_body_col.eq(i).attr('width', width);
+            table_right_head_col.eq(i).attr('width', width);
+            table_right_body_col.eq(i).attr('width', width);
+        });
+
+        /* 监听滚动事件 */
+        table_body.on( 'scroll', function (e) {
+            builder_table_head.scrollLeft(this.scrollLeft);
+            builder_table_left_body.scrollTop(this.scrollTop);
+            builder_table_right_body.scrollTop(this.scrollTop);
+        });
+
+        if ($(window).width() > 768 && ($('#builder-table-main tbody').height() > table_body.height())) {
+            $('#builder-table-head').css('margin-right', '17px');
+            $('#builder-table-right').css('right', '17px');
+        } else {
+            $('.builder-table-right-header').hide();
+            $('#builder-table-left,#builder-table-right').hide();
+        }
+
+        if (table_body.width() < $('#builder-table-main').width()) {
+            builder_table_left_body.height(table_body.height() - 17);
+            builder_table_right_body.height(table_body.height() - 17);
+            table_right.height(table_body.height() + 33);
+        } else {
+            builder_table_left_body.height(table_body.height());
+            builder_table_right_body.height(table_body.height());
+            table_right.height(table_body.height() + 50);
+        }
+
+        /*行高亮*/
+        var table_main_tr = table_main.find('tbody tr');
+        var table_left_tr = builder_table_left_body.find('tbody tr');
+        var table_right_tr = builder_table_right_body.find('tbody tr');
+        table_main_tr.hover(function () {
+            table_left_tr.eq($(this).index()).addClass('hover');
+            table_right_tr.eq($(this).index()).addClass('hover');
+        }, function () {
+            table_left_tr.eq($(this).index()).removeClass('hover');
+            table_right_tr.eq($(this).index()).removeClass('hover');
+        });
+        table_left_tr.hover(function () {
+            table_main_tr.eq($(this).index()).addClass('hover');
+            table_right_tr.eq($(this).index()).addClass('hover');
+        }, function () {
+            table_main_tr.eq($(this).index()).removeClass('hover');
+            table_right_tr.eq($(this).index()).removeClass('hover');
+        });
+        table_right_tr.hover(function () {
+            table_main_tr.eq($(this).index()).addClass('hover');
+            table_left_tr.eq($(this).index()).addClass('hover');
+        }, function () {
+            table_main_tr.eq($(this).index()).removeClass('hover');
+            table_left_tr.eq($(this).index()).removeClass('hover');
+        });
+    });
+</script>
+
+{/block}

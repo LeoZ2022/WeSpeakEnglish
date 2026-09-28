@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-190244183-1">
+</script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-190244183-1');
+</script>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"  content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no,initial-scale=1.0">
+    <title>Forget Password_{:config('web_site_title')}</title>
+    <link rel="stylesheet" href="__HOME_CSS__/layout.css">
+    <link rel="stylesheet" href="__HOME_CSS__/fgpassword.css">
+    <link rel="stylesheet" type="text/css" href="__HOME_CSS__/fgpassword_m.css" media="(max-width: 750px) "/>
+    {include file="public/header_js"}
+	<!-- Google Tag Manager -->
+	<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+	new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+	j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+	'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+	})(window,document,'script','dataLayer','GTM-MTCT69F');</script>
+	<!-- End Google Tag Manager -->
+</head>
+<body class="usertype_{$user_type} partner{$is_partner|default=0}">
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MTCT69F"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+<nav class="dif">
+    <a class="backar pn" href="javascript:history.go(-1);"></a>
+    {include file="public/header"}
+    <div class="fg_tutor fg_hb"><span><a href="{:url('register/tutor')}" >New Tutor</a><line>-</line><a class="blue" href="{:url('register/tutor')}">Register</a><line>-</line><a class="blue" href="{:url('sign/tutor')}">Sign in</a></span></div>
+	
+	<div class="fg_learner fg_hb"><span><a href="{:url('register/learner')}" >New Learner</a><line>-</line><a class="blue" href="{:url('register/learner')}">Register</a><line>-</line><a class="blue" href="{:url('sign/learner')}">Sign in</a></span></div>
+	
+	<div class="fg_partner fg_hb"><span><a href="{:url('register/partner')}" >New Partner</a><line>-</line><a class="blue" href="{:url('register/partner')}">Register</a><line>-</line><a class="blue" href="{:url('sign/partner')}">Sign in</a></span></div>
+
+
+</nav>
+<style>
+
+.formal{
+				display: none;
+			}
+			.usertype_1 .formalU1,.usertype_2 .formalU2,.usertype_3 .formalU3{
+				display: flex;
+			}
+</style>
+
+<div class="main clearfix">
+    <div class="logform">
+        <p class="topT">Forgot password</p>
+        <dib>
+            <div>
+                <label >Email</label>
+                <input placeholder="Enter your email" name="email" id="email" type="text">
+                <div class="border"></div></div>
+        </dib>
+        <dib>
+            <div>
+                <label >Security code</label>
+                <input placeholder="Input result" class="veri" type="text" name="verify_code" id="verify_code">
+                <div class="border"></div><span><img class="vrimg" src="{:url('index/verify')}" alt=""></span></div>
+        </dib>
+        <input type="submit" class="submit_forgot" value="Submit">
+    </div>
+	
+
+<dif class="formal  formalU1">
+	<p>Already a Learner ? &nbsp;<a href="{:url('sign/learner')}">Sign in</a></p>
+	<p>New Learner? &nbsp;<a href="{:url('register/learner')}">Register</a></p>
+</dif>
+
+<dif class="formal  formalU2">
+	<p>Already a Tutor ? &nbsp;<a href="{:url('sign/tutor')}">Sign in</a></p>
+	<p>New Tutor? &nbsp;<a href="{:url('register/tutor')}">Register</a></p>
+</dif>
+
+<dif class="formal  formalU3">
+	<p>Already a Partner ? &nbsp;<a href="{:url('sign/partner')}">Sign in</a></p>
+	<p>New Partner? &nbsp;<a href="{:url('register/partner')}">Register</a></p>
+</dif>
+
+
+</div>
+<div class="footerHead">
+    {include file="public/footer"}
+</div>
+{include file="member/member_js"}
+<script language="JavaScript">
+    $(document).on('click', '.submit_forgot', function () {
+        var _email = $('#email').val().trim();
+        var _verify_code = $('#verify_code').val();
+        if (!_email) {
+            $('#email').focus();
+            return false;
+        }
+        if (!_verify_code) {
+            $('#verify_code').focus();
+            return false;
+        }
+        showloading();
+        $.ajax({
+            data: { email: _email, verify_code: _verify_code},
+            type: 'post',
+            dataType: 'json',
+            url: '/index/index/forgot',
+            success: function (res) {
+                showmsg(res.msg, res.code);
+                if (res.code == 200) {
+                    setTimeout("location.href = '/index/'", 2000);
+                } else {
+                    $('#verify_code').val('');
+                    $('.vrimg').attr('src', $('.vrimg').attr('src'));
+                }
+            }
+        })
+    });
+    $(document).on('click', '.vrimg', function () {
+        $('.vrimg').attr('src', $('.vrimg').attr('src'));
+    });
+</script>
+</body>
+
+</html>

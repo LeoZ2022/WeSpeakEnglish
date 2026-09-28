@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"  content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no,initial-scale=1.0">
+    <title>Balance_{:config('web_site_title')}</title>
+    <link rel="stylesheet" href="__HOME_CSS__/layout.css">
+    <link rel="stylesheet" href="__HOME_CSS__/balancetutor.css">
+    <link rel="stylesheet" type="text/css" href="__HOME_CSS__/balancetutor_m.css" media="(max-width: 750px) "/>
+    {include file="public/header_js"}
+</head>
+<body class="usertype_{$user_type} partner{$is_partner|default=0}">
+<nav class="dif">
+    <a class="backar pn" href="{:url('member/index')}"></a>
+    {include file="public/nav_menu"}
+</nav>
+
+<div class="main">
+<div class="tabbox myclass">
+    <dif class="ht"><b>account balance</b> <a href="{:url('member/index')}">back</a></dif>
+    
+	<priceb style="margin-bottom: 0;"><div class="paypalTipsText">BALANCE</div><d>$ {$user_info.moneys}</d> <a href="{:url('withdrawal')}" class="withdraw">withdraw</a><a href="{:url('donate')}" class="Donate">Donate</a>
+        <dib class="paypal">
+            <t>paypal account</t>
+            <dib class="paypal_account">{$user_info.paypal_account|default='Please enter account'}</dib>
+            <img src="__HOME_IMG__/pencil.png" height="21" alt="">
+        </dib>
+        <div class="popaypal">
+            <img src="__HOME_IMG__/closex.png" alt="">
+            <t>paypal account</t>
+            <input type="text" value="{$user_info.paypal_account|default='Please enter account'}" id="paypal_account">
+            <input type="submit" value="Update" class="edit_account">
+        </div>
+    </priceb>
+    
+</div>
+
+<div class="tabbox myclass" style="margin-top: 20px; padding-top: 0;">
+	<div class="tabs">
+	    <div class="boxt {empty name="act"}g{/empty}" title="tab1" onclick="location.href='{:url("accounts")}'">Transaction list</div>
+	    <div class="boxt {eq name="act" value="withdrawal"}g{/eq}" title="tab1" onclick="location.href='{:url("accounts",['act'=>'withdrawal'])}'">Withdrawal list</div>
+	</div>
+	<ul class="classli" >
+	    <li id="tab1" class="comment_list">
+	        {include file="member/accounts_tour_ajax"}
+	    </li>
+	</ul>
+	<div class="pages">
+	    {$list->render()|raw}
+	</div>
+	<div class="bottom" ><hline></hline><span>{gt name="last_page" value="1"}LOAD MORE{else}bottom{/gt}</span><hline></hline></div>
+</div>
+</div>
+{include file="member/footer_menu"}
+{include file="public/footer"}
+{include file="member/member_js"}
+</body>
+<script>
+    $(document).on('click', '.edit_account', function () {
+        var _account = $('#paypal_account').val();
+        if (!_account) {
+            $('#paypal_account').focus();
+        }
+        $.ajax({
+            data: {paypal_account: _account},
+            url: '/index/member/edit_account',
+            type: 'post',
+            dataType: 'json',
+            success: function (res) {
+                if (res.code == 200) {
+                    $("popbg").hide();
+                    $(".popaypal").hide();
+                    $('.paypal_account').html(_account);
+                } else {
+                    showmsg(res.msg, res.code);
+                }
+            }
+        })
+    });
+
+    $(document).on('click', '.paypal>img', function () {
+        $("popbg").show();
+        $(".popaypal").show();
+    });
+
+    $(document).on('click', '.popaypal>img', function () {
+        $("popbg").hide();
+        $(".popaypal").hide();
+    });
+    $('#foot_a_4').addClass('cur');
+
+    var _page = {:input('page', 1)};
+    var _act = '{:input('act')}';
+    var _load = 1;
+    var start_y;
+    var end_y;
+    {eq name="is_wap" value="1"}
+    //滑动到底部加载
+    function get_cmt_list() {
+        if (_load == 0) {
+            return true;
+        }
+        _page = _page + 1;
+        $.ajax({
+            url: '/index/member/accounts',
+            data: {act: _act, page: _page, ajax: 1},
+            success: function (res) {
+                $('.comment_list').append(res);
+               // opendiv();
+                if (!res) {
+                    $('.bottom span').text("BOTTOM");
+                    _load = 0;
+                }
+            }
+        })
+    }
+    $(document).on("touchstart", 'body,html', function(e){
+        var touch=e.touches[0];
+        start_y=touch.pageY;
+        //  alert(start_y)
+    })
+    $(document).on("touchmove", 'body,html', function(e){
+        var touch=e.touches[0];
+        end_y=touch.pageY;
+    })
+    $(document).on("touchend", 'body,html', function(e){
+        if(start_y- end_y >10){
+            get_cmt_list()
+        }
+    })
+    {/eq}
+</script>
+</html>

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"  content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no,initial-scale=1.0">
+    <title>Notification-student-Mcenter</title>
+    <link rel="stylesheet" href="__HOME_CSS__/layout.css">
+    <link rel="stylesheet" href="__HOME_CSS__/notifistu.css">
+    <link rel="stylesheet" type="text/css" href="__HOME_CSS__/notifistu_m.css" media="(max-width: 750px) "/>
+{include file="public/header_js"}
+	<!-- Google Tag Manager -->
+	<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+	new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+	j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+	'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+	})(window,document,'script','dataLayer','GTM-MTCT69F');</script>
+	<!-- End Google Tag Manager -->
+</head>
+<body class="usertype_{$user_type} partner{$is_partner|default=0}">
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MTCT69F"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+<nav class="dif">
+    <a class="backar pn" href="{:url('member/index')}"></a>
+    {include file="public/nav_menu"}
+</nav>
+
+<div class="wb myclass">
+    <dif class="ht"><b>Notification </b> <a href="">back</a></dif>
+    <ul class="classli comment_list" >
+        {include file="member/notices_ajax"}
+    </ul>
+    <div class="pages">
+        {$list->render()|raw}
+    </div>
+
+</div>
+<div class="bottom"><hline></hline><span>{gt name="last_page" value="1"}LOAD MORE{else}bottom{/gt}</span><hline></hline></div>
+{include file="member/footer_menu"}
+{include file="public/footer"}
+{include file="member/member_js"}
+
+</body>
+<script>
+
+    var _page = {:input('page', 1)};
+    var _load = 1;
+    var start_y;
+    var end_y;
+    {eq name="is_wap" value="1"}
+    //滑动到底部加载
+    function get_cmt_list() {
+        if (_load == 0) {
+            return true;
+        }
+        _page = _page + 1;
+        $.ajax({
+            url: '/index/member/notices',
+            data: {page: _page, ajax: 1},
+            success: function (res) {
+                $('.comment_list').append(res);
+                if (!res) {
+                    $('.bottom span').text("BOTTOM");
+                    _load = 0;
+                }
+            }
+        })
+    }
+    $(document).on("touchstart", 'body,html', function(e){
+        var touch=e.touches[0];
+        start_y=touch.pageY;
+        //  alert(start_y)
+    })
+    $(document).on("touchmove", 'body,html', function(e){
+        var touch=e.touches[0];
+        end_y=touch.pageY;
+    })
+    $(document).on("touchend", 'body,html', function(e){
+        if(start_y- end_y >10){
+            get_cmt_list()
+        }
+    })
+    {/eq}
+
+    $(document).on('click', '.notibox.unread', function () {
+        $(this).removeClass("unread")
+    });
+
+        $(document).on('click', '.notibox.part', function () {
+        $(this).find(".notimsg  p").css("height","auto");
+        $(this).removeClass("part").addClass("full")
+    });
+
+    $(document).on('click', '.notibox.full', function () {
+        $(this).find(".notimsg  p").css("height","30px");
+        $(this).removeClass("full").addClass("part")
+    });
+</script>
+</html>

@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no,initial-scale=1.0">
+    <title>Scheduled-Student</title>
+    <link rel="stylesheet" href="style/css/layout.css">
+    <link rel="stylesheet" href="style/css/schestu.css">
+    <link rel="stylesheet" type="text/css" href="style/css/schestu_m.css" media="(max-width: 750px) "/>
+    <script src="style/js/jquery-3.5.1.min.js"></script>
+    <script src="style/js/vue.js"></script>
+    <script src="style/js/comm.js"></script>
+</head>
+<body>
+<nav class="dif">
+    <a class="backar pn" href=""></a>
+    <div class="logobox"><a href="" class="logo"></a><a href="">for Tutor</a><a href="" class="on">for learner</a></div>
+    <dif class="logined"><a class="searchtu" href="">Search tutor</a> <a class="bell" href="">
+        <newmsg></newmsg>
+        <img src="style/img/bell.png" alt=""></a>
+        <div class="logeduser">
+            <div class="rar"></div>
+            <ul class="logmenu">
+                <li>
+                    <imgbox><img width="23" src="style/img/Timetable.png" alt=""></imgbox>
+                    <a href="">Timetable</a></li>
+                <li>
+                    <imgbox><img width="23" src="style/img/myclass.png" alt=""></imgbox>
+                    <a href="">My class</a></li>
+                <li>
+                    <imgbox><img src="style/img/asetting_b.png" alt=""></imgbox>
+                    <a href="">Account Settings</a></li>
+                <li>
+                    <imgbox><img width="17" src="style/img/abalance.png" alt=""></imgbox>
+                    <a href="">Account Balance</a></li>
+                <li>
+                    <imgbox><img src="style/img/signout_b.png" alt=""></imgbox>
+                    <a href="">Sign Out</a></li>
+            </ul>
+        </div>
+    </dif>
+    <div class="who?"><span><a class="acct" href="">account</a><a class="sout" href="">sign out</a></span></div>
+    <div class="hanbugrmenu pn"></div>
+    <div class="mfmenu">
+        <ul>
+            <li><a href="">About Us</a></li>
+            <li><a href="">TERMS OF USE</a></li>
+            <li><a href="">Contact Us</a></li>
+            <li><a href="">PRIVACY POLICY</a></li>
+            <li><a href="">Help</a></li>
+        </ul>
+        <div class="sociala"><a href=""><img src="style/img/chat_w.png" alt=""></a><a href=""><img
+                src="style/img/wx_w.png" alt=""></a><a href=""><img src="style/img/facebook_w.png" alt=""></a><a
+                href=""><img src="style/img/twitter_w.png" alt=""></a></div>
+    </div>
+</nav>
+<div class="main clearfix">
+    <div class="mainly">
+        <div class="timetable">
+            <dif class="ht"><b>Timetable</b> <a href="">back</a></dif>
+            <div class="cal-day">
+                <div class="upweek" @click="upWeek" v-if="si>0"></div>
+                <div class="pn">{{TdateLists[si][1]}}</div>
+                <div class="daybox"   @touchstart="touch($event)" @touchmove="touchM($event)"  @touchend="touched($event)" @touchcancel="touched($event)" >
+                    <div class="day" v-for="(item,index) in TdateLists" v-if=" si<=index && index<= ei " :class="{today: item[0]==cyw && item[1]==cmw && item[2] == initD, gray: (item[1]< cm || item[2]< initD) && item[0]<= cy}">
+                        <div class="cdate">
+                            <div class="date">{{item[2]}}  <span class="m">{{item[1]}}</span></div>
+                            <div class="week">{{item[3]}}</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="downweek" @click="downWeek" v-if=" ei+1 < TdateLists.length" ></div>
+            </div>
+            <div class="class">
+                <div class="popreview">
+                    <img src="style/img/closex.png" alt="">
+                    <topt><name>Brany <img src="style/img/flag.png" alt=""></name> <vline></vline> <div><label>First language</label><span>Chinese</span></div><div><label>English proficiency level</label><span>Beginner</span></div><div><label>Location</label><span>China</span></div></topt>
+                    <p>i am happy you to i am happy you toi am happy you to i am happy you to i am happy you toi am happy you toi am happy you to i am happy you toi am happy you toi am happy you to i am happy you toi am happy you toi am happy you to i am happy you toi am happy you toi am happy you to i am happy you toi am happy you toi am happy you to i am happy you toi am happy you toi am happy you to i am happy you toi am happy you toi am happy you to i am happy you toi am happy you to</p>
+                </div>
+                <div class="namer"><div class="nameinfo"><name>Brandy</name><time>07 Sept Tuesday  05:30-06:00</time></div><div class="price">$ 2.00</div></div>
+                <div class="btbox">
+                    <a class="bt" href="">Enter classroom</a>
+                    <a  class="chtime" href="###">Change time</a>
+                    <a href="">Cancel</a>
+                </div>
+
+       <div class="popstimeouter">
+          <div class="selectime">
+       <img src="style/img/closex.png" class="closex" alt="">
+                    <dif class="headt"><div class="ht"><h2>Change time</h2>   <div class="namer">
+                        <name><span>Coach David</span> <img src="style/img/flags.png" alt=""></name>
+                        <stars><img src="style/img/star.png" alt=""><img src="style/img/star.png" alt=""><img
+                                src="style/img/star.png" alt=""><img src="style/img/star.png" alt=""><span>(4.0)</span>
+                        </stars>
+                    </div></div>
+                        <div class="staues"><span>Availale</span><span>Original time</span><span>Unavailable</span></div></dif>
+                    <div class="timeslots">
+                        <ul class="cal-hour">
+                            <li class="timehour" v-for="(time, i) in HourList" >{{time}}</li>
+                        </ul>
+                        <ul class="cal-day" >
+                            <div class="upweek" @click="upWeek"  v-if="si>0"></div> <div class="downweek" @click="downWeek" v-if=" ei+1 < TdateLists.length" ></div>
+                            <li class="day" v-for="(item,index) in TdateLists" v-if=" si<=index && index<= ei ">
+                                <div class="cdate">
+                                    <div class="date" :class="{today: item[0]==cy && item[1]==cm && item[2] == initD, gray:  (item[1]< cm || item[2]< initD) && item[0]<= cy }" >{{item[2]}} <span class="m">{{item[1]}}</span></div>
+                                    <div class="week" :class="{today: item[0]==cy && item[1]==cm && item[2] == initD, gray:  (item[1]< cm || item[2]< initD) && item[0]<= cy }"  >{{item[3]}}</div>
+                                </div>
+                                <div class="timecell" v-for="(time, i) in HourList"
+                                     :class="{avaitime:thisday(item[0],item[1],item[2],time,index,i),booked:cbooked(item[0],item[1],item[2],time)}"
+                                     @click="book(item[0],item[1],item[2],time,index,i)" >  <div class="timepop">  {{item[1]}}  {{item[2]}}<br> {{HourList[i]}}-{{HourList[i+1]}} </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="timezone">Displays  in your time zone (UTC-04:00)</div>
+     </div>
+           <div class="paybarouter">
+               <dif class="paybar">
+                   <a href=""><img src="style/img/rback.png" alt=""></a>
+                   <div class="btbox">
+                       <input type="submit" value="CONFIrM">
+                   </div>
+               </dif>
+           </div>
+   </div>
+
+
+        </div>
+            <div class="class">
+                <div class="namer"><div class="nameinfo"><name>Brandy</name><time>07 Sept Tuesday  05:30-06:00</time></div><div class="price">$ 2.00</div></div>
+                <div class="btbox">
+                    <a class="bt" href="">Enter classroom</a>
+                    <a href="">Change time</a>
+                    <a href="">Cancel</a>
+                </div>
+            </div>
+            <div class="class">
+                <div class="namer"><div class="nameinfo"><name>Brandy</name><time>07 Sept Tuesday  05:30-06:00</time></div><div class="price">$ 2.00</div></div>
+                <div class="btbox">
+                    <a class="bt" href="">Enter classroom</a>
+                    <a href="">Change time</a>
+                    <a href="">Cancel</a>
+                </div>
+            </div>
+            <div class="class">
+                <div class="namer"><div class="nameinfo"><name>Brandy</name><time>07 Sept Tuesday  05:30-06:00</time></div><div class="price">$ 2.00</div></div>
+                <div class="btbox">
+                    <a class="bt" href="">Enter classroom</a>
+                    <a href="">Change time</a>
+                    <a href="">Cancel</a>
+                </div>
+            </div>
+            <div class="class">
+                <div class="namer"><div class="nameinfo"><name>Brandy</name><time>07 Sept Tuesday  05:30-06:00</time></div><div class="price">$ 2.00</div></div>
+                <div class="btbox">
+                    <a class="bt" href="">Enter classroom</a>
+                    <a href="">Change time</a>
+                    <a href="">Cancel</a>
+                </div>
+            </div>
+            <div class="r"><img src="style/img/qw.png" alt=""> Don’t know how to attend class? <a href="">click here</a></div>
+        </div>
+    </div>
+    <div class="side">
+       <div class="avtime">
+            <p class="title-month"><span @click="upFun" class="upm">  < </span>{{dateYM}}<span @click="downFun"  class="downm"> >  </span></p>
+            <ul class="week"><li>S</li><li>M</li><li>T</li><li>W</li><li>T</li><li>F</li><li>S</li></ul>
+            <ul class="cal-day">
+                <template v-for="(item,index) in 42">
+                    <li v-if="item - beginDay <= 0">
+                        <p class="day-num gay"  >{{ item - beginDay + prevMdays }}</p>
+                    </li><li class="day" v-else-if="item - beginDay > 0 && item - beginDay <= nowMdays"  :class="{booked:booked(item- beginDay),today: initY==cy && initM==cm && (item - beginDay == initD)}" @click="toDclassli(item- beginDay,index)">
+                    <p class="day-num"  :class="{}">{{item - beginDay}}</p>
+                </li><li v-else>
+                    <p class="day-num gay"> {{ item - beginDay - nowMdays }}</p>
+                </li>
+                </template>
+            </ul>
+        </div>
+
+
+<div class="help">
+<t>HELP</t>
+<p>Don’t know how to attend class? </p>
+<a href="">click here</a>
+</div>
+    </div>
+</div>
+<footnav class="pn">
+    <a href=""><img src="style/img/hat.png" alt=""></a>
+    <a href=""><img src="style/img/Timetable.png" alt=""></a>
+    <a href=""><img src="style/img/myclass.png" alt=""></a>
+    <a href=""><img src="style/img/abalance.png" alt=""></a>
+    <a href=""><img src="style/img/msg.png" alt=""></a>
+</footnav>
+
+<div class="footwrap">
+    <popbg></popbg>
+    <a class="getintouch-icon" href=""><img src="style/img/getintouch-icon.png" alt=""></a>
+    <dif class="footer">
+        <rights class="mn">© 2020. ALL RIGHTS RESERVED</rights>
+        <ul>
+            <li><a href="">about us</a></li>
+            <li class="rdot"></li>
+            <li><a href="">contact us</a></li>
+            <li class="rdot"></li>
+            <li><a href="">HELP</a></li>
+            <li class="rdot"></li>
+            <li><a href="">TERMS OF USE</a></li>
+            <li class="rdot"></li>
+            <li><a href="">PRIVACY POLICY</a></li>
+        </ul>
+        <dib class="ftsocail"><a href=""><img src="style/img/wx_b.png" alt=""></a><a href=""><img
+                src="style/img/facebook_b.png" alt=""></a><a href=""><img src="style/img/twitter_b.png" alt=""></a>
+        </dib>
+        <rights class="pn">© 2020. ALL RIGHTS RESERVED</rights>
+    </dif>
+</div>
+
+</body>
+<script>
+    var vm = new Vue({
+        el: '.main',
+        data:{
+            preDate: 0, //上个月时间
+            _date: 0,
+            _datet: 0 ,
+            t_date: 0,
+            initY: 0, //当前 年
+            initM: 0, //当前 月
+            initD: 0, //当前 日
+            initW: 0, //当前 周
+            finitD: 0,
+            si: 0,
+            ei: 6,
+            tinitD: new Date(),
+            timehour: 0,
+            enMonth: '',
+            tablestatus:[],
+            avaitime:true,
+            booktime:true,
+            tempdatelists:[],
+            classes:[],
+            touchx:0,
+            docStyle : document.documentElement.style,
+            mflag:true,
+            mdown:true,
+            timeclicked:[],
+            click1: 99999999,
+            click2: 99999999,
+            timeclick_m: 99999999,
+            timeclick_d: 99999999,
+            timeclick_y: 99999999,
+            timeclick_t:99999999,
+
+            DateList: [],
+            Datelists: [],
+            TdateLists: [],
+            //  HourList: [],		//钟点时间 24小时  赋值写死
+            HourList: [
+                '00:00', '00:30', '01:00', '01:30', '02:00', '03:00', '03:30', '04:00', '04:30', '05:00', '05:00', '06:30', '06:00', '07:30', '07:00'
+                , '08:00', '08:30', '09:00', '09:30', '10:00', '10:30', '11:00', '11:30', '12:00', '12:30', '13:00', '13:30', '14:00', '14:30',
+                '15:00', '15:30', '16:00', '16:30', '17:00', '17:30', '18:00', '18:30', '19:00', '19:30', '20:00', '20:30', '21:00', '21:30',
+                '21:00', '21:30', '22:00', '22:30', '23:00', '23:30'
+            ],
+            cy: 0, //temp 上下年变化
+            cm: 0, //temp 上下月变化
+            cyw:0,
+            cmw:0,
+            cd: 0,
+            dateYM: 0, // 标题显示
+            beginDay: 0, //当月开始是周几
+            prevMdays: 0, //上个月总天数
+            nowMdays: 0, // 当月天数
+        },
+        created: function () {
+            this._date = new Date();
+            this._datet=new Date();
+            // 初始化 当前时间 y-m-d
+            this.initY = this._date.getFullYear()
+            this.initM = this._date.getMonth() + 1
+            this.initD = this._date.getDate();
+            this.initW = this._date.getDay();
+            this.enMonth = new Date().toDateString().split(" ")[1];
+            this.timehour = new Date().getHours()
+
+            // 初始化&切换上下月使用
+            this.cy = this._date.getFullYear()
+            this.cm = this._date.getMonth() + 1
+            this.cd = this._date.getDate();
+
+            this.cyw   = this.cy
+            this.cmw = this.cm
+
+            this.finitD = new Date(this._datet.setDate(   this.initD  - this.initW  )).getDate()//算出当前日期的上一个周日的日期
+            // 标题
+            this.dateYM = this.initY + '-' + this.initM
+             //生成日期数组
+            for (i = 0; i < 32 + this.initW; i++) {
+                this.tinitD=new Date(); this.t_date = new Date(this.tinitD.setDate(   this.initD - this.initW  ));//重置日期
+                this.DateList[i] = this.t_date.setDate(this.finitD + i);//从重置日期处往后循环出日期
+            }
+
+            //分年、月、日塞进数组
+            for (i = 0; i < 32 + this.initW; i++) {
+                this.Datelists[i] = new Array();
+                this.Datelists[i][0] = new Date(this.DateList[i]).getFullYear();
+                //this. Datelists[i][1] =new Date(this.DateList[i]).toDateString().split(" ")[1];
+                this.Datelists[i][1] = new Date(this.DateList[i]).getMonth() + 1;
+                this.Datelists[i][2] = new Date(this.DateList[i]).getDate();
+                this.Datelists[i][3] = new Date(this.DateList[i]).getDay();
+            }
+            this.TdateLists = this.Datelists;
+
+            // 当前日期
+            this.nowMdays = this.getGetDate(this.initY, this.initM)
+            this.beginDay = this.dayStart(this.initY, this.initM) || 7 ;
+
+            //计算上一月天数 填充当月
+            this.getPreMonthDay();
+
+            //服务器拿到的数据
+            this.tablestatus =[
+                {"datetime":1606953600000,"booked":0,"date":"2020-12-10","time":"06:00","time_end":"06:30"}
+                ,{"datetime":1606953600000,"booked":1,"date":"2020-12-10","time":"16:00","time_end":"16:30"}
+                ,{"datetime":1607558400000 ,"booked":1,"date":"2020-12-10","time":"08:00","time_end":"08:30"}
+                ,{"datetime":1607558400000 ,"booked":0,"date":"2020-12-10","time":"08:30","time_end":"09:00"}
+                ,{"datetime":1607558400000 ,"booked":1,"date":"2020-12-10","time":"09:00","time_end":"09:30"}
+                ,{"datetime":1607558400000 ,"booked":0,"date":"2020-12-10","time":"10:00","time_end":"10:30"}
+            ]
+            for(k in this.tablestatus)
+            {
+                this.tempdatelists[k] = this.tablestatus[k].datetime;
+            }
+        },
+        methods: {
+
+
+            thisday:function(ye,m,d,t,index,i){
+                let tof;
+                for (k in this.tempdatelists){
+                    if(
+                        ye=== new Date(this.tempdatelists[k]).getFullYear() &&
+                        m=== new Date(this.tempdatelists[k]).getMonth() + 1 &&
+                        d=== new Date(this.tempdatelists[k]).getDate()&&
+                        t === this.tablestatus[k].time
+                    ){
+                        tof = true
+                        return tof
+                    }
+                }
+            },
+
+            // 当前天数
+            getGetDate: function (year, month) {
+                var d = new Date(year, month, 0);
+                return d.getDate();
+            },
+            // 获取当月第一周几
+            dayStart: function (year, month) {
+                var tmpDate = new Date(year, month - 1, 1);
+                return (tmpDate.getDay());
+            },
+            dayFun: function (idx, e) {
+               console.log(e.currentTarget)
+                alert(idx + 1)
+            },
+            // 上个月
+            upFun: function () {
+                $(".upm").css("visibility","hidden");
+                $(".downm").css("visibility","visible");
+                this.mChange(-1);
+            },
+            //下个月
+            downFun: function () {
+                $(".downm").css("visibility","hidden");
+                $(".upm").css("visibility","visible");
+                this.mChange(1);
+            },
+            // 上一周
+            upWeek: function () {
+                if( this.ei-this.si<6){
+                    this.ei=this.si+6
+                }
+                this.si = this.si - 7
+                this.ei = this.ei - 7
+                if (this.si < 0) {
+                    this.si = 0;
+                    this.ei = 6;
+                }
+            },
+            //下一周
+            downWeek: function () {
+                let tsi = this.si + 7
+                let tei = this.ei + 7
+                if (tei >= this.TdateLists.length) {
+                    this.ei = this.TdateLists.length-1
+                } else {
+                    this.ei = this.ei + 7
+                }
+                this.si = this.si + 7
+            },
+            mChange: function (m){
+                this._date.setMonth(this._date.getMonth() + m);
+                this.dateYM = this._date.getFullYear() + '-' + (this._date.getMonth() + 1);
+                // 切换上下月，获取year \ month
+                this.cy = this._date.getFullYear();
+                this.cm = this._date.getMonth() + 1;
+                this.nowMdays = this.getGetDate(this.cy, this.cm)
+                this.beginDay = this.dayStart(this.cy, this.cm) || 7
+                console.log(this.beginDay)
+                this.getPreMonthDay();
+            },
+            //获取上个月天数
+            getPreMonthDay: function () {
+                // 当月
+                var cyear = this._date.getFullYear();
+                var cMonth = this._date.getMonth();
+                this.preDate = new Date(cyear, cMonth);
+                this.preDate.setMonth(this.preDate.getMonth());
+                this.prevMdays = this.getGetDate(this.preDate.getFullYear(), this.preDate.getMonth());
+            },
+            //匹配是否被选
+            booked:function(d){
+                let tof;
+               let   YMarr=this.dateYM.split("-");
+                for (k in this.tempdatelists){
+                    if(
+                        YMarr[0] == new Date(this.tempdatelists[k]).getFullYear() &&
+                        YMarr[1] == new Date(this.tempdatelists[k]).getMonth() + 1 &&
+                        d=== new Date(this.tempdatelists[k]).getDate()
+                        && this.tablestatus[k].booked===1
+                    ){
+                        tof = true
+                        return tof
+                    }
+                }
+            },
+
+//弹窗内判断是否选中
+            cbooked:function(ye,m,d,t){
+                let tof;
+                for (k in this.tempdatelists){
+                    if(
+                        ye=== new Date(this.tempdatelists[k]).getFullYear() &&
+                        m=== new Date(this.tempdatelists[k]).getMonth() + 1 &&
+                        d=== new Date(this.tempdatelists[k]).getDate()&&
+                        t === this.tablestatus[k].time
+                        && this.tablestatus[k].booked===1
+                    ){
+                        tof = true
+                        return tof
+                    }
+                }
+            },
+
+
+            book:function(ye,m,d,t,index,i){
+                console.log(ye)//这里取的是年数据
+                console.log(m)//这里取的是月数据
+                console.log(d)//这里取的是天数据
+                console.log(t)//这里取的是时间
+                for(b in this.tablestatus){
+                    if(
+                        ye=== new Date(this.tempdatelists[b]).getFullYear() &&
+                        m=== new Date(this.tempdatelists[b]).getMonth() + 1 &&
+                        d=== new Date(this.tempdatelists[b]).getDate()&&
+                        t === this.tablestatus[b].time
+                    ){
+                        //这里是改变是否预定的状态
+                        if(this.tablestatus[b].booked===0)
+                        {this.tablestatus[b].booked=1}else
+                        {this.tablestatus[b].booked=0 }
+                    }
+                }
+            },
+
+
+            touch:function (e){
+                //  console.log(e)
+                var touch=e.touches[0];
+                this.touchx=parseInt(touch.pageX);
+                if( this.ei+1 >= this.TdateLists.length){
+                    this.mdown=false;
+                }
+                e.preventDefault();
+            },
+            touchM:function (e){
+
+                if(this.mflag){
+                    var touch=e.touches[0];
+                    var  end_x=parseInt(touch.pageX);
+                    this.docStyle.setProperty('--mdis', this.touchx-end_x);
+                    this.docStyle.setProperty('--opa', Math.abs(this.touchx-end_x)/500);
+                    if(end_x -this.touchx >180){
+                        this.upWeek();
+                        this.mflag=false;
+                        this.docStyle.setProperty('--opa', 1);
+                        this.docStyle.setProperty('--mdis', 0);
+                    } else if(end_x -this.touchx < -180 &&  this.mdown ){
+                        this.downWeek();
+                        this.mflag=false;
+                        this.docStyle.setProperty('--opa', 1);
+                        this.docStyle.setProperty('--mdis', 0);
+                    }
+                }
+                e.preventDefault();
+            },
+            touched:function(){
+                console.log("?vv收款人")
+                this.mflag=true;  this.mdown=true;
+                this.docStyle.setProperty('--mdis', 0);
+                this.docStyle.setProperty('--opa', 1);
+            },
+
+
+
+            toDclassli:function(d,index){
+                let  YMarr=this.dateYM.split("-");
+                this.cyw = YMarr[0]
+                this.cmw = YMarr[1]
+                this.initD = d
+                this.si=Math.ceil((index+1)  / 7)*7-7;
+                this.ei=Math.ceil((index) / 7)*7-1;
+
+                console.log(YMarr[0])//这里拿到的是年
+                console.log(YMarr[1])//这里拿到的是月
+                console.log(d)//这里拿到的是日
+
+            }
+        },
+    })
+
+
+    $(document).on('click', '.class .namer name', function () {
+        $("popbg").show();
+        $(".popreview").show();
+    });
+    $(document).on('click', '.popreview>img', function () {
+        $("popbg").hide();
+        $(".popreview").hide();
+    });
+
+
+    $(document).on('click', '.class .chtime', function () {
+        $("popbg").show();
+        $(this).parents(".class").find(".popstimeouter").show();
+    });
+    $(document).on('click', '.closex', function () {
+        $("popbg").hide();
+        $(".popstimeouter").hide();
+    });
+
+</script>
+</html>

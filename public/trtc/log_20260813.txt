@@ -1,0 +1,122 @@
+2026-08-13 00:01:54 callback
+{
+	"EventGroupId":	1,
+	"EventType":	103,
+	"CallbackTs":	1786550514368,
+	"EventInfo":	{
+		"RoomId":	15838,
+		"EventTs":	1786550514,
+		"EventMsTs":	1786550514261,
+		"UserId":	"2590",
+		"Role":	20,
+		"TerminalType":	2,
+		"UserType":	3,
+		"Reason":	1,
+		"ClientIpv4":	"35.150.186.65"
+	}
+}
+
+2026-08-13 00:01:54 callback
+{
+	"EventGroupId":	1,
+	"EventType":	101,
+	"CallbackTs":	1786550514225,
+	"EventInfo":	{
+		"RoomId":	15838,
+		"EventTs":	1786550514,
+		"EventMsTs":	1786550514153,
+		"UserId":	"2590"
+	}
+}
+
+2026-08-13 00:02:01 callback
+{
+	"EventGroupId":	1,
+	"EventType":	103,
+	"CallbackTs":	1786550521331,
+	"EventInfo":	{
+		"RoomId":	15838,
+		"EventTs":	1786550521,
+		"EventMsTs":	1786550521257,
+		"UserId":	"2345",
+		"Role":	20,
+		"TerminalType":	2,
+		"UserType":	3,
+		"Reason":	1,
+		"ClientIpv4":	"203.26.240.122"
+	}
+}
+
+2026-08-13 00:32:03 callback
+{
+	"EventGroupId":	1,
+	"EventType":	104,
+	"CallbackTs":	1786552323158,
+	"EventInfo":	{
+		"RoomId":	15838,
+		"EventTs":	1786552323,
+		"EventMsTs":	1786552323047,
+		"UserId":	"2590",
+		"Role":	20,
+		"Reason":	1
+	}
+}
+
+2026-08-13 00:32:03 callback
+{
+	"EventGroupId":	1,
+	"EventType":	104,
+	"CallbackTs":	1786552323593,
+	"EventInfo":	{
+		"RoomId":	15838,
+		"EventTs":	1786552323,
+		"EventMsTs":	1786552323511,
+		"UserId":	"2345",
+		"Role":	20,
+		"Reason":	1
+	}
+}
+
+2026-08-13 00:32:03 callback
+{
+	"EventGroupId":	1,
+	"EventType":	102,
+	"CallbackTs":	1786552323638,
+	"EventInfo":	{
+		"RoomId":	15838,
+		"EventTs":	1786552323,
+		"EventMsTs":	1786552323565
+	}
+}
+
+2026-08-13 23:58:25 callback
+{
+	"EventGroupId":	1,
+	"EventType":	101,
+	"CallbackTs":	1786636705147,
+	"EventInfo":	{
+		"RoomId":	15879,
+		"EventTs":	1786636705,
+		"EventMsTs":	1786636705062,
+		"UserId":	"4000"
+	}
+}
+
+2026-08-13 23:58:25 callback
+{
+	"EventGroupId":	1,
+	"EventType":	103,
+	"CallbackTs":	1786636705089,
+	"EventInfo":	{
+		"RoomId":	15879,
+		"EventTs":	1786636705,
+		"EventMsTs":	1786636705067,
+		"UserId":	"4000",
+		"Role":	20,
+		"TerminalType":	2,
+		"UserType":	3,
+		"Reason":	1,
+		"ClientIpv4":	"203.26.240.133"
+	}
+}
+

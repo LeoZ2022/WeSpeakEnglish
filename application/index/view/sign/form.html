@@ -1,0 +1,17 @@
+<dib>
+    <div><input type="text" name="email" id="email">
+        <label >Email</label>
+        <div class="border"></div></div>
+</dib>
+<dib>
+    <div><input  type="password" name="password" id="password">
+        <label >Password</label>
+        <div class="border"></div><span><a
+                href="{:url('index/forgot', ['type'=>$type])}">Forgot password?</a></span></div>
+</dib>
+<dib>
+    <div><input class="veri" type="text" name="verify_code" id="verify_code">
+        <label >Security code</label>
+        <div class="border"></div><span><img class="vrimg" src="" alt=""></span></div>
+</dib>
+<input type="submit" id="to_sign" value="Sign in">

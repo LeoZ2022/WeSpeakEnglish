@@ -1,0 +1,110 @@
+nav{background:#fff;box-shadow:0 5px 25px rgba(220,220,220,0.6);}
+nav a{vertical-align: middle;
+    color: #424242;}
+nav .logo {
+    background-image: url("../img/logoblue.png");
+}
+a{
+    color: #e54a3a;}
+nav .logo{
+    background-image: url("../img/logoblue.png");
+}
+body{background: #F8F8F8}
+nav div span a{text-transform: none;text-decoration: none}
+nav div span line{
+    padding-left: 14px;
+    padding-right: 14px;}
+nav div span .blue{
+    color: #e54a3a;}
+nav div.who\?{
+    display: none;}
+nav .on{
+    color: #e54a3a;}
+nav .on::after {
+    background: #e54a3a;
+    width: 40px;
+    height: 2px;
+    content: " ";
+    top: 10px;
+    position: relative;
+}
+.main{
+    width: 100%;max-width: 1260px;
+    margin: 56px auto;
+}
+.myclass{
+    width: 100%;
+    border-radius: 10px;
+    padding:40px 46px;
+    
+    background: #fff}
+.myclass .tabs{white-space: nowrap;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #ddd}
+.myclass .boxt{
+    cursor: pointer;
+    bottom: -1px;
+    padding: 18px 14px;
+    display: inline-block;}
+.myclass .boxt.g{
+    border-bottom: 1px solid #e54a3a;
+    color: #e54a3a;}
+.myclass .ht{
+    justify-content: space-between}
+.myclass .ht b{
+    font-size: 2.6rem;
+    font-family: Fjalla;
+    text-transform: uppercase;
+    color: #e54a3a;}
+.myclass .ht a{
+    font-size: 2rem;
+    color: #e54a3a;
+    font-family: Fjalla;
+    text-transform: uppercase;
+    text-decoration: none;
+    line-height: 34px;
+    padding-left: 36px;
+    background:url("../img/backarred.png") left center no-repeat;
+}
+.balancebox{justify-content: space-between;align-items:middle;
+    padding: 18px 26px 18px 0;
+	position: relative;}
+.balancebox:after {
+    display: block;
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 1px;
+    background-image: linear-gradient(to right, #e3e3e3 0%, #e3e3e3 50%, transparent 0%);
+    background-size: 10px 1px;
+    background-repeat: repeat-x;
+}
+.balancebox:last-child:after{
+	background:#f1f1f1
+}
+.balancebox left>img{
+    width: 30px;
+    vertical-align: middle;
+}
+.balancebox left>pays{
+    margin-left: 18px;
+    margin-right: 30px;
+	min-width: 150px;
+	display: inline-block;
+    font-size: 1.4rem;
+}
+.balancebox left>time{
+    font-size: 1.4rem;
+}
+priceb{
+    font-size: 6rem;
+    margin-top: 20px;
+    display: block;
+    margin-bottom: 30px;
+    color: #e54a3a;
+    font-family: Fjalla;
+	}
+.balancebox banlance{
+    font-weight: bold;}

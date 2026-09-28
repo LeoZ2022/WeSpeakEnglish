@@ -1,0 +1,116 @@
+2024-06-04 00:59:41 callback
+{
+	"EventGroupId":	1,
+	"EventType":	101,
+	"CallbackTs":	1717433980898,
+	"EventInfo":	{
+		"RoomId":	13827,
+		"EventTs":	1717433980,
+		"EventMsTs":	1717433980896,
+		"UserId":	"1309"
+	}
+}
+
+2024-06-04 00:59:41 callback
+{
+	"EventGroupId":	1,
+	"EventType":	103,
+	"CallbackTs":	1717433980900,
+	"EventInfo":	{
+		"RoomId":	13827,
+		"EventTs":	1717433980,
+		"EventMsTs":	1717433980896,
+		"UserId":	"1309",
+		"Role":	20,
+		"TerminalType":	3,
+		"UserType":	3,
+		"Reason":	1,
+		"ClientIpv4":	"192.141.245.97"
+	}
+}
+
+2024-06-04 01:05:59 callback
+{
+	"EventGroupId":	1,
+	"EventType":	104,
+	"CallbackTs":	1717434358890,
+	"EventInfo":	{
+		"RoomId":	13827,
+		"EventTs":	1717434358,
+		"EventMsTs":	1717434358886,
+		"UserId":	"1309",
+		"Role":	20,
+		"Reason":	1
+	}
+}
+
+2024-06-04 01:05:59 callback
+{
+	"EventGroupId":	1,
+	"EventType":	102,
+	"CallbackTs":	1717434358888,
+	"EventInfo":	{
+		"RoomId":	13827,
+		"EventTs":	1717434358,
+		"EventMsTs":	1717434358886
+	}
+}
+
+2024-06-04 01:06:00 callback
+{
+	"EventGroupId":	1,
+	"EventType":	103,
+	"CallbackTs":	1717434359977,
+	"EventInfo":	{
+		"RoomId":	13827,
+		"EventTs":	1717434359,
+		"EventMsTs":	1717434359975,
+		"UserId":	"1309",
+		"Role":	20,
+		"TerminalType":	3,
+		"UserType":	3,
+		"Reason":	1,
+		"ClientIpv4":	"192.141.245.97"
+	}
+}
+
+2024-06-04 01:06:00 callback
+{
+	"EventGroupId":	1,
+	"EventType":	101,
+	"CallbackTs":	1717434359976,
+	"EventInfo":	{
+		"RoomId":	13827,
+		"EventTs":	1717434359,
+		"EventMsTs":	1717434359975,
+		"UserId":	"1309"
+	}
+}
+
+2024-06-04 01:10:46 callback
+{
+	"EventGroupId":	1,
+	"EventType":	102,
+	"CallbackTs":	1717434646619,
+	"EventInfo":	{
+		"RoomId":	13827,
+		"EventTs":	1717434646,
+		"EventMsTs":	1717434646616
+	}
+}
+
+2024-06-04 01:10:46 callback
+{
+	"EventGroupId":	1,
+	"EventType":	104,
+	"CallbackTs":	1717434646621,
+	"EventInfo":	{
+		"RoomId":	13827,
+		"EventTs":	1717434646,
+		"EventMsTs":	1717434646616,
+		"UserId":	"1309",
+		"Role":	20,
+		"Reason":	1
+	}
+}
+

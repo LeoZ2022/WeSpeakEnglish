@@ -1,0 +1,148 @@
+nav{background:#fff;box-shadow:0 5px 25px rgba(220,220,220,0.6);}
+.main{text-align: center;
+    width: 100%;
+    padding-left: 20px;
+    padding-right: 20px;
+    max-width:1158px;
+margin: 70px auto 100px}
+nav a{vertical-align: middle;
+    color: #424242;}
+a{
+    color: #1b76b7;}
+nav .logo{
+    background-image: url("../img/logoblue.png");
+}
+nav div span .blue{
+    color: #1b76b7;}
+nav .on{
+    color: #1b76b7;}
+nav .on::after {
+    background: #1b76b7;
+    width: 40px;
+    height: 2px;
+    content: " ";
+    top: 10px;
+    position: relative;
+}
+
+.main .ht{
+    padding-bottom: 15px;
+    border-bottom: 1px solid #cce5f8;
+    justify-content: space-between}
+.main .ht b{
+    font-size: 2.6rem;
+    font-family: Fjalla;
+    text-transform: uppercase;
+    color: #1b76b7;}
+.main .ht a{
+    font-size: 2rem;
+    color: #1b76b7;
+    font-family: Fjalla;
+    text-transform: uppercase;
+    padding-right: 20px;
+    text-decoration: none;
+    line-height: 34px;
+    padding-left: 36px;
+    background:url("../img/backarblue.png") left center no-repeat;
+}
+.withdrawinput{align-items:center;
+    margin-top: 40px;}
+.withdrawinput b{
+    font-family: Fjalla;
+    font-size: 2.2rem;}
+.withdrawinput>label{
+    flex-shrink: 0;
+    text-align: left;
+    color: #999;
+    width: 205px;}
+.withdrawinput.amount input{
+    border-radius: 6px;
+    border: 1px solid #e7eaef;
+    width: 100%; max-width:400px ;
+    line-height: 30px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+    padding-left: 46px;
+    font-size: 1.6rem;
+    background:url("../img/ms.png") 14px center no-repeat;
+    background-size: auto 17px;
+}
+.withdrawinput.amount input[type="text"]:focus{
+    border-color: #e54a3a;
+}
+.withdrawinput.paypal >input[type="text"].edit:focus{
+    border-color: #e54a3a;
+}
+
+.usertype_2 .withdrawinput.amount input[type="text"]:focus{
+    border-color: #1b76b7;
+}
+.usertype_2 .withdrawinput.paypal >input[type="text"].edit:focus{
+    border-color: #1b76b7;
+}
+.withdrawinput .msinfo{position: absolute;
+    bottom: -32px;
+    left: 210px;
+    color: #999;}
+.withdrawinput.paypal{
+    margin-top: 60px;}
+.withdrawinput.paypal>input{
+    font-size: 1.8rem;
+    line-height: 50px;
+    padding-left: 16px;
+    border: 1px solid #fff;
+	width: 280px;
+}
+.withdrawinput.paypal >input[type="text"].edit{
+    border-color:#e7eaef;
+    border-radius: 6px 0 0 6px;
+}
+.withdrawinput.paypal >button{
+    display: none;}
+.withdrawinput.paypal>img{
+    cursor: pointer;
+    margin-left: 10px;
+    height: 21px;}
+.withdrawinput input[type="submit"]{
+    width: 180px;
+    height: 60px;border-radius: 6px;
+    text-align: center;text-transform: uppercase;
+    line-height: 60px;
+    color: #fff;
+    font-size: 2.4rem;
+    cursor: pointer;
+    font-family: Fjalla;
+    background: #007edb;}
+.withdrawinput input[type="submit"]:hover{
+	background: #179dff;
+}
+.withdrawinput input[type="submit"][disabled],.withdrawinput input[type="submit"][disabled=disabled]{
+    color: #c8c8c8;
+    background: #f8f8f8;
+    cursor: auto;
+}
+.withdrawinput button{
+    width: 120px;
+    height: 50px;border-radius:0 6px 6px 0;
+    cursor: pointer;
+    text-align: center;text-transform: uppercase;
+    line-height: 50px;
+    color: #fff;
+    font-size: 2.4rem;
+    font-family: Fjalla;
+    background: #007edb;
+   }
+.user_type_2 .logeduser{
+    background-image: url("../img/tutor_b.png");
+    /* padding-left: 38px; */
+    /* background-size: auto 17px; */
+}
+nav div.who\? {
+    display: none;
+}
+.logined+.who\?{
+    display: none;
+}
+.usertype_1 .nav_learner.on{
+	color: #1b76b7;
+}

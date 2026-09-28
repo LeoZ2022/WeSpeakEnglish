@@ -1,0 +1,118 @@
+2026-08-25 00:00:49 callback
+{
+	"EventGroupId":	1,
+	"EventType":	103,
+	"CallbackTs":	1787587249710,
+	"EventInfo":	{
+		"RoomId":	15899,
+		"EventTs":	1787587249,
+		"EventMsTs":	1787587249530,
+		"UserId":	"3924",
+		"Role":	20,
+		"TerminalType":	3,
+		"UserType":	3,
+		"Reason":	1,
+		"ClientIpv4":	"65.95.87.122"
+	}
+}
+
+2026-08-25 00:30:51 callback
+{
+	"EventGroupId":	1,
+	"EventType":	104,
+	"CallbackTs":	1787589051615,
+	"EventInfo":	{
+		"RoomId":	15899,
+		"EventTs":	1787589051,
+		"EventMsTs":	1787589051537,
+		"UserId":	"2345",
+		"Role":	20,
+		"Reason":	1
+	}
+}
+
+2026-08-25 00:30:54 callback
+{
+	"EventGroupId":	1,
+	"EventType":	104,
+	"CallbackTs":	1787589054528,
+	"EventInfo":	{
+		"RoomId":	15899,
+		"EventTs":	1787589054,
+		"EventMsTs":	1787589054353,
+		"UserId":	"3924",
+		"Role":	20,
+		"Reason":	1
+	}
+}
+
+2026-08-25 00:30:54 callback
+{
+	"EventGroupId":	1,
+	"EventType":	102,
+	"CallbackTs":	1787589054618,
+	"EventInfo":	{
+		"RoomId":	15899,
+		"EventTs":	1787589054,
+		"EventMsTs":	1787589054547
+	}
+}
+
+2026-08-25 00:59:44 callback
+{
+	"EventGroupId":	1,
+	"EventType":	101,
+	"CallbackTs":	1787590784522,
+	"EventInfo":	{
+		"RoomId":	15897,
+		"EventTs":	1787590784,
+		"EventMsTs":	1787590784441,
+		"UserId":	"2345"
+	}
+}
+
+2026-08-25 00:59:44 callback
+{
+	"EventGroupId":	1,
+	"EventType":	103,
+	"CallbackTs":	1787590784524,
+	"EventInfo":	{
+		"RoomId":	15897,
+		"EventTs":	1787590784,
+		"EventMsTs":	1787590784445,
+		"UserId":	"2345",
+		"Role":	20,
+		"TerminalType":	2,
+		"UserType":	3,
+		"Reason":	1,
+		"ClientIpv4":	"202.134.14.153"
+	}
+}
+
+2026-08-25 01:06:18 callback
+{
+	"EventGroupId":	1,
+	"EventType":	102,
+	"CallbackTs":	1787591178061,
+	"EventInfo":	{
+		"RoomId":	15897,
+		"EventTs":	1787591177,
+		"EventMsTs":	1787591177996
+	}
+}
+
+2026-08-25 01:06:18 callback
+{
+	"EventGroupId":	1,
+	"EventType":	104,
+	"CallbackTs":	1787591177966,
+	"EventInfo":	{
+		"RoomId":	15897,
+		"EventTs":	1787591177,
+		"EventMsTs":	1787591177944,
+		"UserId":	"2345",
+		"Role":	20,
+		"Reason":	1
+	}
+}
+

@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?4a6c48c79b79effb3722c8e5e07f391f";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-190244183-1">
+</script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-190244183-1');
+</script>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"  content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no,initial-scale=1.0">
+    <title>说英网络-和老外练口语,备考雅思托福口试 </title>
+    <meta name="description" content="雅思托福口语练习，和老外练口语，英语口语练习">
+    <link rel="canonical" href="https://wespeakenglish.chat/learner.html" />
+    <link rel="stylesheet" href="__HOME_CSS__/swiper-bundle.min.css">
+    <link rel="stylesheet" href="__HOME_CSS__/layout.css">
+    <link rel="stylesheet" href="__HOME_CSS__/student.css">
+    <link rel="stylesheet" type="text/css" href="__HOME_CSS__/student_m.css" media="(max-width: 750px) "/>
+    {include file="public/header_js"}
+    <script src="__HOME_JS__/swiper-bundle.min.js"></script>
+	<!-- Google Tag Manager -->
+	<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+	new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+	j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+	'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+	})(window,document,'script','dataLayer','GTM-MTCT69F');</script>
+	<!-- End Google Tag Manager -->
+	    <style type="text/css">
+        .pc_pic {
+            width: 100%;
+            /* 已知图片尺寸 544x184px，图片宽度等同 100vw，比例约为：2.96 */
+            height: calc(100vw/2.318);
+        }
+        .wap_pic {
+            width: 100%;
+            height: calc(100vw/0.595);
+        }
+        .wap_pic img, .pc_pic img {
+            background-color: #fff;
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+<body class="usertype_{$user_type} partner{$is_partner|default=0}">
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MTCT69F"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+<header>
+    <nav class="dif homeNav">
+        {include file="public/nav_menu"}
+    </nav>
+    <div class="htxt pcHtxt">
+        <b>和英语母语人士练口语</b>
+        <s><!--{$ads_top.content|nl2br|raw}-->
+		一对一和英语母语人士对话，缓解考前紧张<br/>
+		快速提高口语自信，自信源于实战<br/>
+		纠正考官不会告诉你的口语错误<br/>
+		伙伴都很耐心，象儿时父母教你说话一样<br/>
+		最低的花费和真人练习口语，$1.5起
+		</s>
+        {if condition="!$user_id"}
+        <div class="btbox"><a href="{:url('register/learner')}">注 册</a><a href="{:url('sign/learner')}">登 录</a></div>
+        {/if}
+    </div>
+	
+	<div class="htxt phoneHtxt">
+	    <b><!--{$ads_top.name}-->和英语母语人士练口语</b>
+	    <s><!--{$ads_top.content2|nl2br|raw}-->
+		一对一和英语母语人士对话<br/>
+		快速提高口语自信<br/>
+		及时纠正口语错误<br/>
+		$1.5起，超低费用
+		</s>
+	    {if condition="!$user_id"}
+	    <div class="btbox"><a href="{:url('register/learner')}">注 册</a><a href="{:url('sign/learner')}">登 录</a></div>
+	    {/if}
+	</div>
+	
+    <img src="__HOME_IMG__/leaner_bg.jpg" class="mn lazyload" alt="和老外练口语">
+    <img src="__HOME_IMG__/leaner_wap.jpg" class="pn lazyload" alt="和老外练口语">
+</header>
+
+<div class="main clearfix">
+ <div class="intor">
+     <picture><img src="__HOME_IMG__/studentimg.jpg" alt="英语口语"><img src="__HOME_IMG__/stripround.png" alt=""></picture>
+     <div>
+         <t>你的聊天伙伴是谁？</t>
+         <p>都是来自美英加澳新<span style="font-weight: 100;"> 5</span>个英语国家的有爱心的退休人士以及高年级学生</p></div>
+ </div>
+
+   <div class="teacherbox">
+       <div class="swiper-button-prev mn"><i class="iconfont iconback-arrow1"></i></div> <div class="swiper-button-next mn"><i class="iconfont iconback-arrow1-copy"></i></div>
+<div class="swipouter">
+       <div class="swiper-wrapper">
+           {volist name="teachers" id="vo"}
+       <div  class="swiper-slide">
+           <div class="teacher">
+           <div class="avantar"><img src="{$vo.country_ico|get_file_path}" alt=""><a href=""><img src="{$vo.headpic|get_file_path}" alt=""></a></div>
+           <div class="sinfo">
+               <name>{$vo.name}</name>
+               <star>
+                   <?php echo str_repeat('<img src="/public/home/style/img/star.png" alt="">', $vo['star']); ?>
+                   <span>{$vo.star}</span></star>
+               <price>$ {$vo.price} /30 mins</price>
+           </div>
+           </div>
+       </div>
+           {/volist}
+       </div>
+</div>
+   </div>
+    <a href="{:url('tutors/index')}" class="redabt">找到更多的导师</a>
+    <p class="topT">怎样开始聊天？</p>
+    <ul class="howtostar">
+        <li class="step1"><div class="icon"><img src="__HOME_IMG__/step1_red.png" alt=""></div><div class="startxt"><t>Step 1</t><p><a href="{:url('register/learner')}">注册</a> 为本平台学生用户。</p></div></li>
+        <li class="step2"><div class="icon"><img src="__HOME_IMG__/step2_red.png" alt=""></div><div class="startxt"><t>Step 2</t><p><a href="{:url('tutors/index')}">搜索老师</a>，选定时间，付款建立聊天课程。</p></div></li>
+        <li class="step3"><div class="icon"><img src="__HOME_IMG__/step3_red.png" alt=""></div><div class="startxt"><t>Step 3</t><p>到手机应用市场里下载聊天工具En Chat 安装到手机上。</p></div></li>
+        <li class="step4"><div class="icon"><img src="__HOME_IMG__/step4_red.png" alt=""></div><div class="startxt"><t>Step 4</t><p>请在手机里设置允许通知或在个人账户信息里设置接收邮件提醒，以免错过上课时间。</p></div></li>
+        <li class="step5"><div class="icon"><img src="__HOME_IMG__/step5_red.png" alt=""></div><div class="startxt"><t>Step 5</t><p>上课前会收到APP发来的上课通知。打开APP可以查看已约课的课程表。</p></div></li>
+    </ul>
+    <p class="topT">聊天工具使用方法</p>
+<div class="howtochat">
+    <videoer>
+        <div href="" class="video"><i class="iconfont iconplay"></i>			
+		<img src="__HOME_IMG__/video play.jpg" alt="">
+		<video src="__HOME_IMG__/movie.mp4" controls="controls" poster=""></video>
+        </div>
+    <p><!--<a href="/public/ClassIn_learner_manual.pdf" target="_blank" style="font-style: oblique;">查看</a> 使用手册.<br>-->
+        上课前30和5分钟会收到上课通知提醒。聊天室可以提前5分钟进入，打开En Chat APP，按提示检测语音设备，等待老师进入教室，如果老师已经进入教室，可以随时打招呼开始聊天。每次聊天时间最长31分钟，超时后聊天室自动关闭。聊天时可以互相发送文字短消息进行辅助沟通。
+       </p>
+    </videoer>
+    <dif><lt>结束聊天</lt><p>聊天开始后，APP上方会显示倒计时，时间到后，双方可礼貌道别。每次聊天规定时间30分钟，超时后聊天自动关闭。如果聊天开始10分钟内，你对聊天伙伴不满意，可以和对方道别后退出聊天，不收取费用。10分钟后退出按正常上课扣费。退出时请和聊天伙伴礼貌道别，不要强行退出，否则会引起投诉。聊天结束后请给伙伴做出评价，包括但不限于老师的态度，水平，是否有帮助等...
+        <img src="__HOME_IMG__/stripround.png" alt="">
+    </p></dif>
+    <dif><lt>选择老师</lt><p>如果想选择上过课的老师，可以在账户已上课列表里点击该老师名字，查看其可用时间，进行约课。
+选择新老师请去老师列表搜索。
+        <img src="__HOME_IMG__/stripround.png" alt="">
+    </p></dif>
+    <dif><lt>注意事项</lt><p>请尊重聊天伙伴，准时进入教室，虚心请教。
+双方自定话题，内容不受限制，谨防欺诈。任何涉及到汇款、捐赠、借贷或泄露个人信息的内容请务必小心。我们只做聊天练口语平台，不对聊天内容负责。
+你的聊天伙伴不会通过本平台知道你的个人信息，除了账户里填写的名字和地区。
+        <img src="__HOME_IMG__/stripround.png" alt=""></p></dif>
+</div>
+</div>
+<div class="btimg">
+    <p>本平台是创业项目，努力提供给大家低成本练习口语平台是我们的目标。为了生存下去，需要足够的用户支持我们。如果你觉得本站聊天平台对你确实有帮助，请帮扶一下我们，推荐本站给学友，让大家一起提高口语，早日通过口语考试，开始人生新旅程。新人可用邀请码抵一节最低价课。您的支持会让我们走的更远。由衷感谢！
+    </p>
+<!--    {gt name="user_id" value="0"}
+    <a href="{:url('member/donate')}">我们接受打赏</a>
+    {else}
+    <a href="{:url('sign/learner')}">我们接受打赏</a>
+    {/gt}-->
+</div>
+{include file="public/footer"}
+
+</body>
+<script>
+    var swiper = new Swiper('.swipouter', {
+        navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+        },
+        breakpoints: {
+            750: {  //当屏幕宽度大于等于750
+                slidesPerView: 4,
+                slidesPerGroup : 4,
+                spaceBetween: 47,
+            }
+        }
+    });
+    $(document).on('click', '.video', function () {
+        $("popbg").show();
+        $("videoer video").show();
+    });
+    $(document).on('click', 'popbg', function () {
+        $("popbg").hide();
+        $("videoer video").hide();
+        $("videoer video")[0].pause();
+    });
+    $('.nav_learner').addClass('on');
+</script>
+<script src="__HOME_JS__/jquery.lazyload.js"></script>
+<script type="text/javascript" charset="utf-8">
+    $(function() {
+        $(".lazyload").lazyload({effect: "fadeIn"});
+    });
+</script>
+</html>

@@ -1,0 +1,47 @@
+{empty name="order_list"}
+    {if condition="!input('page') || input('page')==1"}
+<div class="class no_list">
+    <div class="namer">
+        <div class="nameinfo" style="text-align: center; padding: 20px; color: #999;">
+            No chat.
+        </div>
+    </div>
+</div>
+    {/if}
+{else}
+{eq name="user_type" value="1"}
+{volist name="order_list" id="row"}
+<dif class="classbox comp">
+    {gt name="row.comment_teacher_time" value="0"}
+    <div class="popreview pop_{$row.id}">
+        <img src="__HOME_IMG__/closex.png" alt="">
+        <rt><b>review</b> <name>{$row.username} {notempty name="$country_list[$row['country_id']]['ico_file']"}<img src="{$country_list[$row['country_id']]['ico_file']}" alt="{$country_list[$row['country_id']]['country_name']}">{/notempty}</name> <vline></vline> <time><?php echo date('d M', strtotime($row['book_date'])); ?> . <?php echo get_week(strtotime($row['book_date'])); ?> {$row.time_begin}-{$row.time_end}</time></rt>
+        <p>{$row.comment_teacher}</p>
+        <btime>{php} echo time_to_date($row['comment_teacher_time'], $location_user, 'd M Y');{/php}</btime>
+    </div>
+    {/gt}
+    <leftt class="{$row.id}"><headinfo><name class="sa"><a href="{:url('tutors/detail',['teacher_id'=>$row['teacher_id']])}" target="_blank">{$row.username}</a></name><time><?php echo date('d M', strtotime($row['book_date'])); ?>. <?php echo get_week(strtotime($row['book_date'])); ?> {$row.time_begin}-{$row.time_end}</time></headinfo><price>${$row.money}</price></leftt>
+    <rightt>{if condition="$row.order_status eq 2 || $row.comment_teacher_time gt 0"}<comminfo data-id="{$row.id}" {gt name="row.comment_teacher_time" value="0"}class="green"{/gt}>{$comment_txt}'s Comment</comminfo>{/if} <staus>{$status_list[$row['order_status']]}</staus></rightt></dif>
+{/volist}
+{else}
+{volist name="order_list" id="row"}
+<dif class="classbox comp">
+    {gt name="row.comment_student_time" value="0"}
+    <div class="popreview pop_{$row.id}">
+        <img src="__HOME_IMG__/closex.png" alt="">
+        <rt><b>review</b> <name>{$row.username} {notempty name="$country_list[$row['country_id']]['ico_file']"}<img src="{$country_list[$row['country_id']]['ico_file']}" alt="{$country_list[$row['country_id']]['country_name']}">{/notempty}</name> <vline></vline> <time><?php echo date('d M', strtotime($row['book_date_teacher'])); ?>. <?php echo get_week(strtotime($row['book_date_teacher'])); ?> {$row.time_begin_teacher}-{$row.time_end_teacher}</time></rt>
+        <p>{$row.comment_student}</p>
+        <btime>{php} echo time_to_date($row['comment_student_time'], $location_user, 'd M Y');{/php}</btime>
+    </div>
+    {/gt}
+
+    <leftt class="{$row.id}"><headinfo><name>{$row.username}</name>
+        <p style="display: none" data-username="{$row.username}">{$row.descr|default=''}</p>
+        <topt style="display: none">
+            <name> {$row.username}{notempty name="countrys[$row.country_id]['location_ico']"}<img src="{$countrys[$row.country_id]['location_ico']}" alt="{$countrys[$row.country_id]['country_name']}">{/notempty}</name> <vline></vline> <div><label>First language</label><span>{$native_language[$row.native_language]}</span></div><div><label>English proficiency level</label><span>{$english_level[$row.english_level]}</span></div><div><label>Location</label><span>{$countrys[$row.country_id]['country_name']}</span><span class="descrText" style="display: none;">{$row.goals}</span></div>
+        </topt>
+        <time><?php echo date('d M', strtotime($row['book_date_teacher'])); ?>. <?php echo get_week(strtotime($row['book_date_teacher'])); ?> <br> {$row.time_begin_teacher}-{$row.time_end_teacher}</time></headinfo><price>${$row.teacher_price}</price></leftt>
+    <rightt>{if condition="($row.order_status eq 2 && $row.teacher_money eq 1) || $row.comment_student_time gt 0"}<comminfo  data-id="{$row.id}" {gt name="row.comment_student_time" value="0"}class="green"{/gt}>{$comment_txt}'s Comment</comminfo>{/if} <staus>{if condition="$row['order_status'] eq 2 && $row['teacher_money'] eq 0"}{$status_list[3]}{else}{$status_list[$row['order_status']]}{/if}</staus></rightt></dif>
+{/volist}
+{/eq}
+{/empty}

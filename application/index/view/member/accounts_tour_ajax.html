@@ -1,0 +1,16 @@
+{eq name="act" value="withdrawal"}
+{volist name="list" id="row"}
+<dif class="balancebox">
+    <left><img src="__HOME_IMG__/balancebag.png" alt=""> <pays>Withdrawal</pays> <time>{php} echo time_to_date($row['create_time'], $location_user, 'd M Y');{/php}  at {php} echo time_to_date($row['create_time'], $location_user, 'H:i');{/php}</time></left>
+    <banlance>- ${$row.money|abs} <stau class="{eq name="row.state" value="1"}green{else}pink{/eq}">{$status_list[$row.state]}</stau></banlance>
+</dif>
+{/volist}
+{else}
+{volist name="list" id="row"}
+<dif class="balancebox">
+    <left>{lt name="row.money" value="0"}<img src="__HOME_IMG__/balancebag.png" alt="">{else}<img src="__HOME_IMG__/balancemoney.png" alt="">{/lt}
+        <pays>{$types[$row.type_id]}</pays> <time>{php} echo time_to_date($row['create_time'], $location_user, 'd M Y');{/php}  at {php} echo time_to_date($row['create_time'], $location_user, 'H:i');{/php}</time></left>
+    <banlance>{lt name="row.money" value="0"}-{else}+{/lt} ${$row.money|abs}</banlance>
+</dif>
+{/volist}
+{/eq}

@@ -1,0 +1,334 @@
+nav{box-shadow: none}
+nav.wBG{box-shadow: 0 5px 25px rgba(220,220,220,0.6);}
+nav>.logobox{display: none}
+nav .backar{background: url("../img/backar.png") center center no-repeat;
+    background-size: contain;
+    width: 13px;
+    height: 22px;}
+nav a.blue{text-transform: none;
+    font-size: 1.4rem;
+    color: #007edb;}
+nav .hanbugrmenu{
+    background-image: url("../img/habmenu_b.png");
+}
+nav div.who\? span a.sout{ 
+}
+body{background: #fff}
+p.topT{
+    font-size: 4.6rem;align-items: center;
+    text-align: center;
+    margin-top: 0px;}
+p.topT::after {
+    width: 180px;
+    height: 16px;}
+P.topT > a{
+    display: none;}
+.main{
+    padding-left: 20px;
+    margin-top: 20px;
+    padding-right: 20px;}
+.main .mainly{
+    float: none;
+    width: 100%;}
+.mainly .timetable{padding:160px 0 0 0}
+.mainly .timetable > .ht{
+    position: fixed;
+    top: 78px;
+    padding:20px 0;
+    background: #fff;
+    z-index: 1;
+    left: 20px;right: 20px;
+}
+.mainly .timetable > .ht a{
+    display: none;}
+.mainly .timetable > .ht a.help{
+    background: none;
+    width: 19px;
+    padding-left: 0;
+    display: block;}
+.mainly .timetable > .ht a.help img{vertical-align: middle}
+.timetable > .cal-day{
+    position: fixed;
+    background-color: #fff;
+    left: 20px;
+    right: 20px;
+    z-index: 1;
+    top:150px;
+     border-top: 1px solid #ebebeb;
+    padding-top:19px ;
+      }
+.timetable > .cal-day .upweek,
+.timetable > .cal-day .downweek{
+	transform:scale(0.5);
+}
+.timetable > .cal-day .daybox{
+    width: 92%;
+    display: flex;
+    justify-content: space-between;
+}
+.timetable > .cal-day>.pn{position: absolute;
+    font-size: 2rem;
+    font-family: Fjalla;
+    background-color: #fff;
+    padding-right: 20px;
+    top: -10px;}
+.timetable  .date span.m{
+    display: none;}
+.timetable > .cal-day .day{
+    margin-left: 0;
+    margin-right: 0;
+    width:44px;}
+.timetable >.class_list  .class > .namer{
+    float: left;}
+.timetable >.class_list .class>.btbox
+{
+    float: right;}
+.timetable >.class_list  .class > .namer > .price{
+    margin-top: 10px;
+    float: left;}
+.popstimeouter{
+    top: 0;    overflow-x: hidden;
+    padding-bottom: 100px;
+    bottom: 0;border-radius: 0}
+.selectime .closex{
+	position: relative;
+	top: auto;
+	left: auto;
+	right: auto;
+	margin: 20px 0 0 0;
+	z-index: 111;
+}
+.selectime{
+    padding-left:20px;
+    overflow-x: hidden;
+    padding-right: 20px;}
+.selectime .headt{flex-wrap: wrap;
+    margin-top: 20px;}
+.selectime .headt .ht{
+    flex-wrap: wrap;
+    width: 100%;}
+.selectime .headt h2{
+    margin-bottom: 15px;
+    width: 100%;}
+.selectime .headt .staues{
+    margin-top: 15px;
+    width: 100%;}
+.selectime .headt .staues span{
+    font-size: 1.2rem;
+    white-space: nowrap;
+    margin-right: 10px;}
+.timeslots{
+    padding-left: 0;}
+.selectime.fixed .cal-day{    flex: 1;}
+.touchouter{
+    display: flex;}
+.touchouter  li{flex: 1}
+.cal-hour{
+    margin-right: 10px;}
+.cal-hour li{
+    line-height: 40px;}
+.cal-day li .timecell{
+    width: 100%;
+    height: 40px;}
+.cal-day li .timecell{
+    width: 100%;
+    height: 40px;}
+.cal-day li .timecell pn{
+    color: #fff;
+    padding:2px 3px;
+    font-size: 12px;
+    display: none;
+}
+.cal-day li .timecell.avaitime.changeto pn,
+.cal-day li .timecell.booked pn{
+    display: block;
+}
+.timeslots .mm {
+    font-family: Fjalla;
+    position: absolute;
+    font-size: 1.8rem;
+}
+.paybarouter{
+    padding:15px 10px 20px 10px ;}
+.paybar>.timeouter span{
+    display: none;}
+.paybar .timeouter{
+    flex-wrap: wrap;
+    padding-right: 0;}
+.paybar .timeouter>*{
+    width: 100%;
+}
+.paybar input[type="submit"]{
+    width: 100px;
+}
+.paybar a{
+    display: none;}
+.cal-day .upweek,
+.cal-day .downweek{
+	transform:scale(0.5);
+}
+.side{display: none}
+.btimg{
+    height: 566px;
+    padding: 0 25px;}
+.btimg p{line-height: 30px;
+    padding-top: 40px;}
+.btimg a{
+    margin-top: 20px;
+    font-size: 2rem;
+    width: 100%;}
+.daybox{right: calc(var(--mdis) * 1px);
+    opacity:var(--opa);
+}
+.popstimeouter .selectime.fixed li.day.fixed .cdate{
+    top: 0;
+}
+.day .cdate .week{
+    letter-spacing: 0;
+    font-size: 0;}
+.cal-day li.day .cdate .date .m{
+    display: none;}
+.day .cdate .week:first-letter{
+    font-size:16px;
+    }
+.usertype_1 footnav .cur{
+    background: url("../img/Timetable-red.png") no-repeat center center;
+    background-size:auto 24px;
+}
+.usertype_2 footnav .cur{
+    background: url("../img/Timetable-blue.png") no-repeat center center;
+    background-size:auto 24px;
+}
+.footwrap{
+    display: none;}
+footnav .cur img{visibility: hidden}
+.popreview{
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    padding: 20px;    border-radius: 0;
+    transform: translate(0,0);
+}
+.popreview > img{right: initial;
+    left: 20px;}
+.popreview topt{
+    flex-wrap: wrap;
+    margin-top: 50px;}
+.usertype_2 .timetable .popreview topt name{
+    color: #007edb;
+    display: block;
+    width: 100%;
+}
+.popreview topt vline{
+    display: none;}
+.popreview topt div{
+    width: 100%;
+    padding-right: 0;
+    padding-top: 15px;}
+.popreview topt div label{
+    width: 61%;
+    display: inline-block;
+}
+.popstu{
+    top: 0;
+    bottom: 0;
+    right: 0;
+    border-radius: 0;
+    left: 0;
+    padding: 20px;
+    transform: translate(0,0);
+}
+.popstu > img{right: initial;
+    left: 20px;}
+.popstu topt{
+    flex-wrap: wrap;
+    margin-top: 50px;}
+.usertype_2 .timetable .popstu topt name{
+    color: #007edb;
+    display: block;
+    width: 100%;
+}
+.popstu topt vline{
+    display: none;}
+.popstu topt div{
+    width: 100%;
+    padding-right: 0;
+    padding-top: 15px;}
+.popstu topt div label{
+    width: 61%;
+    display: inline-block;
+}
+.timecell .timepop{
+	display: none !important;
+}
+.popstimeouterFix{
+	z-index: 9;
+	margin: 0 0 -220px 0;
+	padding: 220px 0 0 0;
+}
+.popstimeouterFix.fixed{
+	top: 20px;
+}
+.popstimeouterFix .upweek{
+	margin-left: 45px;
+}
+.popstimeouterFix .downweek{
+	right: -5px;
+}
+
+.popstimeouterFix.fixed .upweek{
+	margin-left: 60px;
+}
+.popstimeouterFix.fixed .downweek{
+	right: 5px;
+}
+
+.popstimeouterFix .upweek,
+.popstimeouterFix .downweek{
+	transform:scale(0.5);
+}
+.timetable >.class_list .class .btbox a.bt{
+	width: 140px;
+	border-radius: 10px;
+}
+.timetable >.class_list .class > .namer > .price{
+	float: none;
+	position: absolute;
+	left: 0;
+	bottom: 20px;
+}
+.timetable >.class_list .class > .namer{
+	position: initial;
+}
+.timetable>.class_list .class{
+	padding-bottom: 20px;
+}
+.timetable>.class_list .class>.namer .nameinfo br{
+	display: inline-block;
+}
+.timetable>.class_list .class>.namer .nameinfo{
+	line-height: 30px;
+	padding-bottom: 20px;
+}
+.timetable>.class_list .class .btbox a{
+	margin: 0 0 28px 0;
+}
+.timetable>.class_list .class .btbox a:last-child{
+	margin: 0;
+}
+.ctime p{
+	padding: 10px 0 0 0;
+}
+.otime p{
+	padding: 10px 0;
+}
+.notimsg msgtime{
+	margin-top: 10px;
+}
+.notimsg msgt{
+	margin-bottom: 5px;
+}
+.n_footerMain{
+	display: none;
+}

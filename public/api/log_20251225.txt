@@ -1,0 +1,354 @@
+2025-12-25 00:08:25 Index/get_article
+{"act":"2"}
+2025-12-25 01:00:21 Index/login
+{"email":"shekhshahabuddinjony@gmail.com","password":"6a89011962be52edc3d4d0d201c71c32"}
+2025-12-25 01:00:21 Member/set_push_id
+{"push_id":"8bb0ea478d151aa10a12e8acf0306cfb"}
+2025-12-25 01:00:22 Member/get_class_list
+{"page":"1","type":"2","pagesize":"1000"}
+2025-12-25 01:00:22 Member/get_class_list
+{"page":"1","type":"1","pagesize":"48"}
+2025-12-25 01:00:22 Member/get_class_list
+{"page":"1","type":"3pagesize=1000"}
+2025-12-25 01:00:23 Member/get_class_one
+{"id":"14959"}
+2025-12-25 01:00:23 Member/get_class_one
+{"id":"14959"}
+2025-12-25 01:00:40 Member/out_room
+{"classin_id":"14959","act":"0"}
+2025-12-25 01:00:41 Member/set_push_id
+{"push_id":"8bb0ea478d151aa10a12e8acf0306cfb"}
+2025-12-25 01:00:41 Member/get_class_list
+{"page":"1","type":"2","pagesize":"1000"}
+2025-12-25 01:00:41 Member/get_class_list
+{"page":"1","type":"1","pagesize":"48"}
+2025-12-25 01:00:41 Member/get_class_list
+{"page":"1","type":"3pagesize=1000"}
+2025-12-25 01:00:43 Member/get_class_one
+{"id":"14959"}
+2025-12-25 01:00:43 Member/get_class_one
+{"id":"14959"}
+2025-12-25 01:01:27 Index/login
+{"email":"jm.mazzuca@yahoo.com","password":"11fdcd35e9ee143ada27ab83bca16e38"}
+2025-12-25 01:01:28 Member/set_push_id
+{"push_id":"3c1fe5bca21d176e0aaf00aedb9796fe"}
+2025-12-25 01:01:28 Member/get_class_list
+{"page":"1","type":"2","pagesize":"1000"}
+2025-12-25 01:01:28 Member/get_class_list
+{"page":"1","type":"1","pagesize":"48"}
+2025-12-25 01:01:28 Member/get_class_list
+{"page":"1","type":"3pagesize=1000"}
+2025-12-25 01:01:32 Member/get_class_one
+{"id":"14959"}
+2025-12-25 01:01:32 Member/get_class_one
+{"id":"14959"}
+2025-12-25 01:01:32 Member/class_begin
+{"classin_id":"676467025106"}
+2025-12-25 01:01:32 Member/class_begin
+{"classin_id":"676467025106"}
+2025-12-25 01:01:38 Member/class_begin
+{"classin_id":"676467025106"}
+2025-12-25 01:02:02 Member/class_begin
+{"classin_id":"676467025106"}
+2025-12-25 01:12:17 Member/get_class_list
+{"page":"1","type":"3pagesize=1000"}
+2025-12-25 01:12:17 Member/set_push_id
+{"push_id":"8bb0ea478d151aa10a12e8acf0306cfb"}
+2025-12-25 01:12:17 Member/out_room
+{"classin_id":"14959","act":"0"}
+2025-12-25 01:12:17 Member/get_class_list
+{"page":"1","type":"2","pagesize":"1000"}
+2025-12-25 01:12:18 Member/get_class_list
+{"page":"1","type":"1","pagesize":"48"}
+2025-12-25 01:12:18 Member/get_class_one
+{"id":"14959"}
+2025-12-25 01:12:18 Member/get_class_one
+{"id":"14959"}
+2025-12-25 01:12:21 Member/class_begin
+{"classin_id":"676467025106"}
+2025-12-25 01:33:13 Member/out_room
+{"classin_id":"14959","act":"0"}
+2025-12-25 01:33:15 Member/out_room
+{"classin_id":"14959","act":"0"}
+2025-12-25 01:33:33 Member/comment_class
+{"comment":"She is great.","class_id":"14959","score":"5"}
+2025-12-25 01:33:54 Member/comment_class
+{"comment":"It's always lovely speaking with Jony about many different topics. ","class_id":"14959","score":"5"}
+2025-12-25 01:34:02 Member/set_push_id
+{"push_id":"8bb0ea478d151aa10a12e8acf0306cfb"}
+2025-12-25 01:34:02 Member/get_class_list
+{"page":"1","type":"2","pagesize":"1000"}
+2025-12-25 01:34:02 Member/get_class_list
+{"page":"1","type":"1","pagesize":"48"}
+2025-12-25 01:34:04 Member/set_push_id
+{"push_id":"3c1fe5bca21d176e0aaf00aedb9796fe"}
+2025-12-25 01:34:05 Member/get_class_list
+{"page":"1","type":"3pagesize=1000"}
+2025-12-25 01:34:05 Member/get_class_list
+{"page":"1","type":"1","pagesize":"48"}
+2025-12-25 01:34:05 Member/get_class_list
+{"page":"1","type":"3pagesize=1000"}
+2025-12-25 01:34:05 Member/get_class_list
+{"page":"1","type":"2","pagesize":"1000"}
+2025-12-25 01:34:06 Member/get_class_list
+{"page":"1","type":"3pagesize=1000"}
+2025-12-25 01:34:07 Member/get_class_list
+{"page":"1","type":"2","pagesize":"1000"}
+2025-12-25 01:53:16 Index/login
+{"email":"shekhshahabuddinjony@gmail.com","password":"6a89011962be52edc3d4d0d201c71c32"}
+2025-12-25 01:53:16 Member/set_push_id
+{"push_id":"8bb0ea478d151aa10a12e8acf0306cfb"}
+2025-12-25 01:53:16 Member/get_class_list
+{"page":"1","type":"1","pagesize":"48"}
+2025-12-25 01:53:16 Member/get_class_list
+{"page":"1","type":"2","pagesize":"1000"}
+2025-12-25 01:53:16 Member/get_class_list
+{"page":"1","type":"3pagesize=1000"}
+2025-12-25 01:56:29 Member/get_class_list
+{"page":"1","type":"1","pagesize":"48"}
+2025-12-25 01:56:29 Member/set_push_id
+{"push_id":"8bb0ea478d151aa10a12e8acf0306cfb"}
+2025-12-25 01:56:29 Member/get_class_list
+{"page":"1","type":"2","pagesize":"1000"}
+2025-12-25 01:56:29 Member/get_class_list
+{"page":"1","type":"3pagesize=1000"}
+2025-12-25 01:57:23 Member/set_push_id
+{"push_id":"8bb0ea478d151aa10a12e8acf0306cfb"}
+2025-12-25 01:57:23 Member/get_class_list
+{"page":"1","type":"1","pagesize":"48"}
+2025-12-25 01:57:24 Member/get_class_list
+{"page":"1","type":"2","pagesize":"1000"}
+2025-12-25 01:57:24 Member/get_class_list
+{"page":"1","type":"3pagesize=1000"}
+2025-12-25 01:59:09 Member/set_push_id
+{"push_id":"8bb0ea478d151aa10a12e8acf0306cfb"}
+2025-12-25 01:59:09 Member/get_class_list
+{"page":"1","type":"1","pagesize":"48"}
+2025-12-25 01:59:09 Member/get_class_list
+{"page":"1","type":"2","pagesize":"1000"}
+2025-12-25 01:59:09 Member/get_class_list
+{"page":"1","type":"3pagesize=1000"}
+2025-12-25 02:49:38 Member/get_class_list
+{"page":"1","type":"3pagesize=1000"}
+2025-12-25 02:49:38 Member/get_class_list
+{"page":"1","type":"2","pagesize":"1000"}
+2025-12-25 02:49:38 Member/set_push_id
+{"push_id":"8bb0ea478d151aa10a12e8acf0306cfb"}
+2025-12-25 02:49:38 Member/get_class_list
+{"page":"1","type":"1","pagesize":"48"}
+2025-12-25 08:10:23 Member/get_class_list
+{"page":"1","type":"3pagesize=1000"}
+2025-12-25 08:10:23 Member/get_class_list
+{"page":"1","type":"1","pagesize":"48"}
+2025-12-25 08:10:23 Member/get_class_list
+{"page":"1","type":"2","pagesize":"1000"}
+2025-12-25 08:10:23 Index/get_config
+[]
+2025-12-25 08:10:24 Index/get_config
+[]
+2025-12-25 08:10:25 Index/get_config
+[]
+2025-12-25 08:10:45 Index/login
+{"email":"ricojr0127@gmail.com","password":"rico1227"}
+2025-12-25 08:10:47 Index/login
+{"email":"ricojr0127@gmail.com","password":"rico1227"}
+2025-12-25 08:10:49 Index/login
+{"email":"ricojr0127@gmail.com","password":"rico1227"}
+2025-12-25 08:10:58 Index/login
+{"email":"ricojr0127@gmail.com","password":"rico1227"}
+2025-12-25 09:34:14 Index/get_code
+{"sessionid":"1766622869579"}
+2025-12-25 09:34:15 Index/get_code
+{"sessionid":"1766622869579"}
+2025-12-25 10:30:56 Index/login
+{"email":"shekhshahabuddinjony@gmail.com","password":"6a89011962be52edc3d4d0d201c71c32"}
+2025-12-25 10:30:56 Member/set_push_id
+{"push_id":"8bb0ea478d151aa10a12e8acf0306cfb"}
+2025-12-25 10:30:56 Member/get_class_list
+{"page":"1","type":"1","pagesize":"48"}
+2025-12-25 10:30:56 Member/get_class_list
+{"page":"1","type":"2","pagesize":"1000"}
+2025-12-25 10:30:57 Member/get_class_list
+{"page":"1","type":"3pagesize=1000"}
+2025-12-25 10:31:17 Member/get_class_list
+{"page":"1","type":"1","pagesize":"48"}
+2025-12-25 10:31:17 Member/set_push_id
+{"push_id":"8bb0ea478d151aa10a12e8acf0306cfb"}
+2025-12-25 10:31:17 Member/get_class_list
+{"page":"1","type":"2","pagesize":"1000"}
+2025-12-25 10:31:17 Member/get_class_list
+{"page":"1","type":"3pagesize=1000"}
+2025-12-25 10:33:39 Member/set_push_id
+{"push_id":"8bb0ea478d151aa10a12e8acf0306cfb"}
+2025-12-25 10:33:39 Member/get_class_list
+{"page":"1","type":"1","pagesize":"48"}
+2025-12-25 10:33:39 Member/get_class_list
+{"page":"1","type":"2","pagesize":"1000"}
+2025-12-25 10:33:39 Member/get_class_list
+{"page":"1","type":"3pagesize=1000"}
+2025-12-25 10:34:49 Member/get_class_list
+{"page":"1","type":"3pagesize=1000"}
+2025-12-25 10:34:51 Member/get_class_list
+{"page":"1","type":"2","pagesize":"1000"}
+2025-12-25 10:59:09 Member/get_class_list
+{"page":"1","type":"2","pagesize":"1000"}
+2025-12-25 10:59:10 Member/get_class_list
+{"page":"1","type":"3pagesize=1000"}
+2025-12-25 10:59:10 Member/get_class_list
+{"page":"1","type":"1","pagesize":"48"}
+2025-12-25 10:59:10 Member/set_push_id
+{"push_id":"8bb0ea478d151aa10a12e8acf0306cfb"}
+2025-12-25 10:59:12 Member/get_class_one
+{"id":"14876"}
+2025-12-25 10:59:12 Member/get_class_one
+{"id":"14876"}
+2025-12-25 11:05:41 Member/get_class_one
+{"id":"14876"}
+2025-12-25 11:06:18 Member/out_room
+{"classin_id":"14876","act":"0"}
+2025-12-25 11:06:19 Member/set_push_id
+{"push_id":"8bb0ea478d151aa10a12e8acf0306cfb"}
+2025-12-25 11:06:19 Member/get_class_list
+{"page":"1","type":"1","pagesize":"48"}
+2025-12-25 11:06:19 Member/get_class_list
+{"page":"1","type":"3pagesize=1000"}
+2025-12-25 11:06:20 Member/get_class_list
+{"page":"1","type":"2","pagesize":"1000"}
+2025-12-25 11:07:24 Member/set_push_id
+{"push_id":"8bb0ea478d151aa10a12e8acf0306cfb"}
+2025-12-25 11:07:24 Member/get_class_list
+{"page":"1","type":"1","pagesize":"48"}
+2025-12-25 11:07:24 Member/get_class_list
+{"page":"1","type":"3pagesize=1000"}
+2025-12-25 11:07:25 Member/get_class_list
+{"page":"1","type":"2","pagesize":"1000"}
+2025-12-25 11:14:05 Member/set_push_id
+{"push_id":"8bb0ea478d151aa10a12e8acf0306cfb"}
+2025-12-25 11:14:05 Member/get_class_list
+{"page":"1","type":"2","pagesize":"1000"}
+2025-12-25 11:14:06 Member/get_class_list
+{"page":"1","type":"1","pagesize":"48"}
+2025-12-25 11:14:06 Member/get_class_list
+{"page":"1","type":"3pagesize=1000"}
+2025-12-25 13:48:26 Member/set_push_id
+{"push_id":"8bb0ea478d151aa10a12e8acf0306cfb"}
+2025-12-25 13:48:26 Member/get_class_list
+{"page":"1","type":"1","pagesize":"48"}
+2025-12-25 13:48:26 Member/get_class_list
+{"page":"1","type":"2","pagesize":"1000"}
+2025-12-25 13:48:26 Member/get_class_list
+{"page":"1","type":"3pagesize=1000"}
+2025-12-25 13:58:08 Member/get_class_list
+{"page":"1","type":"2","pagesize":"1000"}
+2025-12-25 13:58:08 Member/get_class_list
+{"page":"1","type":"3pagesize=1000"}
+2025-12-25 13:58:08 Member/set_push_id
+{"push_id":"8bb0ea478d151aa10a12e8acf0306cfb"}
+2025-12-25 13:58:08 Member/get_class_list
+{"page":"1","type":"1","pagesize":"48"}
+2025-12-25 13:58:10 Member/get_class_one
+{"id":"14878"}
+2025-12-25 13:58:10 Member/get_class_one
+{"id":"14878"}
+2025-12-25 14:09:11 Index/login
+{"email":"shekhshahabuddinjony@gmail.com","password":"6a89011962be52edc3d4d0d201c71c32"}
+2025-12-25 14:09:11 Member/set_push_id
+{"push_id":"8bb0ea478d151aa10a12e8acf0306cfb"}
+2025-12-25 14:09:12 Member/get_class_list
+{"page":"1","type":"1","pagesize":"48"}
+2025-12-25 14:09:12 Member/get_class_list
+{"page":"1","type":"2","pagesize":"1000"}
+2025-12-25 14:09:12 Member/get_class_list
+{"page":"1","type":"3pagesize=1000"}
+2025-12-25 15:26:27 Index/login
+{"email":"a.jafari2332@gmail.com","password":"34f9b63a60aea2639e9d654476951ccb"}
+2025-12-25 15:26:28 Member/set_push_id
+{"push_id":"762308938961158dde05a0ae660115f9"}
+2025-12-25 15:26:29 Member/get_class_list
+{"page":"1","type":"2","pagesize":"1000"}
+2025-12-25 15:26:30 Member/get_class_list
+{"page":"1","type":"3pagesize=1000"}
+2025-12-25 15:26:30 Member/get_class_list
+{"page":"1","type":"1","pagesize":"48"}
+2025-12-25 15:28:10 Member/get_class_one
+{"id":"14962"}
+2025-12-25 15:28:11 Member/get_class_one
+{"id":"14962"}
+2025-12-25 15:30:46 Index/login
+{"email":"Paula0088@interia.eu","password":"50d37c2ec87c13f6f2dda1d70dd94f9c"}
+2025-12-25 15:30:47 Member/set_push_id
+{"push_id":"ba45d50e127bc0cf9567ac98ec6b72d2"}
+2025-12-25 15:30:47 Member/get_class_list
+{"page":"1","type":"2","pagesize":"1000"}
+2025-12-25 15:30:47 Member/get_class_list
+{"page":"1","type":"3pagesize=1000"}
+2025-12-25 15:30:47 Member/get_class_list
+{"page":"1","type":"1","pagesize":"48"}
+2025-12-25 15:30:50 Member/get_class_list
+{"page":"1","type":"1","pagesize":"48"}
+2025-12-25 15:30:50 Member/set_push_id
+{"push_id":"ba45d50e127bc0cf9567ac98ec6b72d2"}
+2025-12-25 15:30:51 Member/get_class_list
+{"page":"1","type":"2","pagesize":"1000"}
+2025-12-25 15:30:51 Member/get_class_list
+{"page":"1","type":"3pagesize=1000"}
+2025-12-25 15:30:51 Member/get_class_one
+{"id":"14962"}
+2025-12-25 15:30:51 Member/get_class_one
+{"id":"14962"}
+2025-12-25 15:30:58 Member/class_begin
+{"classin_id":"295293030205"}
+2025-12-25 15:51:02 Member/get_class_one
+{"id":"14962"}
+2025-12-25 15:58:25 Index/get_article
+{"act":"2"}
+2025-12-25 16:04:52 Member/set_push_id
+{"push_id":"c6445a726c794ed4d4da4dceeaa937d6"}
+2025-12-25 16:04:52 Member/get_class_list
+{"page":"1","type":"1","pagesize":"48"}
+2025-12-25 16:04:52 Member/get_class_list
+{"page":"1","type":"3pagesize=1000"}
+2025-12-25 16:04:52 Member/get_class_list
+{"page":"1","type":"2","pagesize":"1000"}
+2025-12-25 16:27:13 Member/out_room
+{"classin_id":"14962","act":"0"}
+2025-12-25 16:27:19 Member/out_room
+{"classin_id":"14962","act":"0"}
+2025-12-25 16:27:28 Member/comment_class
+{"comment":"Great","class_id":"14962","score":"5"}
+2025-12-25 16:27:38 Member/set_push_id
+{"push_id":"ba45d50e127bc0cf9567ac98ec6b72d2"}
+2025-12-25 16:27:39 Member/get_class_list
+{"page":"1","type":"3pagesize=1000"}
+2025-12-25 16:27:39 Member/get_class_list
+{"page":"1","type":"1","pagesize":"48"}
+2025-12-25 16:27:39 Member/get_class_list
+{"page":"1","type":"2","pagesize":"1000"}
+2025-12-25 16:27:40 Member/comment_class
+{"comment":"Excellent performance ","class_id":"14962","score":"5"}
+2025-12-25 16:27:49 Member/set_push_id
+{"push_id":"762308938961158dde05a0ae660115f9"}
+2025-12-25 16:27:50 Member/get_class_list
+{"page":"1","type":"3pagesize=1000"}
+2025-12-25 16:27:50 Member/get_class_list
+{"page":"1","type":"2","pagesize":"1000"}
+2025-12-25 16:27:51 Member/get_class_list
+{"page":"1","type":"1","pagesize":"48"}
+2025-12-25 19:47:03 Index/get_article
+{"act":"2"}
+2025-12-25 20:45:27 Index/login
+{"email":"shekhshahabuddinjony@gmail.com","password":"6a89011962be52edc3d4d0d201c71c32"}
+2025-12-25 20:45:27 Member/set_push_id
+{"push_id":"8bb0ea478d151aa10a12e8acf0306cfb"}
+2025-12-25 20:45:29 Member/get_class_list
+{"page":"1","type":"1","pagesize":"48"}
+2025-12-25 20:45:29 Member/get_class_list
+{"page":"1","type":"3pagesize=1000"}
+2025-12-25 20:45:29 Member/get_class_list
+{"page":"1","type":"2","pagesize":"1000"}
+2025-12-25 20:45:32 Member/get_class_list
+{"page":"1","type":"3pagesize=1000"}
+2025-12-25 20:45:35 Member/get_class_list
+{"page":"1","type":"2","pagesize":"1000"}
+2025-12-25 23:45:37 Index/get_article
+{"act":"2"}

@@ -1,0 +1,238 @@
+<!--<div class="poptouch">
+	<span class="closex"><i class="iconfont iconclose"></i></span>
+	<t>GET IN TOUCH</t>
+	
+	<form action="{:url('index/feedback')}" method="post" id="form_msg" onsubmit="return chk_msg()">
+		<input type="text" placeholder="Name" name="name" id="name" required>
+		<input type="text" placeholder="Your Email" name="email" id="email" required>
+		<textarea name="body" id="body" placeholder="Message" required></textarea>
+		<div>
+			<img src="{:url('index/verify')}" id="verify_img" onclick="$(this).attr('src', $(this).attr('src'))">
+			<input type="text" placeholder="Verification code" name="verify_code" id="verify_code" required>
+		</div>
+		<input type="submit" value="SEND">
+	</form>
+</div>-->
+<popbg></popbg>
+<div class="n_footer">
+<!--	<a class="getintouch-icon" href="###" onclick="$('#verify_img').attr('src', $('#verify_img').attr('src'));">
+		<i class="iconfont iconchat"></i>
+	</a>-->
+	<div class="n_footerMain">
+		<div class="n_footerTop">
+			<div class="n_footerLink">
+				<ul>
+					<li><a href="{:url('about/index')}">ABOUT US</a></li>
+					<li><a href="{:url('about/contact')}">CONTACT US</a></li>
+					{eq name="is_partner" value="1"}
+					<li><a href="{:url('about/help')}">HELP</a></li>
+					{else}
+					<li><a href="{:url('about/help')}">HELP</a></li>
+					{/eq}
+					<li><a href="{:url('about/terms')}">TERMS OF USE</a></li>
+					<li><a href="{:url('about/policy')}">PRIVACY POLICY</a></li>
+				</ul>
+			</div>
+			<div class="n_footerShore">
+				<!--<a href="javascript:;"><img src="{:get_file_path(config('cfg_wechat'))}" alt=""><i class="iconfont iconLINK-wechat"></i></a>-->
+				<a target="_blank" href="{:config('cfg_facebook')}"><i class="iconfont iconLINK-facebook"></i></a>
+				<a target="_blank" href="{:config('cfg_twitter')}"><i class="iconfont iconLINK-twiiter"></i></a>
+			</div>
+		</div>
+		<div class="n_copyright" data-web="{$webcom}">
+			© {:date('Y')}. ALL RIGHTS RESERVED
+			{if($country=='china')}
+			{:config('web_site_icp')}
+			{/if}
+		</div>
+	</div>
+</div>
+
+
+<style>
+	.n_footer{
+		background: #f7f5f3;
+		/* border-top: 1px solid #f7f5f3; */
+	}
+	.n_footerMain{
+		max-width: 1260px;
+		padding: 80px 10px 50px 10px;
+		margin: 0 auto;
+	}
+	.n_footerTop{
+		position: relative;
+	}
+	.n_footerShore{
+		position: absolute;
+		right: 0;
+		top: -5px;
+	}
+	
+	.n_footerLink ul{
+		overflow: hidden;
+		
+	}
+	.n_footerLink li {
+		float: left;
+		position: relative;
+		padding: 0 15px;
+	}
+
+	.n_footerLink li::after {
+		display: block;
+		content: '';
+		position: absolute;
+		width: 4px;
+		height: 4px;
+		border-radius: 4px;
+		background: #8c8b8a;
+		right: 0;
+		top: 50%;
+		margin-top: -2px;
+	}
+	.n_footerLink li:nth-child(1){
+		padding-left: 0;
+	}
+	.n_footerLink li:last-child::after {
+		display: none;
+		padding-right: 0;
+	}
+	.n_footerLink li a {
+		color: #363636;
+		text-decoration: none;
+	} 
+	.n_footerLink li a:hover{
+		text-decoration: underline;
+	}
+	.n_footerShore a{
+		text-decoration: none;
+		display: inline-block;
+		position: relative;
+		margin-left: 20px;
+		line-height: 28px;
+	}
+	.n_footerShore a i{
+		font-size: 28px;
+	}
+	.n_footerShore a img{
+		position: absolute;
+		left: 50%;
+		top: -100px;
+		width: 100px;
+		max-width: initial;
+		transform: translateX(-50%);
+		display: none;
+		box-shadow: 1px 1px 20px rgba(0,0,0,.1);
+		background: #fff;
+		border-radius: 5px;
+		padding: 5px;
+	}
+	.n_footerShore a:hover img{
+		display: block;
+	}
+	.n_copyright{
+		color: #8c8b8a;
+		padding: 20px 0 0 0;
+	}
+	.n_copyright a{
+		color: #8c8b8a;
+		text-decoration: none;
+		display: inline-block;
+		padding: 0 5px;
+	}
+	.n_copyright a:hover{
+		color: #333;
+		text-decoration: underline;
+	}
+	.getintouch-icon{
+		position: fixed;
+		width: 100px;
+		height: 100px;
+		background: #fff;
+		border-radius: 100%;
+		z-index: 2;
+		right:20px;
+		bottom: 120px;
+		text-align: center;
+		color: #685655;
+		line-height: 100px;
+		text-decoration: none;
+		box-shadow: 0 4px 20px rgba(0,0,0,.1);
+	}
+	.getintouch-icon i{
+		font-size: 60px;
+		position: absolute;
+		left: 50%;
+		top: 50%;
+		transform: translate(-50%,-50%);
+	}
+	@media screen and (max-width: 750px)  {
+		.n_footerLink li{
+			float: none;
+			padding: 15px 0;
+		}
+		.n_footerLink li::after{
+			display: none;
+		}
+		.n_footerLink{
+			text-align: center;
+		}
+		.n_footerMain{
+			padding: 20px 10px 90px 10px;
+		}
+		.n_footerShore {
+			position: initial;
+			text-align: center;
+			padding: 30px 0 0 0;
+		}
+		.n_footerShore a{
+			margin: 0 10px;
+		}
+		.n_copyright{
+			text-align: center;
+			line-height: 32px;
+			padding: 10px 0 0 0;
+		}
+		.n_copyright a{
+			display: block;
+			line-height: 32px;
+		}
+		.getintouch-icon{
+			position: fixed;
+			right: 10px;
+			top: 72%;
+			width: 60px;
+			height: 60px;
+		}
+		.getintouch-icon i{
+			font-size: 40px;
+		}
+	}
+</style>
+<script language="JavaScript">
+	function chk_msg() {
+		var _data = $('#form_msg').serialize();
+		showloading();
+		$.ajax({
+			data: _data,
+			url: $('#form_msg').attr('action'),
+			type: 'post',
+			dataType: 'json',
+			success: function(res) {
+				showmsg(res.msg, res.code);
+				if (res.code == 200) {
+					setTimeout("location.reload()", 2000);
+				} else {
+					$('#verify_code').val('');
+					$('.vrimg').attr('src', $('.vrimg').attr('src'));
+				}
+			}
+		})
+		return false;
+	}
+	$(function() {
+		// showloading();
+		$('.vrimg').attr('src', "{:url('index/verify')}");
+		// layer.closeAll();
+	});
+</script>

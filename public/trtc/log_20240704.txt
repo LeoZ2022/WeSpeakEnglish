@@ -1,0 +1,116 @@
+2024-07-04 00:30:30 callback
+{
+	"EventGroupId":	1,
+	"EventType":	101,
+	"CallbackTs":	1720024230065,
+	"EventInfo":	{
+		"RoomId":	13902,
+		"EventTs":	1720024229,
+		"EventMsTs":	1720024229985,
+		"UserId":	"977"
+	}
+}
+
+2024-07-04 00:30:30 callback
+{
+	"EventGroupId":	1,
+	"EventType":	103,
+	"CallbackTs":	1720024230067,
+	"EventInfo":	{
+		"RoomId":	13902,
+		"EventTs":	1720024229,
+		"EventMsTs":	1720024229985,
+		"UserId":	"977",
+		"Role":	20,
+		"TerminalType":	2,
+		"UserType":	3,
+		"Reason":	1,
+		"ClientIpv4":	"67.193.78.81"
+	}
+}
+
+2024-07-04 00:39:04 callback
+{
+	"EventGroupId":	1,
+	"EventType":	104,
+	"CallbackTs":	1720024744883,
+	"EventInfo":	{
+		"RoomId":	13902,
+		"EventTs":	1720024744,
+		"EventMsTs":	1720024744806,
+		"UserId":	"977",
+		"Role":	20,
+		"Reason":	1
+	}
+}
+
+2024-07-04 00:39:04 callback
+{
+	"EventGroupId":	1,
+	"EventType":	102,
+	"CallbackTs":	1720024744891,
+	"EventInfo":	{
+		"RoomId":	13902,
+		"EventTs":	1720024744,
+		"EventMsTs":	1720024744806
+	}
+}
+
+2024-07-04 00:39:09 callback
+{
+	"EventGroupId":	1,
+	"EventType":	103,
+	"CallbackTs":	1720024748994,
+	"EventInfo":	{
+		"RoomId":	13902,
+		"EventTs":	1720024748,
+		"EventMsTs":	1720024748917,
+		"UserId":	"977",
+		"Role":	20,
+		"TerminalType":	2,
+		"UserType":	3,
+		"Reason":	1,
+		"ClientIpv4":	"67.193.78.81"
+	}
+}
+
+2024-07-04 00:39:09 callback
+{
+	"EventGroupId":	1,
+	"EventType":	101,
+	"CallbackTs":	1720024748990,
+	"EventInfo":	{
+		"RoomId":	13902,
+		"EventTs":	1720024748,
+		"EventMsTs":	1720024748917,
+		"UserId":	"977"
+	}
+}
+
+2024-07-04 00:40:11 callback
+{
+	"EventGroupId":	1,
+	"EventType":	104,
+	"CallbackTs":	1720024811630,
+	"EventInfo":	{
+		"RoomId":	13902,
+		"EventTs":	1720024811,
+		"EventMsTs":	1720024811553,
+		"UserId":	"977",
+		"Role":	20,
+		"Reason":	1
+	}
+}
+
+2024-07-04 00:40:11 callback
+{
+	"EventGroupId":	1,
+	"EventType":	102,
+	"CallbackTs":	1720024811641,
+	"EventInfo":	{
+		"RoomId":	13902,
+		"EventTs":	1720024811,
+		"EventMsTs":	1720024811553
+	}
+}
+

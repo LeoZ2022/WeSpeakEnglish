@@ -1,0 +1,380 @@
+2026-05-18 00:31:50 callback
+{
+	"EventGroupId":	1,
+	"EventType":	103,
+	"CallbackTs":	1779035510322,
+	"EventInfo":	{
+		"RoomId":	15543,
+		"EventTs":	1779035510,
+		"EventMsTs":	1779035510238,
+		"UserId":	"2345",
+		"Role":	20,
+		"TerminalType":	2,
+		"UserType":	3,
+		"Reason":	1,
+		"ClientIpv4":	"203.26.240.120"
+	}
+}
+
+2026-05-18 00:31:50 callback
+{
+	"EventGroupId":	1,
+	"EventType":	101,
+	"CallbackTs":	1779035510310,
+	"EventInfo":	{
+		"RoomId":	15543,
+		"EventTs":	1779035510,
+		"EventMsTs":	1779035510233,
+		"UserId":	"2345"
+	}
+}
+
+2026-05-18 00:38:11 callback
+{
+	"EventGroupId":	1,
+	"EventType":	104,
+	"CallbackTs":	1779035891734,
+	"EventInfo":	{
+		"RoomId":	15543,
+		"EventTs":	1779035891,
+		"EventMsTs":	1779035891713,
+		"UserId":	"2345",
+		"Role":	20,
+		"Reason":	1
+	}
+}
+
+2026-05-18 00:38:11 callback
+{
+	"EventGroupId":	1,
+	"EventType":	102,
+	"CallbackTs":	1779035891864,
+	"EventInfo":	{
+		"RoomId":	15543,
+		"EventTs":	1779035891,
+		"EventMsTs":	1779035891785
+	}
+}
+
+2026-05-18 20:59:03 callback
+{
+	"EventGroupId":	1,
+	"EventType":	101,
+	"CallbackTs":	1779109143203,
+	"EventInfo":	{
+		"RoomId":	15551,
+		"EventTs":	1779109143,
+		"EventMsTs":	1779109143137,
+		"UserId":	"3325"
+	}
+}
+
+2026-05-18 20:59:03 callback
+{
+	"EventGroupId":	1,
+	"EventType":	103,
+	"CallbackTs":	1779109143192,
+	"EventInfo":	{
+		"RoomId":	15551,
+		"EventTs":	1779109143,
+		"EventMsTs":	1779109143158,
+		"UserId":	"3325",
+		"Role":	20,
+		"TerminalType":	2,
+		"UserType":	3,
+		"Reason":	1,
+		"ClientIpv4":	"136.158.63.120"
+	}
+}
+
+2026-05-18 20:59:29 callback
+{
+	"EventGroupId":	1,
+	"EventType":	103,
+	"CallbackTs":	1779109169362,
+	"EventInfo":	{
+		"RoomId":	15551,
+		"EventTs":	1779109169,
+		"EventMsTs":	1779109169341,
+		"UserId":	"2345",
+		"Role":	20,
+		"TerminalType":	2,
+		"UserType":	3,
+		"Reason":	1,
+		"ClientIpv4":	"203.26.240.123"
+	}
+}
+
+2026-05-18 21:30:02 callback
+{
+	"EventGroupId":	1,
+	"EventType":	104,
+	"CallbackTs":	1779111002588,
+	"EventInfo":	{
+		"RoomId":	15551,
+		"EventTs":	1779111002,
+		"EventMsTs":	1779111002487,
+		"UserId":	"3325",
+		"Role":	20,
+		"Reason":	1
+	}
+}
+
+2026-05-18 21:30:02 callback
+{
+	"EventGroupId":	1,
+	"EventType":	102,
+	"CallbackTs":	1779111002820,
+	"EventInfo":	{
+		"RoomId":	15551,
+		"EventTs":	1779111002,
+		"EventMsTs":	1779111002750
+	}
+}
+
+2026-05-18 21:30:02 callback
+{
+	"EventGroupId":	1,
+	"EventType":	104,
+	"CallbackTs":	1779111002659,
+	"EventInfo":	{
+		"RoomId":	15551,
+		"EventTs":	1779111002,
+		"EventMsTs":	1779111002640,
+		"UserId":	"2345",
+		"Role":	20,
+		"Reason":	1
+	}
+}
+
+2026-05-18 22:00:19 callback
+{
+	"EventGroupId":	1,
+	"EventType":	101,
+	"CallbackTs":	1779112819306,
+	"EventInfo":	{
+		"RoomId":	15549,
+		"EventTs":	1779112819,
+		"EventMsTs":	1779112819235,
+		"UserId":	"2345"
+	}
+}
+
+2026-05-18 22:00:19 callback
+{
+	"EventGroupId":	1,
+	"EventType":	103,
+	"CallbackTs":	1779112819308,
+	"EventInfo":	{
+		"RoomId":	15549,
+		"EventTs":	1779112819,
+		"EventMsTs":	1779112819240,
+		"UserId":	"2345",
+		"Role":	20,
+		"TerminalType":	2,
+		"UserType":	3,
+		"Reason":	1,
+		"ClientIpv4":	"203.26.240.123"
+	}
+}
+
+2026-05-18 22:01:33 callback
+{
+	"EventGroupId":	1,
+	"EventType":	104,
+	"CallbackTs":	1779112893052,
+	"EventInfo":	{
+		"RoomId":	15549,
+		"EventTs":	1779112892,
+		"EventMsTs":	1779112892967,
+		"UserId":	"2345",
+		"Role":	20,
+		"Reason":	1
+	}
+}
+
+2026-05-18 22:01:33 callback
+{
+	"EventGroupId":	1,
+	"EventType":	102,
+	"CallbackTs":	1779112893108,
+	"EventInfo":	{
+		"RoomId":	15549,
+		"EventTs":	1779112893,
+		"EventMsTs":	1779112893024
+	}
+}
+
+2026-05-18 22:01:39 callback
+{
+	"EventGroupId":	1,
+	"EventType":	101,
+	"CallbackTs":	1779112899597,
+	"EventInfo":	{
+		"RoomId":	15549,
+		"EventTs":	1779112899,
+		"EventMsTs":	1779112899528,
+		"UserId":	"2345"
+	}
+}
+
+2026-05-18 22:01:39 callback
+{
+	"EventGroupId":	1,
+	"EventType":	103,
+	"CallbackTs":	1779112899560,
+	"EventInfo":	{
+		"RoomId":	15549,
+		"EventTs":	1779112899,
+		"EventMsTs":	1779112899532,
+		"UserId":	"2345",
+		"Role":	20,
+		"TerminalType":	2,
+		"UserType":	3,
+		"Reason":	1,
+		"ClientIpv4":	"203.26.240.123"
+	}
+}
+
+2026-05-18 22:07:14 callback
+{
+	"EventGroupId":	1,
+	"EventType":	104,
+	"CallbackTs":	1779113233968,
+	"EventInfo":	{
+		"RoomId":	15549,
+		"EventTs":	1779113233,
+		"EventMsTs":	1779113233945,
+		"UserId":	"2345",
+		"Role":	20,
+		"Reason":	1
+	}
+}
+
+2026-05-18 22:07:14 callback
+{
+	"EventGroupId":	1,
+	"EventType":	102,
+	"CallbackTs":	1779113234049,
+	"EventInfo":	{
+		"RoomId":	15549,
+		"EventTs":	1779113233,
+		"EventMsTs":	1779113233976
+	}
+}
+
+2026-05-18 23:28:36 callback
+{
+	"EventGroupId":	1,
+	"EventType":	101,
+	"CallbackTs":	1779118116127,
+	"EventInfo":	{
+		"RoomId":	15548,
+		"EventTs":	1779118116,
+		"EventMsTs":	1779118116056,
+		"UserId":	"3359"
+	}
+}
+
+2026-05-18 23:28:36 callback
+{
+	"EventGroupId":	1,
+	"EventType":	103,
+	"CallbackTs":	1779118116326,
+	"EventInfo":	{
+		"RoomId":	15548,
+		"EventTs":	1779118116,
+		"EventMsTs":	1779118116168,
+		"UserId":	"3359",
+		"Role":	20,
+		"TerminalType":	2,
+		"UserType":	3,
+		"Reason":	1,
+		"ClientIpv4":	"197.156.82.57"
+	}
+}
+
+2026-05-18 23:30:14 callback
+{
+	"EventGroupId":	1,
+	"EventType":	103,
+	"CallbackTs":	1779118214440,
+	"EventInfo":	{
+		"RoomId":	15548,
+		"EventTs":	1779118214,
+		"EventMsTs":	1779118214365,
+		"UserId":	"2345",
+		"Role":	20,
+		"TerminalType":	2,
+		"UserType":	3,
+		"Reason":	1,
+		"ClientIpv4":	"203.26.240.122"
+	}
+}
+
+2026-05-18 23:30:26 callback
+{
+	"EventGroupId":	1,
+	"EventType":	104,
+	"CallbackTs":	1779118226280,
+	"EventInfo":	{
+		"RoomId":	15548,
+		"EventTs":	1779118226,
+		"EventMsTs":	1779118226190,
+		"UserId":	"2345",
+		"Role":	20,
+		"Reason":	1
+	}
+}
+
+2026-05-18 23:30:36 callback
+{
+	"EventGroupId":	1,
+	"EventType":	103,
+	"CallbackTs":	1779118236779,
+	"EventInfo":	{
+		"RoomId":	15548,
+		"EventTs":	1779118236,
+		"EventMsTs":	1779118236762,
+		"UserId":	"2345",
+		"Role":	20,
+		"TerminalType":	2,
+		"UserType":	3,
+		"Reason":	1,
+		"ClientIpv4":	"203.26.240.123"
+	}
+}
+
+2026-05-18 23:49:07 callback
+{
+	"EventGroupId":	1,
+	"EventType":	104,
+	"CallbackTs":	1779119347201,
+	"EventInfo":	{
+		"RoomId":	15548,
+		"EventTs":	1779119347,
+		"EventMsTs":	1779119347123,
+		"UserId":	"2345",
+		"Role":	20,
+		"Reason":	1
+	}
+}
+
+2026-05-18 23:49:13 callback
+{
+	"EventGroupId":	1,
+	"EventType":	103,
+	"CallbackTs":	1779119353075,
+	"EventInfo":	{
+		"RoomId":	15548,
+		"EventTs":	1779119352,
+		"EventMsTs":	1779119352998,
+		"UserId":	"2345",
+		"Role":	20,
+		"TerminalType":	2,
+		"UserType":	3,
+		"Reason":	1,
+		"ClientIpv4":	"203.26.240.120"
+	}
+}
+

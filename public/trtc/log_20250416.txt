@@ -1,0 +1,116 @@
+2025-04-16 23:03:13 callback
+{
+	"EventGroupId":	1,
+	"EventType":	101,
+	"CallbackTs":	1744815792981,
+	"EventInfo":	{
+		"RoomId":	14240,
+		"EventTs":	1744815792,
+		"EventMsTs":	1744815792898,
+		"UserId":	"2078"
+	}
+}
+
+2025-04-16 23:03:13 callback
+{
+	"EventGroupId":	1,
+	"EventType":	103,
+	"CallbackTs":	1744815793172,
+	"EventInfo":	{
+		"RoomId":	14240,
+		"EventTs":	1744815792,
+		"EventMsTs":	1744815792993,
+		"UserId":	"2078",
+		"Role":	20,
+		"TerminalType":	2,
+		"UserType":	3,
+		"Reason":	1,
+		"ClientIpv4":	"196.250.71.34"
+	}
+}
+
+2025-04-16 23:07:27 callback
+{
+	"EventGroupId":	1,
+	"EventType":	102,
+	"CallbackTs":	1744816046946,
+	"EventInfo":	{
+		"RoomId":	14240,
+		"EventTs":	1744816046,
+		"EventMsTs":	1744816046861
+	}
+}
+
+2025-04-16 23:07:27 callback
+{
+	"EventGroupId":	1,
+	"EventType":	104,
+	"CallbackTs":	1744816046796,
+	"EventInfo":	{
+		"RoomId":	14240,
+		"EventTs":	1744816046,
+		"EventMsTs":	1744816046678,
+		"UserId":	"2078",
+		"Role":	20,
+		"Reason":	1
+	}
+}
+
+2025-04-16 23:07:41 callback
+{
+	"EventGroupId":	1,
+	"EventType":	101,
+	"CallbackTs":	1744816061340,
+	"EventInfo":	{
+		"RoomId":	14240,
+		"EventTs":	1744816061,
+		"EventMsTs":	1744816061260,
+		"UserId":	"2078"
+	}
+}
+
+2025-04-16 23:07:41 callback
+{
+	"EventGroupId":	1,
+	"EventType":	103,
+	"CallbackTs":	1744816061538,
+	"EventInfo":	{
+		"RoomId":	14240,
+		"EventTs":	1744816061,
+		"EventMsTs":	1744816061357,
+		"UserId":	"2078",
+		"Role":	20,
+		"TerminalType":	2,
+		"UserType":	3,
+		"Reason":	1,
+		"ClientIpv4":	"196.250.71.34"
+	}
+}
+
+2025-04-16 23:07:50 callback
+{
+	"EventGroupId":	1,
+	"EventType":	104,
+	"CallbackTs":	1744816070084,
+	"EventInfo":	{
+		"RoomId":	14240,
+		"EventTs":	1744816069,
+		"EventMsTs":	1744816069968,
+		"UserId":	"2078",
+		"Role":	20,
+		"Reason":	1
+	}
+}
+
+2025-04-16 23:07:50 callback
+{
+	"EventGroupId":	1,
+	"EventType":	102,
+	"CallbackTs":	1744816070244,
+	"EventInfo":	{
+		"RoomId":	14240,
+		"EventTs":	1744816070,
+		"EventMsTs":	1744816070162
+	}
+}
+

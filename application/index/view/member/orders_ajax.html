@@ -1,0 +1,36 @@
+{volist name="lists" id="vo"}
+<dif class="classbox comp {if condition="$vo.order_status eq 4 || $vo.order_status eq 10"}exped{/if}">
+<leftt class="">
+    <headinfo>
+        <name><a href="{:url('tutors/detail',['teacher_id'=>$vo['teacher_id']])}" target="_blank">{$vo.username}</a></name>
+        {volist name="vo.items" id="v"}
+        <time><?php echo date('d M', strtotime($v['book_date'])); ?> <?php echo get_week(strtotime($v['book_date'])); ?> <dib>{$v.time_begin}-{$v.time_end}</dib></time>
+        {/volist}
+    </headinfo>
+    {gt name="vo.class_num" value="1"}
+    <dib class="abar expend">expand</dib>
+    {/gt}
+</leftt>
+<midt>
+    <uprice>${$v.money|round=2}<br>x{$vo.class_num}</uprice>
+    <tprice>${$vo.order_amount}</tprice>
+</midt>
+<rightt>
+    {eq name="vo.order_status" value="10"}
+    <a href="javascript:;">Expired</a>
+    {else}
+    {eq name="vo.order_status" value="4"}
+    <a href="javascript:;">Cancelled</a>
+    {else}
+    {eq name="vo.pay_status" value="0"}
+    <a href="###" onclick="cancel({$vo.id})">Cancel</a>
+    <a href="{:url('payment/index',['pay_id'=>$vo.pay_id])}" class="bt">Checkout</a>
+    {/eq}
+    {eq name="vo.pay_status" value="1"}
+    <a href="javascript:;">Paid</a>
+    {/eq}
+    {/eq}
+    {/eq}
+</rightt>
+</dif>
+{/volist}

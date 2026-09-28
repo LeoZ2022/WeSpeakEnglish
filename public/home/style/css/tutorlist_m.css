@@ -1,0 +1,268 @@
+nav{box-shadow: none}
+nav.wBG{box-shadow: 0 5px 25px rgba(220,220,220,0.6);}
+nav .backar{background: url("../img/backar.png") center center no-repeat;
+    background-size: contain;
+    width: 13px;
+    height: 22px;}
+nav a.blue{text-transform: none;
+    font-size: 1.4rem;
+    color: #007edb;}
+nav .hanbugrmenu{
+    background-image: url("../img/habmenu_b.png");
+}
+.logined .bell{
+    display: none;}
+nav .ncenter{
+    color: #e54a3a;
+  top:40px}
+nav .logobox{
+    display: none;}
+nav.dif{padding-bottom: 0px;
+    height: 78px;}
+.main{
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-bottom: 0;
+	margin-top: 30px;
+}
+nav div.who\? span a i{
+	color: #fff;
+}
+.filter>.date span{
+	font-family: "Manrope","Microsoft Yahei" !important;
+}
+.bottom{margin-bottom: 20px}
+input[type='checkbox']~label.chbox{
+    display: none;
+}
+input[type='checkbox']~label.f{
+    background-color:#f7f7f7;
+    border-radius: 10px;
+    display: inline-block;
+    padding-left: 13px;
+    padding-right: 13px;
+    text-align: center;
+    line-height: 31px;
+}
+input[type='checkbox']:checked~label.f{
+    color: #fff;
+    background-color:#e9776d}
+#form_search{
+    padding-left: 0px;
+        padding-right: 0px;
+        height: 40px;
+        padding-bottom: 0;
+        bottom: -39px;
+        background-color: #fff;
+    box-shadow: 0 5px 13px -10px rgba(20,20,20,0.15);
+}
+.filter{    display: flex;justify-content: space-between;
+    padding-left: 6px;
+    padding-right: 6px;
+}
+.subbt{margin-bottom: 20px}
+.tutor:hover{bottom: 0}
+.tutor:hover p{
+    height: 0;
+}
+.tutor{
+	padding: 20px 25px 5px 25px;
+}
+
+.filter > div.thison{background-image: none}
+.filter > div.date span.n{margin-right: 0;
+    margin-top: 10px;}
+.filter > .score{width: auto;position: relative;
+    padding-right: 18px;
+    background-image: url("../img/star- grey.png")!important;
+}
+.filter > .score.thison{
+    background-image: url("../img/star-click.png")!important;
+}
+#form_search .filter > .score a.desc{
+background: url("../img/fs1.png") no-repeat 94% center;
+    background-size: auto 10px;
+	display: inline-block;
+}
+.filter>.score a i{
+	display: none;
+}
+.score::after{
+	display: none !important;
+}
+#form_search .filter > .score.thison a.desc.s{
+    background-image: url("../img/fs2.png");
+    background-size: auto 10px;
+    background-repeat: no-repeat;
+    background-position: 94% center;
+}
+#form_search .filter > .score.thison a.asc.s{
+    background-image: url("../img/fs3.png");
+    background-size: auto 10px;    background-position: 94% center;
+
+    background-repeat: no-repeat;
+}
+#form_search .filter>.score a.s i{
+	display: none;
+}
+.filter > .price{width: auto;
+    background-image: url("../img/balance-grey.png");
+
+}
+.filter > .price.thison{
+    background-image: url("../img/balance-click.png");
+}
+#form_search .filter > .score a{position: absolute;
+    display: none;
+    background: none;
+    width: 100%;
+    height: 100%;
+    margin-left: 0;
+    transform: rotate(0);
+    left: 0;
+    top: 0;
+    margin-top:0;
+}
+#form_search .filter > .score a.s{
+    display: block;}
+body .filter > div{background-image: none;
+    padding-left: 26px;
+    margin-left: 4px;
+    margin-right: 4px;
+    background-position: 5px center;
+    position: static;
+    border-radius: 5px;
+    font-size: 1.3rem;
+    line-height: 30px;flex: 1;
+    background-size: auto 18px;
+    padding-right: 5px;}
+.filter > .date{width: auto;
+    letter-spacing: 0;
+    background-image: url("../img/time-grey.png");
+}
+.filter > .date.thison{
+    background-image: url("../img/time-click.png");
+}
+.filter .downpopmenu{
+    border-radius: 0;
+    width: 100%;
+	top: 39px;
+}
+.filter > .date .subbt .timez{
+    padding-left: 8px;}
+.filter > .date .downpopmenu{    box-shadow:inset 0 3px 15px -3px rgba(20,20,20,0.2);
+    height: 61vh;
+overflow-y: auto;
+    width: 100%;}
+.newMain{
+	margin: 60px auto 0 auto;
+}
+#form_search .filter .downpopmenu{
+    width: 100%;    box-shadow:inset 0 3px 15px -3px rgba(20,20,20,0.2);
+    white-space: normal
+}
+.filter > .nation{
+    width: auto;
+    background-image: url("../img/locate-grey.png");
+}
+.filter > .nation.thison{
+    background-image: url("../img/locate-click.png");
+}
+.nation button{margin-left: 0}
+.nation .nacbox{
+    width: auto;
+    margin-right: 10px;
+    display: inline-block;}
+.tutorholder{
+    width: 100%;
+	height: 130px;
+	margin-bottom: 22px;}
+.tutorholder:nth-child(3n-1){
+    margin-left: 0;
+    width: 100%;
+    margin-right: 0;
+}
+.tutor p{
+	display: none;
+}
+.filter > .date .subbt .dif a{
+    width: 160px;}
+.filter > .lisearchbox{
+    width: auto;}
+.filter > .lisearchbox{position: absolute;
+    margin-left: 0;
+    display: none;
+    left: 0;
+    box-shadow:inset 0 3px 15px -3px rgba(20,20,20,0.2);
+    border-radius: 0;
+    width: 100%;
+    top: 39px;
+    background-color: #fff;
+    padding:14px 10px;
+    height: 70px;}
+.filter > .search{
+    flex-shrink: 0;
+    background:#F7F7F7 url("../img/seglass_black.png") center center no-repeat;
+    background-size: 50% auto;
+    width: 27px;    height: 30px;
+    cursor: pointer;
+    padding-left: 0;
+    padding-right: 0;
+    font-size: 0;
+}
+.filter > .search.thison{
+    background-image: url("../img/search-click.png");
+}
+.filter .lisearchinner input[type="text"]{
+    background-color: #F7F7F7;
+    border-radius: 4px;
+    width: 78%;
+    padding-left: 10px;
+	font-size: 14px;
+}
+.filter .lisearchinner input[type="submit"]{
+    background: #E9AE54;    color: #fff;
+    text-align: center;
+    font-family: Fjalla;
+    font-size: 1.6rem;
+    height: 40px; border-radius: 6px;
+    width: auto;
+    margin-top: 0;
+    line-height: 40px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+.btimg{
+    height: 566px;
+    padding: 0 25px;}
+.btimg p{line-height: 30px;
+    padding-top: 40px;}
+.btimg a{
+    margin-top: 20px;
+    font-size: 2rem;
+    width: 100%;}
+footnav .cur{
+    background: url("../img/S-TL-red.png") no-repeat center center;
+    background-size:auto 24px;
+}
+footnav .cur img{visibility: hidden}
+#form_search .filter>.score a.s{
+	background: none;
+}
+
+.score::after{
+    
+    background: url("../img/selectar.png") center center no-repeat;
+    background-size: auto 7px;
+    width: 10px;
+	height: 12px;
+	display: block;
+	position: absolute;
+	content: '';
+	right: 4px;
+	top: 50%;
+	transform: translateY(-50%);
+}
+.n_footerMain{
+	display: none;
+}

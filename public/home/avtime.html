@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no,initial-scale=1.0">
+    <title>Available Time-Tutor</title>
+    <link rel="stylesheet" href="style/css/layout.css">
+    <link rel="stylesheet" href="style/css/avtime.css">
+    <link rel="stylesheet" type="text/css" href="style/css/avtime_m.css" media="(max-width: 750px) "/>
+    <script src="style/js/jquery-3.5.1.min.js"></script>
+    <script src="style/js/vue.js"></script>
+    <script src="style/js/comm.js"></script>
+</head>
+<body>
+<nav class="dif">
+    <a class="backar pn" href=""></a>
+    <div class="logobox"><a href="" class="logo"></a><a href="">for Tutor</a><a href="" class="on">for learner</a></div>
+    <dif class="logined"><a class="bell" href="">
+        <newmsg></newmsg>
+        <img src="style/img/bell.png" alt=""></a>
+        <div class="logeduser">
+            <div class="rar"></div>
+            <ul class="logmenu">
+                <li>
+                    <imgbox><img width="23" src="style/img/Timetable.png" alt=""></imgbox>
+                    <a href="">Timetable</a></li>
+                <li>
+                    <imgbox><img width="23" src="style/img/myclass.png" alt=""></imgbox>
+                    <a href="">My class</a></li>
+                <li>
+                    <imgbox><img src="style/img/asetting_b.png" alt=""></imgbox>
+                    <a href="">Account Settings</a></li>
+                <li>
+                    <imgbox><img width="17" src="style/img/abalance.png" alt=""></imgbox>
+                    <a href="">Account Balance</a></li>
+                <li>
+                    <imgbox><img src="style/img/signout_b.png" alt=""></imgbox>
+                    <a href="">Sign Out</a></li>
+            </ul>
+        </div>
+    </dif>
+    <div class="who?"><span><a class="acct" href="">account</a><a class="sout" href="">sign out</a></span></div>
+    <div class="hanbugrmenu pn"></div>
+    <div class="mfmenu">
+        <ul>
+            <li><a href="">About Us</a></li>
+            <li><a href="">TERMS OF USE</a></li>
+            <li><a href="">Contact Us</a></li>
+            <li><a href="">PRIVACY POLICY</a></li>
+            <li><a href="">Help</a></li>
+        </ul>
+        <div class="sociala"><a href=""><img src="style/img/chat_w.png" alt=""></a><a href=""><img
+                src="style/img/wx_w.png" alt=""></a><a href=""><img src="style/img/facebook_w.png" alt=""></a><a
+                href=""><img src="style/img/twitter_w.png" alt=""></a></div>
+    </div>
+</nav>
+<div class="main clearfix">
+    <dif class="ht"><b>my classes</b> <a href="">back</a></dif>
+    <div class="avtime">
+        <p class="title-month"><span @click="upFun" class="upm">  < </span>{{dateYM}}<span @click="downFun"  class="downm"> >  </span></p>
+       <ul class="week"><li>Sunday</li><li>Monday</li><li>Tuesday</li><li>Wednesday</li><li>Thursday</li><li>Friday</li><li>Staturday</li></ul>
+
+        <ul class="cal-day">
+            <template v-for="(item,index) in 42">
+                <li v-if="item - beginDay <= 0">
+                    <p class="day-num gay">{{ item - beginDay + prevMdays }}</p>
+                </li><li class="day" :class="{blue: initY==cy && initM==cm && (item - beginDay== initD)}" v-else-if="item - beginDay > 0 && item - beginDay <= nowMdays" @click="dayFun(index, $event)">
+                    <p class="day-num" >{{ item - beginDay }}</p>
+                <div class="timeli" v-if="item - beginDay<10">
+<div class="ctime booked">00:00 - 00:30
+    <p>booked</p>
+</div>
+<div class="ctime">01:00 - 01:30</div>
+<div class="ctime">01:00 - 02:00</div>
+<div class="ctime">01:00 - 02:00</div>
+                </div>
+                    <a href="###" class="set" @click.self="showset(index)">SET</a>
+                <div class="setpop" v-if="index==showsetn">
+                    <img src="style/img/closex.png" class="closex" alt="" @click.self="closeset"  >
+                    <dif class="headt"><h2>set availability</h2>  <div class="staues"><span>Availale</span><span>Booked</span></div></dif>
+                    <div class="timehour">
+                        <div class="day"><img height="26" src="style/img/sun.jpg" alt=""></div><div class="dayhour" v-for="(time, i) in HourList"  v-if=" 0<=i && i<= 23 "  :class="{'clicked': clicki==i && clickindex==index}" ><span  @click.self="selectime(item-beginDay,time,index,i)">{{time}}</span></div>
+                        <div class="night"><img height="26" src="style/img/moon.jpg" alt=""></div>
+                        <div class="nighthour"  v-for="(time, i) in HourList"  v-if="24<=i && i<= 48" :class="{'clicked': clicki==i && clickindex==index}" ><span @click.self="selectime(item-beginDay,time,index,i)">{{time}}</span></div>
+                        <button @click.self="closeset" class="confirm">Confirm</button>
+                    </div>
+                </div>
+                </li><li v-else>
+                    <p class="day-num gay"> {{ item - beginDay - nowMdays }}</p>
+                </li>
+            </template>
+        </ul>
+</div>
+
+
+</div>
+<footnav class="pn">
+    <a href=""><img src="style/img/hat.png" alt=""></a>
+    <a href=""><img src="style/img/Timetable.png" alt=""></a>
+    <a href=""><img src="style/img/myclass.png" alt=""></a>
+    <a href=""><img src="style/img/abalance.png" alt=""></a>
+    <a href=""><img src="style/img/msg.png" alt=""></a>
+</footnav>
+
+<div class="footwrap">
+    <popbg></popbg>
+    <a class="getintouch-icon" href=""><img src="style/img/getintouch-icon.png" alt=""></a>
+    <dif class="footer">
+        <rights class="mn">© 2020. ALL RIGHTS RESERVED</rights>
+        <ul>
+            <li><a href="">about us</a></li>
+            <li class="rdot"></li>
+            <li><a href="">contact us</a></li>
+            <li class="rdot"></li>
+            <li><a href="">HELP</a></li>
+            <li class="rdot"></li>
+            <li><a href="">TERMS OF USE</a></li>
+            <li class="rdot"></li>
+            <li><a href="">PRIVACY POLICY</a></li>
+        </ul>
+        <dib class="ftsocail"><a href=""><img src="style/img/wx_b.png" alt=""></a><a href=""><img
+                src="style/img/facebook_b.png" alt=""></a><a href=""><img src="style/img/twitter_b.png" alt=""></a>
+        </dib>
+        <rights class="pn">© 2020. ALL RIGHTS RESERVED</rights>
+    </dif>
+</div>
+</body>
+<script>
+    var vm = new Vue({
+        el: '.avtime',
+        data: {
+            preDate: 0, //上个月时间
+            _date: 0,
+            initY: 0, //当前 年
+            initM: 0, //当前 月
+            initD: 0, //当前 日
+
+            cy: 0, //temp 上下年变化
+            cm: 0, //temp 上下月变化
+            dateYM: 0, // 标题显示
+            showsetn:-1,
+            clicki:-1,
+            clickindex:-1,
+            beginDay: 0, //当月开始是周几
+            prevMdays: 0, //上个月总天数
+            nowMdays: 0, // 当月天数
+            HourList: [
+                '00:00 - 00:30', '00:30 - 01:00', '01:00 - 01:30', '01:30 - 02:00', '02:00 - 02:30', '02:30 - 03:00', '02:30 - 03:00','02:30 - 03:00', '02:30 - 03:00', '02:30 - 03:00', '02:30 - 03:00', '02:30 - 03:00', '02:30 - 03:00', '02:30 - 03:00', '02:30 - 03:00', '02:30 - 03:00'
+                , '08:00 - 08:30', '08:30 - 09:00', '08:30 - 09:00', '08:30 - 09:00', '08:30 - 09:00', '08:30 - 09:00', '08:30 - 09:00','11:00 - 11:30', '08:30 - 09:00', '08:30 - 09:00', '08:30 - 09:00', '08:30 - 09:00', '08:30 - 09:00', '08:30 - 09:00', '08:30 - 09:00', '08:30 - 09:00', '08:30 - 09:00', '08:30 - 09:00', '08:30 - 09:00', '08:30 - 09:00', '08:30 - 09:00', '08:30 - 09:00', '08:30 - 09:00', '08:30 - 09:00', '08:30 - 09:00', '08:30 - 09:00', '08:30 - 09:00', '08:30 - 09:00', '08:30 - 09:00',
+                '08:30 - 09:00', '08:30 - 09:00', '08:30 - 09:00'
+            ]
+        },
+        created: function () {
+
+        },
+        mounted: function () {
+            this._date = new Date();
+            // 初始化 当前时间 y-m-d
+            this.initY = this._date.getFullYear()
+            this.initM = this._date.getMonth() + 1
+            this.initD = this._date.getDate();
+
+            // 初始化&切换上下月使用
+            this.cy = this._date.getFullYear()
+            this.cm = this._date.getMonth() + 1
+
+            // 标题
+            this.dateYM = this.initY + '-' + this.initM
+
+            // 当前日期
+            this.nowMdays = this.getGetDate(this.initY, this.initM)
+            this.beginDay = this.dayStart(this.initY, this.initM) || 7 ;
+
+            //计算上一月天数 填充当月
+            this.getPreMonthDay();
+        },
+        methods: {
+            // 当前天数
+            getGetDate: function (year, month) {
+                var d = new Date(year, month, 0);
+                return d.getDate();
+            },
+            // 获取当月第一周几
+            dayStart: function (year, month) {
+                var tmpDate = new Date(year, month - 1, 1);
+                return (tmpDate.getDay());
+            },
+            dayFun: function (idx, e) {
+               // console.log(e.currentTarget)
+            },
+            // 上个月
+            upFun: function () {
+                $(".upm").css("visibility","hidden");
+                $(".downm").css("visibility","visible");
+                this.mChange(-1);
+
+            },
+            showset:function (index){
+                this.showsetn=index;
+                $("popbg").show()
+            },
+            closeset:function (){
+                this.showsetn=-1;
+                $("popbg").hide()
+            },
+            //下个月
+            downFun: function () {
+                $(".downm").css("visibility","hidden");
+                $(".upm").css("visibility","visible");
+                this.mChange(1);
+            },
+            mChange: function (m) {
+                this._date.setMonth(this._date.getMonth() + m);
+                this.dateYM = this._date.getFullYear() + '-' + (this._date.getMonth() + 1);
+                // 切换上下月，获取year \ month
+                this.cy = this._date.getFullYear();
+                this.cm = this._date.getMonth() + 1;
+                this.nowMdays = this.getGetDate(this.cy, this.cm)
+                this.beginDay = this.dayStart(this.cy, this.cm) || 7
+                console.log(this.beginDay)
+                this.getPreMonthDay();
+            },
+            //获取上个月天数
+            getPreMonthDay: function () {
+                // 当月
+                var cyear = this._date.getFullYear();
+                var cMonth = this._date.getMonth();
+
+                this.preDate = new Date(cyear, cMonth);
+                this.preDate.setMonth(this.preDate.getMonth());
+
+                this.prevMdays = this.getGetDate(this.preDate.getFullYear(), this.preDate.getMonth());
+            },
+
+
+            //操作可选日期
+            selectime:function(d,t,index,i){
+                let  YMarr=this.dateYM.split("-");
+                this.cyw = YMarr[0]
+                this.cmw = YMarr[1]
+
+                console.log(YMarr[0])//这里拿到的是年
+                console.log(YMarr[1])//这里拿到的是月
+                console.log(d)//这里取的是天数据
+                console.log(t)//这里取的是时间
+
+                //通过赋这2个值 置日期为选中状态
+                this.clickindex=index;
+                this.clicki=i;
+            },
+
+
+
+        }
+    })
+</script>
+</html>

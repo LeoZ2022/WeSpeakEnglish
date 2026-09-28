@@ -1,0 +1,58 @@
+2024-08-10 03:59:25 callback
+{
+	"EventGroupId":	1,
+	"EventType":	101,
+	"CallbackTs":	1723233564641,
+	"EventInfo":	{
+		"RoomId":	14034,
+		"EventTs":	1723233564,
+		"EventMsTs":	1723233564638,
+		"UserId":	"1552"
+	}
+}
+
+2024-08-10 03:59:25 callback
+{
+	"EventGroupId":	1,
+	"EventType":	103,
+	"CallbackTs":	1723233564643,
+	"EventInfo":	{
+		"RoomId":	14034,
+		"EventTs":	1723233564,
+		"EventMsTs":	1723233564638,
+		"UserId":	"1552",
+		"Role":	20,
+		"TerminalType":	3,
+		"UserType":	3,
+		"Reason":	1,
+		"ClientIpv4":	"86.84.229.38"
+	}
+}
+
+2024-08-10 04:06:24 callback
+{
+	"EventGroupId":	1,
+	"EventType":	102,
+	"CallbackTs":	1723233984150,
+	"EventInfo":	{
+		"RoomId":	14034,
+		"EventTs":	1723233984,
+		"EventMsTs":	1723233984146
+	}
+}
+
+2024-08-10 04:06:24 callback
+{
+	"EventGroupId":	1,
+	"EventType":	104,
+	"CallbackTs":	1723233984151,
+	"EventInfo":	{
+		"RoomId":	14034,
+		"EventTs":	1723233984,
+		"EventMsTs":	1723233984146,
+		"UserId":	"1552",
+		"Role":	20,
+		"Reason":	1
+	}
+}
+

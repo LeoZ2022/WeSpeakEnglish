@@ -1,0 +1,57 @@
+nav{box-shadow: none}
+nav.wBG{box-shadow: 0 5px 25px rgba(220,220,220,0.6);}
+nav>.logobox{display: none}
+nav .backar{background: url("../img/backar.png") center center no-repeat;
+    background-size: contain;
+    width: 13px;
+    height: 22px;}
+nav a.blue{text-transform: none;
+    font-size: 1.4rem;
+    color: #007edb;}
+nav .hanbugrmenu{
+    background-image: url("../img/habmenu_b.png");
+}
+nav.dif .logined{
+    width: 300px;
+}
+nav div.who\? span a.sout{
+   /* background-image: url("../img/signout.png"); */
+}
+body{background: #fff}
+p.topT{
+    font-size: 4.6rem;align-items: center;
+    text-align: center;
+    margin-top: 0px;}
+	
+p.topT::after {
+    width: 180px;
+    height: 16px;}
+P.topT > a{
+    display: none;}
+.main{
+    padding-left: 20px;
+    margin-top: 20px;
+    padding-right: 20px;}
+.footer{
+    display: none;}
+.btimg{
+    height: 566px;
+    padding: 0 25px;}
+.btimg p{line-height: 30px;
+    padding-top: 40px;}
+.btimg a{
+    margin-top: 20px;
+    font-size: 2rem;
+    width: 100%;}
+.cal-day li .timecell pn{
+    color: #fff;
+    padding:2px 3px;
+    font-size: 12px;
+    display: none;
+}
+.cal-day li .timecell.avaitime.booked pn{
+    display: block;
+}
+.n_footerMain{
+	display: none;
+}

@@ -1,0 +1,116 @@
+2026-07-05 09:31:15 callback
+{
+	"EventGroupId":	1,
+	"EventType":	103,
+	"CallbackTs":	1783215074932,
+	"EventInfo":	{
+		"RoomId":	15748,
+		"EventTs":	1783215074,
+		"EventMsTs":	1783215074865,
+		"UserId":	"2345",
+		"Role":	20,
+		"TerminalType":	2,
+		"UserType":	3,
+		"Reason":	1,
+		"ClientIpv4":	"203.26.240.120"
+	}
+}
+
+2026-07-05 09:31:15 callback
+{
+	"EventGroupId":	1,
+	"EventType":	101,
+	"CallbackTs":	1783215074922,
+	"EventInfo":	{
+		"RoomId":	15748,
+		"EventTs":	1783215074,
+		"EventMsTs":	1783215074861,
+		"UserId":	"2345"
+	}
+}
+
+2026-07-05 09:32:34 callback
+{
+	"EventGroupId":	1,
+	"EventType":	104,
+	"CallbackTs":	1783215154773,
+	"EventInfo":	{
+		"RoomId":	15748,
+		"EventTs":	1783215154,
+		"EventMsTs":	1783215154750,
+		"UserId":	"2345",
+		"Role":	20,
+		"Reason":	1
+	}
+}
+
+2026-07-05 09:32:34 callback
+{
+	"EventGroupId":	1,
+	"EventType":	102,
+	"CallbackTs":	1783215154899,
+	"EventInfo":	{
+		"RoomId":	15748,
+		"EventTs":	1783215154,
+		"EventMsTs":	1783215154833
+	}
+}
+
+2026-07-05 09:32:57 callback
+{
+	"EventGroupId":	1,
+	"EventType":	103,
+	"CallbackTs":	1783215177107,
+	"EventInfo":	{
+		"RoomId":	15748,
+		"EventTs":	1783215177,
+		"EventMsTs":	1783215177032,
+		"UserId":	"2345",
+		"Role":	20,
+		"TerminalType":	2,
+		"UserType":	3,
+		"Reason":	1,
+		"ClientIpv4":	"203.26.240.122"
+	}
+}
+
+2026-07-05 09:32:57 callback
+{
+	"EventGroupId":	1,
+	"EventType":	101,
+	"CallbackTs":	1783215177105,
+	"EventInfo":	{
+		"RoomId":	15748,
+		"EventTs":	1783215177,
+		"EventMsTs":	1783215177028,
+		"UserId":	"2345"
+	}
+}
+
+2026-07-05 09:38:11 callback
+{
+	"EventGroupId":	1,
+	"EventType":	104,
+	"CallbackTs":	1783215491175,
+	"EventInfo":	{
+		"RoomId":	15748,
+		"EventTs":	1783215491,
+		"EventMsTs":	1783215491150,
+		"UserId":	"2345",
+		"Role":	20,
+		"Reason":	1
+	}
+}
+
+2026-07-05 09:38:11 callback
+{
+	"EventGroupId":	1,
+	"EventType":	102,
+	"CallbackTs":	1783215491273,
+	"EventInfo":	{
+		"RoomId":	15748,
+		"EventTs":	1783215491,
+		"EventMsTs":	1783215491208
+	}
+}
+

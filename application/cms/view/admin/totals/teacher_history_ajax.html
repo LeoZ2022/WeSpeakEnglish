@@ -1,0 +1,113 @@
+<style type="text/css">
+    .col-sm-12{ padding: 0; }
+</style>
+
+<div class="col-sm-6">
+    <div class="block-header bg-gray-lighter">
+        <ul class="block-options">
+            <li><button type="button" class="page-reload"><i class="si si-refresh"></i></button></li>
+            <li><button type="button" data-toggle="block-option" data-action="fullscreen_toggle"><i class="si si-size-fullscreen"></i></button></li>
+        </ul>
+        <h3 class="block-title">单日上课</h3>
+    </div>
+    <div class="tab-content">
+        <div class="tab-pane active">
+            <div class="col-sm-12">
+                <table class="table table-builder table-hover table-bordered table-striped js-table-checkable">
+                    <tbody>
+                    <tr><td>单人单日课数</td><td>人数</td><td>占比</td></tr>
+                    {volist name="datas.day_nums" id="row"}
+                    <tr><td>{$i}</td><td> {$row.num} </td><td>{$row.per|default=0}</td></tr>
+                    {/volist}
+                    <tr><td>总人数</td><td> {$datas.day_all_cnt} </td><td></td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+</div>
+
+<div class="col-sm-6">
+    <div class="block-header bg-gray-lighter">
+        <ul class="block-options">
+            <li><button type="button" class="page-reload"><i class="si si-refresh"></i></button></li>
+            <li><button type="button" data-toggle="block-option" data-action="fullscreen_toggle"><i class="si si-size-fullscreen"></i></button></li>
+        </ul>
+        <h3 class="block-title">老师课价</h3>
+    </div>
+    <div class="tab-content">
+        <div class="tab-pane active">
+            <div class="col-sm-12">
+                <table class="table table-builder table-hover table-bordered table-striped js-table-checkable">
+                    <tbody>
+                    <tr><td>价格</td>
+                        {volist name="datas.prices" id="row"}
+                        <td>{$row.price}{eq name="row.price" value="10"}以上{/eq}</td>
+                        {/volist}
+                    </tr>
+                    <tr>
+                        <td>人数</td>
+                        {volist name="datas.prices" id="row"}
+                        <td>{$row.num}</td>
+                        {/volist}
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+</div>
+<div class="clearfix"></div>
+<div class="col-sm-6">
+    <div class="block-header bg-gray-lighter">
+        <ul class="block-options">
+            <li><button type="button" class="page-reload"><i class="si si-refresh"></i></button></li>
+            <li><button type="button" data-toggle="block-option" data-action="fullscreen_toggle"><i class="si si-size-fullscreen"></i></button></li>
+        </ul>
+        <h3 class="block-title">上课数排序</h3>
+    </div>
+    <div class="tab-content">
+        <div class="tab-pane active">
+            <div class="col-sm-12">
+                <table class="table table-builder table-hover table-bordered table-striped js-table-checkable">
+                    <tbody>
+                    <tr><td>序号</td><td>老师ID</td><td>课数</td></tr>
+                    {volist name="datas.nums_list" id="row"}
+                    <tr><td>{$i}</td><td><a href="{:url('users/edit', ['id'=>$row['teacher_id']])}" target="_blank"> {$row.teacher_id} </a></td><td>{$row.cnt}</td></tr>
+                    {/volist}
+                    </tbody>
+                </table>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+</div>
+
+<div class="col-sm-6">
+    <div class="block-header bg-gray-lighter">
+        <ul class="block-options">
+            <li><button type="button" class="page-reload"><i class="si si-refresh"></i></button></li>
+            <li><button type="button" data-toggle="block-option" data-action="fullscreen_toggle"><i class="si si-size-fullscreen"></i></button></li>
+        </ul>
+        <h3 class="block-title">老师国籍比率</h3>
+    </div>
+    <div class="tab-content">
+        <div class="tab-pane active">
+            <div class="col-sm-12">
+                <table class="table table-builder table-hover table-bordered table-striped js-table-checkable">
+                    <tbody>
+                    <tr><td>序号</td><td>国籍</td><td>人数</td><td>上课人数</td><td>上课人数/该国注册人数</td><td>上课人数/总注册人数比率</td></tr>
+                    {volist name="datas.countrys" id="row"}
+                    <tr><td>{$i}</td><td>{$row.country_name}</td><td>{$row.cnt}</td><td>{$row.buy_users}</td><td>{$row.per_country}%</td><td>{$row.per_all}%</td></tr>
+                    {/volist}
+                    </tbody>
+                </table>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+</div>
+
+<div class="clearfix"></div>

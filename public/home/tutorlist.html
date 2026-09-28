@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no,initial-scale=1.0">
+    <title>Tutor-List</title>
+    <link rel="stylesheet" href="style/css/layout.css">
+    <link rel="stylesheet" href="style/css/tutorlist.css">
+    <link rel="stylesheet" type="text/css" href="style/css/tutorlist_m.css" media="(max-width: 750px) "/>
+    <script src="style/js/jquery-3.5.1.min.js"></script>
+    <script src="style/js/vue.js"></script>
+    <script src="style/js/comm.js"></script>
+    <style>
+        .clicked{
+            background: #7fbeed;
+        }
+    </style>
+</head>
+<body>
+<nav class="dif">
+    <a class="backar pn" href=""></a>
+    <div class="ncenter">tutor list</div>
+    <div class="logobox"><a href="" class="logo"></a><a href="">for Tutor</a><a href="" class="on">for learner</a></div>
+    <div class="who?"><span><a href="">I'm Learner</a><a href="">I'm tutor</a></span></div>
+    <div class="hanbugrmenu pn"></div>
+    <div class="mfmenu">
+        <ul>
+            <li><a href="">About Us</a></li>
+            <li><a href="">TERMS OF USE</a></li>
+            <li><a href="">Contact Us</a></li>
+            <li><a href="">PRIVACY POLICY</a></li>
+            <li><a href="">Help</a></li>
+        </ul>
+        <div class="sociala"><a href=""><img src="style/img/chat_w.png" alt=""></a><a href=""><img
+                src="style/img/wx_w.png" alt=""></a><a href=""><img src="style/img/facebook_w.png" alt=""></a><a
+                href=""><img src="style/img/twitter_w.png" alt=""></a></div>
+    </div>
+    <div class="filter">
+        <div class="nation">From
+            <div class="downpopmenu">
+                <div class="nacbox"><input name="nation" value="all" id="all" type="checkbox"><label class="chbox"
+                                                                                                     value="all"
+                                                                                                     for="all"></label><label
+                        class="f" value="all" for="all">all</label></div>
+                <div class="nacbox"><input name="nation" value="usa" id="usa" type="checkbox"><label class="chbox"
+                                                                                                     value="usa"
+                                                                                                     for="usa"></label><label
+                        class="f" value="usa" for="usa">United States</label></div>
+                <div class="nacbox"><input name="nation" value="bri" id="bri" type="checkbox"><label class="chbox"
+                                                                                                     value="bri"
+                                                                                                     for="bri"></label><label
+                        class="f" value="bri" for="bri">Britain</label></div>
+                <div class="nacbox"><input name="nation" value="can" id="can" type="checkbox"><label class="chbox"
+                                                                                                     value="can"
+                                                                                                     for="can"></label><label
+                        class="f" value="can" for="can">Canada</label></div>
+                <div class="nacbox"><input name="nation" value="aus" id="aus" type="checkbox"><label class="chbox"
+                                                                                                     value="aus"
+                                                                                                     for="aus"></label><label
+                        class="f" value="aus" for="aus">Australia</label></div>
+                <div class="nacbox"><input name="nation" value="newz" id="newz" type="checkbox"><label class="chbox"
+                                                                                                       value="newz"
+                                                                                                       for="newz"></label><label
+                        class="f" value="newz" for="newz">New Zealand</label></div>
+                <button>submit</button>
+            </div>
+        </div>
+        <div class="date thison">
+            time <span class="n">3</span>
+            <div class="downpopmenu">
+            <div class="title-month">
+                <span @click="upWeek"  > < </span>
+               <div class="title">
+                {{TdateLists[si][2]}}
+                <span v-if="TdateLists[si][1] == '1'">Jan</span>
+                <span v-else-if="TdateLists[si][1] == '2'">Feb</span>
+                <span v-else-if="TdateLists[si][1] == '3'">Mar</span>
+                <span v-else-if="TdateLists[si][1] == '4'">Apr</span>
+                <span v-else-if="TdateLists[si][1] == '5'">May</span>
+                <span v-else-if="TdateLists[si][1] == '6'">Jun</span>
+                <span v-else-if="TdateLists[si][1] == '7'">Jul</span>
+                <span v-else-if="TdateLists[si][1] == '8'">Aug</span>
+                <span v-else-if="TdateLists[si][1] == '9'">Sept</span>
+                <span v-else-if="TdateLists[si][1] == '10'">Oct</span>
+                <span v-else-if="TdateLists[si][1] == '11'">Nov</span>
+                <span v-else-if="TdateLists[si][1] == '12'">Dec</span>
+                {{TdateLists[si][0]}} -
+                {{TdateLists[ei][2]}}
+                <span v-if="TdateLists[ei][1] == '1'">Jan</span>
+                <span v-else-if="TdateLists[ei][1] == '2'">Feb</span>
+                <span v-else-if="TdateLists[ei][1] == '3'">Mar</span>
+                <span v-else-if="TdateLists[ei][1] == '4'">Apr</span>
+                <span v-else-if="TdateLists[ei][1] == '5'">May</span>
+                <span v-else-if="TdateLists[ei][1] == '6'">Jun</span>
+                <span v-else-if="TdateLists[ei][1] == '7'">Jul</span>
+                <span v-else-if="TdateLists[ei][1] == '8'">Aug</span>
+                <span v-else-if="TdateLists[ei][1] == '9'">Sept</span>
+                <span v-else-if="TdateLists[ei][1] == '10'">Oct</span>
+                <span v-else-if="TdateLists[ei][1] == '11'">Nov</span>
+                <span v-else-if="TdateLists[ei][1] == '12'">Dec</span> {{TdateLists[ei][0]}}
+        </div>
+                <span @click="downWeek" v-if=" ei+1 < TdateLists.length" > > </span></div>
+            <ul class="cal-day">
+                <li class="day" v-for="(item,index) in TdateLists" v-if=" si<=index && index<= ei ">
+                     <div class="week" v-if="item[3]==0" :class="{blue: item[0]==cy && item[1]==cm && item[2] == initD, gray: item[0]<= cy && item[1]<= cm && item[2]< initD}">S</div>
+                     <div class="week" v-else-if="item[3]==1" :class="{blue: item[0]==cy && item[1]==cm && item[2] == initD, gray: item[0]<= cy && item[1]<= cm && item[2]< initD}">M</div>
+                     <div class="week" v-else-if="item[3]==2" :class="{blue: item[0]==cy && item[1]==cm && item[2] == initD, gray: item[0]<= cy && item[1]<= cm && item[2]< initD}">T</div>
+                     <div class="week" v-else-if="item[3]==3" :class="{blue: item[0]==cy && item[1]==cm && item[2] == initD, gray: item[0]<= cy && item[1]<= cm && item[2]< initD}">W</div>
+                     <div class="week" v-else-if="item[3]==4" :class="{blue: item[0]==cy && item[1]==cm && item[2] == initD, gray: item[0]<= cy && item[1]<= cm && item[2]< initD}">T</div>
+                     <div class="week" v-else-if="item[3]==5" :class="{blue: item[0]==cy && item[1]==cm && item[2] == initD, gray: item[0]<= cy && item[1]<= cm && item[2]< initD}">F</div>
+                     <div class="week" v-else-if="item[3]==6" :class="{blue: item[0]==cy && item[1]==cm && item[2] == initD, gray: item[0]<= cy && item[1]<= cm && item[2]< initD}">S</div>
+                    <p class="day-num" :class="{blue: item[0]==cy && item[1]==cm && item[2] == initD, gray:  (item[1]< cm || item[2]< initD) && item[0]<= cy }">{{ item[2] }}</p>
+                </li>
+            </ul>
+            <div class="timehour">
+<div class="day"><img height="26" src="style/img/sun.jpg" alt=""></div><div class="dayhour" v-for="(time, i) in HourList"  v-if=" 0<=i && i<= 22 "  :class="{'clicked': click1==i}"  ><span  @click="selectime(time,i)">{{time}}</span></div>
+                <div class="night"><img height="26" src="style/img/moon.jpg" alt=""></div>
+                    <div class="nighthour"  v-for="(time, i) in HourList"  v-if=" 23<=i && i<= 48 " :class="{'clicked': click1==i}" ><span @click="selectime(time,i)">{{time}}</span></div>
+            </div>
+<div class="subbt">
+    <div class="timez">Displays in your time zone (UTC-04:00)</div>
+    <div class="dif"><a href="###">Cancel</a><a href="###">Submit</a></div>
+</div>
+        </div>
+        </div>
+        <div class="price">
+            Price
+            <div class="downpopmenu">
+                <dif class="priceinput"><input type="text">
+                    <line>-</line>
+                    <input type="text">
+                    <button>submit</button>
+                </dif>
+            </div>
+        </div>
+        <div class="score thison">
+            Score <a class="desc c" href="###"></a><a class="asc" href="###"></a>
+        </div>
+        <div class="lisearchbox">
+            <div class="lisearchinner"><input placeholder="Search tutors by name" type="text"> <input type="submit"
+                                                                                                      value="SEARCH">
+            </div>
+        </div>
+
+    </div>
+</nav>
+
+
+<div class="main clearfix">
+    <div class="tutorholder">
+        <div class="tutor">
+            <dif class="namer">
+                <name><span>Coach David</span> <img src="style/img/flags.png" alt=""></name>
+                <stars><img src="style/img/star.png" alt=""><img src="style/img/star.png" alt=""><img
+                        src="style/img/star.png" alt=""><img src="style/img/star.png" alt=""><span>(4.0)</span></stars>
+            </dif>
+            <dif class="info">
+                <class><label for="">class</label><b>80</b></class>
+                <learner><label for="">class</label><b>80</b></learner>
+                <fee><label for="">Tuition fee</label><b>$ 40.00
+                    <g>/30 min</g>
+                </b></fee>
+            </dif>
+            <p>I am a retired teacher from a high school in the United States. I teach languages. We can talk about
+                American culture, food, and literature together.I am a retired teacher from a high school in the United
+                States. I teach languages. We can talk about American culture, food, and literature together.
+                <a href="">Booking</a>
+            </p>
+        </div>
+    </div>
+    <div class="tutorholder">
+        <div class="tutor">
+            <dif class="namer">
+                <name><span>Coach David</span> <img src="style/img/flags.png" alt=""></name>
+                <stars><img src="style/img/star.png" alt=""><img src="style/img/star.png" alt=""><img
+                        src="style/img/star.png" alt=""><img src="style/img/star.png" alt=""><span>(4.0)</span></stars>
+            </dif>
+            <dif class="info">
+                <class><label for="">class</label><b>80</b></class>
+                <learner><label for="">class</label><b>80</b></learner>
+                <fee><label for="">Tuition fee</label><b>$ 40.00
+                    <g>/30 min</g>
+                </b></fee>
+            </dif>
+            <p>I am a retired teacher from a high school in the United States. I teach languages. We can talk about
+                American culture, food, and literature together.
+                <a href="">Booking</a>
+            </p>
+        </div>
+    </div>
+    <div class="tutorholder">
+        <div class="tutor">
+            <dif class="namer">
+                <name><span>Coach David</span> <img src="style/img/flags.png" alt=""></name>
+                <stars><img src="style/img/star.png" alt=""><img src="style/img/star.png" alt=""><img
+                        src="style/img/star.png" alt=""><img src="style/img/star.png" alt=""><span>(4.0)</span></stars>
+            </dif>
+            <dif class="info">
+                <class><label for="">class</label><b>80</b></class>
+                <learner><label for="">class</label><b>80</b></learner>
+                <fee><label for="">Tuition fee</label><b>$ 40.00
+                    <g>/30 min</g>
+                </b></fee>
+            </dif>
+            <p>I am a retired teacher from a high school in the United States. I teach languages. We can talk about
+                American culture, food, and literature together.I am a retired teacher from a high school in the United
+                States. I teach languages. We can talk about American culture, food, and literature together.
+                <a href="">Booking</a>
+            </p>
+        </div>
+    </div>
+    <div class="tutorholder">
+        <div class="tutor">
+            <dif class="namer">
+                <name><span>Coach David</span> <img src="style/img/flags.png" alt=""></name>
+                <stars><img src="style/img/star.png" alt=""><img src="style/img/star.png" alt=""><img
+                        src="style/img/star.png" alt=""><img src="style/img/star.png" alt=""><span>(4.0)</span></stars>
+            </dif>
+            <dif class="info">
+                <class><label for="">class</label><b>80</b></class>
+                <learner><label for="">class</label><b>80</b></learner>
+                <fee><label for="">Tuition fee</label><b>$ 40.00
+                    <g>/30 min</g>
+                </b></fee>
+            </dif>
+            <p>I am a retired teacher from a high school in the United States. I teach languages. We can talk about
+                American culture, food, and literature together.I am a retired teacher from a high school in the United
+                States. I teach languages. We can talk about American culture, food, and literature together.
+                <a href="">Booking</a>
+            </p>
+        </div>
+    </div>
+    <div class="tutorholder">
+        <div class="tutor">
+            <dif class="namer">
+                <name><span>Coach David</span> <img src="style/img/flags.png" alt=""></name>
+                <stars><img src="style/img/star.png" alt=""><img src="style/img/star.png" alt=""><img
+                        src="style/img/star.png" alt=""><img src="style/img/star.png" alt=""><span>(4.0)</span></stars>
+            </dif>
+            <dif class="info">
+                <class><label for="">class</label><b>80</b></class>
+                <learner><label for="">class</label><b>80</b></learner>
+                <fee><label for="">Tuition fee</label><b>$ 40.00
+                    <g>/30 min</g>
+                </b></fee>
+            </dif>
+            <p>I am a retired teacher from a high school in the United States. I teach languages. We can talk about
+                American culture, food, and literature together.I am a retired teacher from a high school in the United
+                States. I teach languages. We can talk about American culture, food, and literature together.
+                <a href="">Booking</a>
+            </p>
+        </div>
+    </div>
+    <div class="tutorholder">
+        <div class="tutor">
+            <dif class="namer">
+                <name><span>Coach David</span> <img src="style/img/flags.png" alt=""></name>
+                <stars><img src="style/img/star.png" alt=""><img src="style/img/star.png" alt=""><img
+                        src="style/img/star.png" alt=""><img src="style/img/star.png" alt=""><span>(4.0)</span></stars>
+            </dif>
+            <dif class="info">
+                <class><label for="">class</label><b>80</b></class>
+                <learner><label for="">class</label><b>80</b></learner>
+                <fee><label for="">Tuition fee</label><b>$ 40.00
+                    <g>/30 min</g>
+                </b></fee>
+            </dif>
+            <p>I am a retired teacher from a high school in the United States. I teach languages. We can talk about
+                American culture, food, and literature together.I am a retired teacher from a high school in the United
+                States. I teach languages. We can talk about American culture, food, and literature together.
+                <a href="">Booking</a>
+            </p>
+        </div>
+    </div>
+    <div class="tutorholder">
+        <div class="tutor">
+            <dif class="namer">
+                <name><span>Coach David</span> <img src="style/img/flags.png" alt=""></name>
+                <stars><img src="style/img/star.png" alt=""><img src="style/img/star.png" alt=""><img
+                        src="style/img/star.png" alt=""><img src="style/img/star.png" alt=""><span>(4.0)</span></stars>
+            </dif>
+            <dif class="info">
+                <class><label for="">class</label><b>80</b></class>
+                <learner><label for="">class</label><b>80</b></learner>
+                <fee><label for="">Tuition fee</label><b>$ 40.00
+                    <g>/30 min</g>
+                </b></fee>
+            </dif>
+            <p>I am a retired teacher from a high school in the United States. I teach languages. We can talk about
+                American culture, food, and literature together.I am a retired teacher from a high school in the United
+                States. I teach languages. We can talk about American culture, food, and literature together.
+                <a href="">Booking</a>
+            </p>
+        </div>
+    </div>
+</div>
+
+
+<div class="btimg">
+    <p>This is a startup program. Our vision is to help elderly find more fun and help young people improve English with
+        lowest cost. We surviving or not depends on how many users support us. With high operation cost, we cannot
+        afford expensive ads on any channel. If you like us, please tell your friends to join as a tutor. Your support
+        would encourage us to go further.
+    </p>
+    <a href="">DONATE / SUPPORT US</a>
+</div>
+<div class="footwrap">
+    <div class="poptouch">
+        <t>GET IN TOUCH</t>
+        <img class="closex" src="style/img/closex.png" alt="">
+        <form action="">
+            <input type="text" placeholder="Name">
+            <input type="text" placeholder="Email">
+            <textarea name="" id="" placeholder="Message"></textarea>
+            <input type="text" placeholder="Verification code">
+            <input type="submit" value="Send">
+        </form>
+    </div>
+    <popbg></popbg>
+    <a class="getintouch-icon" href="###"><img src="style/img/getintouch-icon.png" alt=""></a>
+    <dif class="footer">
+        <rights class="mn">© 2020. ALL RIGHTS RESERVED</rights>
+        <ul>
+            <li><a href="">about us</a></li>
+            <li class="rdot"></li>
+            <li><a href="">contact us</a></li>
+            <li class="rdot"></li>
+            <li><a href="">HELP</a></li>
+            <li class="rdot"></li>
+            <li><a href="">TERMS OF USE</a></li>
+            <li class="rdot"></li>
+            <li><a href="">PRIVACY POLICY</a></li>
+        </ul>
+        <dib class="ftsocail"><a href=""><img src="style/img/wx_b.png" alt=""></a><a href=""><img
+                src="style/img/facebook_b.png" alt=""></a><a href=""><img src="style/img/twitter_b.png" alt=""></a>
+        </dib>
+        <rights class="pn">© 2020. ALL RIGHTS RESERVED</rights>
+    </dif>
+</div>
+
+</body>
+<script>
+    $(document).on('click', '.filter>div', function () {
+        $("popbg").show();
+        $(this).children(".downpopmenu").show();
+    });
+    $(document).on('click', 'popbg', function () {
+        $("popbg").hide();
+        $(".downpopmenu").hide();
+    });
+
+    var vm = new Vue({
+        el: '.date',
+        data: {
+            preDate: 0, //上个月时间
+            _date: 0,
+            t_date: 0,
+            initY: 0, //当前 年
+            initM: 0, //当前 月
+            initD: 0, //当前 日
+            initW: 0, //当前 周
+            finitD: 0,
+            si: 0,
+            ei: 6,
+            tinitD: new Date(),
+            timehour: 0,
+            enMonth: '',
+
+            timeclicked:[],
+            click1: 99999999,
+            click2: 99999999,
+            timeclick_m: 99999999,
+            timeclick_d: 99999999,
+            timeclick_y: 99999999,
+            timeclick_t:99999999,
+
+            DateList: [],
+            Datelists: [],
+            TdateLists: [],
+            //  HourList: [],		//钟点时间 24小时  赋值写死
+            HourList: [
+                '00:00', '00:30', '01:00', '01:30', '02:00', '02:30', '03:00','03:30', '04:00', '04:30', '05:00', '05:30', '06:00', '06:30', '07:00', '07:30'
+                , '08:00', '08:30', '09:00', '09:30', '10:00', '10:30', '11:00', '11:30', '12:00', '12:30', '13:00', '13:30', '14:00', '14:30',
+                '15:00', '15:30', '16:00', '16:30', '17:00', '17:30', '18:00', '18:30', '19:00', '19:30', '20:00', '20:30', '21:00', '21:30',
+                '22:00', '22:30', '23:00', '23:30'
+            ],
+            cy: 0, //temp 上下年变化
+            cm: 0, //temp 上下月变化
+            cd: 0,
+            dateYM: 0, // 标题显示
+            beginDay: 0, //当月开始是周几
+            prevMdays: 0, //上个月总天数
+            nowMdays: 0, // 当月天数
+        },
+        created: function () {
+            this._date = new Date();
+
+            // 初始化 当前时间 y-m-d
+            this.initY = this._date.getFullYear()
+            this.initM = this._date.getMonth() + 1
+            this.initD = this._date.getDate();
+            this.initW = this._date.getDay();
+            this.enMonth = new Date().toDateString().split(" ")[1];
+            this.timehour = new Date().getHours()
+
+            // 初始化&切换上下月使用
+            this.cy = this._date.getFullYear()
+            this.cm = this._date.getMonth() + 1
+            this.cd = this._date.getDate();
+
+            this.finitD = new Date(this._date.setDate(   this.initD  - this.initW  )).getDate()//算出当前日期的上一个周日的日期
+
+                //生成日期数组
+            for (i = 0; i < 32 + this.initW; i++) {
+                this.tinitD=new Date(); this.t_date = new Date(this.tinitD.setDate(   this.initD - this.initW  ));//重置日期
+                this.DateList[i] = this.t_date.setDate(this.finitD + i);//从重置日期处往后循环出日期
+            }
+
+            //分年、月、日塞进数组
+            for (i = 0; i < 32 + this.initW; i++) {
+                this.Datelists[i] = new Array();
+                this.Datelists[i][0] = new Date(this.DateList[i]).getFullYear();
+                //  this.  Datelists[i][1] =new Date(this.DateList[i]).toDateString().split(" ")[1];
+                this.Datelists[i][1] = new Date(this.DateList[i]).getMonth() + 1;
+                this.Datelists[i][2] = new Date(this.DateList[i]).getDate();
+                this.Datelists[i][3] = new Date(this.DateList[i]).getDay();
+
+            }
+            this.TdateLists = this.Datelists;
+            console.log(this.TdateLists);
+            step = Math.ceil(this.Datelists.length / 7)
+        },
+        mounted: function () {
+
+        },
+
+        methods: {            // 上一周
+            upWeek: function () {
+                //  this.finitD=   this.finitD-7
+                this.si = this.si - 7
+                this.ei = this.ei - 7
+                if (this.si < 0) {
+                    alert("前面不可选了!")
+                    this.si = 0;
+                    this.ei = 6;
+                }
+            },
+            //下一周
+
+            downWeek: function () {
+             //  console.log(this.TdateLists.length)
+
+                let tsi = this.si + 7
+                let tei = this.ei + 7
+                if (tei >= this.TdateLists.length) {
+                    alert("好大啊");
+                    this.ei = this.ei + tei -this.TdateLists.length
+                } else {
+                    this.ei = this.ei + 7
+                }
+                this.si = this.si + 7
+
+                console.log("tei:"+tei)
+                console.log("this.ei:"+this.ei)
+
+                /*step--
+                console.log(step)
+                if(step>1){
+                  console.log("走上")
+                  this.TdateLists=   this.Datelists.slice(this.si, this.ei);
+                  console.log(this.TdateLists)
+                }
+                else {
+                  console.log("走下")
+                  this.TdateLists.splice(0, this.TdateLists.length);
+                //  this.TdateLists=   this.Datelists.slice(this.si);
+                  console.log(this.TdateLists)
+                }*/
+                //   console.log(this.TdateLists)
+            },
+            selectime (t,i) {
+                //这里获取所选数据
+                this.timeclick_t=t;
+                this.click1 = i;
+
+
+        //        console.log(this.timeclick_y,this.timeclick_m,this.timeclick_d,this.timehour)
+            },
+
+        }
+
+
+    })
+
+
+</script>
+</html>

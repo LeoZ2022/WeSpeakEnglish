@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html lang="en">
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?4a6c48c79b79effb3722c8e5e07f391f";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-190244183-1">
+</script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-190244183-1');
+</script>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"  content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no,initial-scale=1.0">
+    <title>Tutor_register_Volunteer tutor, Chat with young people, tutor speaking English</title>
+    <meta name="description" content="Volunteers tutor young people English virtually，explore exotic cultures, and make friends through the 1-on-1 video chat">
+    <link rel="stylesheet" href="__HOME_CSS__/easydropdown.css">
+    <link rel="stylesheet" href="__HOME_CSS__/layout.css">
+    <link rel="stylesheet" href="__HOME_CSS__/tutoreg.css">
+    <link rel="stylesheet" type="text/css" href="__HOME_CSS__/tutoreg_m.css" media="(max-width: 750px) "/>
+    <link rel="stylesheet" href="/public/home/css/audio.css">
+    {include file="public/header_js"}
+		<!-- Google Tag Manager -->
+	<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+	new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+	j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+	'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+	})(window,document,'script','dataLayer','GTM-MTCT69F');</script>
+	<!-- End Google Tag Manager -->
+	<!-- Event snippet for Page view conversion page -->
+    <script>
+      gtag('event', 'conversion', {'send_to': 'AW-16573727679/pvTICN7vqLIZEL-H_N49'});
+    </script>
+
+
+</head>
+<body class="usertype_{$user_type} partner{$is_partner|default=0}">
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MTCT69F"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+<nav class="dif">
+    <a class="backar pn" href="javascript:history.go(-1);"></a>
+    {include file="public/header"}
+    <div class=""><span><a href="{:url('sign/tutor')}" >Already a tutor</a><line>-</line><a class="blue" href="{:url('sign/tutor')}">Sign in</a></span></div><div class="hanbugrmenu pn"></div>
+    {include file="public/menu"}
+    <a class="blue pn" href="{:url('about/help')}">Registration guide</a>
+</nav>
+<style>/* format for mouse hover */
+.tooltip {
+  position: relative;
+  display: inline-block;
+  border-bottom: 1px dotted orange;
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 280px;
+  background-color: #EAFAF1;
+  color: orange;
+  text-align: left;
+  border-radius: 6px;
+  padding: 5px 0;
+    padding-top:10px;
+
+    padding-right:10px;
+
+    padding-bottom:10px;
+
+    padding-left:10px;
+  /* Position the tooltip */
+  position: absolute;
+  left: 0px;
+  z-index: 1;
+
+  font-size: 14px;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+}
+</style>
+
+<div class="main clearfix">
+    <p class="topT">Register <a href="{:url('about/help')}">Registration guide</a></p>
+    <form id="form_reg" method="post" action="{:url('post_tutor')}" onsubmit="return chkform()">
+    <div class="reform">
+        <dib>
+            <label >Country<sup>*</sup> <spans class="mn"></spans></label>
+               <div class="tooltip" style="color:orange;"><img src="__HOME_IMG__/qw.png" width="15" alt="">
+  <span class="tooltiptext">Where you reside.</span>
+</div>
+            <div><select name="country_id" id="country_id">
+                {volist name="countrys" id="vo"}
+                <option value="{$vo.id}" {eq name="vo.id" value="38"}selected{/eq}>{$vo.country_name}</option>
+                {/volist}
+            </select><div class="border"></div></div>
+            <p class="pn">Match the country</p>
+        </dib>
+        <dib>
+            <label>Referral No.<sup></sup></label>
+            <div>
+				<input type="text" name="partner" id="partner" value="{:input('partner')}" placeholder="Referral's account number(optional)">
+				<div class="border"></div>
+			</div>
+        </dib>
+        <dib>
+            <label >Time zone<sup>*</sup></label>
+             <div class="tooltip" style="color:orange;"><img src="__HOME_IMG__/qw.png" width="15" alt="">
+  <span class="tooltiptext">Select the nearest major country/city name from the list as your time zone. Learners come from various time zone which may differ from yours. If you set the wrong time zone, you would be appointed in an unexpected time slot. <br/>Google "my time zone" to check your real time zone.<br/>For example, London is in UTC 0, New York is in UTC -5, Melbourne is in UTC +10.</span>
+</div>
+            <div><select name="location" id="location">
+                {volist name="locations" id="vo"}
+                <option value="{$vo.id}"{eq name="vo.id" value="90"}selected{/eq}>(UTC{$vo.timezone|change_time}){$vo.location_name}</option>
+                {/volist}
+            </select><div class="border"></div></div>
+        </dib>
+        <dib>
+            <label >Email<sup>*</sup></label>
+            <div class="tooltip" style="color:orange;"><img src="__HOME_IMG__/qw.png" width="15" alt="">
+  <span class="tooltiptext">Check your email address and ensure it is correct. Otherwise, you will miss the verification email and all notifications.</span>
+</div>
+            <div><input placeholder="Your login ID & receive notifications" name="email" id="email" type="text" required><div class="border"></div></div>
+        </dib>
+        <dib>
+            <label >Name<sup>*</sup></label>
+            <div><input placeholder=" " value="" autocomplete="new-password" name="username" id="username" type="text" required><div class="border"></div></div>
+        </dib>
+        <dib>
+            <label >Invitation code</label>
+            <div><input placeholder="The code other tutor sent to you(optional)" name="invitation_code" id="invitation_code" type="text"><div class="border"></div></div>
+        </dib>
+
+        <dib>
+            <label >Password<sup>*</sup> <vtips class="pwd_msg"></vtips></label>
+            <div><input placeholder="Enter the password" autocomplete="new-password" type="password" name="new_pass" id="new_pass" required><div class="border"></div></div>
+        </dib>
+        <dib>
+            <label >Re-enter Password<sup>*</sup> <vtips class="pwd_msg2"></vtips></label>
+            <div><input placeholder="Repeat the password" type="password" name="new_pass2" id="new_pass2" required><div class="border"></div></div>
+        </dib>
+        <input type="hidden" name="desc_type" value="1" id="desc_type" />
+        <input type="hidden" name="duration" value="0" id="duration" />
+        <input type="hidden" name="filesize" value="0" id="filesize" />
+        <input type="hidden" id="mp3file" name="mp3file" value="">		<div class="selfBox audioBox width100">
+		
+		    <input type="file" id="file1" style="opacity: 0;z-index: -1; width:0;height:0;">
+		
+		    <h1>Self-introduction<div class="tooltip" style="color:orange;"><img src="__HOME_IMG__/qw.png" width="15" alt="">
+  <span class="tooltiptext">Introduce yourself either in audio or in text to let your partner know about you. Just choose one method. The audio is recommended.</span>
+</div></h1>
+		
+		    <div class="selfCheck">
+		
+		        <div data-typeid="1" class="checkLi active">
+		
+		            <div class="checkLiHread">
+		
+		                <span class="checkIcon"></span>Audio  <div class="tooltip" style="color:orange;"><img src="__HOME_IMG__/qw.png" width="15" alt="">
+  <span class="tooltiptext">No more than 1 minute.<br/><br/><b>iPhone:<br/></b>
+Open Voice Memos->Click red button to record->Stop->click left bottom 3 blue dots->Share…->Save to Files->On My iPhone->choose a file folder to save->Add->saving record audio file is done. <br/>
+Back to the sign-up webpage, click Upload my audio->Browse->On My iPhone->choose the folder you saved the audio file->choose the file you want to upload->Done.<br/><br/>
+<b>Android:<br/> </b>
+The method may vary depending on the models.<br/> Open the recorder to record your voice then save it to a folder. Back to the sign-up webpage, click Upload my audio->Choose file->Browse-> choose the folder you saved the audio file->choose the file you want to upload->Done.
+</span>
+</div>
+		
+		            </div>
+
+		            <div class="checkLiBody p_left20">
+		
+		                <div class="checkLiBodyOne">
+		
+		                    <a href="javascript:;" class="uploadBtn" id="btnUpload">Upload my audio</a> <span>Only m4a or mp3 format is acceptable.</span>
+		
+		                </div>
+		
+		                <p class="uploadError"></p>
+		
+		                <div class="uploadBox">		
+		                    <!-- <p id="audioName"></p> -->
+							<div class="audioRow" style="display: flex; align-items: center;">
+								<span id="audioName" style="margin-right: 10px;"></span>
+								<span class="xk_play dis"></span>
+								<span class="playTime"></span>
+							</div>
+		
+		                    <div class="uploadBoxSetting">
+		
+		                        <div class="uploadBoxSettingLeft">
+		
+		                            <div class="expBox">
+		
+		                                <div class="expItem"></div>
+		
+		                            </div>
+		
+		                            <span class="expNum">00:00:00/0MB</span>
+		
+		                        </div>
+		
+		                        <a href="javascript:;" id="cancelBtn">Cancel</a>
+		
+		                    </div>
+		
+		                </div>
+						<audio id="player" hidden></audio>
+		            </div>
+		
+		        </div>
+		
+		        <div data-typeid="2" class="checkLi">
+		
+		            <div class="checkLiHread justifyBetween">
+		
+		                <div class="checkLiHreadLeft"><span class="checkIcon"></span>Text</div>
+		
+		                <span class="redTxt"><span class="red">*</span>No more than 100 words</span>
+		
+		            </div>
+		
+		            <div class="checkLiBody p_left20">
+		
+		                <textarea name="descr" id="descr" placeholder="Your backgroud, experience, hobbies..."></textarea>
+						<div class="words"><span class="red">*</span>No more than 100 words</div>
+		            </div>
+					
+		        </div>
+		
+		    </div>
+		
+		</div>
+        
+
+        <dib>
+            <label >Security code<sup>*</sup></label>
+            <div><input placeholder="Input result" class="veri" type="text" name="verify_code" id="verify_code" required><div class="border"></div><span><img class="vrimg" src="" alt=""></span></div>
+        </dib>
+		
+		
+        
+
+        
+		<div class="agreementRow">
+			<input name="agreement" value="agreement" id="agreement" type="checkbox">
+			<label class="chbox" value="agreement" for="agreement"></label>I agree to <a href="/index/about/terms.html" target="_blank" style="font-style: oblique;">Terms of use</a> and <a href="/index/about/policy.html" target="_blank" style="font-style: oblique;">Privacy policy</a>.</div>
+        <input type="submit" id="submit" value="Register">
+        <p class="formal">Already a tutor ?  <a href="{:url('sign/tutor')}">Click here</a> to sign in</p>
+    </div>
+    </form>
+</div>
+<div class="footerHead">
+    {include file="public/footer"}
+</div>
+<style>
+	.edd-value {
+	    
+		height:58px;line-height:58px;
+	}
+	
+	.edd-arrow {
+	   
+	    top:24px;
+		
+	}
+	#submit[type="submit"]:disabled,
+	#submit[type="submit"]:disabled:hover{
+	    box-shadow:none;
+	    cursor: default;
+	    color: #c8c8c8;
+	    background: #f8f8f8;
+	}
+</style>
+</body>
+<script src="__HOME_JS__/easydropdown.js"></script>
+<script>
+
+var _agreement;
+	if (document.getElementById('agreement').checked) {
+		_agreement = 1;
+		$('#submit').removeAttr('disabled');
+	} else {
+		_agreement = 0;
+		$('#submit').attr('disabled','disabled');
+		
+	}
+	
+	$('#agreement').click(function () {
+		if ($('#agreement').prop('checked') == true) {
+			_agreement = 1;
+			$('#submit').removeAttr('disabled');
+			
+		} else {
+			$('#submit').attr('disabled','disabled');
+			_agreement = 0;
+		}
+	})
+	
+	
+	
+	
+var valDom = document.getElementById("descr");
+			var zLen;
+			$("#descr").keyup(function(){
+				zLen = 100;
+				var str = valDom.value;//获取文本域的值
+				//判断是否包含中文：if(/^[\u4e00-\u9fa5]/.test("名字"))        
+				var regH = /^[\u4e00-\u9fa5]/;//汉字
+				var regY = /^[a-zA-Z]/;//英文
+				var regN=/\d/g;//数字
+				var regK=/\s/g;//空格
+				var regZ=/./g;//总长
+				var strlen = str.length;
+				if(strlen > 0){
+					if(zLen < strlen){
+						$(this).css("background","#fff")
+						$(".textTips").css("color","#999")
+					}
+					for(var i=0;i<strlen;i++){
+						var strIndex = str.charAt(i);
+						if(regY.test(strIndex)){
+							if(i+1<=strlen){
+								var strNext = str.charAt(i+1);
+								if(!regY.test(strNext)){
+									//如果下一个不是英文
+									zLen--;
+									if(zLen<=0){
+										limitNum(i,str);
+										return false;
+									}
+								}
+							}else{
+								zLen--;
+								if(zLen<=0){
+									limitNum(i,str);
+									return false;
+								}
+							}
+						}else{
+							var hflag = regH.test(strIndex);
+							var nflag = regN.test(strIndex);
+							if(hflag || nflag){
+								zLen--;
+								if(zLen<=0){
+									limitNum(i,str);
+									return false;
+								}
+							}
+						}
+					}
+				}
+			})
+			function limitNum(i,str){
+				 
+				var newStr = str.substr(0, i+1);
+				valDom.value = newStr;
+				$(valDom).css("background","#ffc4c4")
+				$(".textTips").css("color","#f00")
+			}
+	
+	
+
+    easydropdown.all();
+    $('.nav_tutor').addClass('on');
+    $(document).on('click', '.vrimg', function () {
+        $('.vrimg').attr('src', $('.vrimg').attr('src'));
+    });
+
+
+	// 
+	
+	
+
+  //   $(document).on('keydown', '#descr', function () {
+  //     //
+		// console.log( $(this).val().length)
+  //       if ($(this).val().length >= 100){
+			
+  //           $(this).css("background","#ffc4c4")
+  //           $(this).val(
+		// 		$(this).val().substr(0,100)
+		// 	)
+  //           $(this).parent("div").siblings("label").children("span").css("color","#f00")
+  //       }else {
+  //           $(this).css("background","none")
+  //           $(this).parent("div").siblings("label").children("span").css("color","#999")
+  //       }
+  //   });
+
+    $(document).on('input', '#price', function () {
+        if ($(this).val()>18){
+            $(this).css("color","#f00")
+        }else {
+            $(this).css("color","#555")
+        }
+    });
+
+    $(document).on('input', '#new_pass', function () {
+        if ($(this).val().length<6 || $(this).val().length> 20){
+            $('.pwd_msg').html('Password must between 6-20 in length!').show();
+        }else {
+            $('.pwd_msg').hide();
+        }
+    });
+
+
+    var begin = 1;
+    function chkform() {
+        _new_pass = $('#new_pass').val();
+        if (_new_pass.length <6 || _new_pass.length > 20) {
+            $('.pwd_msg').html('Password length is between 6-20!').show();
+            return false;
+        } else {
+            $('.pwd_msg').hide();
+        }
+        _new_pass2 = $('#new_pass2').val();
+        if (_new_pass2.length <6 || _new_pass2.length > 20) {
+            $('.pwd_msg2').html('Password length is between 6-20!').show();
+            return false;
+        } else {
+            $('.pwd_msg2').hide();
+        }
+        if (_new_pass != _new_pass2) {
+            $('.pwd_msg2').html('Your passwords do not match!').show();
+            return false;
+        } else {
+            $('.pwd_msg2').hide();
+        }
+        if (begin == 1) {
+			if(_agreement == 0) {
+				$('.agreementRow').addClass('red')
+				return false;
+			}else{
+				var _data = $('#form_reg').serialize();
+				showloading();
+				begin = 0;
+				$.ajax({
+					url: $('#form_reg').attr('action'),
+					data: _data,
+					type: 'post',
+					dataType: 'json',
+					success: function (res) {
+                        showmsg(res.msg, res.code);
+						if (res.code == 200) {
+							setTimeout("location.href = '/index'", 10000);
+						} else {
+							$('#verify_code').val('');
+							$('.vrimg').attr('src', $('.vrimg').attr('src'));
+                            begin = 1;
+						}
+					}
+				})
+			}
+        }
+        return false;
+    }
+</script>
+<script type="text/javascript">
+    $(function(){
+        function begin(exp){
+            if(exp!=100){
+                $(".expItem").css("width","0px");
+            }
+            var speed=20;
+            var bar=setInterval(function(){
+                let nowWidth = parseInt($(".expItem").width());
+                if(nowWidth<=exp){
+                    let barWidth=(nowWidth+1)+"px";
+                    $(".expItem").css("width",barWidth);
+                }else{	
+					if(exp==100){
+						$("#cancelBtn").html('Upload again');
+						$("#cancelBtn").removeClass('cancel');
+						$("#cancelBtn").addClass('again');
+					}
+                    clearInterval(bar);
+                }
+            },speed);
+        }
+        $(".checkLi").on("click",function(){
+            $('#desc_type').val($(this).data('typeid'));
+            $(this).addClass("active").siblings().removeClass("active");
+        });		$('body').on('click',".cancel",function(){
+			$(".uploadBox").hide()
+			$('#mp3file').val('');
+			$('#duration').val('');
+			$('#filesize').val('');
+			$('.checkLiBodyOne').show();
+		})
+        function upload(e){
+        	if (e.target.files.length === 0) return
+			$(".uploadError").hide();
+        	let file = e.target.files[0];
+        	var fileName = file.name.substring(file.name.lastIndexOf(".")+1).toLowerCase();
+        	if(fileName !="m4a" && fileName !="mp3"){        		
+				$(".uploadError").show();
+				$(".uploadError").html('The audio format is unacceptable.');
+        		return false;   //阻止submit提交
+        	}
+        	var fileurl = URL.createObjectURL(file);
+        	//经测试，发现audio也可获取视频的时长
+        	var audioElement = new Audio(fileurl);
+        
+        	var duration;
+        
+        	audioElement.addEventListener("loadedmetadata", function (_event) {
+        		duration = audioElement.duration;
+        		if(duration>60){
+					$(".uploadError").show();
+					$(".uploadError").html('The audio file should be less than 1 minute.');
+        			return false;
+        		}else{
+        			let fd = new FormData()
+        			fd.append('mp3', file)
+        			$("#audioName").html(file.name);
+        			if(duration<10){
+        				duration='0'+parseInt(duration)
+        			}else{
+        				duration=parseInt(duration)
+        			}
+        			$(".expNum").html('00:00:'+duration+'/'+(file.size/(1024 * 1024)).toFixed(2)+'MB');
+					$(".expItem").css("width",0);
+        			$(".uploadBox").show();  
+        			// 发起 jQuery 的 Ajax 请求, 上传文件
+        			begin(70);
+        			$("#cancelBtn").removeClass('again');
+        			$("#cancelBtn").addClass('cancel');
+        			$("#cancelBtn").html('Cancel');
+					$(".xk_play").addClass("dis");
+        			$.ajax({
+        			  method: 'POST',
+        			  url: '{:url("index/uploadmp3")}',
+        			  data: fd,// 重要
+        			  processData: false,
+        			  contentType: false,
+        			  dataType: 'json',
+        			  success: function (res) {
+        				if (res.code == 1) {
+        					$('#mp3file').val(res.file);
+        					$('#duration').val(duration);
+        					$('#filesize').val(file.size/(1024 * 1024));
+							$('.checkLiBodyOne').hide();
+							$(".xk_play").removeClass('dis');
+							$(".xk_play").attr('data-mp3','https://wespeakenglish.chat/'+res.file);
+        					begin(100);
+        				} else {
+        					showmsg(res.msg, res.code);
+        					return false;
+        				}
+        			  }
+        			})
+        		}		
+        	});  
+        }
+        $("#file1").on('change', function (e) {
+        	upload(e);
+        })		
+		$('body').on('click','.again',function () {		
+			$('#file1').val('');
+			$(".xk_play").removeClass("pause");
+			// $(".xk_play").addClass("dis");
+			var audio = $("#player")[0];
+			audio.pause();
+			setTimeout(function(){
+				$(".playTime").html(' ');
+			},300);			
+		    return $('#file1').click();		
+		    // 核心代码		
+		    let files = $('#file1')[0].files		
+		    if (files.length <= 0) {		
+		        return alert('请选择文件后再上传!')		
+		    }
+		})
+        $('#btnUpload').on('click', function () {
+            return $('#file1').click();
+            // 核心代码
+            let files = $('#file1')[0].files
+            if (files.length <= 0) {
+                return alert('请选择文件后再上传!')
+            }
+
+        })
+    });
+	$(function play(){
+			var videoUrl='';
+			$(".xk_play").unbind('click').click(function(){			
+				if($(this).hasClass("dis")){
+					return;
+				}
+				if($(this).hasClass("pause")){
+					$(this).removeClass("pause")
+					var audio = $("#player")[0];
+					audio.pause();
+					return;
+				}else{
+					var audio = $("#player")[0];
+					if($(this).attr('data-mp3')==videoUrl){
+						audio.play();
+						videoUrl=$(this).attr('data-mp3');
+						$(".xk_play").removeClass("pause");
+						$(this).addClass("pause")
+					}else{
+						videoUrl=$(this).attr('data-mp3');
+						$("#player").attr('src',$(this).attr('data-mp3'));
+						// $("#player").attr('src','http://test.wespeakenglish.chat/public/uploads/voices/20220814/4f2f678bdb1340e8988c0c526d26c1e1.mp3');	
+						let that=this;
+						setTimeout(function(){
+							audio.play();
+							timeFun(that);
+						},1000);			
+						
+						$(".playTime").removeClass("htmlTxt");
+						$(".playTime").empty();
+						$(this).siblings('.playTime').addClass("htmlTxt");		
+						$(".xk_play").removeClass("pause");
+						$(this).addClass("pause")
+					}
+				}
+			})
+		})
+		var audio = document.getElementById("player");
+		audio.addEventListener('ended', function () {
+			$(".xk_play").removeClass("pause");
+		}, false);
+		audio.onerror = function() {
+			alert("Error! Something went wrong");
+		}; 
+		function timeFun(e){		
+			audio.addEventListener("timeupdate",function(res){
+				let timeDisplay;
+				let musicDom = $("#player")[0];
+				timeDisplay = Math.floor(musicDom.currentTime);
+				let minute = timeDisplay / 60;
+				let minutes = parseInt(minute);
+				if (minutes < 10) {
+					minutes = "0" + minutes;
+				}
+				let second = timeDisplay % 60;
+				let seconds = Math.round(second);
+				if (seconds < 10) {
+					seconds = "0" + seconds;
+				}
+				if(!isNaN(parseFloat(musicDom.duration))){
+					let timeTxt=minutes+":"+seconds+"/00:"+(Math.floor(musicDom.duration)>9?Math.floor(musicDom.duration):('0'+Math.floor(musicDom.duration)));
+					$(".htmlTxt").html(timeTxt);				
+				}
+				// console.log(_this.$store.state.realMusicTime);
+			},false);
+		}
+	
+</script>
+</html>

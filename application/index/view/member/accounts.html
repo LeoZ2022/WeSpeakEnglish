@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?4a6c48c79b79effb3722c8e5e07f391f";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-190244183-1">
+</script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-190244183-1');
+</script>    
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"  content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no,initial-scale=1.0">
+    <title>Balance_{:config('web_site_title')}</title>
+    <link rel="stylesheet" href="__HOME_CSS__/layout.css">
+    <link rel="stylesheet" href="__HOME_CSS__/balancestu.css">
+
+    <link rel="stylesheet" type="text/css" href="__HOME_CSS__/balancestu_m.css" media="(max-width: 750px) "/>
+{include file="public/header_js"}
+<style>
+
+.topup {
+    display: inline-block; /* Change from inline-flex to inline-block */
+    background-color: #e54a3a; /* Background color */
+    color: #fff; /* Text color */
+    padding: 10px 60px; /* Adjust padding */
+    text-decoration: none; /* Remove underline from the link */
+    border: 2px solid #e54a3a; /* Border with color code #e54a3a */
+    border-radius: 5px; /* Add border-radius for rounded corners */
+    font-size: 1.5rem; /* Adjust font size for better readability on mobile */
+    font-weight: bold; /* Make the text bold */
+    text-align: center; /* Center-align the text */
+     max-width: 80%; /* Change width to max-width */
+    margin-right: auto; /* Add margin-right: auto to push it to the left */
+    margin-left: 0;
+}
+
+
+
+
+</style>
+</head>
+<body class="usertype_{$user_type} partner{$is_partner|default=0}">
+<nav class="dif">
+    <a class="backar pn" href="{:url('member/index')}"></a>
+    {include file="public/nav_menu"}
+</nav>
+
+<div class="main">
+	<div class="tabbox myclass">
+		<dif class="ht"><b>account balance</b> <a href="{:url('index')}">back</a></dif>
+		<priceb>$ {$user_info.moneys}</priceb>
+		<dif class="logined user_type_1">
+	    {if condition="$user_type eq 1 && $is_partner eq 0"}
+           <a class="topup" href="{:url('member/topup')}">TOP UP</a>
+   
+        {/if}
+        </dif>
+
+	</div>
+	
+	<div class="tabbox myclass" style="margin-top: 20px;">
+		<div class="tabs">
+			<div class="boxt {empty name='type_id'}g{/empty}" title="tab1" onclick="location.href='{:url("accounts")}'">Transaction list</div>
+		</div>
+		<ul class="classli" >
+			<li id="tab1" class="comment_list">
+				{include file="member/accounts_ajax"}
+			</li>
+		</ul>
+		<div class="pages">
+			{$list->render()|raw}
+		</div>
+		<div class="bottom" onclick="get_cmt_list()"><hline></hline><span>{gt name="last_page" value="1"}LOAD MORE{else}bottom{/gt}</span><hline></hline></div>
+	</div>
+</div>
+{include file="member/footer_menu"}
+{include file="public/footer"}
+{include file="member/member_js"}
+</body>
+<script>
+    $('#foot_a_4').addClass('cur');
+    var _page = {:input('page', 1)};
+    var _act = '{:input('act')}';
+    var _load = 1;
+    var start_y;
+    var end_y;
+    {eq name="is_wap" value="1"}
+    //滑动到底部加载
+    function get_cmt_list() {
+        if (_load == 0) {
+            return true;
+        }
+        _page = _page + 1;
+        $.ajax({
+            url: '/index/member/accounts',
+            data: {act: _act, page: _page, ajax: 1},
+            success: function (res) {
+                $('.comment_list').append(res);
+            //    opendiv();
+                if (!res) {
+                    $('.bottom span').text("BOTTOM");
+                    _load = 0;
+                }
+            }
+        })
+    }
+    $(document).on("touchstart", 'body,html', function(e){
+        var touch=e.touches[0];
+        start_y=touch.pageY;
+        //  alert(start_y)
+    })
+    $(document).on("touchmove", 'body,html', function(e){
+        var touch=e.touches[0];
+        end_y=touch.pageY;
+    })
+    $(document).on("touchend", 'body,html', function(e){
+        if(start_y- end_y >10){
+            get_cmt_list()
+        }
+    })
+    {/eq}
+</script>
+</html>

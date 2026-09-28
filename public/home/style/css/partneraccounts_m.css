@@ -1,0 +1,118 @@
+nav{box-shadow: none}
+nav.wBG{box-shadow: 0 5px 25px rgba(220,220,220,0.6);}
+nav>.logobox{display: none}
+nav .backar{background: url("../img/backar.png") center center no-repeat;
+    background-size: contain;
+    width: 13px;
+    height: 22px;}
+nav a.blue{text-transform: none;
+    font-size: 1.4rem;
+    color: #007edb;}
+nav .hanbugrmenu{
+    background-image: url("../img/habmenu_b.png");
+}
+nav div.who\? span a.sout{
+}
+p.topT{
+    font-size: 4.6rem;align-items: center;
+    text-align: center;
+    margin-top: 0px;}
+p.topT::after {
+    width: 180px;
+    height: 16px;}
+P.topT > a{
+    display: none;}
+.main{
+    padding-left: 20px;
+    margin-top: 20px;
+    padding-right: 20px;}
+.myclass .ht a{
+    display: none;}
+.myclass{box-shadow: none;
+    background-color:transparent;
+padding: 0}
+.paypal{
+    margin-left: 0;border-radius: 6px;
+    background: #fff;
+    margin-top: 30px;
+    width: 100%;
+    padding: 24px 18px;
+	border: none;
+}
+.paypal t{
+    margin-bottom: 23px;
+    font-size: 1.8rem;}
+priceb{
+    margin-bottom: 10px;}
+priceb d{
+    margin-bottom:24px;
+    display: block;}
+priceb a.withdraw{
+    margin-left: 0;
+	height: 50px;
+	line-height: 50px;}
+priceb a.Donate{
+    margin-left: 15px;
+	height: 50px;
+	line-height: 50px;}
+.classbox rightt{text-align: right;
+    width: 49.9%;}
+.classbox  price{
+    margin-top: 6px;
+    display: block;}
+.balancebox left > pays{
+    margin-right: 0;}
+.balancebox left > time{
+    margin-left: 53px;
+    display: block;}
+.popaypal{
+    width: 90%;}
+.footer{
+    display: none;}
+.footwrap{
+    height: 90px;}
+footnav .cur{
+    background: url("../img/balance-blue.png") no-repeat center center;
+    background-size:auto 24px;
+}
+footnav .cur img{visibility: hidden}
+.paypal img{
+	position: absolute;
+	right: 20px;
+	top: 22px;
+}
+.myclass .boxt.g{
+	color: #83523b;
+}
+.paypalTipsText{
+	margin-bottom:15px; 
+}
+.n_footerMain{
+	display: none;
+}
+.popaypal input[type="submit"]{
+	height: 40px;
+	line-height: 40px;
+	font-size: 22px;
+}
+.popaypal t{
+	margin-bottom: 20px;
+	font-size: 18px;
+}
+.popaypal img{
+	top: 20px;
+}
+.balancebox left>pays,
+.balancebox left > time{
+	font-size: 1.4rem;
+}
+.balancebox banlance{
+	font-size: 1.6rem;
+	white-space: nowrap;
+}
+.myclass .tabs{
+	margin-bottom: 0;
+}
+.myclass .boxt{
+	padding: 15px;
+}

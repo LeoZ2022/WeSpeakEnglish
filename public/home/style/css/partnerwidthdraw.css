@@ -1,0 +1,223 @@
+nav{background:#fff;box-shadow:0 5px 25px rgba(220,220,220,0.6);}
+.main{text-align: center;
+    width: 100%;
+    padding-left: 20px;
+    padding-right: 20px;
+    max-width:1158px;
+margin: 70px auto 100px}
+nav a{vertical-align: middle;
+    color: #424242;}
+a{
+    color: #83523b;}
+nav .logo{
+    background-image: url("../img/logoblue.png");
+}
+.logined{
+    width: 100px;}
+nav div span .blue{
+    color: #83523b;}
+nav .on{
+    color: #83523b;}
+nav .on::after {
+    background: #83523b;
+    width: 40px;
+    height: 2px;
+    content: " ";
+    top: 10px;
+    position: relative;
+}
+
+.main .ht{
+    padding-bottom: 15px;
+    border-bottom: 1px solid #dad7d6;
+    justify-content: space-between}
+.main .ht b{
+    font-size: 2.6rem;
+    font-family: Fjalla;
+    text-transform: uppercase;
+    color: #83523b;}
+.main .ht a{
+    font-size: 2rem;
+    color: #83523b;
+    font-family: Fjalla;
+    text-transform: uppercase;
+    padding-right: 20px;
+    text-decoration: none;
+    line-height: 34px;
+    padding-left: 36px;
+    background:url("../img/backarbrown.png") left center no-repeat;
+}
+.withdrawinput{align-items:center;
+    margin-top: 40px;}
+.withdrawinput b{
+    font-family: Fjalla;
+    font-size: 2.2rem;}
+.withdrawinput>label{
+    flex-shrink: 0;
+    text-align: left;
+    color: #999;
+    width: 205px;}
+.withdrawinput.amount input{
+    border-radius: 6px;
+    border: 1px solid #e7eaef;
+    width: 100%; max-width:400px ;
+    line-height: 30px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+    padding-left: 46px;
+    font-size: 1.6rem;
+    background:url("../img/ms.png") 14px center no-repeat;
+    background-size: auto 17px;
+}
+.withdrawinput.amount input[type="text"]:focus{
+    border-color: #83523b;
+}
+.withdrawinput.paypal >input[type="text"].edit:focus{
+    border-color: #83523b;
+}
+
+.usertype_2 .withdrawinput.amount input[type="text"]:focus{
+    border-color: #83523b;
+}
+.usertype_2 .withdrawinput.paypal >input[type="text"].edit:focus{
+    border-color: #83523b;
+}
+.withdrawinput .msinfo{position: absolute;
+    bottom: -32px;
+    left: 210px;
+    color: #999;}
+.withdrawinput.paypal{
+    margin-top: 60px;}
+.withdrawinput.paypal>input{
+    font-size: 1.8rem;
+    line-height: 50px;
+    padding-left: 16px;
+    border: 1px solid #fff;
+	width: 280px;
+}
+.withdrawinput.paypal >input[type="text"].edit{
+    border-color:#e7eaef;
+    border-radius: 6px 0 0 6px;
+}
+.withdrawinput.paypal >button{
+    display: none;}
+.withdrawinput.paypal>img{
+    cursor: pointer;
+    margin-left: 10px;
+    height: 21px;}
+.withdrawinput input[type="submit"]{
+    width: 180px;
+    height: 60px;border-radius: 6px;
+    text-align: center;text-transform: uppercase;
+    line-height: 60px;
+    color: #fff;
+    font-size: 2.4rem;
+    cursor: pointer;
+    font-family: Fjalla;
+    background: #83523b;
+	padding: 0 !important;}
+.withdrawinput input[type="submit"]:hover{
+	background: #673d29;
+}
+.disable.withdrawinput input[type="submit"],
+.withdrawinput input[type="submit"][disabled],.withdrawinput input[type="submit"][disabled=disabled]{
+    color: #c8c8c8;
+    background: #f8f8f8;
+    cursor: auto;
+	pointer-events: none;
+}
+.withdrawinput textarea{
+	background: #fff;
+	border: 1px solid #e7eaef;
+	width: 100%;
+	border-radius: 6px;
+	resize: none;
+	font-size: 16px;
+	padding: 10px !important;
+	min-height: 60px;
+	height: 100px;
+}
+.withdrawinput textarea:focus{
+    border-color: #83523b;
+}
+.withdrawinputCode{
+	width: 220px !important;
+	margin: 0 20px 0 0;
+}
+.withdrawinputBtn{
+	width: 160px !important;
+	background: #fff !important;
+	padding-left: 0 !important;
+	color: #83523b !important;
+	border: 2px solid #83523b !important;
+	line-height: 28px !important;
+	padding-right: 0 !important;
+	font-family: Fjalla;
+}
+.withdrawinputBtn[disabled=disabled]{
+	color: #c1c1c1 !important;
+	border: 2px solid #c1c1c1 !important;
+}
+.withdrawinput button{
+    width: 120px;
+    height: 50px;border-radius:0 6px 6px 0;
+    cursor: pointer;
+    text-align: center;text-transform: uppercase;
+    line-height: 50px;
+    color: #fff;
+    font-size: 2.4rem;
+    font-family: Fjalla;
+    background: #83523b;
+   }
+.usertype_1 .logeduser{
+    background-image: url("../img/partner_b.png");
+	padding-left: 25px;
+}
+.usertype_2 .logeduser{
+    background-image: url("../img/partner_b.png");
+	padding-left: 25px;
+    /* padding-left: 38px; */
+    /* background-size: auto 17px; */
+}
+.logined.user_type_2 .logeduser.click,
+.logined.user_type_1 .logeduser.click,
+.logeduser.click{
+	background-image: url("../img/partner_o.png") !important;
+}
+.logeduser.click .rar{
+	background-color: #83523b !important;
+}
+nav div.who\? {
+    display: none;
+}
+.logined+.who\?{
+    display: none;
+}
+.usertype_1 .nav_learner.on{
+	color: #83523b;
+}
+.applyTips{
+	background: #fcf8f6;
+	border-radius: 10px;
+	text-align: left;
+	padding: 20px;
+	margin: 25px 0 0 0;
+}
+.applyTips p{
+	font-family: Fjalla;
+	color: #83523b;
+	line-height: 24px;
+	padding:0 0 5px 15px;
+	position: relative;
+}
+.applyTips p::after{
+	width: 6px;
+	height: 6px;
+	border-radius: 100%;
+	content: '';
+	display: block;
+	background-color: #83523b;
+	position: absolute;
+	left: 0;
+	top: 8px;
+}

@@ -1,0 +1,56 @@
+header nav.dif{background-image: url("../img/navbg_red.png")}
+.htxt{
+    width: 1020px;}
+.htxt b{
+    line-height: 80px;
+    font-size: 7.2rem;}
+.main{
+    margin:0 auto 140px;
+    width: 1260px;}
+.main>img{vertical-align: top;
+    margin-right:75px;}
+.main .p{
+    display: inline-block;
+    width: 780px;
+    font-size: 1.8rem;line-height: 40px;
+    margin-top: 80px;}
+.main .p p{
+    line-height: 40px;
+}
+.main > p{
+    line-height: 40px;
+}
+.logined+.who\?{
+    display: none;
+}
+.logined .searchtu {
+    color: #fff;
+    border-color: #fff;
+}
+.logined .bell {
+    background-image: url("../img/bell_w.png");
+    background-size: contain;
+}.logined .bell img {
+     visibility: hidden;
+ }
+.logined.user_type_1 .logeduser {
+    background-image: url("../img/learner_w.png");
+}
+nav.wBG .logined.user_type_1 .logeduser {
+    background-image: url("../img/learner_b.png");
+}
+nav.wBG .logined .searchtu {
+    color: #e54a3a;
+    border-color: #e54a3a;
+}
+nav.wBG .logined .bell {
+    background-image: url("../img/bell.png");
+}
+nav .logined.user_type_1 .logeduser.click{
+    background-image: url("../img/learner_o.png");
+}
+.user_type_2 .logeduser{
+    background-image: url("../img/tutor_w.png");
+    /* background-size:auto 17px; */
+    /* padding-left: 38px; */
+}

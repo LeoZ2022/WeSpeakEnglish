@@ -1,0 +1,42 @@
+2025-10-24 00:03:32 callback
+{
+	"EventGroupId":	1,
+	"EventType":	104,
+	"CallbackTs":	1761235412290,
+	"EventInfo":	{
+		"RoomId":	14672,
+		"EventTs":	1761235412,
+		"EventMsTs":	1761235412176,
+		"UserId":	"2590",
+		"Role":	20,
+		"Reason":	1
+	}
+}
+
+2025-10-24 00:03:39 callback
+{
+	"EventGroupId":	1,
+	"EventType":	104,
+	"CallbackTs":	1761235418973,
+	"EventInfo":	{
+		"RoomId":	14672,
+		"EventTs":	1761235418,
+		"EventMsTs":	1761235418949,
+		"UserId":	"2345",
+		"Role":	20,
+		"Reason":	1
+	}
+}
+
+2025-10-24 00:03:39 callback
+{
+	"EventGroupId":	1,
+	"EventType":	102,
+	"CallbackTs":	1761235419090,
+	"EventInfo":	{
+		"RoomId":	14672,
+		"EventTs":	1761235419,
+		"EventMsTs":	1761235419015
+	}
+}
+

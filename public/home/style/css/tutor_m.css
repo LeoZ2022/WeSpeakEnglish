@@ -1,0 +1,137 @@
+.htxt{
+    top: 26%;}
+.htxt s{
+    margin-top: 5px;
+	font-size: 20px;
+	line-height: 28px;}
+.htxt s p{
+	font-size: 20px;
+	line-height: 28px;
+	padding: 0 0 0 16px;
+}
+.htxt s p::after{ 
+	top: 11px;
+}
+
+.htxt b{
+	font-size: 5.5rem !important;
+}
+.btbox a{
+    margin-right: 0;
+    margin-bottom: 18px;
+display: block;
+    width: 100%;
+    height: 60px;
+    font-size: 2.6rem;
+    line-height: 60px;}
+.btbox{
+    margin-top: 18px;}
+.topicli li dd{
+	height: auto;
+}
+p.topT{
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-top: 40px;
+    font-size: 4.6rem;
+    line-height:56px;
+}p.topT::after{
+     top: -15px;
+     width: 240px;
+     height: 10px; }
+.main{overflow-x: hidden;
+    margin-top: 0;
+    padding-top: 24px;
+    padding-left: 20px;
+    padding-right: 20px;}
+.main .intor picture{display: block}
+.main .intor picture img:last-child{
+    right: -30px;
+    top: -24px;}
+.intor>p{
+    word-break:break-all;line-height: 30px;
+    margin-top: 10px;
+    padding-left: 0;display: block;
+    width: 100%;}
+p.sT{
+    margin-top: 50px;
+    font-size: 2.8rem;
+    line-height: 36px;}
+p.sT::before{
+    top: 35px;}
+p.sT::after{
+    margin-top: 10px;}
+.topicli{padding-bottom: 49px;}
+.topicli li{margin-top: 30px;
+    width: 100%;
+text-align: center}
+.topicli li dt::after{
+    left: 50%;transform: translateX(-50%)}
+.topicli li:nth-child(3n-1){
+    margin-left: auto;
+    margin-right: auto;
+}
+.howtostar{
+    margin-top: 25px;}
+.howtostar li .startxt p{
+	padding: 10px 0 0 0;
+}
+.howtostar::after {
+    left: 20px;
+}
+.howtostar li{align-items: flex-start;
+    padding-bottom: 0;
+    margin-bottom: 15px;}
+.howtostar div.icon{text-align: center;
+    line-height: 46px;}
+.howtostar div.icon img{
+    width: 32px;
+    top: initial;
+    left: initial;}
+.howtostar div.icon{
+	height: 80px;
+}
+.howtostar li .startxt{flex-direction: column;align-items: flex-start;
+    padding-top: 15px;
+    margin-left: 20px;}
+.howtostar li .startxt t{left: initial;
+    }
+videoer{flex-direction: column;
+    margin-bottom: 34px;}
+.howtochat .video{
+    width: 100%;
+    margin-bottom: 16px;
+    margin-right: 0;}
+.howtochat lt::before{
+    width: 224px;
+    top: 34px;
+    height: 10px;}
+.howtochat p{
+    line-height: 30px;}
+.howtochat{
+    margin-top: 20px;}
+.howtochat dif{flex-direction: column;
+    margin-bottom: 40px;}
+.howtochat lt{
+    font-size: 3.4rem;
+    width: 100%;}
+.howtochat dif p{
+    padding-left: 0;}
+.btimg{
+    height: 566px;
+    padding: 0 25px;}
+.btimg p{line-height: 30px;
+    padding-top: 40px;}
+.btimg a{
+    margin-top: 20px;
+    font-size: 2rem;
+    width: 100%;}
+	
+@media (max-width: 379px) {
+	.htxt b{
+		font-size: 5.2rem !important;
+	}
+	.htxt{
+		top: 15%;
+	}
+}

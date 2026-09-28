@@ -1,0 +1,235 @@
+2023-03-29 06:57:10 callback
+{
+	"EventGroupId":	1,
+	"EventType":	101,
+	"CallbackTs":	1680044230625,
+	"EventInfo":	{
+		"RoomId":	12030,
+		"EventTs":	1680044230,
+		"EventMsTs":	1680044230620,
+		"UserId":	"332"
+	}
+}
+
+2023-03-29 06:57:10 callback
+{
+	"EventGroupId":	1,
+	"EventType":	103,
+	"CallbackTs":	1680044230625,
+	"EventInfo":	{
+		"RoomId":	12030,
+		"EventTs":	1680044230,
+		"EventMsTs":	1680044230620,
+		"UserId":	"332",
+		"Role":	20,
+		"TerminalType":	2,
+		"UserType":	3,
+		"Reason":	1
+	}
+}
+
+2023-03-29 06:57:41 callback
+{
+	"EventGroupId":	1,
+	"EventType":	101,
+	"CallbackTs":	1680044261501,
+	"EventInfo":	{
+		"RoomId":	11976,
+		"EventTs":	1680044261,
+		"EventMsTs":	1680044261423,
+		"UserId":	"663"
+	}
+}
+
+2023-03-29 06:57:41 callback
+{
+	"EventGroupId":	1,
+	"EventType":	103,
+	"CallbackTs":	1680044261034,
+	"EventInfo":	{
+		"RoomId":	11976,
+		"EventTs":	1680044261,
+		"EventMsTs":	1680044261423,
+		"UserId":	"663",
+		"Role":	20,
+		"TerminalType":	2,
+		"UserType":	3,
+		"Reason":	1
+	}
+}
+
+2023-03-29 06:58:24 callback
+{
+	"EventGroupId":	1,
+	"EventType":	102,
+	"CallbackTs":	1680044304867,
+	"EventInfo":	{
+		"RoomId":	11976,
+		"EventTs":	1680044304,
+		"EventMsTs":	1680044304786
+	}
+}
+
+2023-03-29 06:58:24 callback
+{
+	"EventGroupId":	1,
+	"EventType":	104,
+	"CallbackTs":	1680044304865,
+	"EventInfo":	{
+		"RoomId":	11976,
+		"EventTs":	1680044304,
+		"EventMsTs":	1680044304786,
+		"UserId":	"663",
+		"Role":	20,
+		"Reason":	1
+	}
+}
+
+2023-03-29 06:58:30 callback
+{
+	"EventGroupId":	1,
+	"EventType":	101,
+	"CallbackTs":	1680044310783,
+	"EventInfo":	{
+		"RoomId":	11976,
+		"EventTs":	1680044310,
+		"EventMsTs":	1680044310713,
+		"UserId":	"663"
+	}
+}
+
+2023-03-29 06:58:30 callback
+{
+	"EventGroupId":	1,
+	"EventType":	103,
+	"CallbackTs":	1680044310783,
+	"EventInfo":	{
+		"RoomId":	11976,
+		"EventTs":	1680044310,
+		"EventMsTs":	1680044310713,
+		"UserId":	"663",
+		"Role":	20,
+		"TerminalType":	2,
+		"UserType":	3,
+		"Reason":	1
+	}
+}
+
+2023-03-29 07:00:10 callback
+{
+	"EventGroupId":	1,
+	"EventType":	103,
+	"CallbackTs":	1680044410182,
+	"EventInfo":	{
+		"RoomId":	12030,
+		"EventTs":	1680044410,
+		"EventMsTs":	1680044410169,
+		"UserId":	"662",
+		"Role":	20,
+		"TerminalType":	3,
+		"UserType":	3,
+		"Reason":	1
+	}
+}
+
+2023-03-29 07:00:16 callback
+{
+	"EventGroupId":	1,
+	"EventType":	103,
+	"CallbackTs":	1680044416899,
+	"EventInfo":	{
+		"RoomId":	11976,
+		"EventTs":	1680044416,
+		"EventMsTs":	1680044416826,
+		"UserId":	"505",
+		"Role":	20,
+		"TerminalType":	3,
+		"UserType":	3,
+		"Reason":	1
+	}
+}
+
+2023-03-29 07:30:25 callback
+{
+	"EventGroupId":	1,
+	"EventType":	104,
+	"CallbackTs":	1680046225220,
+	"EventInfo":	{
+		"RoomId":	12030,
+		"EventTs":	1680046225,
+		"EventMsTs":	1680046225213,
+		"UserId":	"332",
+		"Role":	20,
+		"Reason":	1
+	}
+}
+
+2023-03-29 07:30:29 callback
+{
+	"EventGroupId":	1,
+	"EventType":	104,
+	"CallbackTs":	1680046229855,
+	"EventInfo":	{
+		"RoomId":	12030,
+		"EventTs":	1680046229,
+		"EventMsTs":	1680046229850,
+		"UserId":	"662",
+		"Role":	20,
+		"Reason":	1
+	}
+}
+
+2023-03-29 07:30:30 callback
+{
+	"EventGroupId":	1,
+	"EventType":	102,
+	"CallbackTs":	1680046229863,
+	"EventInfo":	{
+		"RoomId":	12030,
+		"EventTs":	1680046229,
+		"EventMsTs":	1680046229850
+	}
+}
+
+2023-03-29 07:35:47 callback
+{
+	"EventGroupId":	1,
+	"EventType":	104,
+	"CallbackTs":	1680046547661,
+	"EventInfo":	{
+		"RoomId":	11976,
+		"EventTs":	1680046547,
+		"EventMsTs":	1680046547585,
+		"UserId":	"505",
+		"Role":	20,
+		"Reason":	1
+	}
+}
+
+2023-03-29 07:35:48 callback
+{
+	"EventGroupId":	1,
+	"EventType":	102,
+	"CallbackTs":	1680046548078,
+	"EventInfo":	{
+		"RoomId":	11976,
+		"EventTs":	1680046547,
+		"EventMsTs":	1680046547998
+	}
+}
+
+2023-03-29 07:35:48 callback
+{
+	"EventGroupId":	1,
+	"EventType":	104,
+	"CallbackTs":	1680046548070,
+	"EventInfo":	{
+		"RoomId":	11976,
+		"EventTs":	1680046547,
+		"EventMsTs":	1680046547998,
+		"UserId":	"663",
+		"Role":	20,
+		"Reason":	1
+	}
+}
+

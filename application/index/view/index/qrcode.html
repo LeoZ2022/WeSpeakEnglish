@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1, user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		 
+		<title>WeSpeakEnglish_En Chat</title>
+		<style>
+		*{
+			padding: 0;
+			margin: 0;
+			
+		}
+		body,html{
+			background: #7777d4;
+		}
+		.main{
+			height: 100%;
+			position: relative;
+			min-height: 667px;
+			max-width: 750px;
+			margin: 0 auto;
+			/* background:url('__HOME_IMG__/d_bg.png') no-repeat center bottom; */
+			background:url('__HOME_IMG__/d_bg.png') no-repeat center bottom;
+			background-size: 100% auto;
+		}
+		.d_logo{
+			max-width: 251px;
+			margin: 0 auto;
+			padding: 30px 0 0 0;
+			position: relative;
+			z-index: 99999;
+		}
+		img{
+			max-width: 100%;
+		}
+		.d_btn{
+			display: block;
+			max-width: 180px;
+			margin: 0 auto;
+			padding: 20px 0 0 0;
+			position: relative;
+			z-index: 99999;
+		}
+		.d_pic{
+			padding: 30px 25px;
+			text-align:center;
+			z-index: 1;
+		}
+		.d_main{
+			position: relative;
+			z-index: 9999;
+			padding: 10% 15px 0 15px;
+		}
+		table{
+			border-collapse: collapse;
+		}
+		table td{
+			padding: 0 5px;
+			margin: 0;
+		}
+		.out tr.cn,
+		.out a.cn{
+			display: none;
+		}
+		.china tr.out,
+		.china a.out{
+			display: none;
+		}
+		</style>
+	</head>
+	<body>
+		<div class="main {$country}">
+			<!-- __HOME_IMG__/d_logo -->
+			
+			<div class="d_logo"><img src="__HOME_IMG__/d_logo.png" /></div>
+			
+			<div class="d_main">
+				<table width="100%">
+					<tr>
+						<td>
+							<img src="__HOME_IMG__/iosLabel.png" />
+						</td>
+						<td width="58%">
+							<a href="https://itunes.apple.com/cn/app/id1564368120?mt=8"><img src="__HOME_IMG__/db_1.png" /></a>
+						</td>
+					</tr>
+					
+					<tr>
+						<td style="padding: 40px 5px 0 5px;">
+							<img src="__HOME_IMG__/azLabel.png" />
+						</td>
+						<td width="58%" style="padding: 40px 5px 0 5px;">
+							<a href="https://play.google.com/store/apps/details?id=uni.UNID9F6655" class="out"><img src="__HOME_IMG__/db_2.png" /></a>
+							<a href="https://a.app.qq.com/o/simple.jsp?pkgname=uni.UNID9F6655&fromcase=40002" class="cn"><img src="__HOME_IMG__/yiyongbao.png" /></a>
+						</td>
+					</tr>
+						
+						<!-- <tr class="cn">
+							<td></td>
+							<td width="58%" style="padding-top: 4px;">
+								<a href="{$app_cfg.apk}"><img src="__HOME_IMG__/baidu.png" /></a>
+							</td>
+						</tr> -->
+						<!-- <tr class="cn">
+							<td></td>
+							<td width="58%" style="padding-top: 4px;">
+								<a href="{$app_cfg.apk}"><img src="__HOME_IMG__/huawei.png" /></a>
+							</td>
+						</tr> -->
+						<tr class="cn">
+							<td></td>
+							<td width="58%" style="padding-top: 4px;">
+								<a href="http://zhushou.360.cn/detail/index/soft_id/4595393" class="cn"><img src="__HOME_IMG__/360.png" /></a>
+							</td>
+						</tr>
+						
+					<tr>
+						<td style="padding: 0; height: 14px; line-height: 14px;"></td>
+						<td width="58%" style="text-align: center; padding:5px 0; height: 14px; line-height: 14px; color: #fff;">OR</td>
+					</tr>
+					<tr>
+						<td></td>
+						<td width="58%" style="padding-top: 4px;">
+							<a href="{:url('download')}"><img src="__HOME_IMG__/db_3.png" /></a>
+						</td>
+					</tr>
+				</table>
+			</div>
+			<div class="d_pic"><img src="__HOME_IMG__/d_pic.png" /></div>
+		</div>
+		
+	</body>
+</html>

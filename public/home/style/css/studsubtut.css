@@ -1,0 +1,274 @@
+nav{background:#fff;box-shadow:0 5px 25px rgba(220,220,220,0.6);}
+nav a{vertical-align: middle;
+    color: #424242;}
+nav .logo{
+    background-image: url("../img/logoblue.png");
+}
+nav div span a{text-transform: none;text-decoration: none}
+nav div span line{
+    padding-left: 14px;
+    padding-right: 14px;}
+
+nav .on{color: #e54a3a; }
+nav .on::after{
+    background:#e54a3a;
+    width:40px;
+    height:2px;
+    content:" ";
+    top: 10px;
+    position: relative;
+}
+header nav.dif{background-image: url("../img/navbg_red.png")}
+a{color: #e54a3a;}
+.main{
+    margin: 0 auto 100px;
+    width: 1160px;}
+.flow{justify-content: center;align-items: center;    margin: 50px;
+}
+.flow .flowbox{
+    margin: 0 25px;
+    flex-shrink: 0;
+    width: 20px;    background: #ddd;border-radius: 13px;
+    text-align: center;line-height: 20px;
+    height: 20px;
+	font-size: 16px;
+	font-weight: bold;}
+.flow .flowbox.on{background: #e54a3a;
+    color: #fff;}
+.flow .flowbox.on span{
+    color: #e54a3a;
+	}
+.flow line{
+    display: block;background: #ddd;
+    height: 1px;
+    width: 180px;}
+.flow .flowbox span{position: absolute;
+    white-space: nowrap;
+    bottom: -30px;
+    left: 50%;transform:translateX(-50%);
+	font-size: 14px;
+	font-weight: normal;
+	color: #bcbcbc;
+}
+.boxt{
+    font-size: 3rem; text-transform: uppercase;
+    color: #e54a3a;
+    margin-top: 100px;
+    margin-bottom: 40px;
+    border-bottom: 1px solid #ffe3e2;
+    padding-bottom: 20px;
+   font-family: Fjalla;
+    padding-left: 10px;}
+.subinfo{
+    padding-left: 10px;
+    align-items: baseline;
+    margin-bottom: 24px;}
+.subinfo lt{
+    font-size: 1.4rem;
+    flex-shrink: 0;
+    color: #999;
+    width: 160px;}
+.subinfo p.b{
+    font-size:18px;}
+p.red{
+    color: #e54a3a;}
+.subinfo times{
+    height: 30px;
+    color: #e7584a;
+    font-size: 14px;
+    line-height: 30px;
+    padding-left: 10px;
+    padding-right: 10px;
+    text-align: center;
+    background: #fdf2f1;
+    border-radius: 10px;
+    display: inline-block;
+    margin:12px 15px 0 0;
+    }
+input[type=checkbox]{display:none;}
+.boxt~ input+label{border: 1px solid #dadada;border-radius: 10px;
+    width: 180px;text-align: center;
+    line-height: 46px;
+    margin-left: 10px;cursor: pointer;
+    margin-right: 20px;
+    height: 60px;vertical-align: middle;
+    display: inline-block;}
+.boxt~ input+label img{
+    height: 34px;}
+.boxt~ input+label check{display: none;}
+.boxt~ input:checked+label{border-color:#ffd0c2;}
+.boxt~ input:checked+label check{display: block;position: absolute;
+    width: 20px;
+    height: 20px;
+background:url("../img/rcheck.png") center center no-repeat;background-size: contain;
+    top: -8px;
+    right: -8px; }
+.payinfo{border-top: 1px dashed #e3e3e3;
+ 
+    margin-right: 10px;
+    padding: 20px 0;}
+.boxt +.payinfo{border-top: none}
+.payinfo lt{  font-size: 1.4rem;
+    flex-shrink: 0;
+    width: 220px;
+    color: #bcbcbc;
+}
+.payinfo lt label{
+    margin-right: 10px;
+    display: inline-block;vertical-align: middle;
+    width: 20px;
+    height: 20px; border-radius: 10px;cursor: pointer;
+    background: transparent;    border:1px solid #b6b6b6;
+}
+.pay_money{
+	font-size: 18px;
+}
+.payinfo lt input:checked + label{
+    background:url("../img/rcheck.png") center center no-repeat;background-size: contain;
+    border: none;
+}
+.payinfo div.exinfo{
+    padding-left: 220px;
+    font-size: 12px;
+    margin-top: 16px;
+    color: #999;
+}.payinfo p.exinfo{
+     padding-left: 30px;
+     font-size: 12px;
+     margin-top: 12px;
+ }
+.reservation{
+    margin-top: 10px;}
+ .reservation div{
+     font-size: 1.4rem;
+     color: #e54a3a;}
+.reservation p{
+    margin-top: 20px;
+    font-size: 1.4rem;
+    padding: 10px 25px 10px 19px;
+    line-height: 26px;
+    background: #fdf7ee;
+    border:1px dashed #e9ae54;
+    border-radius: 10px;
+    color: #eda137;}
+.reservation label{
+    margin-right: 10px;
+    display: inline-block;vertical-align: middle;
+    width: 20px;
+    height: 20px; border-radius:5px;cursor: pointer;
+    background: transparent;    border:1px solid #b6b6b6;
+}
+.reservation  input:checked + label{
+    background:url("../img/scheck.png") center center no-repeat;background-size: contain;
+    border: none;
+}
+.paybarouter{
+    width: 100%;z-index: 2;
+    background:#fff6f5 ;
+    padding: 50px 0;
+    }
+.paybarouter.fixed{
+position: fixed;
+    bottom: 0;
+}
+.paybar{
+    justify-content: space-between;
+    align-items: center;
+   width: 100%;max-width:1160px;margin: 0 auto ; }
+.paybar input{
+    width: 260px;background: #e54a3a;
+    font-size: 2.4rem;
+    font-family: Fjalla;text-transform: uppercase;
+    box-shadow:0 6px 20px rgba(180,180,180,0.8);
+    cursor: pointer;
+    color: #fff;
+    border-radius: 10px;
+    text-align: center;
+    height: 60px;
+    display: inline-block;}
+.paybar input:hover{
+	background: #f85b36;
+	color: #fff;
+}
+.paypop{
+position: fixed;
+    background: #fff;
+    display: none;
+    border-radius:10px;
+    width: 83%;
+    left: 50%;
+    top: 30%; z-index: 4;
+    max-width: 500px;
+    padding:30px 20px;
+    box-shadow: 0 0 30px rgba(20,20,20,0.4);
+    transform: translateX(-50%);
+}
+ .paypop .closex{
+    position: absolute;
+    right: 15px;
+    top: 15px;
+    width: 18px;
+	cursor: pointer;
+	text-decoration: none;
+	}
+ .paypop .closex i{
+	 font-size: 24px;
+	 color: #b1b1b1;
+	 font-weight: bold;
+ }
+  .paypop .closex:hover i{
+	  color: #333;
+  }
+.paypop p{
+    font-family: Fjalla;
+    font-size: 2rem;
+    text-align: center;
+    line-height: 30px;
+}
+ .paypop dif{justify-content: space-between;
+    width:100%;
+    margin: 20px auto 0;
+	padding: 0 20px;
+}
+ .paypop dif a{
+    padding: 12px   32px;
+     text-align: center;
+    text-decoration: none;
+    font-size:2rem;    font-family: Fjalla;
+    text-transform: uppercase; border-radius: 10px;
+    border: 2px solid #e54a3a;
+    }
+.paypop dif a:last-of-type{
+    color: #fff;
+    background:#e54a3a ;
+}
+
+.btbox dib{text-align: right;
+    padding-right: 30px;}
+.btbox dib b{
+    font-size: 2.8rem;
+    font-family: Fjalla;
+    color: #e54a3a;}
+.btbox dib p{
+    font-size: 14px;
+    color: #999;
+}
+
+.reservaTipsClose{
+	position: absolute;
+	right: 10px;
+	top: 8px;
+	font-weight: bold;
+	text-decoration: none;
+	font-size: 18px;
+	color: #ca8d3b;
+}
+.reservaTips{
+	position: relative;
+}
+.reservaTipsClose i{
+	font-weight: bold;
+	text-decoration: none;
+	font-size: 14px;
+	color: #ca8d3b;
+}

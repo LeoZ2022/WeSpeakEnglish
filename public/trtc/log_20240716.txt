@@ -1,0 +1,116 @@
+2024-07-16 10:55:33 callback
+2024-07-16 10:55:33 callback
+{
+	"EventGroupId":	1,
+	"EventType":	103,
+	"CallbackTs":	1721098533573,
+	"EventInfo":	{
+		"RoomId":	13928,
+		"EventTs":	1721098533,
+		"EventMsTs":	1721098533494,
+		"UserId":	"1519",
+		"Role":	20,
+		"TerminalType":	2,
+		"UserType":	3,
+		"Reason":	1,
+		"ClientIpv4":	"102.91.93.134"
+	}
+}
+{
+	"EventGroupId":	1,
+	"EventType":	101,
+	"CallbackTs":	1721098533571,
+	"EventInfo":	{
+		"RoomId":	13928,
+		"EventTs":	1721098533,
+		"EventMsTs":	1721098533494,
+		"UserId":	"1519"
+	}
+}
+
+
+2024-07-16 11:04:03 callback
+{
+	"EventGroupId":	1,
+	"EventType":	104,
+	"CallbackTs":	1721099043201,
+	"EventInfo":	{
+		"RoomId":	13928,
+		"EventTs":	1721099043,
+		"EventMsTs":	1721099043119,
+		"UserId":	"1519",
+		"Role":	20,
+		"Reason":	1
+	}
+}
+
+2024-07-16 11:04:03 callback
+{
+	"EventGroupId":	1,
+	"EventType":	102,
+	"CallbackTs":	1721099043197,
+	"EventInfo":	{
+		"RoomId":	13928,
+		"EventTs":	1721099043,
+		"EventMsTs":	1721099043119
+	}
+}
+
+2024-07-16 11:05:06 callback
+{
+	"EventGroupId":	1,
+	"EventType":	103,
+	"CallbackTs":	1721099106295,
+	"EventInfo":	{
+		"RoomId":	13928,
+		"EventTs":	1721099106,
+		"EventMsTs":	1721099106225,
+		"UserId":	"1519",
+		"Role":	20,
+		"TerminalType":	2,
+		"UserType":	3,
+		"Reason":	1,
+		"ClientIpv4":	"102.91.93.134"
+	}
+}
+
+2024-07-16 11:05:06 callback
+{
+	"EventGroupId":	1,
+	"EventType":	101,
+	"CallbackTs":	1721099106308,
+	"EventInfo":	{
+		"RoomId":	13928,
+		"EventTs":	1721099106,
+		"EventMsTs":	1721099106225,
+		"UserId":	"1519"
+	}
+}
+
+2024-07-16 11:05:40 callback
+{
+	"EventGroupId":	1,
+	"EventType":	104,
+	"CallbackTs":	1721099139997,
+	"EventInfo":	{
+		"RoomId":	13928,
+		"EventTs":	1721099139,
+		"EventMsTs":	1721099139921,
+		"UserId":	"1519",
+		"Role":	20,
+		"Reason":	1
+	}
+}
+
+2024-07-16 11:05:40 callback
+{
+	"EventGroupId":	1,
+	"EventType":	102,
+	"CallbackTs":	1721099140009,
+	"EventInfo":	{
+		"RoomId":	13928,
+		"EventTs":	1721099139,
+		"EventMsTs":	1721099139921
+	}
+}
+

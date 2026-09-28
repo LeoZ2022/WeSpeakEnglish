@@ -1,0 +1,121 @@
+2022-10-04 07:56:43 callback
+{
+	"EventGroupId":	1,
+	"EventType":	101,
+	"CallbackTs":	1664841403074,
+	"EventInfo":	{
+		"RoomId":	11076,
+		"EventTs":	1664841403,
+		"EventMsTs":	1664841403052,
+		"UserId":	"327"
+	}
+}
+
+2022-10-04 07:56:43 callback
+{
+	"EventGroupId":	1,
+	"EventType":	103,
+	"CallbackTs":	1664841403058,
+	"EventInfo":	{
+		"RoomId":	11076,
+		"EventTs":	1664841403,
+		"EventMsTs":	1664841403052,
+		"UserId":	"327",
+		"Role":	20,
+		"TerminalType":	2,
+		"UserType":	3,
+		"Reason":	1
+	}
+}
+
+2022-10-04 07:58:05 callback
+{
+	"EventGroupId":	1,
+	"EventType":	103,
+	"CallbackTs":	1664841485213,
+	"EventInfo":	{
+		"RoomId":	11076,
+		"EventTs":	1664841485,
+		"EventMsTs":	1664841485209,
+		"UserId":	"306",
+		"Role":	20,
+		"TerminalType":	3,
+		"UserType":	3,
+		"Reason":	1
+	}
+}
+
+2022-10-04 08:06:49 callback
+{
+	"EventGroupId":	1,
+	"EventType":	104,
+	"CallbackTs":	1664842009890,
+	"EventInfo":	{
+		"RoomId":	11076,
+		"EventTs":	1664842009,
+		"EventMsTs":	1664842009885,
+		"UserId":	"327",
+		"Role":	20,
+		"Reason":	1
+	}
+}
+
+2022-10-04 08:06:51 callback
+{
+	"EventGroupId":	1,
+	"EventType":	103,
+	"CallbackTs":	1664842011086,
+	"EventInfo":	{
+		"RoomId":	11076,
+		"EventTs":	1664842011,
+		"EventMsTs":	1664842011078,
+		"UserId":	"327",
+		"Role":	20,
+		"TerminalType":	2,
+		"UserType":	3,
+		"Reason":	1
+	}
+}
+
+2022-10-04 08:32:12 callback
+{
+	"EventGroupId":	1,
+	"EventType":	104,
+	"CallbackTs":	1664843532753,
+	"EventInfo":	{
+		"RoomId":	11076,
+		"EventTs":	1664843532,
+		"EventMsTs":	1664843532751,
+		"UserId":	"306",
+		"Role":	20,
+		"Reason":	1
+	}
+}
+
+2022-10-04 08:32:15 callback
+{
+	"EventGroupId":	1,
+	"EventType":	102,
+	"CallbackTs":	1664843535479,
+	"EventInfo":	{
+		"RoomId":	11076,
+		"EventTs":	1664843535,
+		"EventMsTs":	1664843535474
+	}
+}
+
+2022-10-04 08:32:15 callback
+{
+	"EventGroupId":	1,
+	"EventType":	104,
+	"CallbackTs":	1664843535476,
+	"EventInfo":	{
+		"RoomId":	11076,
+		"EventTs":	1664843535,
+		"EventMsTs":	1664843535474,
+		"UserId":	"327",
+		"Role":	20,
+		"Reason":	1
+	}
+}
+

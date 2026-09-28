@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script src="style/js/jquery-3.5.1.min.js"></script>
+  <script src="style/js/vue.js"></script>
+  <title>vue版周日历</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    ul li {
+      list-style: none;
+      box-sizing: border-box;
+      float: left;
+    }
+
+    .calendar-body {
+      width: 560px;
+      border: 1px solid #ccc;
+    }
+
+    .calendar-body ul {
+      overflow: hidden;
+    }
+
+    .title-month {
+      text-align: center;
+    }
+
+    .title-month span {
+      cursor: pointer;
+    }
+
+    .calendar-body .cal-title li {
+      width: 80px;
+      height: 40px;
+      /* border: 1px solid red; */
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .cal-day {}
+
+    .cal-day .day {
+      position: relative;
+    }
+
+    .cal-day li {
+      width: 80px;
+      height: 80px;
+      /* border: 1px solid red; */
+
+      text-align: center;
+
+    }
+
+    .cal-day li.blue {
+      background-color: blue;
+      color: #fff;
+    }
+    .cal-day li span{cursor: pointer}
+    .cal-day li.active {
+      background-color: #ccc;
+      color: #fff;
+    }
+
+    .day-num {
+      margin-top: 30px;
+    }
+
+    .gray {
+      color: #ccc;
+      z-index: -1;
+    }
+
+    .red {
+      color: red;
+    }
+    .clicked{
+      color: #12f3f5;}
+  </style>
+
+</head>
+
+<body>
+时间小时可以点
+<div class="calendar-body">
+  <p class="title-month"><span @click="upWeek">< </span>
+    {{TdateLists[0][2]}}    <span v-if="TdateLists[0][1] == '1'">Jan</span><span v-else-if="TdateLists[0][1] == '11'">Nov</span><span v-else-if="TdateLists[0][1] == '12'">Dec</span>    {{TdateLists[0][0]}} - {{TdateLists[6][2]}} {{TdateLists[6][1]}} {{TdateLists[6][0]}}
+<!--
+    {{finitD - initW}}  {{enMonth}} {{initY}} - {{finitD - initW +6}} {{enMonth}} {{initY}}
+-->
+
+    <span @click="downWeek"> > </span></p>
+  <ul class="cal-title">
+    <li class="title" @click="test">日</li>
+    <li class="title">一</li>
+    <li class="title">二</li>
+    <li class="title">三</li>
+    <li class="title">四</li>
+    <li class="title">五</li>
+    <li class="title">六</li>
+  </ul>
+  <ul class="cal-day">
+<!--
+    <template v-for="(item,index) in TdateLists.slice(0,7)"   >
+-->
+      <template v-for="(item,index) in TdateLists"   v-if=" si<index && index< ei " >
+      <li class="day" :class="{blue: item[0]==cy && item[1]==cm && item[2] == initD, gray: item[0]<= cy && item[1]<= cm && item[2]< initD }" >
+        <p class="day-num"  >{{ item[2] }}</p>
+      </li>
+      <!--   <li v-if="item - beginDay <= 0">
+           <p class="day-num gay">{{ item - beginDay + prevMdays }}</p>
+         </li>
+         <li class="day" :class="{blue: initY==cy && initM==cm && (item - beginDay== initD)}" v-else-if="item - beginDay > 0 && item - beginDay <= nowMdays" @click="dayFun(index, $event)">
+           <p class="day-num" >{{ item - beginDay }}</p>
+           &lt;!&ndash; <p v-if="((index+1) == initD)&&initY==cy && initM ==cm">今天</p> &ndash;&gt;
+         </li>
+         <li v-else>
+           <p class="day-num gay"> {{ item - beginDay - nowMdays }}</p>
+         </li>-->
+    </template>
+  </ul>
+    <div >
+        <span v-for="(time, i) in HourList"  :class="{'clicked': click1==i && click2==index && timeclick_m==item[1] && timeclick_d==item[2]}"  @click="selectime(item[0],item[1],item[2],time,i,index)">{{time}}~~{{i}}</span>
+    </div>
+
+
+  <div class="timehour">
+    <template v-for="(item,index) in 48">
+      <div class="day"><span></span></div>
+      <div  class="night"><span> </span></div>
+    </template>
+
+  </div>
+</div>
+
+<script>
+  var vm = new Vue({
+    el: '.calendar-body',
+    data: {
+      preDate: 0, //上个月时间
+      _date: 0,
+      t_date: 0,
+      initY: 0, //当前 年
+      initM: 0, //当前 月
+      initD: 0, //当前 日
+      initW: 0, //当前 周
+      finitD:0,
+      si:-1,
+      ei:7,
+      tinitD: new Date(),
+      timehour:0,
+      enMonth:'',
+      click1:99999999,
+      click2:99999999,
+      timeclick_m:99999999,
+      timeclick_d:99999999,
+      timeclick_y:'',
+
+      DateList:[],
+      Datelists:[],
+      TdateLists:[],
+      //  HourList: [],		//钟点时间 24小时  赋值写死
+      HourList: [
+        '00:00','00:30','01:00','01:30','02:00','03:00','03:30','04:00','04:30','05:00','05:00','06:30','06:00','07:30','07:00'
+      ],
+
+      cy: 0, //temp 上下年变化
+      cm: 0, //temp 上下月变化
+      cd:0,
+      dateYM: 0, // 标题显示
+
+      beginDay: 0, //当月开始是周几
+      prevMdays: 0, //上个月总天数
+      nowMdays: 0, // 当月天数
+    },
+    created: function () {
+      this._date = new Date();
+      // 初始化 当前时间 y-m-d
+      this.initY = this._date.getFullYear()
+      this.initM = this._date.getMonth() + 1
+      this.initD = this._date.getDate();
+      this.initW=this._date.getDay();
+      this.enMonth =new Date().toDateString().split(" ")[1];
+      this.timehour   =new Date().getHours()
+
+      // 初始化&切换上下月使用
+      this.cy = this._date.getFullYear()
+      this.cm = this._date.getMonth() + 1
+      this.cd = this._date.getDate();
+
+      // 标题
+      this.dateYM = this.initY + '-' + this.initM
+
+      // 当前日期
+      this.nowMdays = this.getGetDate(this.initY, this.initM)//当前月天数
+      this.beginDay = this.dayStart(this.initY, this.initM) || 7;//该月1号是星期几（星期天是7）
+
+      //计算上一月天数 填充当月
+      this.getPreMonthDay();
+
+      this.finitD =  new Date(this._date.setDate( this.initD  -this.initW ) ).getDate()//算出当前日期的上一个周日
+
+//生成日期数组
+      for ( i=0; i<32+this.initW ; i++ ){
+        this.t_date=new Date(this._date.setDate( this.initD  -this.initW ) )
+        this.DateList[i]=  this.t_date.setDate( this.finitD  +i );
+      }
+
+      //分年、月、日塞进数组
+      for ( i=0; i<32+this.initW ; i++ ){
+        this.  Datelists[i]=new Array();
+        this. Datelists[i][0]=  new Date(this.DateList[i]).getFullYear() ;
+    //  this.  Datelists[i][1] =new Date(this.DateList[i]).toDateString().split(" ")[1];
+          this.  Datelists[i][1]= new Date(this.DateList[i]).getMonth()+1;
+        this.  Datelists[i][2]= new Date(this.DateList[i]).getDate() ;
+        this.  Datelists[i][3]= new Date(this.DateList[i]).getDay() ;
+      }
+      this.TdateLists=this. Datelists;
+      step = Math.ceil(this.Datelists.length/7)
+    },
+    mounted: function () {
+
+    },
+    methods: {
+      // 当前天数
+      getGetDate: function (year, month) {
+        var d = new Date(year, month, 0);
+        return d.getDate();
+      },
+      // 获取当月第一周几
+      dayStart: function (year, month) {
+        var tmpDate = new Date(year, month - 1, 1);
+        return (tmpDate.getDay());
+      },
+      dayFun: function (idx, e) {
+        //   console.log(e.currentTarget)
+        alert(idx + 1)
+      },
+      // 上个月
+      upFun: function () {
+        this.mChange(-1);
+      },
+      //下个月
+      downFun: function () {
+        this.mChange(1);
+      },
+
+      // 上一周
+      upWeek: function () {
+        //  this.finitD=   this.finitD-7
+        this.si= this.si-8
+        this.ei=  this.ei-8
+        if (this.si<-1){
+          alert("前面不可选了!")
+          this.si=-1;
+          this.ei=7;
+                     }
+       else {  this.TdateLists=   this.Datelists.slice(this.si, this.ei) ;   }
+      },
+      //下一周
+
+      downWeek: function () {
+        console.log(this.TdateLists.length)
+        console.log(this.ei)
+        if( this.ei>this.TdateLists.length ){
+          alert("好大啊");
+        }
+        else {
+          this.si= this.si+8
+          this.ei= this.ei+8
+          this.TdateLists=this.Datelists.slice(this.si, this.ei);
+        }
+        /*step--
+        console.log(step)
+        if(step>1){
+          console.log("走上")
+          this.TdateLists=   this.Datelists.slice(this.si, this.ei);
+          console.log(this.TdateLists)
+        }
+        else {
+          console.log("走下")
+          this.TdateLists.splice(0, this.TdateLists.length);
+        //  this.TdateLists=   this.Datelists.slice(this.si);
+          console.log(this.TdateLists)
+        }*/
+     //   console.log(this.TdateLists)
+      },
+      //获取时间
+      selectime (y,m,d,t,i,index) {
+        //这里获取所选数据
+        this.timeclick_y=y;
+        this.timeclick_m=m;
+        this.timeclick_d=d;
+        this.timehour=t;
+        this.click1 = i;
+        this.click2 = index;
+        console.log(this.timeclick_y,this.timeclick_m,this.timeclick_d,this.timehour)
+
+      },
+      test:function(){
+        console.log(this.Datelists)
+        console.log( step)
+
+
+
+
+
+      },
+      //获取是本月第几周
+      getWeek: function(){
+
+        // 将字符串转为标准时间格式
+        //  str = Date.parse(str);
+        // str = new Date(str);
+        // 先计算出该日期为第几周
+        let week = Math.ceil(this._date.getDate()/7);
+        let month = this._date.getMonth() + 1;
+        // 判断这个月前7天是周几，如果不是周一，则计入上个月
+        if  (this._date.getDate() < 7) {
+          if (this._date.getDay() !== 1) {
+            week = 5;
+            month = this._date.getMonth();
+          }
+        }
+        console.log(`${month}-${week}`);
+      },
+
+      mChange: function (m) {
+        this._date.setMonth(this._date.getMonth() + m);
+        this.dateYM = this._date.getFullYear() + '-' + (this._date.getMonth() + 1);
+
+        // 切换上下月，获取year \ month
+        this.cy = this._date.getFullYear();
+        this.cm = this._date.getMonth() + 1;
+
+        this.nowMdays = this.getGetDate(this.cy, this.cm)
+        this.beginDay = this.dayStart(this.cy, this.cm) || 7
+        this.getPreMonthDay();
+      },
+      //获取上个月天数
+      getPreMonthDay: function () {
+        // 当月
+        var cyear = this._date.getFullYear();
+        var cMonth = this._date.getMonth();
+
+        this.preDate = new Date(cyear, cMonth);
+        this.preDate.setMonth(this.preDate.getMonth());
+
+        this.prevMdays = this.getGetDate(this.preDate.getFullYear(), this.preDate.getMonth());
+      },
+    }
+  })
+</script>
+</body>
+</html>

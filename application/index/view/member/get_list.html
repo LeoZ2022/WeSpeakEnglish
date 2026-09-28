@@ -1,0 +1,239 @@
+{empty name="list"}
+<div class="class no_list">
+    <div class="namer">
+        <div class="nameinfo">
+            No appointment today.
+        </div>
+    </div>
+</div>
+{else}
+{volist name="lists" id="vo"}
+<div class="class">
+    <div class="namer">
+        {eq name="user_type" value="1"}
+        <div class="nameinfo">
+            <name><a href="{:url('tutors/detail',['teacher_id'=>$vo.teacher_id])}" target="_blank">{$vo.username}</a></name>
+            <time>{php} echo date('d M ', strtotime($vo['book_date'])).' '; echo get_week(strtotime($vo['book_date'])); {/php}<br> {$vo.time_begin}-{$vo.time_end}</time>
+        </div>
+        <div class="price">$ {$vo.money}</div>
+        {else}
+        <div class="nameinfo">
+            <name data-sid="{$vo.user_id}">{$vo.username}</name>
+            <time>{php} echo date('d M ', strtotime($vo['book_date_teacher'])).' '; echo get_week(strtotime($vo['book_date_teacher'])); {/php} <br>{$vo.time_begin_teacher}-{$vo.time_end_teacher}</time>
+            <p style="display: none" data-username="{$vo.username}" data-img="">{$vo.descr|default=''}</p>
+            <topt style="display: none">
+                <name> {$vo.username}{notempty name="vo.location_ico"}<img src="{$vo.location_ico}" alt="{$vo.location_name|default=''}">{/notempty}</name> <vline></vline> <div><label>First language</label><span>{$vo.first|default=''}</span></div><div><label>English proficiency level</label><span>{$vo.levels|default=''}</span></div><div><label>Location</label><span>{$vo.location_name|default=''}</span><span class="descrText" style="display: none;">{$vo.goals}</span></div>
+            </topt>
+        </div>
+        <div class="price"></div>
+        {/eq}
+    </div>
+    <div class="btbox">
+        {eq name="vo.order_status" value="1"}
+        <a class="bt showclassPhone phoneChatIn" data-id="{$vo.id}" target="_blank">Chat room</a>
+		
+		
+		<a class="bt showclassPc" href="###" onclick="showclass({$vo.classin_id}, {$vo.id})" ahref="{:url('enter_class', ['id' => $vo.id])}">Enter Chat room</a>
+		{eq name="user_type" value="2"}
+		{if condition="$vo['confirmed'] eq 0"}
+        <a href="###" onclick="confirm_chat({$vo.id})">Confirm</a>
+        {else}
+        <a href="###" onclick="disable" style="color:#FA8072;">Confirmed</a>
+        {/if}
+        {/eq}	
+       {if condition="$time3 lt $vo['datetime']"}
+			{eq name="user_type" value="1"}
+			{if condition="$vo['confirmed'] eq 1"}
+				<a href="###" onclick="disable" style="color:green;">Confirmed</a>	
+			{/if}
+			<a class="chtime" onclick="change_time({$vo.id})">Change time</a>
+			 <!-- <a class="chtime" href="/index/member/schedule?id={$vo.id}">Change time</a> -->
+			{/eq}
+		
+			<a href="###" onclick="confirm_cancel({$vo.id}, {:input('page', 1)}, '{:input('date')}')">Cancel</a>
+        {/if}
+        {/eq}
+    </div>
+</div>
+{/volist}
+{/empty}
+{neq name="index" value="1"}
+<div class="pages">
+    {$list->render()|raw|str_replace='href','href="javascript:;" onclick="goto(this)" data-url',###}
+</div>
+{/neq}
+<style type="text/css">
+.classQrFix{
+	background: #fff;
+	position: fixed;
+	border-radius: 10px;
+	left: 50%;
+	top: 150px;
+	width: 520px;
+	z-index: 9999;
+	margin: 0 0 0 -260px;
+	display: none;
+}
+.classQrFixPad{
+	padding: 40px;
+}
+.classQrFixHead{
+	font-size: 26px;
+	position: relative;
+	font-weight: bold;
+	font-family: Fjalla;
+}
+.classQrFixClose i{
+	font-size: 28px;
+	color: #999;
+}
+.classQrFixClose i:hover{
+	color: #333;
+}
+.classQrFixClose{
+	text-decoration: none;
+	position: absolute;
+	right: -10px;
+	top: -10px;
+}
+.usertype_1 .classQrFixHead{
+	color: #e54a3a;
+}
+.classQrFixHead{
+	color: #1b76b7;
+}
+.classQrText{
+	font-size: 16px;
+	color: #555;
+	line-height: 24px;
+	font-weight: bold;
+	padding: 20px 0 0 0;
+}
+.classQrFoot{
+	font-size: 14px;
+	color: #999;
+	line-height: 24px;
+	font-weight: bold;
+}
+.classQrFoot b{
+	font-weight: bold;
+}
+.classQrImg{
+	width: 160px;
+	background: #fff;
+	box-shadow: 0 0 15px #ccc;
+	border-radius: 10px;
+	overflow: hidden;
+	padding: 5px;
+	float: left;
+}
+.classQrMainInfo{
+	position: relative;
+	margin: 30px 0;
+	padding: 5px 0;
+}
+.classQrClear{
+	display: block;
+	overflow: hidden;
+	clear: both;
+}
+.classQrId{
+	float: right;
+	width: 175px;
+	font-size: 13px;
+	color: #555;
+	font-weight: bold;
+	line-height: 24px; 
+}
+.usertype_1 .class_info_id{
+	color: #e54a3a;
+}
+.class_info_id{
+	color: #1b76b7;
+}
+.class_info_id{
+	font-size: 20px;
+	padding: 30px 0 0 0;
+	text-align: center;
+	font-weight: bold;
+	font-family: Fjalla;
+}
+.classQrMainInfo::after{
+	width: 1px;
+	top: 0;
+	bottom: 0;
+	left: 50%;
+	background: #f1f1f1;
+	position: absolute;
+	display: block;
+	content: '';
+	z-index: 1;
+}
+.classQrMainInfo::before{
+	top: 50%; 
+	left: 50%;
+	transform: translate(-50%,-50%);
+	background: #fff;
+	position: absolute;
+	display: block;
+	content: 'OR';
+	padding: 5px 0;
+	z-index: 2;
+	font-size: 16px;
+	color: #666;
+	font-family: Fjalla;
+}
+.showclassPhone{
+	display: none !important;
+}
+
+@media screen and (max-width: 768px){
+	.showclassPhone{
+		display: block !important;
+	}
+	.showclassPc{
+		display: none !important;
+	}
+}
+@media screen and (max-width: 650px){
+	.classQrFix{
+		
+		left: 20px;
+		right: 20px;
+		top: 50%;
+		transform: translate(0,-50%);
+		width: auto;
+		margin: 0;
+	}
+	.classQrFixPad{
+		padding: 30px;
+	}
+	.classQrMainInfo::before,
+	.classQrMainInfo::after{
+		display: none;
+	}
+	.classQrImg{
+		float: none;
+		margin: 0 auto;
+	}
+	.classQrId{
+		width: auto;
+		float: none;
+		text-align: center;
+		padding: 15px 0 0 0;
+	}
+	.classQrFixHead{
+		font-size: 22px;
+	}
+	.class_info_id{
+		padding: 10px 0 0 0;
+	}
+	.classQrMainInfo{
+		margin: 20px 0;
+	}
+	.classQrFixClose i{
+		font-size: 24px;
+	}
+	
+}
+</style>

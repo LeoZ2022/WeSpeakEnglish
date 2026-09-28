@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+    
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?4a6c48c79b79effb3722c8e5e07f391f";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-190244183-1">
+</script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-190244183-1');
+</script>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"  content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no,initial-scale=1.0">
+    <title>Tutor_login_Volunteers tutor young people speaking English virtually</title>
+    <link rel="stylesheet" href="__HOME_CSS__/layout.css">
+    <link rel="stylesheet" href="__HOME_CSS__/tutolog.css">
+    <link rel="stylesheet" type="text/css" href="__HOME_CSS__/tutolog_m.css" media="(max-width: 750px) "/>
+    {include file="public/header_js"}
+		<!-- Google Tag Manager -->
+	<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+	new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+	j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+	'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+	})(window,document,'script','dataLayer','GTM-MTCT69F');</script>
+	<!-- End Google Tag Manager -->
+</head>
+<body class="usertype_{$user_type} partner{$is_partner|default=0}">
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MTCT69F"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+<nav class="dif">
+    <a class="backar pn" href="javascript:history.go(-1);"></a>
+    {include file="public/header"}
+    <div class=""><span><a href="{:url('register/tutor')}" >New Tutor</a><line>-</line><a class="blue" href="{:url('register/tutor')}">Register</a></span></div>
+</nav>
+<!--  -->
+<div class="popaypal">
+	<img src="/public/home/style/img/closex.png" class="closex" alt="">
+	<div class="regTipsText">
+		Your email has not been verified. <br>Please check your email. <br>If you did not receive <br class="phoneBr">a verification email, <br>please click
+	</div>
+	<a here="javascript:;" class="regTipsBtn" >Send again</a>
+</div>
+<style>
+	.popaypal{border-radius: 10px;
+	    background: #fff;
+	    position: fixed;
+	    z-index:14;
+	    display: none;
+	    width: 100%;max-width: 400px  ;
+	    left: 50%;
+	    top: 50%;
+	    transform: translate(-50%, -50%);
+		padding: 26px 20px;
+		text-align: center;
+		}
+	.popaypal t{    color: #b6b6b6;
+	    text-transform: uppercase;
+	    font-family: Fjalla;
+	    display: block;
+	    margin-bottom: 40px;}
+	.popaypal img{position: absolute;cursor: pointer;
+	    right: 20px;opacity: 0.6;
+	    z-index:1;
+	    width: 20px;
+		top: 20px;}
+	.regTipsText{
+		text-align: center;
+		font-family: Fjalla;
+		font-size: 20px;
+		color: #555;
+		line-height: 150%;
+	}
+	.regTipsBtn{
+		text-transform:uppercase;
+	    text-decoration: none;
+	    display:block;
+	    height: 40px;
+	    line-height: 40px;
+	    font-size: 20px;
+	    font-family: Fjalla;
+	    color: #fff;
+	    background: #007edb;
+	    border: 2px solid #007edb;
+	    border-radius: 6px;
+	    margin:20px auto 0 auto;
+		text-align: center;
+		cursor: pointer;
+		max-width: 156px;
+	}
+	.regTipsBtn:hover{
+	    color: #fff;
+	    background: #179dff;
+	    border: 2px solid #179dff;
+	}
+	.phoneBr{
+		display: none;
+	}
+	@media screen and (max-width: 750px){
+		.phoneBr{
+			display: inline-block;
+		}
+		.footerHead{
+			display: block;
+		}
+		.n_footer{
+			display: none;
+		}
+		.popaypal {
+		    width: auto;
+		    left: 30px;
+		    right: 30px;
+		    top: 50%;
+		    transform: translate(0, -50%);
+		}
+		.regTipsBtn{
+			max-width: 225px;
+		}
+	}
+</style>
+<div class="main clearfix">
+    <!--<img src="{$ads.src|get_file_path}" class="logpic" alt=""><-->
+   <img src="__HOME_IMG__/tutor_login.jpg" class="logpic" alt=""> 
+    <div class="logform">
+        <p class="topT">Welcome back</p>
+        {include file="sign/form"}
+        <p class="formal">Not a tutor yet? <a href="{:url('register/tutor')}" style="font-style: oblique;">Click here</a>   to sign up</p>
+    </div>
+
+</div>
+<div class="footerHead">
+    {include file="public/footer"}
+</div>
+</body>
+<script>
+    $(document).on('focus', '.logform dib input', function () {
+        $(this).siblings("label").animate({bottom:"46px"},1);
+    });
+
+    $(document).on('blur', '.logform dib input', function () {
+        if( $(this).val()=="" ){
+        $(this).siblings("label").animate({bottom:"24px"},1);
+        }
+    });
+    $('.nav_tutor').addClass('on');
+    var _post_url = "{:url('post_tutor')}";
+    $(document).on('click', '.vrimg', function () {
+        $('.vrimg').attr('src', $('.vrimg').attr('src'));
+    });
+    $(document).on('click', '#to_sign', function () {
+        if (!$('#email').val().trim()) {
+            $('#email').focus();
+            return false;
+        }
+        if (!$('#password').val()) {
+            $('#password').focus();
+            return false;
+        }
+        if (!$('#verify_code').val()) {
+            $('#verify_code').focus();
+            return false;
+        }
+        var _data = {email: $('#email').val().trim(), password: $('#password').val(), verify_code: $('#verify_code').val() };
+        showloading();
+        $.ajax({
+            url: _post_url,
+            type: 'post',
+            dataType: 'json',
+            data: _data,
+            success: function (res) {
+				
+                if (res.code == 200) {
+                    location.href = '/index/member/index';
+                }else if(res.code == 202){
+        			layer.closeAll();
+        			$("popbg").show();
+        			$('.popaypal').show();
+        		}else {
+                    showmsg(res.msg, res.code);
+                    $('#verify_code').val('');
+                    $('.vrimg').attr('src', $('.vrimg').attr('src'));
+                }
+            }
+        })
+    });
+	
+	$(document).on('click', '.closex', function () {
+		$("popbg").hide();
+		$('.popaypal').hide();
+	})
+	
+	$(document).on('click', '.regTipsBtn', function () {
+		$.ajax({
+		    url: '/index/register/resend',
+		    dataType: 'json',
+		    data: {email: $('#email').val()},
+		    success: function (res) {
+				if (res.code == 200) {
+				   $("popbg").hide();
+				   $('.popaypal').hide();
+				} else {
+				    showmsg(res.msg, res.code);
+				    $("popbg").hide();
+				    $('.popaypal').hide();
+				}
+		        
+		    }
+		})
+	})
+</script>
+</html>

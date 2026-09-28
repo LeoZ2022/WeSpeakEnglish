@@ -1,0 +1,116 @@
+2025-01-30 05:59:42 callback
+{
+	"EventGroupId":	1,
+	"EventType":	101,
+	"CallbackTs":	1738187982408,
+	"EventInfo":	{
+		"RoomId":	14203,
+		"EventTs":	1738187982,
+		"EventMsTs":	1738187982331,
+		"UserId":	"1799"
+	}
+}
+
+2025-01-30 05:59:42 callback
+{
+	"EventGroupId":	1,
+	"EventType":	103,
+	"CallbackTs":	1738187982644,
+	"EventInfo":	{
+		"RoomId":	14203,
+		"EventTs":	1738187982,
+		"EventMsTs":	1738187982443,
+		"UserId":	"1799",
+		"Role":	20,
+		"TerminalType":	2,
+		"UserType":	3,
+		"Reason":	1,
+		"ClientIpv4":	"31.60.87.33"
+	}
+}
+
+2025-01-30 06:00:53 callback
+{
+	"EventGroupId":	1,
+	"EventType":	104,
+	"CallbackTs":	1738188053094,
+	"EventInfo":	{
+		"RoomId":	14203,
+		"EventTs":	1738188052,
+		"EventMsTs":	1738188052969,
+		"UserId":	"1799",
+		"Role":	20,
+		"Reason":	1
+	}
+}
+
+2025-01-30 06:00:53 callback
+{
+	"EventGroupId":	1,
+	"EventType":	102,
+	"CallbackTs":	1738188053227,
+	"EventInfo":	{
+		"RoomId":	14203,
+		"EventTs":	1738188053,
+		"EventMsTs":	1738188053149
+	}
+}
+
+2025-01-30 06:01:03 callback
+{
+	"EventGroupId":	1,
+	"EventType":	101,
+	"CallbackTs":	1738188063188,
+	"EventInfo":	{
+		"RoomId":	14203,
+		"EventTs":	1738188063,
+		"EventMsTs":	1738188063109,
+		"UserId":	"1799"
+	}
+}
+
+2025-01-30 06:01:03 callback
+{
+	"EventGroupId":	1,
+	"EventType":	103,
+	"CallbackTs":	1738188063387,
+	"EventInfo":	{
+		"RoomId":	14203,
+		"EventTs":	1738188063,
+		"EventMsTs":	1738188063208,
+		"UserId":	"1799",
+		"Role":	20,
+		"TerminalType":	2,
+		"UserType":	3,
+		"Reason":	1,
+		"ClientIpv4":	"31.60.87.33"
+	}
+}
+
+2025-01-30 06:04:50 callback
+{
+	"EventGroupId":	1,
+	"EventType":	104,
+	"CallbackTs":	1738188290091,
+	"EventInfo":	{
+		"RoomId":	14203,
+		"EventTs":	1738188289,
+		"EventMsTs":	1738188289915,
+		"UserId":	"1799",
+		"Role":	20,
+		"Reason":	1
+	}
+}
+
+2025-01-30 06:04:50 callback
+{
+	"EventGroupId":	1,
+	"EventType":	102,
+	"CallbackTs":	1738188290179,
+	"EventInfo":	{
+		"RoomId":	14203,
+		"EventTs":	1738188290,
+		"EventMsTs":	1738188290103
+	}
+}
+

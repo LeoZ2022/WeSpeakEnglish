@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+    
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?4a6c48c79b79effb3722c8e5e07f391f";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-190244183-1">
+</script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-190244183-1');
+</script>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"  content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no,initial-scale=1.0">
+    <title>Help_Video Chat in English-Tutors chat with overseas young people. Learners improve speaking English fast </title>
+    <link rel="stylesheet" href="__HOME_CSS__/layout.css">
+    <link rel="stylesheet" href="__HOME_CSS__/help.css">
+    <link rel="stylesheet" type="text/css" href="__HOME_CSS__/help_m.css" media="(max-width: 750px) "/>
+    {include file="public/header_js"}
+    <script src="__HOME_JS__/tab.js"></script>
+	<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-MTCT69F');</script>
+<!-- End Google Tag Manager -->
+</head>
+<body class="usertype_{$type_id|default=0}">
+<!-- Google Tag Manager -->
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MTCT69F"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+<nav class="dif">
+    <a class="backar pn" href="{:url('help')}"></a>
+    <div class="ncenter">{$title_type} help</div>
+	{include file="public/nav_menu"}
+</nav>
+
+<div class="main clearfix">
+    <div class="tutorhelp help mb tabbox clearfix" style="display: block !important;">
+        <div class="tabs">
+            {volist name="cats" id="vo"}
+            <div class="boxt {eq name='i' value='1'}g{/eq}" title="tab{$i}">{$vo.name}</div>
+            {/volist}
+        </div>
+    <ul class="helpli"  id="boxtab">
+        {volist name="cats" id="vo" key="k"}
+        <li id="tab{$k}">
+            {volist name="vo.arts" id="art"}
+            <p class="help_head">{$art.title}</p>
+            <div class="help_body">
+                {$art.content|nl2br|raw}
+            </div>
+            {/volist}
+        </li>
+        {/volist}
+    </ul>
+    </div>
+	
+</div>
+<div class="bottom"><hline></hline><span>BOTTOM</span><hline></hline></div>
+    {include file="public/footer"}
+</body>
+
+<script>
+
+    $(document).ready(function()
+    {
+        //slides the element with class "menu_body" when paragraph with class "menu_head" is clicked
+        $("li p.help_head").click(function()
+        {
+            if($(this).is('.show')){
+                $(this).removeClass("show")
+            }else {
+                $(this).addClass("show")
+            }
+            $(this).next("div.help_body").slideToggle(6).siblings("div.help_body").slideUp(6);
+            $(this).siblings(".help_head").removeClass("show")
+        });
+    });
+
+</script>
+</html>

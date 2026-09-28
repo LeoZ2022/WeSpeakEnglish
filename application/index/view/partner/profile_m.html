@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"  content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no,initial-scale=1.0">
+    <title>Profile_{:config('web_site_title')}</title>
+    <link rel="stylesheet" href="__HOME_CSS__/easydropdown.css">
+    <link rel="stylesheet" href="__HOME_CSS__/layout.css">
+    <link rel="stylesheet" href="__HOME_CSS__/partnerprofile_m.css">
+{include file="public/header_js"}
+	<!-- Google Tag Manager -->
+	<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+	new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+	j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+	'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+	})(window,document,'script','dataLayer','GTM-MTCT69F');</script>
+	<!-- End Google Tag Manager -->
+</head>
+<body class="usertype_{$user_type} partner{$is_partner|default=0}">
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MTCT69F"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+<nav class="dif">
+    <a href="{:url('profile')}" class="backar"></a>
+</nav>
+<div class="wb myclass">
+    <dif class="ht"><b>PROFILE</b></dif>
+    <form method="post" action="{:url('profile')}" id="form_profile" onsubmit="return chk_profile()">
+        <div class="inputbox">
+            <label>Email</label> <span>{$user_info.email}</span>
+        </div>
+        <div class="inputbox">
+            <label>Nickname</label> <span>{$user_info.username}</span>
+        </div>
+        {eq name="user_type" value="2"}
+        <div class="inputbox">
+            <label>Country Code</label>
+            <select name="country_id" id="country_id" onchange="get_regions(this.value, 'province', 1)">
+                {volist name="countrys" id="vo"}
+                <option value="{$vo.id}" {eq name="user_info.country_id" value="$vo.id"}selected{/eq}>{$vo.country_name}(+{$vo.quhao})</option>
+                {/volist}
+            </select>
+        </div>
+        <div class="inputbox">
+            <label>Province/State</label>
+            <select name="province" id="province" onchange="get_regions(this.value, 'city', 2)">
+                <option value="">Select</option>
+                {volist name="provinces" id="vo"}
+                <option value="{$vo.id}" {eq name="user_info.province" value="$vo.id"}selected{/eq}>{$vo.region_name}</option>
+                {/volist}
+            </select>
+        </div>
+        <div class="inputbox">
+            <label>City</label>
+            <select name="city" id="city">
+                <option value="">Select</option>
+                {volist name="citys" id="vo"}
+                <option value="{$vo.id}" {eq name="user_info.city" value="$vo.id"}selected{/eq}>{$vo.region_name}</option>
+                {/volist}
+            </select>
+        </div>
+        {else}
+        <div class="inputbox">
+            <label>Country Code</label><select name="country_id" id="country_id">
+            {volist name="countrys" id="vo"}
+            <option value="{$vo.id}" {eq name="user_info.country_id" value="$vo.id"}selected{/eq}>{$vo.country_name}(+{$vo.quhao})</option>
+            {/volist}
+        </select>
+        </div>
+        {/eq}
+        <div class="inputbox">
+            <label>Paypal account</label> <input type="text" name="paypal_account" required value="{$user_info.paypal_account}" placeholder="Paypal account">
+        </div>
+        <div class="inputbox">
+            <label>Name</label> <input type="text" name="username" required value="{$user_info.username}" placeholder="Name">
+        </div>
+        <div class="inputbox">
+            <label>Cell phone</label> <input type="text" name="mobile" value="{$user_info.mobile}" placeholder="Cell phone">
+        </div>
+        <div class="inputbox">
+            <label></label>
+			
+			<dib>
+			    <input name="accept_email" value="1" id="accept_email" type="checkbox" {eq name="user_info.accept_email" value="1"}checked{/eq}>
+			    <label value="1" for="accept_email" {eq name="user_info.accept_email" value="1"}class="checked"{/eq}></label>
+			    Daily email notification
+				<div style="padding: 10px 0 0 20px; color: #999;">Up-to-date members, account balance data</div>
+			</dib>
+			
+             
+        </div>
+        <div class="submit"><input type="submit" value="Update"></div>
+        <input type="hidden" name="act" value="edit_profile">
+    </form>
+</div>
+
+{include file="public/footer"}
+
+</body>
+<script src="__HOME_JS__/easydropdown.js"></script>
+<script>
+    easydropdown.all();
+    function chk_profile(){
+        showloading();
+        $.ajax({
+            data: $('#form_profile').serialize(),
+            type: 'post',
+            url: $('#form_profile').attr('action'),
+            dataType: 'json',
+            success: function (res) {
+                showmsg(res.msg, res.code);
+                if (res.code == 200) {
+                    setTimeout("location.reload()", 2000);
+                }
+            }
+        })
+        return false;
+    }
+</script>
+</html>

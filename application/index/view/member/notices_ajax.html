@@ -1,0 +1,10 @@
+{volist name="list" id="vo"}
+<li class="notibox {eq name="vo.is_read" value="0"}unread{/eq} part">
+<div class="notimsg">
+    <i class="iconfont iconaccount-notice"></i>
+    <msgt>{$vo.subject}</msgt>
+    <p>{$vo.msg|raw}</p>
+    <msgtime>{php} echo time_to_date($vo['create_time'], $location_user, 'Y-m-d H:i');{/php}</msgtime>
+</div>
+</li>
+{/volist}

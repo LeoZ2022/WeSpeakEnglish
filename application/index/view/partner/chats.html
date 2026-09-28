@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?4a6c48c79b79effb3722c8e5e07f391f";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-190244183-1">
+</script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-190244183-1');
+</script>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no,initial-scale=1.0">
+    <title>My Chats_{:config('web_site_title')}</title>
+    <link rel="stylesheet" href="__HOME_CSS__/layout.css">
+    <link rel="stylesheet" href="__HOME_CSS__/chats.css">
+    <link rel="stylesheet" type="text/css" href="__HOME_CSS__/chats_m.css" media="(max-width: 750px) "/>
+    {include file="public/header_js"}
+	<script src="__HOME_JS__/vue.js"></script>
+		<!-- Google Tag Manager -->
+	<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+	new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+	j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+	'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+	})(window,document,'script','dataLayer','GTM-MTCT69F');</script>
+	<!-- End Google Tag Manager -->
+</head>
+<body class="usertype_{$user_type} partner{$is_partner|default=0}">
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MTCT69F"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+<nav class="dif">
+    <a class="backar pn" href="{:url('index')}"></a>
+    {include file="public/nav_menu"}
+</nav>
+
+<div class="main">
+    <div class="tabbox myclass">
+        <dif class="ht "><b>Finished chats</b> <a href="{:url('index')}">back</a></dif>
+		
+		<div class="chatListTool">
+			<div class="chatListToolRight">
+				<b>{$total}</b>Chats
+			</div>
+			<div class="x_date">
+				<i class="x_dateMask" v-if="dateShow" @click="dateClose"></i>
+				<div class="x_dateBtn" @click="dateOpen" :class="{'active':dateShow}">{{month[monthCut]}}.{{years}}<i class="iconfont iconTOP"></i></div>
+				<div class="x_dateBox" v-if="dateShow">
+					<div class="x_dateHeader">
+						{{years}}
+						<a href="javascript:;" class="x_datePre" :class="{'disable': years == 2019}" @click="monthMin"></a>
+						<a href="javascript:;" class="x_dateNext" @click="monthAdd"  :class="{'disable': years >= cutYears}"></a>
+					</div>
+					<div class="x_dateMain">
+						
+						
+						<div class="x_dateItem" v-for="(item,index) in month" @click="monthClick(index)" :class="{'active': monthCut == index, 'not': current<index && years >= cutYears }"><span>{{item}}</span></div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="chatsList">
+			<ul class="comment_list">
+				{include file="partner/chats_ajax"}
+			</ul>
+		</div>
+		
+        <div class="pages">
+            {$lists->render()|raw}
+        </div>
+        <div class="bottom"  onclick=""><hline></hline><span>LOAD MORE</span><hline></hline></div>
+		<br><br><br><br><br>
+	</div>
+
+</div>
+
+<div class="popstuNew listPopstu"><img src="/public/home/style/img/closex.png" alt="">
+	<topt>
+		<name></name>
+		<vline></vline>
+		<div><label>First language</label><span class="language"></span></div>
+		<div><label>English proficiency level</label><span class="level"></span></div>
+		<div><label>Location</label><span class="location">Afghanistan</span><span class="descrText"
+				style="display: none;">Write</span></div>
+	</topt>
+	<div style="color: rgba(85, 85, 85, 0.5); padding-bottom: 20px;">Goal of speaking English &nbsp;&nbsp; <span
+			class="speaking goals">Write</span></div>
+	<p class="descr">Wow,what </p>
+</div>
+
+{include file="member/footer_menu"}
+{include file="public/footer"}
+{include file="member/member_js"}
+</body>
+<script> 
+	$(document).ready(function() {
+		$(".comment_list").on("click", ".learnerNameClick", function () {
+			$('.popstuNew name').html($(this).html());
+			$('.popstuNew .language').html($(this).data('language'));
+			$('.popstuNew .level').html($(this).data('level'));
+			$('.popstuNew .locaion').html($(this).data('locaion'));
+			$('.popstuNew .descr').html($(this).data('descr'));
+			$('.popstuNew .goals').html($(this).data('goals'));
+			$("popbg").show();
+			$(".popstuNew").show();
+			// if($(this).is('.show')){
+			//     $(this).removeClass("show")
+			// }else {
+			//     $(this).addClass("show")
+			// }
+			// $(this).next("div.help_body").toggle()//.siblings("div.help_body").hide();
+			// //$(this).siblings(".help_head").removeClass("show")
+		});
+		
+		$(".popstuNew>img").click(function() {
+			$("popbg").hide();
+			$(".popstuNew").hide();
+		});
+	});
+	
+
+
+
+	var _date_now = '{$date_now}'
+	var dateJson = new Date(_date_now.replace(/-/g,"/"))
+	// console.log(_date_now,'_date_now')
+	// var dateJosn = _date_now.replace(/-/g,"/");
+	// console.log(dateJosn,'dateJosn')
+	
+	
+	var newYear = dateJson.getFullYear()
+	var newMonth = dateJson.getMonth() 
+    $('#foot_a_6').addClass('cur');
+
+    var oid;
+
+    var _page = {:input('page', 1)};
+    var _date = {:input('date', 0)};
+    var _load = 1;
+    var start_y;
+    var end_y;
+    //滑动到底部加载
+    function get_cmt_list(d) {
+		var date = _date
+		if(d){
+			date = d
+		}
+        if (_load == 0) {
+            return true;
+        }
+        if (_page == 0) {
+			$('.comment_list').html('');
+			$.ajax({
+				url: '/index/partner/chats',
+				data: {date: date, act: 'total'},
+				success: function (res) {
+					$('.chatListToolRight b').html(res)
+				}
+			});
+		}
+        _page = _page + 1;
+        $.ajax({
+            url: '/index/partner/chats',
+            data: {date: date, page: _page, ajax: 1},
+            success: function (res) {
+                $('.comment_list').append(res);
+            //    opendiv();
+                console.log(!res)
+                if (!res) {
+                    $('.bottom span').text("BOTTOM");
+                    _load = 0;
+                }
+            }
+        })
+    }
+	{eq name="is_wap" value="1"}
+    $(document).on("touchstart", 'body,html', function(e){
+        var touch=e.touches[0];
+        start_y=touch.pageY;
+    })
+    $(document).on("touchmove", 'body,html', function(e){
+        var touch=e.touches[0];
+        end_y=touch.pageY;
+    })
+	get_cmt_list()
+    $(document).on("touchend", 'body,html', function(e){
+        if(start_y- end_y >10){
+            get_cmt_list()
+        }
+    })
+    {/eq}
+</script>
+
+<script>
+    var vm = new Vue({
+        el: '.main',
+        data:{
+			years:newYear,
+			cutYears:newYear,
+            month:['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'],
+			current:newMonth,
+			monthCut:newMonth,
+			dateShow:false
+        },
+
+        filters:{
+            
+        },
+
+        methods: {
+            monthMin(){
+            	if(this.years > 2019){
+            		this.years--
+            	}
+            },
+			monthAdd(){
+				if(this.years < this.cutYears){
+					this.years++
+				}
+					
+			},
+			monthClick(i){
+				this.monthCut = i
+				this.dateShow = false
+				var date = this.years+'.';
+				if (this.monthCut+1 < 10) {
+					date += '0';
+				}
+				date += this.monthCut+1;
+				$('.comment_list').html('');
+				window._load = 1
+				window._page = 0
+				window.get_cmt_list(date)
+			},
+			dateOpen(){
+				this.dateShow = !this.dateShow
+			},
+			dateClose(){
+				this.dateShow = false
+			}
+			
+        }
+
+    })
+	
+</script>
+</html>

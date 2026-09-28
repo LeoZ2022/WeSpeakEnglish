@@ -1,0 +1,47 @@
+nav{box-shadow: none}
+nav.wBG{box-shadow: 0 5px 25px rgba(220,220,220,0.6);}
+nav>div{display: none}
+nav .backar{background: url("../img/backar.png") center center no-repeat;
+    background-size: contain;
+    width: 13px;
+    height: 22px;}
+nav a.blue{text-transform: none;
+    font-size: 1.4rem;
+    color: #007edb;}
+p.topT{
+    font-size: 4.6rem;align-items: center;
+    margin-top: 0px;}
+p.topT::after {
+    width: 180px;
+    height: 16px;
+	left: 50%;
+	transform: translateX(-50%);}
+P.topT > a{
+    display: none;}
+.logpic{display: none}
+.main{
+    padding-left: 20px;
+    margin-top: 20px;
+    padding-right: 20px;}
+
+.logform{
+    width: 100%;}
+.logform dib{
+    margin-bottom: 34px;}
+.logform dib label span{
+    font-size: 12px;}
+.logform dib input{
+    width: 58%}
+.logform dib input.veri{
+    width: 67%;}
+.logform input[type="submit"]{
+    margin: 16px auto;
+	width: 100%;
+	height: 50px;}
+.footwrap{
+    display: none;}
+.formal{text-align: center;
+    margin-top: 28px;}
+	
+	
+		

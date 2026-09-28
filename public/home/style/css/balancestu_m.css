@@ -1,0 +1,69 @@
+nav{box-shadow: none}
+nav.wBG{box-shadow: 0 5px 25px rgba(220,220,220,0.6);}
+nav>.logobox{display: none}
+nav .backar{background: url("../img/backar.png") center center no-repeat;
+    background-size: contain;
+    width: 13px;
+    height: 22px;}
+nav a.blue{text-transform: none;
+    font-size: 1.4rem;
+    color: #007edb;}
+nav .hanbugrmenu{
+    background-image: url("../img/habmenu_b.png");
+}
+
+body{background: #fff}
+p.topT{
+    font-size: 4.6rem;align-items: center;
+    text-align: center;
+    margin-top: 0px;}
+p.topT::after {
+    width: 180px;
+    height: 16px;}
+P.topT > a{
+    display: none;}
+.main{
+    padding-left: 20px;
+    margin-top: 20px;
+    padding-right: 20px;}
+.myclass .ht a{
+    display: none;}
+.myclass{box-shadow: none;
+padding: 0}
+priceb{
+    margin-bottom: 10px;}
+.classbox rightt{text-align: right;
+    width: 49.9%;}
+.classbox  price{
+    margin-top: 6px;
+    display: block;}
+.balancebox left > pays{
+    margin-right: 0;}
+.balancebox left > time{
+    margin-left: 53px;
+    display: block;}
+.popreview{
+    border-radius: 0;
+    height: 100%;
+    overflow-y: auto;
+}
+.footer{
+    display: none;}
+.footwrap{
+    height: 90px;}
+.popreview rt{
+    padding-top: 20px;}
+.popreview rt b{
+    margin-bottom: 20px;
+    display: block;}
+.popreview > img{
+    left: 30px;
+    top: 20px;}
+footnav .cur{
+    background: url("../img/S-balance-red.png") no-repeat center center;
+    background-size:auto 24px;
+}
+footnav .cur img{visibility: hidden}
+.n_footerMain{
+	display: none;
+}

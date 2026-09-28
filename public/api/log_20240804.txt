@@ -1,0 +1,430 @@
+2024-08-04 05:11:20 Index/get_article
+{"act":"2"}
+2024-08-04 08:31:15 Member/set_push_id
+{"push_id":"385dae50c108dda6640edad7cbb0fb9d"}
+2024-08-04 08:31:15 Member/get_class_list
+{"page":"1","type":"1","pagesize":"48"}
+2024-08-04 08:31:15 Member/get_class_list
+{"page":"1","type":"2","pagesize":"1000"}
+2024-08-04 08:31:15 Member/get_class_list
+{"page":"1","type":"3pagesize=1000"}
+2024-08-04 08:31:32 Member/set_push_id
+{"push_id":"385dae50c108dda6640edad7cbb0fb9d"}
+2024-08-04 08:31:32 Member/get_class_list
+{"page":"1","type":"3pagesize=1000"}
+2024-08-04 08:31:32 Member/get_class_list
+{"page":"1","type":"2","pagesize":"1000"}
+2024-08-04 08:31:32 Member/get_class_list
+{"page":"1","type":"1","pagesize":"48"}
+2024-08-04 08:31:38 Member/get_class_list
+{"page":"1","type":"1","sn":"434762177493"}
+2024-08-04 08:31:39 Member/get_class_one
+{"id":"14003"}
+2024-08-04 08:31:39 Member/get_class_one
+{"id":"14003"}
+2024-08-04 08:31:41 Member/in_room
+[""]
+2024-08-04 08:37:53 Member/out_room
+{"classin_id":"14003","act":"0"}
+2024-08-04 08:37:54 Member/set_push_id
+{"push_id":"385dae50c108dda6640edad7cbb0fb9d"}
+2024-08-04 08:37:54 Member/get_class_list
+{"page":"1","type":"2","pagesize":"1000"}
+2024-08-04 08:37:54 Member/get_class_list
+{"page":"1","type":"3pagesize=1000"}
+2024-08-04 08:37:54 Member/get_class_list
+{"page":"1","type":"1","pagesize":"48"}
+2024-08-04 08:37:57 Member/get_class_one
+{"id":"14003"}
+2024-08-04 08:37:57 Member/get_class_one
+{"id":"14003"}
+2024-08-04 08:37:58 Member/in_room
+[""]
+2024-08-04 08:38:25 Member/out_room
+{"classin_id":"14003","act":"0"}
+2024-08-04 08:38:28 Member/get_class_list
+{"page":"1","type":"1","pagesize":"48"}
+2024-08-04 08:38:28 Member/set_push_id
+{"push_id":"1ac9bc080aa9a128c4a533cdbf051ae8"}
+2024-08-04 08:38:29 Member/get_class_list
+{"page":"1","type":"2","pagesize":"1000"}
+2024-08-04 08:38:29 Member/get_class_list
+{"page":"1","type":"3pagesize=1000"}
+2024-08-04 08:38:31 Member/comment_class
+{"comment":"late","class_id":"14003","score":"5"}
+2024-08-04 08:38:32 Member/set_push_id
+{"push_id":"1ac9bc080aa9a128c4a533cdbf051ae8"}
+2024-08-04 08:38:32 Member/get_class_list
+{"page":"1","type":"1","pagesize":"48"}
+2024-08-04 08:38:32 Member/get_class_list
+{"page":"1","type":"3pagesize=1000"}
+2024-08-04 08:38:32 Member/get_class_list
+{"page":"1","type":"2","pagesize":"1000"}
+2024-08-04 08:38:34 Member/set_push_id
+{"push_id":"1ac9bc080aa9a128c4a533cdbf051ae8"}
+2024-08-04 08:38:34 Member/get_class_list
+{"page":"1","type":"2","pagesize":"1000"}
+2024-08-04 08:38:34 Member/get_class_list
+{"page":"1","type":"3pagesize=1000"}
+2024-08-04 08:38:34 Member/get_class_list
+{"page":"1","type":"1","pagesize":"48"}
+2024-08-04 08:38:36 Member/set_push_id
+{"push_id":"1ac9bc080aa9a128c4a533cdbf051ae8"}
+2024-08-04 08:38:36 Member/get_class_list
+{"page":"1","type":"1","pagesize":"48"}
+2024-08-04 08:38:36 Member/get_class_list
+{"page":"1","type":"2","pagesize":"1000"}
+2024-08-04 08:38:36 Member/get_class_list
+{"page":"1","type":"3pagesize=1000"}
+2024-08-04 08:38:40 Member/get_class_list
+{"page":"1","type":"1","pagesize":"48"}
+2024-08-04 08:38:40 Member/set_push_id
+{"push_id":"385dae50c108dda6640edad7cbb0fb9d"}
+2024-08-04 08:38:40 Member/get_class_list
+{"page":"1","type":"2","pagesize":"1000"}
+2024-08-04 08:38:40 Member/get_class_list
+{"page":"1","type":"3pagesize=1000"}
+2024-08-04 08:38:44 Member/set_push_id
+{"push_id":"1ac9bc080aa9a128c4a533cdbf051ae8"}
+2024-08-04 08:38:44 Member/get_class_list
+{"page":"1","type":"1","pagesize":"48"}
+2024-08-04 08:38:44 Member/get_class_list
+{"page":"1","type":"2","pagesize":"1000"}
+2024-08-04 08:38:44 Member/get_class_list
+{"page":"1","type":"3pagesize=1000"}
+2024-08-04 08:38:46 Member/set_push_id
+{"push_id":"1ac9bc080aa9a128c4a533cdbf051ae8"}
+2024-08-04 08:38:46 Member/get_class_list
+{"page":"1","type":"2","pagesize":"1000"}
+2024-08-04 08:38:46 Member/get_class_list
+{"page":"1","type":"1","pagesize":"48"}
+2024-08-04 08:38:46 Member/get_class_list
+{"page":"1","type":"3pagesize=1000"}
+2024-08-04 08:38:51 Member/set_push_id
+{"push_id":"1ac9bc080aa9a128c4a533cdbf051ae8"}
+2024-08-04 08:38:51 Member/get_class_list
+{"page":"1","type":"2","pagesize":"1000"}
+2024-08-04 08:38:51 Member/get_class_list
+{"page":"1","type":"1","pagesize":"48"}
+2024-08-04 08:38:51 Member/get_class_list
+{"page":"1","type":"3pagesize=1000"}
+2024-08-04 08:39:09 Member/set_push_id
+{"push_id":"1ac9bc080aa9a128c4a533cdbf051ae8"}
+2024-08-04 08:39:09 Member/get_class_list
+{"page":"1","type":"1","pagesize":"48"}
+2024-08-04 08:39:09 Member/get_class_list
+{"page":"1","type":"2","pagesize":"1000"}
+2024-08-04 08:39:09 Member/get_class_list
+{"page":"1","type":"3pagesize=1000"}
+2024-08-04 08:40:34 Member/set_push_id
+{"push_id":"1ac9bc080aa9a128c4a533cdbf051ae8"}
+2024-08-04 08:40:34 Member/get_class_list
+{"page":"1","type":"3pagesize=1000"}
+2024-08-04 08:40:34 Member/get_class_list
+{"page":"1","type":"1","pagesize":"48"}
+2024-08-04 08:40:34 Member/get_class_list
+{"page":"1","type":"2","pagesize":"1000"}
+2024-08-04 08:44:20 Member/get_class_list
+{"page":"1","type":"1","pagesize":"48"}
+2024-08-04 08:44:20 Member/get_class_list
+{"page":"1","type":"3pagesize=1000"}
+2024-08-04 08:44:20 Member/set_push_id
+{"push_id":"4595650ee995295b0d4d0b077806656f"}
+2024-08-04 08:44:20 Member/get_class_list
+{"page":"1","type":"2","pagesize":"1000"}
+2024-08-04 08:44:21 Index/get_config
+[]
+2024-08-04 08:44:21 Index/get_config
+[]
+2024-08-04 08:44:24 Index/login
+{"email":"todays2001@outlook.com","password":"hxt123456"}
+2024-08-04 08:44:25 Member/set_push_id
+{"push_id":"4595650ee995295b0d4d0b077806656f"}
+2024-08-04 08:44:25 Member/get_class_list
+{"page":"1","type":"2","pagesize":"1000"}
+2024-08-04 08:44:25 Member/get_class_list
+{"page":"1","type":"3pagesize=1000"}
+2024-08-04 08:44:25 Member/get_class_list
+{"page":"1","type":"1","pagesize":"48"}
+2024-08-04 08:44:35 Member/set_push_id
+{"push_id":"4595650ee995295b0d4d0b077806656f"}
+2024-08-04 08:44:35 Member/get_class_list
+{"page":"1","type":"1","pagesize":"48"}
+2024-08-04 08:44:35 Member/get_class_list
+{"page":"1","type":"3pagesize=1000"}
+2024-08-04 08:44:35 Member/get_class_list
+{"page":"1","type":"2","pagesize":"1000"}
+2024-08-04 08:48:32 Member/set_push_id
+{"push_id":"4595650ee995295b0d4d0b077806656f"}
+2024-08-04 08:48:32 Member/get_class_list
+{"page":"1","type":"1","pagesize":"48"}
+2024-08-04 08:48:32 Member/get_class_list
+{"page":"1","type":"2","pagesize":"1000"}
+2024-08-04 08:48:32 Member/get_class_list
+{"page":"1","type":"3pagesize=1000"}
+2024-08-04 08:48:45 Member/get_class_list
+{"page":"1","type":"3pagesize=1000"}
+2024-08-04 08:48:45 Member/get_class_list
+{"page":"1","type":"1","pagesize":"48"}
+2024-08-04 08:48:45 Member/set_push_id
+{"push_id":"4595650ee995295b0d4d0b077806656f"}
+2024-08-04 08:48:45 Member/get_class_list
+{"page":"1","type":"2","pagesize":"1000"}
+2024-08-04 08:48:48 Member/get_class_list
+{"page":"1","type":"3pagesize=1000"}
+2024-08-04 08:49:19 Member/get_class_list
+{"page":"1","type":"2","pagesize":"1000"}
+2024-08-04 08:49:26 Member/set_push_id
+{"push_id":"4595650ee995295b0d4d0b077806656f"}
+2024-08-04 08:49:26 Member/get_class_list
+{"page":"1","type":"3pagesize=1000"}
+2024-08-04 08:49:26 Member/get_class_list
+{"page":"1","type":"1","pagesize":"48"}
+2024-08-04 08:49:26 Member/get_class_list
+{"page":"1","type":"2","pagesize":"1000"}
+2024-08-04 08:49:30 Member/get_class_list
+{"page":"1","type":"3pagesize=1000"}
+2024-08-04 08:49:30 Member/set_push_id
+{"push_id":"4595650ee995295b0d4d0b077806656f"}
+2024-08-04 08:49:30 Member/get_class_list
+{"page":"1","type":"1","pagesize":"48"}
+2024-08-04 08:49:30 Member/get_class_list
+{"page":"1","type":"2","pagesize":"1000"}
+2024-08-04 08:49:34 Member/get_class_list
+{"page":"1","type":"3pagesize=1000"}
+2024-08-04 08:49:38 Member/set_push_id
+{"push_id":"4595650ee995295b0d4d0b077806656f"}
+2024-08-04 08:49:38 Member/get_class_list
+{"page":"1","type":"2","pagesize":"1000"}
+2024-08-04 08:49:38 Member/get_class_list
+{"page":"1","type":"3pagesize=1000"}
+2024-08-04 08:49:38 Member/get_class_list
+{"page":"1","type":"1","pagesize":"48"}
+2024-08-04 08:49:43 Member/get_class_list
+{"page":"1","type":"2","pagesize":"1000"}
+2024-08-04 08:49:56 Member/get_class_list
+{"page":"1","type":"2","pagesize":"1000"}
+2024-08-04 08:49:56 Member/set_push_id
+{"push_id":"4595650ee995295b0d4d0b077806656f"}
+2024-08-04 08:49:56 Member/get_class_list
+{"page":"1","type":"1","pagesize":"48"}
+2024-08-04 08:49:56 Member/get_class_list
+{"page":"1","type":"3pagesize=1000"}
+2024-08-04 08:50:30 Member/get_class_list
+{"page":"1","type":"1","pagesize":"48"}
+2024-08-04 08:50:30 Member/set_push_id
+{"push_id":"4595650ee995295b0d4d0b077806656f"}
+2024-08-04 08:50:30 Member/get_class_list
+{"page":"1","type":"2","pagesize":"1000"}
+2024-08-04 08:50:30 Member/get_class_list
+{"page":"1","type":"3pagesize=1000"}
+2024-08-04 08:51:13 Member/get_class_list
+{"page":"1","type":"1","pagesize":"48"}
+2024-08-04 08:51:13 Member/get_class_list
+{"page":"1","type":"3pagesize=1000"}
+2024-08-04 08:51:13 Member/get_class_list
+{"page":"1","type":"2","pagesize":"1000"}
+2024-08-04 08:51:13 Member/set_push_id
+{"push_id":"4595650ee995295b0d4d0b077806656f"}
+2024-08-04 08:51:30 Member/set_push_id
+{"push_id":"4595650ee995295b0d4d0b077806656f"}
+2024-08-04 08:51:30 Member/get_class_list
+{"page":"1","type":"2","pagesize":"1000"}
+2024-08-04 08:51:30 Member/get_class_list
+{"page":"1","type":"3pagesize=1000"}
+2024-08-04 08:51:30 Member/get_class_list
+{"page":"1","type":"1","pagesize":"48"}
+2024-08-04 08:51:39 Member/get_class_list
+{"page":"1","type":"1","pagesize":"48"}
+2024-08-04 08:51:39 Member/get_class_list
+{"page":"1","type":"2","pagesize":"1000"}
+2024-08-04 08:51:39 Member/get_class_list
+{"page":"1","type":"3pagesize=1000"}
+2024-08-04 08:51:39 Member/set_push_id
+{"push_id":"4595650ee995295b0d4d0b077806656f"}
+2024-08-04 08:51:42 Member/get_class_list
+{"page":"1","type":"3pagesize=1000"}
+2024-08-04 08:51:42 Member/get_class_list
+{"page":"1","type":"1","pagesize":"48"}
+2024-08-04 08:51:42 Member/set_push_id
+{"push_id":"4595650ee995295b0d4d0b077806656f"}
+2024-08-04 08:51:42 Member/get_class_list
+{"page":"1","type":"2","pagesize":"1000"}
+2024-08-04 09:05:05 Member/get_class_list
+{"page":"1","type":"3pagesize=1000"}
+2024-08-04 09:05:05 Member/get_class_list
+{"page":"1","type":"2","pagesize":"1000"}
+2024-08-04 09:05:05 Member/set_push_id
+{"push_id":"4595650ee995295b0d4d0b077806656f"}
+2024-08-04 09:05:05 Member/get_class_list
+{"page":"1","type":"1","pagesize":"48"}
+2024-08-04 09:05:14 Member/get_class_list
+{"page":"1","type":"1","pagesize":"48"}
+2024-08-04 09:05:14 Member/set_push_id
+{"push_id":"1ac9bc080aa9a128c4a533cdbf051ae8"}
+2024-08-04 09:05:14 Member/get_class_list
+{"page":"1","type":"2","pagesize":"1000"}
+2024-08-04 09:05:14 Member/get_class_list
+{"page":"1","type":"3pagesize=1000"}
+2024-08-04 09:05:15 Index/get_config
+[]
+2024-08-04 09:05:16 Index/get_config
+[]
+2024-08-04 09:05:16 Member/get_class_list
+{"page":"1","type":"1","pagesize":"48"}
+2024-08-04 09:05:16 Member/get_class_list
+{"page":"1","type":"3pagesize=1000"}
+2024-08-04 09:05:16 Member/get_class_list
+{"page":"1","type":"2","pagesize":"1000"}
+2024-08-04 09:05:16 Member/set_push_id
+{"push_id":"385dae50c108dda6640edad7cbb0fb9d"}
+2024-08-04 09:05:17 Index/login
+{"email":"todays2001@outlook.com","password":"hxt123456"}
+2024-08-04 09:05:18 Member/set_push_id
+{"push_id":"1ac9bc080aa9a128c4a533cdbf051ae8"}
+2024-08-04 09:05:18 Member/get_class_list
+{"page":"1","type":"2","pagesize":"1000"}
+2024-08-04 09:05:18 Member/get_class_list
+{"page":"1","type":"1","pagesize":"48"}
+2024-08-04 09:05:18 Member/get_class_list
+{"page":"1","type":"3pagesize=1000"}
+2024-08-04 09:05:20 Member/get_class_one
+{"id":"14004"}
+2024-08-04 09:05:21 Member/get_class_one
+{"id":"14004"}
+2024-08-04 09:05:25 Member/get_class_list
+{"page":"1","type":"2","pagesize":"1000"}
+2024-08-04 09:05:25 Member/get_class_list
+{"page":"1","type":"3pagesize=1000"}
+2024-08-04 09:05:25 Member/set_push_id
+{"push_id":"385dae50c108dda6640edad7cbb0fb9d"}
+2024-08-04 09:05:25 Member/get_class_list
+{"page":"1","type":"1","pagesize":"48"}
+2024-08-04 09:05:26 Member/in_room
+[""]
+2024-08-04 09:05:32 Member/get_class_list
+{"page":"1","type":"1","pagesize":"48"}
+2024-08-04 09:05:32 Member/set_push_id
+{"push_id":"385dae50c108dda6640edad7cbb0fb9d"}
+2024-08-04 09:05:32 Member/get_class_list
+{"page":"1","type":"2","pagesize":"1000"}
+2024-08-04 09:05:32 Member/get_class_list
+{"page":"1","type":"3pagesize=1000"}
+2024-08-04 09:05:37 Member/get_class_one
+{"id":"14004"}
+2024-08-04 09:05:45 Member/get_class_list
+{"page":"1","type":"1","sn":"567102767555"}
+2024-08-04 09:05:47 Member/get_class_one
+{"id":"14004"}
+2024-08-04 09:05:47 Member/get_class_one
+{"id":"14004"}
+2024-08-04 09:05:48 Member/in_room
+[""]
+2024-08-04 09:06:09 Member/get_class_one
+{"id":"14004"}
+2024-08-04 09:06:10 Member/class_begin
+{"classin_id":"567102767555"}
+2024-08-04 09:36:12 Member/out_room
+{"classin_id":"14004","act":"0"}
+2024-08-04 09:36:14 Member/out_room
+{"classin_id":"14004","act":"0"}
+2024-08-04 09:36:17 Member/comment_class
+{"comment":"good","class_id":"14004","score":"5"}
+2024-08-04 10:17:47 Member/get_class_list
+{"page":"1","type":"1","pagesize":"48"}
+2024-08-04 10:17:47 Member/get_class_list
+{"page":"1","type":"3pagesize=1000"}
+2024-08-04 10:17:47 Member/set_push_id
+{"push_id":"4595650ee995295b0d4d0b077806656f"}
+2024-08-04 10:17:47 Member/get_class_list
+{"page":"1","type":"2","pagesize":"1000"}
+2024-08-04 10:17:48 Index/get_config
+[]
+2024-08-04 10:17:49 Index/get_config
+[]
+2024-08-04 10:49:48 Member/get_class_list
+{"page":"1","type":"3pagesize=1000"}
+2024-08-04 10:49:48 Member/get_class_list
+{"page":"1","type":"1","pagesize":"48"}
+2024-08-04 10:49:48 Member/set_push_id
+{"push_id":"385dae50c108dda6640edad7cbb0fb9d"}
+2024-08-04 10:49:48 Member/get_class_list
+{"page":"1","type":"2","pagesize":"1000"}
+2024-08-04 10:59:36 Index/get_config
+[]
+2024-08-04 11:06:34 Index/login
+{"email":"daddymends@gmail.com","password":"446354a570cf5c63adcf61561f9c069b"}
+2024-08-04 11:06:34 Member/set_push_id
+{"push_id":"0d3a59ffed7b34dbf65d9054a6562988"}
+2024-08-04 11:06:35 Member/get_class_list
+{"page":"1","type":"1","pagesize":"48"}
+2024-08-04 11:06:35 Member/get_class_list
+{"page":"1","type":"2","pagesize":"1000"}
+2024-08-04 11:06:35 Member/get_class_list
+{"page":"1","type":"3pagesize=1000"}
+2024-08-04 17:58:21 Index/get_article
+{"act":"2"}
+2024-08-04 19:47:48 Index/get_article
+{"act":"2"}
+2024-08-04 22:28:30 Member/set_push_id
+{"push_id":"385dae50c108dda6640edad7cbb0fb9d"}
+2024-08-04 22:28:30 Member/get_class_list
+{"page":"1","type":"1","pagesize":"48"}
+2024-08-04 22:28:30 Member/get_class_list
+{"page":"1","type":"2","pagesize":"1000"}
+2024-08-04 22:28:30 Member/get_class_list
+{"page":"1","type":"3pagesize=1000"}
+2024-08-04 22:39:02 Index/get_code
+{"sessionid":"1722782339129"}
+2024-08-04 22:39:03 Index/get_code
+{"sessionid":"1722782339129"}
+2024-08-04 22:39:40 Index/get_code
+{"sessionid":"1722782378824"}
+2024-08-04 22:39:40 Index/get_code
+{"sessionid":"1722782378824"}
+2024-08-04 23:05:20 Member/set_push_id
+{"push_id":"385dae50c108dda6640edad7cbb0fb9d"}
+2024-08-04 23:05:20 Member/get_class_list
+{"page":"1","type":"3pagesize=1000"}
+2024-08-04 23:05:20 Member/get_class_list
+{"page":"1","type":"1","pagesize":"48"}
+2024-08-04 23:05:20 Member/get_class_list
+{"page":"1","type":"2","pagesize":"1000"}
+2024-08-04 23:05:49 Member/get_class_list
+{"page":"1","type":"1","pagesize":"48"}
+2024-08-04 23:05:49 Member/set_push_id
+{"push_id":"385dae50c108dda6640edad7cbb0fb9d"}
+2024-08-04 23:05:49 Member/get_class_list
+{"page":"1","type":"2","pagesize":"1000"}
+2024-08-04 23:05:49 Member/get_class_list
+{"page":"1","type":"3pagesize=1000"}
+2024-08-04 23:05:52 Index/get_config
+[]
+2024-08-04 23:05:52 Member/get_class_list
+{"page":"1","type":"3pagesize=1000"}
+2024-08-04 23:05:52 Member/get_class_list
+{"page":"1","type":"2","pagesize":"1000"}
+2024-08-04 23:05:52 Member/get_class_list
+{"page":"1","type":"1","pagesize":"48"}
+2024-08-04 23:05:54 Index/get_config
+[]
+2024-08-04 23:05:54 Index/get_config
+[]
+2024-08-04 23:06:29 Index/login
+{"email":"Anthonyelizerbeth23@gmail.com","password":"727378ab"}
+2024-08-04 23:06:49 Index/get_article
+{"act":"2"}
+2024-08-04 23:06:52 Index/get_config
+[]
+2024-08-04 23:07:11 Member/get_class_list
+{"page":"1","type":"3pagesize=1000"}
+2024-08-04 23:07:11 Member/get_class_list
+{"page":"1","type":"1","pagesize":"48"}
+2024-08-04 23:07:11 Index/get_config
+[]
+2024-08-04 23:07:11 Member/get_class_list
+{"page":"1","type":"2","pagesize":"1000"}
+2024-08-04 23:07:13 Index/get_config
+[]
+2024-08-04 23:07:13 Index/get_config
+[]

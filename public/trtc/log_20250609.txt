@@ -1,0 +1,116 @@
+2025-06-09 09:29:22 callback
+{
+	"EventGroupId":	1,
+	"EventType":	101,
+	"CallbackTs":	1749432562045,
+	"EventInfo":	{
+		"RoomId":	14249,
+		"EventTs":	1749432561,
+		"EventMsTs":	1749432561963,
+		"UserId":	"1309"
+	}
+}
+
+2025-06-09 09:29:22 callback
+{
+	"EventGroupId":	1,
+	"EventType":	103,
+	"CallbackTs":	1749432562196,
+	"EventInfo":	{
+		"RoomId":	14249,
+		"EventTs":	1749432562,
+		"EventMsTs":	1749432562037,
+		"UserId":	"1309",
+		"Role":	20,
+		"TerminalType":	3,
+		"UserType":	3,
+		"Reason":	1,
+		"ClientIpv4":	"189.216.171.13"
+	}
+}
+
+2025-06-09 09:31:23 callback
+{
+	"EventGroupId":	1,
+	"EventType":	104,
+	"CallbackTs":	1749432683245,
+	"EventInfo":	{
+		"RoomId":	14249,
+		"EventTs":	1749432683,
+		"EventMsTs":	1749432683164,
+		"UserId":	"1309",
+		"Role":	20,
+		"Reason":	1
+	}
+}
+
+2025-06-09 09:31:23 callback
+{
+	"EventGroupId":	1,
+	"EventType":	102,
+	"CallbackTs":	1749432683402,
+	"EventInfo":	{
+		"RoomId":	14249,
+		"EventTs":	1749432683,
+		"EventMsTs":	1749432683321
+	}
+}
+
+2025-06-09 09:31:23 callback
+{
+	"EventGroupId":	1,
+	"EventType":	101,
+	"CallbackTs":	1749432683851,
+	"EventInfo":	{
+		"RoomId":	14249,
+		"EventTs":	1749432683,
+		"EventMsTs":	1749432683777,
+		"UserId":	"1309"
+	}
+}
+
+2025-06-09 09:31:24 callback
+{
+	"EventGroupId":	1,
+	"EventType":	103,
+	"CallbackTs":	1749432683939,
+	"EventInfo":	{
+		"RoomId":	14249,
+		"EventTs":	1749432683,
+		"EventMsTs":	1749432683858,
+		"UserId":	"1309",
+		"Role":	20,
+		"TerminalType":	3,
+		"UserType":	3,
+		"Reason":	1,
+		"ClientIpv4":	"189.216.171.13"
+	}
+}
+
+2025-06-09 09:37:00 callback
+{
+	"EventGroupId":	1,
+	"EventType":	104,
+	"CallbackTs":	1749433020742,
+	"EventInfo":	{
+		"RoomId":	14249,
+		"EventTs":	1749433020,
+		"EventMsTs":	1749433020664,
+		"UserId":	"1309",
+		"Role":	20,
+		"Reason":	1
+	}
+}
+
+2025-06-09 09:37:00 callback
+{
+	"EventGroupId":	1,
+	"EventType":	102,
+	"CallbackTs":	1749433020872,
+	"EventInfo":	{
+		"RoomId":	14249,
+		"EventTs":	1749433020,
+		"EventMsTs":	1749433020788
+	}
+}
+

@@ -1,0 +1,307 @@
+.audioBox .uploadBtn {
+  width: 160px;
+  height: 30px;
+  background: #179cfd;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 14px;
+  margin-right: 10px;
+  border-radius: 6px;
+}
+.audioBox .uploadError {
+  padding-left: 10px;
+  color: #e54a3a;
+  font-size: 16px;
+  line-height: 1.5;
+  padding: 0 0 15px 10px;
+  display: none;
+}
+.audioBox .uploadBox {
+  padding: 15px;
+  border-radius: 10px;
+  background: #F5F5F5;
+  width: 450px;
+  display: none;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+}
+.audioBox .uploadBox p {
+  font-size: 14px;
+  color: rgba(85, 85, 85, 0.8);
+}
+.audioBox .uploadBoxSetting {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+.audioBox .expBox {
+  border: 1px #007EDB solid;
+  position: relative;
+  border-radius: 20px;
+  height: 10px;
+  overflow: hidden;
+  width: 100px;
+  transition: none;
+}
+.inputbox .selfBox{
+  width: 360px;
+  display: inline-block;
+}
+.introductionRow{
+  display: flex;
+  align-items: flex-start;
+}
+.audioBox .expItem {
+  background: #007EDB;
+  border-radius: 20px;
+  width: 100%;
+  height: 100%;
+  transition: none;
+}
+.audioBox .expNum {
+  color: #555555;
+  font-size: 12px;
+  margin-left: 10px;
+}
+.audioBox .uploadBoxSettingLeft {
+  display: flex;
+  align-items: center;
+}
+.audioBox .uploadBoxSetting a {
+  color: #0F9AD6;
+  font-size: 14px;
+}
+.audioBox .checkLi {
+  padding: 15px 0;
+}
+.introductionRow .selfCheck{
+  margin-top: -8px;
+}
+.audioBox .checkLi:first-child{
+  padding-top: 0;
+}
+.audioBox .checkLiBody {
+  display: none;
+}
+.audioBox .active .checkLiBody {
+  display: block;
+}
+.audioBox .checkLiBodyOne {
+  display: flex;
+  align-items: center;
+  color: rgba(85, 85, 85, 0.5);
+  font-size: 16px;
+  padding-bottom: 15px;
+}
+.checkLiBodyOne span{  
+  color: rgba(85, 85, 85, 0.5);
+  font-size: 16px;
+}
+.audioBox .checkLiBodyOne.flex_clounm {
+  flex-flow: column;
+  align-items: flex-start;
+}
+.audioBox .checkLiBodyOne.flex_clounm .uploadBtn {
+  margin-bottom: 10px;
+}
+.audioBox .checkLiHread {
+  padding-bottom: 22px;
+  display: flex;
+  align-items: center;
+  color: #555;
+  font-size: 16px;
+}
+.audioBox .justifyBetween {
+  justify-content: space-between;
+}
+.audioBox .checkIcon {
+  width: 20px;
+  height: 20px;
+  display: inline-block;
+  background: url(../img/audio/check.png) no-repeat;
+  background-size: 20px;
+  margin-right: 10px;
+  cursor: pointer;
+}
+.audioBox .active .checkIcon {
+  background: url(../img/audio/checkActive.png) no-repeat;
+  background-size: 20px;
+}
+.audioBox .selfBox h1 {
+  font-weight: normal;
+  padding-bottom: 22px;
+  color: #555;
+  font-size: 16px;
+}
+.audioBox .p_left20 {
+  padding-left: 20px;
+}
+.audioBox .checkLiBody textarea {
+  border: 1px #eee solid;
+  height: 85px;
+  width: 100%;
+  padding: 15px;
+  font-size: 14px;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+}
+.audioBox .checkLiHreadLeft {
+  display: flex;
+  align-items: center;
+}
+.audioBox .redTxt {
+  font-size: 16px;
+  color: rgba(85, 85, 85, 0.5);
+}
+.audioBox .red {
+  color: #E54A3A;
+}
+.xk_play {
+  width: 30px;
+  height: 30px;
+   margin-right:5px;
+  cursor: pointer;
+  display: inline-block;
+  background: url(../img/audio/Play.png) no-repeat;
+  background-size: 30px;
+}
+.xk_play.dis {
+  background: url(../img/audio/dis.png) no-repeat;
+  background-size: 18px;
+}
+.xk_play.pause {
+  background: url(../img/audio/Pause.png) no-repeat;
+  background-size: 30px;
+}
+.selfBox a{
+	text-decoration: none;
+}
+.audioRow{
+	flex: 1;
+}
+.audioRow .xk_play{
+    width:18px;
+    height:18px;
+      background-size:18px;
+}
+.audioRowCont{
+	width: 200px;
+	color: #555;
+  margin-top: 15px;
+	font-size: 14px;
+}
+.audioRowCont p{
+	width: 200px;
+  height: 20px;
+  margin-top: 0px;
+	overflow:hidden;
+	text-overflow:ellipsis;
+	-o-text-overflow:ellipsis;
+	white-space:nowrap;
+  opacity: 1;
+  max-height:20px;
+}
+.tutor dif.audioInfo{
+  align-items: flex-start;
+}
+.audiopalyer{
+	height: 0;
+	overflow: hidden;
+}
+.introductionRow .audioBox .uploadBox{
+  width: 100%;
+}
+.introductionRow .audioBox .checkLiBody textarea{
+  height: 150px;
+}
+.audioBox>h1{
+  font-size: 16px;
+  color: #555;
+  font-weight: bold;
+  margin-bottom: 30px;
+}
+.words{
+  display: none;
+}
+.width100{
+  width: 100%;
+  padding-bottom: 20px;
+}
+.playTime{
+    color: rgba(85, 85, 85, 0.5);
+   font-size:14px;
+}
+.audioRowCont{
+   display:flex;
+   align-items:center;
+}
+@media screen and (max-width: 768px) {
+  .introductionRow{
+    flex-flow: column;
+  }
+  .words{
+    display: block;
+    color: rgba(85, 85, 85, 0.5);
+    font-size: 14px;
+    line-height: 2;
+  }
+  .audioBox .checkLiBodyOne {
+    flex-flow: column;
+    align-items: flex-start;
+  }
+  .audioBox .uploadBtn {
+    margin-bottom: 5px;
+  }
+  .audioBox .uploadError {
+    padding-left: 0;
+  }
+  .audioBox .uploadBox {
+    width: 100%;
+    padding: 13px;
+  }
+  .audioBox .uploadBoxSetting {
+    flex-flow: column;
+    align-items: flex-start;
+  }
+  .audioBox .uploadBoxSettingLeft {
+    flex-flow: column;
+    align-items: flex-start;
+  }
+  .audioBox .expNum {
+    font-size: 14px;
+    padding: 14px 0;
+    margin-left: 0;
+  }
+  .audioBox .redTxt {
+    display: none;
+  }
+  .audioBox .checkLi {
+    padding: 10px 0;
+  }
+  .audioBox .checkLiBodyOne.flex_clounm .uploadBtn{
+    margin-bottom: 14px;
+  }
+  .audioBox .checkLiHread {
+    padding-bottom: 14px;
+  }
+  .audioRowCont p{
+    height: 20px !important;
+    display: block !important;
+    width: 150px;
+  }
+  .audioBox .uploadBtn{    
+    width: 200px;
+    height: 40px;
+  }
+  .checkLiBodyOne span{
+    line-height: 1.7;
+  }
+  .red {
+    color: #E54A3A;
+  }
+}

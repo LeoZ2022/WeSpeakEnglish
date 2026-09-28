@@ -1,0 +1,32 @@
+nav{box-shadow: none}
+nav.wBG{box-shadow: 0 5px 25px rgba(220,220,220,0.6);}
+nav >div {
+    display: none;}
+.ncenter{
+    color: #e54a3a;}
+.hanbugrmenu{background-image: url("../img/habmenu_b.png")}
+.logined{
+    display: none;}
+.main .fixed{position: fixed;
+bottom: 0;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background: #fff6f5;
+    width: 100%;}
+.main .fixed a{
+    font-size: 2rem;
+    height: 40px;
+    line-height: 40px;text-align: center;
+    margin-left: 10px;
+    margin-right: 10px;
+    width: 160px;}
+
+.footwrap{
+    display: none;}
+
+nav.dif{
+	box-shadow: 0 5px 25px rgb(220 220 220 / 60%);
+}
+.n_footerMain{
+	display: none;
+}

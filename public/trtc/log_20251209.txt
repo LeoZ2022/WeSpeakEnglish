@@ -1,0 +1,232 @@
+2025-12-09 09:30:01 callback
+{
+	"EventGroupId":	1,
+	"EventType":	101,
+	"CallbackTs":	1765243801112,
+	"EventInfo":	{
+		"RoomId":	14903,
+		"EventTs":	1765243801,
+		"EventMsTs":	1765243801041,
+		"UserId":	"2345"
+	}
+}
+
+2025-12-09 09:30:01 callback
+{
+	"EventGroupId":	1,
+	"EventType":	103,
+	"CallbackTs":	1765243801065,
+	"EventInfo":	{
+		"RoomId":	14903,
+		"EventTs":	1765243801,
+		"EventMsTs":	1765243801045,
+		"UserId":	"2345",
+		"Role":	20,
+		"TerminalType":	2,
+		"UserType":	3,
+		"Reason":	1,
+		"ClientIpv4":	"182.48.68.178"
+	}
+}
+
+2025-12-09 09:31:47 callback
+{
+	"EventGroupId":	1,
+	"EventType":	104,
+	"CallbackTs":	1765243907670,
+	"EventInfo":	{
+		"RoomId":	14903,
+		"EventTs":	1765243907,
+		"EventMsTs":	1765243907650,
+		"UserId":	"2345",
+		"Role":	20,
+		"Reason":	1
+	}
+}
+
+2025-12-09 09:31:47 callback
+{
+	"EventGroupId":	1,
+	"EventType":	102,
+	"CallbackTs":	1765243907769,
+	"EventInfo":	{
+		"RoomId":	14903,
+		"EventTs":	1765243907,
+		"EventMsTs":	1765243907698
+	}
+}
+
+2025-12-09 09:31:52 callback
+{
+	"EventGroupId":	1,
+	"EventType":	103,
+	"CallbackTs":	1765243912610,
+	"EventInfo":	{
+		"RoomId":	14903,
+		"EventTs":	1765243912,
+		"EventMsTs":	1765243912585,
+		"UserId":	"2345",
+		"Role":	20,
+		"TerminalType":	2,
+		"UserType":	3,
+		"Reason":	1,
+		"ClientIpv4":	"182.48.68.178"
+	}
+}
+
+2025-12-09 09:31:52 callback
+{
+	"EventGroupId":	1,
+	"EventType":	101,
+	"CallbackTs":	1765243912659,
+	"EventInfo":	{
+		"RoomId":	14903,
+		"EventTs":	1765243912,
+		"EventMsTs":	1765243912581,
+		"UserId":	"2345"
+	}
+}
+
+2025-12-09 09:37:31 callback
+{
+	"EventGroupId":	1,
+	"EventType":	104,
+	"CallbackTs":	1765244250987,
+	"EventInfo":	{
+		"RoomId":	14903,
+		"EventTs":	1765244250,
+		"EventMsTs":	1765244250905,
+		"UserId":	"2345",
+		"Role":	20,
+		"Reason":	1
+	}
+}
+
+2025-12-09 09:37:31 callback
+{
+	"EventGroupId":	1,
+	"EventType":	102,
+	"CallbackTs":	1765244251073,
+	"EventInfo":	{
+		"RoomId":	14903,
+		"EventTs":	1765244250,
+		"EventMsTs":	1765244250998
+	}
+}
+
+2025-12-09 10:30:39 callback
+{
+	"EventGroupId":	1,
+	"EventType":	103,
+	"CallbackTs":	1765247439012,
+	"EventInfo":	{
+		"RoomId":	14907,
+		"EventTs":	1765247438,
+		"EventMsTs":	1765247438988,
+		"UserId":	"2345",
+		"Role":	20,
+		"TerminalType":	2,
+		"UserType":	3,
+		"Reason":	1,
+		"ClientIpv4":	"182.48.68.178"
+	}
+}
+
+2025-12-09 10:30:39 callback
+{
+	"EventGroupId":	1,
+	"EventType":	101,
+	"CallbackTs":	1765247439061,
+	"EventInfo":	{
+		"RoomId":	14907,
+		"EventTs":	1765247438,
+		"EventMsTs":	1765247438985,
+		"UserId":	"2345"
+	}
+}
+
+2025-12-09 10:35:40 callback
+{
+	"EventGroupId":	1,
+	"EventType":	104,
+	"CallbackTs":	1765247740747,
+	"EventInfo":	{
+		"RoomId":	14907,
+		"EventTs":	1765247740,
+		"EventMsTs":	1765247740728,
+		"UserId":	"2345",
+		"Role":	20,
+		"Reason":	1
+	}
+}
+
+2025-12-09 10:35:40 callback
+{
+	"EventGroupId":	1,
+	"EventType":	102,
+	"CallbackTs":	1765247740870,
+	"EventInfo":	{
+		"RoomId":	14907,
+		"EventTs":	1765247740,
+		"EventMsTs":	1765247740794
+	}
+}
+
+2025-12-09 10:37:17 callback
+{
+	"EventGroupId":	1,
+	"EventType":	101,
+	"CallbackTs":	1765247837087,
+	"EventInfo":	{
+		"RoomId":	14907,
+		"EventTs":	1765247837,
+		"EventMsTs":	1765247837023,
+		"UserId":	"2345"
+	}
+}
+
+2025-12-09 10:37:17 callback
+{
+	"EventGroupId":	1,
+	"EventType":	103,
+	"CallbackTs":	1765247837106,
+	"EventInfo":	{
+		"RoomId":	14907,
+		"EventTs":	1765247837,
+		"EventMsTs":	1765247837026,
+		"UserId":	"2345",
+		"Role":	20,
+		"TerminalType":	2,
+		"UserType":	3,
+		"Reason":	1,
+		"ClientIpv4":	"182.48.68.178"
+	}
+}
+
+2025-12-09 10:37:19 callback
+{
+	"EventGroupId":	1,
+	"EventType":	104,
+	"CallbackTs":	1765247838994,
+	"EventInfo":	{
+		"RoomId":	14907,
+		"EventTs":	1765247838,
+		"EventMsTs":	1765247838909,
+		"UserId":	"2345",
+		"Role":	20,
+		"Reason":	1
+	}
+}
+
+2025-12-09 10:37:19 callback
+{
+	"EventGroupId":	1,
+	"EventType":	102,
+	"CallbackTs":	1765247839046,
+	"EventInfo":	{
+		"RoomId":	14907,
+		"EventTs":	1765247838,
+		"EventMsTs":	1765247838973
+	}
+}
+

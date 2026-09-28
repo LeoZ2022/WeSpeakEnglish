@@ -1,0 +1,771 @@
+<!DOCTYPE html>
+<html lang="en">
+<script>
+    var _hmt = _hmt || [];
+    (function() {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?4a6c48c79b79effb3722c8e5e07f391f";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-190244183-1">
+</script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-190244183-1');
+</script>
+<head>
+    <meta charset="UTF-8">
+    <meta name="robots" content="noindex,nofollow">
+    <meta name="viewport"
+          content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no,initial-scale=1.0">
+    <title>TutorDetail_{:config('web_site_title')}</title>
+    <link rel="stylesheet" href="__HOME_CSS__/layout.css">
+    <link rel="stylesheet" href="__HOME_CSS__/tutordetail.css">
+    <link rel="stylesheet" type="text/css" href="__HOME_CSS__/tutordetail_m.css" media="(max-width: 750px) "/>
+    {include file="public/header_js"}
+    <script src="__HOME_JS__/vue.js"></script>
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+            new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-MTCT69F');</script>
+    <!-- End Google Tag Manager -->
+            <style>
+        .orange-text {
+            color: orange;
+            font-size: larger;
+            margin-top: 10px; 
+        }
+    </style>
+</head>
+<body class="usertype_{$user_type} partner{$is_partner|default=0}">
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MTCT69F"
+                  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+<nav class="dif">
+    <a class="backar pn" href="{:url('index')}"></a>
+    <div class="ncenter">{$teacher_info.username}</div>
+    {include file="public/nav_menu"}
+</nav>
+
+<div class="main clearfix">
+    <div class="tutorbox">
+        <top>
+            <div class="tutor">
+                <div class="namer">
+                    <name><span>{$teacher_info.username}</span> {notempty name="country_teacher.ico_file"}<img src="{$country_teacher.ico_file}" alt="{$country_teacher.country_name}">{/notempty}</name>
+                    <stars>
+                        {php}echo str_repeat('<img src="/public/home/style/img/star.png" alt="">', $teacher_info['star']);{/php}
+                        <span>({$teacher_info.star})</span>
+                    </stars>
+                </div>
+                <div class="from">From {$location_teacher.location_name} (UTC{$location_teacher.timezone|change_time})</div>
+            </div>
+            <dif class="info">
+                <class><label for="">Chat(s)</label><b>{$teacher_info.class_num}</b></class>
+                <learner><label for="">Learner(s)</label><b>{$teacher_info.learner_num}</b></learner>
+                <fee><label for="">Service fee</label><b>$ {$teacher_info.price+config('price_class_fee')}
+                    <g>/30 mins</g>
+                </b>
+                <!--<p class="orange-text">Promoted fee $0.2/30 mins. Valid until Feb 11(EST time).</p></fee>-->
+            </dif>
+        </top>
+        <p>{$teacher_info.descr|nl2br|raw}</p>
+        <btime>Became a tutor in {php}echo time_to_date($teacher_info['create_time'], $location_login, 'F Y');{/php}</btime>
+    </div>
+    <div class="pn reviewh">
+        <h2>reviews <span>({$cnt})</span></h2>  <gh2><span>SEE ALL</span><img src="/public/home/style/img/backar.png" alt=""></gh2>
+    </div>
+    <div class="selectime">
+        <dif class="headt"><a class="stimeback pn" href=""></a><div class="ht"><h2>SELECT TIMESLOT</h2> <vline></vline> <gh2>reviews <span>({$cnt})</span></gh2></div>
+            <div class="staues"><span>Available</span><span>Unavailable</span></div></dif>
+        <div class="timeslots" style="display: none;">
+            <div class="popstimeouterFix">
+                <div class="popstimeouterFixMain">
+                    <div class="upweek" @click="upWeek"    :class="{ go: si>0 }"></div>
+                    <div class="downweek" @click="downWeek"  :class="{ stop: ei>DaysBetw }"  v-if=" ei+1 < TdateLists.length" ></div>
+                </div>
+            </div>
+
+            <div class="mm pn">
+                {{TdateLists[ei][1] | ntoenm}}
+            </div>
+            <ul class="cal-hour">
+                <li class="timehour" v-for="(time, i) in HourList" >{{time}}</li>
+            </ul>
+            <ul class="cal-day" >
+                <!--<div class="upweek" @click="upWeek"  v-if="si>0"></div> <div class="downweek" @click="downWeek" v-if=" ei+1 < TdateLists.length" ></div>-->
+                <!--<div class="touchouter"   @touchstart="touch($event)" @touchmove="touchM($event)"  @touchend="touched($event)" @touchcancel="touched($event)" >-->
+                <div class="touchouter" >
+                    <li class="day" v-for="(item,index) in TdateLists" v-if=" si<=index && index<= ei" :class="{gray: item[5]< nowDate || item[5]>nextMonth, today: item[0]==cy && item[1]==cm && item[2] == initD}">
+                        <div class="cdate"  :class="{thisavday:thisavday(item[0],item[1],item[2])}">
+                            <div class="date" :class="{today: item[0]==cy && item[1]==cm && item[2] == initD, grayo: item[5]>nextMonth}" >{{item[2]}} <mn>{{item[1] | ntoenm}}</mn></div>
+                            <div class="week" :class="{today: item[0]==cy && item[1]==cm && item[2] == initD, grayo: item[5]>nextMonth}" >{{item[3]  |  ntoenw}}</div>
+                        </div>
+                        <div class="timecell" v-for="(time, i) in HourList"
+                             :class="{avaitime:thisday(item[0],item[1],item[2],time,index,i),booked:booked(item[0],item[1],item[2],time)}"   @click="book(item[0],item[1],item[2],time, index)" >
+                            <pn>{{item[2]}}  {{item[1] | ntoenm}}<br>{{HourList[i]}}-{{HourList[i+1]}}</pn>
+                            <div class="timepop mn">
+                                {{item[2]}}  {{item[1] | ntoenm}}<br>
+                                <span v-if="i+1 == 48" style="color: #fff;">{{HourList[i]}}-00:00</span>
+                                <span v-else style="color: #fff;">{{HourList[i]}}-{{HourList[i+1]}}</span>
+
+                            </div>
+                        </div>
+                    </li>
+                </div>
+            </ul>
+        </div>
+        <div class="timezone">Displays  in your time zone (UTC{$location_login.timezone|change_time})</div>
+    </div>
+    <div class="popreview">
+        <img class="pn" src="/public/home/style/img/closex.png" alt="">
+        <rt  class="pn"><b>reviews <span>({$cnt})</span></b>  <stars><img src="/public/home/style/img/star.png" alt=""> <span>({$teacher_info.star})</span></stars></rt>
+        <div class="comment_list">
+            {volist name="comment_list" id="vo"}
+            <div class="reviewbox">
+                <div class="learnamer">
+                    <span class="learnamerTime">{php} echo time_to_date($vo['comment_student_time'], $location_login, 'd M Y');{/php} </span>
+                    <name><span>{$vo.username}</span></name>
+                    <stars>
+                        {php}echo str_repeat('<img src="/public/home/style/img/star.png" alt="">', $vo['score_student']);{/php}
+                        <span>({$vo.score_student})</span>
+                    </stars>
+                </div>
+                <p>{$vo.comment_student}</p>
+                <btime>From {$vo.country_name}</btime>
+            </div>
+            {/volist}
+            <div class="pages">
+                {$comment_list->render()|raw}
+            </div>
+        </div>
+        <div class="bottom" style="display: none;"><hline></hline><span>LOAD BOTTOM</span><hline></hline></div>
+    </div>
+
+</div>
+<div class="tostime pn"><button>Check Availability</button></div>
+<div class="paybarouter fixed">
+    <dif class="paybar">
+        <a href="{:url('index')}" class="paybarBack"><img src="__HOME_IMG__/rback.png" alt=""></a>
+        <div class="btbox">
+            {if ($login_user['user_type'] eq 1 && $login_user['is_partner'] eq 0)}
+            <form method="post" action="{:url('confirm')}" onsubmit="return chk_form()">
+                <input type="hidden" name="teacher_id" value="{$teacher_info.id}">
+                <input type="hidden" name="times" id="times_booked">
+                <input type="submit" value="BOOK">
+                <div><input type="checkbox" name="weekauto" value="1" style="display:none" id="weekauto" disabled><label value="weekauto" for="weekauto"></label>
+                    <p>Automatically select a week by day</p></div>
+            </form>
+            {else}
+            <div>Please register and use a learner account to book chats</div>
+            {/if}
+        </div>
+    </dif>
+</div>
+{include file="public/footer"}
+</body>
+</html>
+
+<script>
+    var _date_next_month = new Date({:date('Y', $time_now)},{:date('m', $time_now)-1},{:date('d', $time_now)},{:date('H', $time_now)},{:date('i', $time_now)},{:date('s', $time_now)});
+    _date_next_month.setMonth(_date_next_month.getMonth()+1);
+    console.log(_date_next_month, 'next');
+
+    var _teacher_id = {$teacher_info.id|default=0};
+    var _page = {:input('page', 1)};
+    var _load = 1;
+    {eq name="is_wap" value="1"}
+
+    //滑动到底部加载
+    function get_cmt_list() {
+        if (_load == 0) {
+            return true;
+        }
+        _page = _page + 1;
+        $.ajax({
+            url: '/index/tutors/get_comment_list',
+            data: {teacher_id: _teacher_id, page: _page},
+            success: function (res) {
+                $('.comment_list').append(res);
+                if (!res) {
+                    $('.bottom').show();
+                    _load = 0;
+                }
+            }
+        })
+    }
+    {/eq}
+        function pagea() {
+            $('.pages a').click(function () {
+                var _url = $(this).attr('href');
+                $.ajax({
+                    url: _url,
+                    data: {ajax: 1},
+                    success: function (res) {
+                        $('.comment_list').html(res);
+                        pagea();
+                    }
+                })
+                console.log(_url);
+                return false;
+            })
+        }
+        $(function () {
+            pagea();
+            setTimeout(function () {
+                $('.timeslots').show()
+            }, 2000);
+        })
+
+        function check_time(y,m,d,time,dayid) {
+            var _date = y+'-'+m+'-'+d;
+            console.log(_date);
+            // return true;
+            $.ajax({
+                url: '/index/member/check_time',
+                data: {date: _date, time: time, dayid: dayid, teacher_id: _teacher_id},
+                type: 'post',
+                dataType: 'json',
+                success: function (res) {
+                    console.log(res);
+                    if (res.error_teacher == 0 && res.error_learner == 0){
+                        //可选择，并将选择取消
+                        $('#weekauto').removeAttr('disabled');
+                    } else {
+                        //不可选择，禁用选择，并将选择取消
+                        if (res.error_learner == 1) {
+                        }
+                        $('#weekauto').attr('disabled', 'disabled').attr('checked', false);
+                    }
+                }
+            })
+        }
+//
+
+        $(window).scroll(function() {
+            //底浮动
+            if( $(document).height()-$(document).scrollTop()-$(window).height()>215){
+                $(".paybarouter").addClass("fixed")
+            }else {
+                $(".paybarouter").removeClass("fixed")
+            }
+            //上浮动
+            if($(document).scrollTop()> $(".tutorbox").height()+160){
+
+                $(".cal-day li.day").addClass("fixed")
+                $(".popstimeouterFix").addClass("fixed")
+            }else{
+                $(".cal-day li.day").removeClass("fixed")
+                $(".popstimeouterFix").removeClass("fixed")
+            }
+
+        })
+
+        // function bodyHeight(){
+
+
+        // }
+
+//手机浮动
+
+        $(".selectime").scroll(function() {
+
+            $(".selectime.fixed .cal-day li .cdate").width($(".selectime.fixed .cal-day li").width())
+
+            if($(".selectime").scrollTop()>200){
+                $(".selectime.fixed .cal-day li").addClass("fixed")
+                $(".popstimeouterFix").addClass("fixed")
+
+            }else {
+                $(".selectime.fixed .cal-day li").removeClass("fixed")
+                $(".popstimeouterFix").removeClass("fixed")
+            }
+        })
+
+        //选择的时间点
+        var _times_booked;
+        function chk_form()
+        {
+            var _booked = 0;
+            for(a in _times_booked){
+                for(c in _times_booked[a]) {
+                    for (b in _times_booked[a][c]) {
+                        if (_times_booked[a][c][b].booked == 1) {
+                            _booked += ',' + _times_booked[a][c][b].id;
+                        }
+                    }
+                }
+            }
+            if (_booked == 0) {
+                showmsg('Please choose the chat timeslot', 201);
+                return false;
+            }
+            $('#times_booked').val(_booked);
+        }
+        $(document).on('click', '.filter>div', function () {
+            $("popbg").show();
+            $(this).children(".downpopmenu").show();
+        });
+        $(document).on('click', 'popbg', function () {
+            $("popbg").hide();
+            $(".downpopmenu").hide();
+        });
+        $(document).on('click', '.selectime .headt h2', function () {
+            $(".timeslots").show()
+            $(".timezone").show()
+            $(".popreview").hide()
+            $(".selectime .headt gh2").css("color","#bcbcbc")
+            $(this).css("color","#e54a3a")
+        });
+        $(document).on('click', '.selectime .headt gh2', function () {
+            $(".timeslots").hide()
+            $(".timezone").hide()
+            $(".popreview").show()
+            $(".selectime .headt h2").css("color","#bcbcbc")
+            $(this).css("color","#e54a3a")
+        });
+        var _date = new Date({:date('Y', $time_now)},{:date('m', $time_now)-1},{:date('d', $time_now)},{:date('H', $time_now)},{:date('i', $time_now)},{:date('s', $time_now)});
+        var _date_now = _date;
+        console.log(_date_now,'_date_now');
+        // 初始化 当前时间 y-m-d
+        initY = _date.getFullYear()
+        initM = _date.getMonth() + 1
+        initD = _date.getDate();
+        week_num = WeeksBetw(_date, _date_next_month);
+        console.log('WeeksBetw', week_num);
+        DaysBetw = DaysBetw(_date, _date_next_month);
+        // var _tablestatus = {$daytimes|raw|default='[]'};
+        // get_times('2020-12-06');
+        layer.load(1, {
+            shade: [0.7,'#fff'] //0.1透明度的白色背景
+        });
+        $.ajax({
+            url: '/index/tutors/get_daytimes',
+            data: {teacher_id: _teacher_id},
+            type: 'post',
+            dataType: 'json',
+            success: function (jsondata) {
+                layer.closeAll();
+                var _tablestatus = jsondata;
+                var vm = new Vue({
+                    el: '.timeslots',
+                    data:{
+                        _date: 0,
+                        t_date: 0,
+                        initY: 0, //当前 年
+                        initM: 0, //当前 月
+                        initD: 0, //当前 日
+                        initW: 0, //当前 周
+                        finitD: 0,
+                        trueD: _date_now.getTime(),
+                        nowDate: new Date(initY, initM-1, initD),
+                        si: 0,
+                        ei: 6,
+                        tinitD: new Date(),
+                        nextMonth: _date_next_month,
+                        DaysBetw: DaysBetw,
+                        timehour: 0,
+                        enMonth: '',
+                        tablestatus:[],
+                        avaitime:true,
+                        booktime:true,
+                        tempdatelists:[],
+                        tempdatelistnews:[],
+                        daynums: week_num * 7,
+                        x:-1,
+                        y:-1,
+                        timeclicked:[],
+                        click1: 99999999,
+                        click2: 99999999,
+                        timeclick_m: 99999999,
+                        timeclick_d: 99999999,
+                        timeclick_y: 99999999,
+                        timeclick_t:99999999,
+
+                        touchx:0,
+                        docStyle : document.documentElement.style,
+                        mflag:true,
+                        mdown:true,
+
+                        DateList: [],
+                        Datelists: [],
+                        TdateLists: [],
+                        //HourList: [], 	//钟点时间 24小时  赋值写死
+                        HourList: [
+                            '00:00', '00:30', '01:00', '01:30', '02:00', '02:30', '03:00','03:30', '04:00', '04:30', '05:00', '05:30', '06:00', '06:30', '07:00', '07:30'
+                            , '08:00', '08:30', '09:00', '09:30', '10:00', '10:30', '11:00', '11:30', '12:00', '12:30', '13:00', '13:30', '14:00', '14:30',
+                            '15:00', '15:30', '16:00', '16:30', '17:00', '17:30', '18:00', '18:30', '19:00', '19:30', '20:00', '20:30', '21:00', '21:30',
+                            '22:00', '22:30', '23:00', '23:30'
+                        ],
+                        cy: 0, //temp 上下年变化
+                        cm: 0, //temp 上下月变化
+                        cd: 0,
+                        dateYM: 0, // 标题显示
+                        beginDay: 0, //当月开始是周几
+                        prevMdays: 0, //上个月总天数
+                        nowMdays: 0, // 当月天数
+                    },
+                    created: function () {
+
+                    },
+
+                    filters:{
+                        ntoenm:function(num){
+                            let enm;
+                            switch (num) {
+                                case 1:
+                                    enm = "Jan";
+                                    break;
+                                case 2:
+                                    enm = "Feb";
+                                    break;
+                                case 3:
+                                    enm = "Mar";
+                                    break;
+                                case 4:
+                                    enm = "Apr";
+                                    break;
+                                case 5:
+                                    enm = "May";
+                                    break;
+                                case 6:
+                                    enm = "Jun";
+                                    break;
+                                case 7:
+                                    enm = "Jul";
+                                    break;
+                                case 8:
+                                    enm = "Aug";
+                                    break;
+                                case 9:
+                                    enm = "Sep";
+                                    break;
+                                case 10:
+                                    enm = "Oct";
+                                    break;
+                                case 11:
+                                    enm = "Nov";
+                                    break;
+                                case 12:
+                                    enm = "Dec";
+                                    break;
+                            }
+                            return enm;
+                        },
+                        ntoenw:function (num){
+                            let enw;
+                            switch (num) {
+                                case 0:
+                                    enw = "SUNDAY";
+                                    break;
+                                case 1:
+                                    enw = "MONDAY";
+                                    break;
+                                case 2:
+                                    enw = "TUESDAY";
+                                    break;
+                                case 3:
+                                    enw = "WEDNESDAY";
+                                    break;
+                                case 4:
+                                    enw = "THURSDAY";
+                                    break;
+                                case 5:
+                                    enw = "FRIDAY";
+                                    break;
+                                case 6:
+                                    enw = "SATURDAY";
+                                    break;
+                            }
+                            return enw;
+                        }
+                    },
+
+                    mounted: function () {
+                        this._date = _date_now;
+
+                        // 初始化 当前时间 y-m-d
+                        this.initY = this._date.getFullYear();
+                        this.initM = this._date.getMonth() + 1;
+                        this.initD = this._date.getDate();
+                        this.initW = this._date.getDay();
+                        // this.enMonth = this._date.toDateString().split(" ")[1];
+                        this.timehour = this._date.getHours();
+
+                        // 初始化&切换上下月使用
+                        this.cy = this._date.getFullYear();
+                        this.cm = this._date.getMonth() + 1;
+                        this.cd = this._date.getDate();
+                        console.log('before', this._date,this.initD,this.initW, this.initD  - this.initW);
+                        this.finitD = new Date(this._date.setDate(   this.initD  - this.initW  )).getDate()//算出当前日期的上一个周日的日期
+                        console.log('set after', this._date);
+                        console.log('this.initD  - this.initW', this.initD  - this.initW);
+//生成日期数组
+
+                        for (i = 0; i < this.daynums; i++) {
+                            this.tinitD=new Date(this.initY, this.initM -1, this.initD);
+                            this.t_date = new Date(this.tinitD.setDate(   this.initD  - this.initW  ));//重置日期
+                            this.DateList[i] = this.t_date.setDate(this.finitD + i);//从重置日期处往后循环出日期
+                        }
+                        //分年、月、日塞进数组
+                        for (i = 0; i < this.daynums; i++) {
+                            this.Datelists[i] = new Array();
+                            this.Datelists[i][0] = new Date(this.DateList[i]).getFullYear();
+                            //  this.  Datelists[i][1] =new Date(this.DateList[i]).toDateString().split(" ")[1];
+                            this.Datelists[i][1] = new Date(this.DateList[i]).getMonth() + 1;
+                            this.Datelists[i][2] = new Date(this.DateList[i]).getDate();
+                            this.Datelists[i][3] = new Date(this.DateList[i]).getDay();
+                            this.Datelists[i][5] = new Date(this.DateList[i]);
+                            this.Datelists[i][4]=this.DateList[i]
+                        }
+
+                        let dtt = _date_now;
+                        let _next = new Date(dtt.getFullYear(), dtt.getMonth() + 2, dtt.getDate(), 12);
+                        while (dtt < _next) {
+                            var _month = new Date(dtt).getMonth() + 1;
+                            var _date = new Date(dtt).getDate();
+                            if (!this.tempdatelistnews[_month]) {
+                                this.tempdatelistnews[_month] = new Array();
+                            }
+                            if (!this.tempdatelistnews[_month][_date]) {
+                                this.tempdatelistnews[_month][_date] = new Array();
+                            }
+                            dtt = new Date(dtt.getFullYear(), dtt.getMonth(), dtt.getDate() + 1, 12)
+                        }
+                        console.log('_next', _next);
+                        console.log('TdateLists', this.TdateLists);
+                        this.TdateLists = this.Datelists;
+
+                        //服务器拿到的数据
+                        /*
+                        this.tablestatus =[
+                            {"id":32,"datetime":1606953600000,"booked":0,"date":"2020-12-10","time":"06:00","time_end":"06:30"}
+                            ,{"id":32,"datetime":1606953600000,"booked":0,"date":"2020-12-10","time":"16:00","time_end":"16:30"}
+                        ]
+                        */
+                        this.tablestatus = _tablestatus;
+                        console.log(this.tablestatus,'this.tablestatus')
+                        for(k in this.tablestatus)
+                        {
+                            this.tempdatelists[k] = this.tablestatus[k].date;
+                            _date0 = this.tablestatus[k].date.split("-");
+
+                            _month = parseInt(_date0[1]);
+                            _date = parseInt(_date0[2]);
+                            if (!this.tempdatelistnews[_month]) {
+                                this.tempdatelistnews[_month] = new Array();
+                            }
+                            if (!this.tempdatelistnews[_month][_date]) {
+                                this.tempdatelistnews[_month][_date] = new Array();
+                            }
+                            _length = Object.values(this.tempdatelistnews[_month][_date]).length;
+                            this.tempdatelistnews[_month][_date][_length] = this.tablestatus[k];
+                        }
+                        console.log(this.tempdatelistnews)
+                    },
+
+                    methods: {
+                        //匹配可用日期
+                        thisday:function(ye,m,d,t,index,i){
+
+                            let tof;
+                            let _tablestatus = this.tempdatelistnews[parseInt(m)][parseInt(d)];
+                            for (k in _tablestatus){
+                                if(
+                                    ye*1=== _tablestatus[k].date.split("-")[0]*1 &&
+                                    m*1=== _tablestatus[k].date.split("-")[1]*1 &&
+                                    d*1=== _tablestatus[k].date.split("-")[2]*1 &&
+                                    t === _tablestatus[k].time
+                                ){
+                                    tof = true
+                                    return tof
+                                }
+                            }
+                        },
+
+                        thisavday:function(ye,m,d){
+                            let tof;
+                            console.log(ye,m,d);
+                            let _tablestatus = this.tempdatelistnews[parseInt(m)][parseInt(d)];
+                            for (k in _tablestatus){
+                                if(
+                                    ye*1=== _tablestatus[k].date.split("-")[0]*1 &&
+                                    m*1=== _tablestatus[k].date.split("-")[1]*1 &&
+                                    d*1=== _tablestatus[k].date.split("-")[2]*1
+                                ){
+                                    tof = true
+                                    return tof
+                                }
+                            }
+                        },
+
+                        //匹配是否被选
+                        booked:function(ye,m,d,t){
+                            let tof;
+                            let _tablestatus = this.tempdatelistnews[parseInt(m)][parseInt(d)];
+                            for (k in _tablestatus){
+                                if(
+
+
+                                    ye== _tablestatus[k].date.split("-")[0]*1 &&
+                                    m== _tablestatus[k].date.split("-")[1]*1 &&
+                                    d== _tablestatus[k].date.split("-")[2]*1 &&
+                                    t === _tablestatus[k].time
+                                    && _tablestatus[k].booked===1
+                                ){
+                                    tof = true
+                                    return tof
+                                }
+                            }
+                        },
+
+//操作可选日期
+                        book:function(ye,m,d,t,index,i){
+                            var dayid
+                            console.log('book', ye,m,d,t,index,i);
+                            // return false;
+                            let _tablestatus = this.tempdatelistnews[parseInt(m)][parseInt(d)];
+                            for(b in _tablestatus){
+                                if(
+                                    ye== _tablestatus[b].date.split("-")[0]*1 &&
+                                    m== _tablestatus[b].date.split("-")[1]*1 &&
+                                    d== _tablestatus[b].date.split("-")[2]*1 &&
+                                    t == _tablestatus[b].time
+                                ){
+                                    console.log('----ok-----')
+                                    if(_tablestatus[b].booked===0)
+                                    {_tablestatus[b].booked=1;
+                                        dayid = _tablestatus[b].id;
+                                    }else
+                                    {_tablestatus[b].booked=0 }
+                                }
+                            }
+                            this.tempdatelistnews[parseInt(m)][parseInt(d)] = _tablestatus;
+                            console.log(this.tempdatelistnews,'this.tempdatelistnews------')
+                            window._times_booked = this.tempdatelistnews;
+
+                            window.check_time(ye,m,d,t,dayid);
+                        },
+                        // 上一周
+                        upWeek: function () {
+                            if( this.ei-this.si<6){
+                                this.ei=this.si+6
+                            }
+                            this.si = this.si - 7
+                            this.ei = this.ei - 7
+                            if (this.si < 0) {
+                                this.si = 0;
+                                this.ei = 6;
+                            }
+
+                            if( document.body.clientWidth>750){
+                                var h = $(document).scrollTop()
+                                $(document).scrollTop(h-1)
+                                $(document).scrollTop(h+1)
+
+                            }else{
+                                var h = $('.selectime').scrollTop()
+                                $('.selectime').scrollTop(h-1)
+                                $('.selectime').scrollTop(h+1)
+                            }
+                        },
+
+                        //下一周
+                        downWeek: function () {
+
+                            let tsi = this.si + 7
+                            let tei = this.ei + 7
+                            if (tei >= this.TdateLists.length) {
+                                this.ei = this.TdateLists.length-1
+                            } else {
+                                this.ei = this.ei + 7
+                            }
+                            this.si = this.si + 7
+
+                            if( document.body.clientWidth>750){
+                                var h = $(document).scrollTop()
+                                $(document).scrollTop(h-1)
+                                $(document).scrollTop(h+1)
+
+                            }else{
+                                var h = $('.selectime').scrollTop()
+                                $('.selectime').scrollTop(h-1)
+                                $('.selectime').scrollTop(h+1)
+                            }
+
+
+
+                        },
+
+                        touch:function (e){
+                            var touch=e.touches[0];
+                            this.touchx=parseInt(touch.pageX);
+                            if( this.ei+1 >= this.TdateLists.length){
+                                this.mdown=false;
+                            }
+                            // e.preventDefault();
+                        },
+                        touchM:function (e){
+                            if(this.mflag){
+                                var touch=e.touches[0];
+                                var  end_x=parseInt(touch.pageX);
+                                this.docStyle.setProperty('--mdis', (this.touchx-end_x)/10);
+                                //     this.docStyle.setProperty('--opa', Math.abs(this.touchx-end_x)/500);
+                                if(end_x -this.touchx >100){
+                                    this.upWeek();
+                                    this.mflag=false;
+                                    //  this.docStyle.setProperty('--opa', 1);
+                                    this.docStyle.setProperty('--mdis', 0);
+                                    //   e.preventDefault();
+                                } else if(end_x -this.touchx < -100 &&  this.mdown ){
+                                    this.downWeek();
+                                    this.mflag=false;
+                                    //  this.docStyle.setProperty('--opa', 1);
+                                    this.docStyle.setProperty('--mdis', 0);
+                                    //e.preventDefault();
+                                }
+                            }
+                        },
+                        touched:function(){
+                            this.mflag=true;  this.mdown=true;
+                            this.docStyle.setProperty('--mdis', 0);
+                            //       this.docStyle.setProperty('--opa', 1);
+                            setTimeout(function() {
+                                $(".selectime").removeClass("fixed")
+                            }, 50);
+                            setTimeout(function() {
+                                $(".selectime").addClass("fixed")
+                            }, 100);
+                        },
+                    }
+                })
+            }
+        })
+
+
+        $(document).on('click', '.tostime button', function () {
+            $(".selectime").show();
+            $(".paybarouter").show();
+            setTimeout(function() { $(".selectime").addClass("fixed") }, 150);
+        });
+        $(document).on('click', '.stimeback', function () {
+            $(".selectime").hide();
+            $(".paybarouter").hide();
+        });
+        $(document).on('click', '.reviewh  gh2', function () {
+            $(".popreview").show();
+        });
+        $(document).on('click', '.popreview>img', function () {
+            $(".popreview").hide();
+        });
+        $('.nav_learner').addClass('on');
+</script>

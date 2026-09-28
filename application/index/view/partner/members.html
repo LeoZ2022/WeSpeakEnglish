@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?4a6c48c79b79effb3722c8e5e07f391f";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-190244183-1">
+</script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-190244183-1');
+</script>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no,initial-scale=1.0">
+    <title>My members_{:config('web_site_title')}</title>
+    <link rel="stylesheet" href="__HOME_CSS__/layout.css">
+    <link rel="stylesheet" href="__HOME_CSS__/partnermymembers.css">
+    <link rel="stylesheet" type="text/css" href="__HOME_CSS__/partnermymembers_m.css" media="(max-width: 750px) "/>
+	<script src="__HOME_JS__/vue.js"></script>
+   {include file="public/header_js"}
+		<!-- Google Tag Manager -->
+	<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+	new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+	j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+	'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+	})(window,document,'script','dataLayer','GTM-MTCT69F');</script>
+	<!-- End Google Tag Manager -->
+    <style type="text/css">
+        {eq name="user_type" value="1"}
+        .tutor_star{ display: none; }
+        {/eq}
+    </style>
+</head>
+<body class="usertype_{$user_type} partner{$is_partner|default=0}">
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MTCT69F"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+<nav class="dif">
+    <a class="backar pn" href="{:url('index')}"></a>
+    {include file="public/nav_menu"}
+</nav>
+
+<div class="main">
+    <div class="tabbox myclass">
+        <dif class="ht ">
+			<b>{$title_list}</b>
+			<span style="font-family: Fjalla;">TOTAL <i style="color: #83523b;">{$total}</i></span>
+			<span style="font-family: Fjalla;">
+				ACTIVE <i style="color: #669f6d;">{$total_active}</i>
+				<b class="membersTips"><i class="iconfont iconhelp"></i></b>
+			</span>
+			<a href="{:url('index')}">back</a>
+		</dif>
+		
+		
+		
+		<div class="comment_list membersList {eq name="user_type" value="1"}membersListLearners{/eq}"><!-- 如果是学生请添加 membersListLearners -->
+			<div class="membersRow clearfix membersRowTitle">
+				<div class="membersRowName">Name</div>
+				<div class="membersRowScore">Score</div>
+				<div class="membersRowChat">Chat(s)</div>
+				<div class="membersRowStatus">
+					<div class="statusDrop">
+						<div class="statusDropBtn" @click="statusDropOpen()">{{statusText}} <i class="iconfont iconTOP"></i></div>
+						<ul class="statusDropList" v-if="statusDropShow">
+							<li v-for="(item,index) in statusDropList" :class="{'active':statusDropCut == index}" @click="statusDropClick(index)"><i class="iconfont iconcheck"></i>{{item}}</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			{include file="partner/members_ajax"}
+		</div>
+        <div class="pages">
+            {$lists->render()|raw}
+        </div>
+        <div class="bottom"  onclick=""><hline></hline><span>LOAD MORE</span><hline></hline></div>
+    </div>
+
+</div>
+<div class="popstuNew listPopstu"><img src="/public/home/style/img/closex.png" alt="">
+	<topt>
+		<name></name>
+		<vline></vline>
+		<div><label>First language</label><span class="language"></span></div>
+		<div><label>English proficiency level</label><span class="level"></span></div>
+		<div><label>Location</label><span class="location">Afghanistan</span><span class="descrText"
+				style="display: none;">Write</span></div>
+	</topt>
+	<div style="color: rgba(85, 85, 85, 0.5); padding-bottom: 20px;">Goal of speaking English &nbsp;&nbsp; <span
+			class="speaking goals">Write</span></div>
+	<p class="descr">Wow,what </p>
+</div>
+
+<style>
+			.membersListLearners .membersRowScore{
+				display: none !important;
+			}
+		.membersTips{
+			position: relative;
+			display: inline-block;
+			margin-left: 10px;
+			cursor: pointer;
+			z-index: 999;
+		}
+		.membersTips i{
+			font-size: 2.2rem !important;
+			font-weight: bold;
+			color: #669f6d !important;
+		}
+		.membersTips::after{
+			display: block;
+			position: absolute;
+			right:0;
+			border: 1px dashed #669f6d;
+			color: #669f6d;
+			border-radius: 6px;
+			padding: 10px 15px;
+			font-size: 14px;
+			top: 30px;
+			font-weight: bold;
+			font-family: "Manrope","Microsoft Yahei";
+			white-space:nowrap; 
+			background: #fff;
+			text-transform: none;
+			opacity: 0;
+			z-index: -1;
+			-webkit-transition: 0.2s ease-in 0s;
+			-o-transition: 0.2s ease-in 0s;
+			transition: 0.2s ease-in 0s;
+		}
+		.membersTips:hover::after{
+			z-index: 1;
+			opacity: 1;
+		}
+			
+		.usertype_1 .membersTips::after{
+			content: 'Active-Has upcoming chats';
+		}
+		.usertype_2 .membersTips::after{
+			content: 'Active-Set availability';
+		}
+		</style>
+{include file="member/footer_menu"}
+{include file="public/footer"}
+{include file="member/member_js"}
+</body>
+<script>
+	$(document).ready(function() {
+		$(".myclass").on("click", ".learnerNameClick", function () {
+			$('.popstuNew name').html($(this).html());
+			$('.popstuNew .language').html($(this).data('language'));
+			$('.popstuNew .level').html($(this).data('level'));
+			$('.popstuNew .locaion').html($(this).data('locaion'));
+			$('.popstuNew .descr').html($(this).data('descr'));
+			$('.popstuNew .goals').html($(this).data('goals'));
+			$("popbg").show();
+			$(".popstuNew").show();
+			// if($(this).is('.show')){
+			//     $(this).removeClass("show")
+			// }else {
+			//     $(this).addClass("show")
+			// }
+			// $(this).next("div.help_body").toggle()//.siblings("div.help_body").hide();
+			// //$(this).siblings(".help_head").removeClass("show")
+		});
+		
+		$(".popstuNew>img").click(function() {
+			$("popbg").hide();
+			$(".popstuNew").hide();
+		});
+	});
+
+	function getUrlParam(name) {
+		var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)"); //构造一个含有目标参数的正则表达式对象
+		var r = window.location.search.substr(1).match(reg);  //匹配目标参数
+		if (r != null) return unescape(r[2]); return null; //返回参数值
+	}
+	
+	var activeStatus = getUrlParam('active')
+    $('#foot_a_6').addClass('cur');
+
+    var oid;
+
+    var _page = {:input('page', 1)};
+    var _date = {:input('date', 0)};
+    var _load = 1;
+    var start_y;
+    var end_y;
+    {eq name="is_wap" value="1"}
+    //滑动到底部加载
+    function get_cmt_list() {
+        if (_load == 0) {
+            return true;
+        }
+        _page = _page + 1;
+        $.ajax({
+            url: '/index/partner/members',
+            data: {date: _date, page: _page, ajax: 1},
+            success: function (res) {
+                $('.comment_list').append(res);
+            //    opendiv();
+				console.log(res,'-----')
+                console.log(!res)
+                if (!res) {
+                    $('.bottom span').text("BOTTOM");
+                    _load = 0;
+                }
+            }
+        })
+    }
+
+    $(document).on("touchstart", 'body,html', function(e){
+        var touch=e.touches[0];
+        start_y=touch.pageY;
+    })
+    $(document).on("touchmove", 'body,html', function(e){
+        var touch=e.touches[0];
+        end_y=touch.pageY;
+    })
+    $(document).on("touchend", 'body,html', function(e){
+        if(start_y- end_y >10){
+            get_cmt_list()
+        }
+    })
+	get_cmt_list()
+    {/eq}
+</script>
+<script>
+    var vm = new Vue({
+        el: '.main',
+        data:{
+            statusDropList:['All','Active','Inactive'],
+			statusDropCut:0,
+			statusDropShow:false,
+			statusText:'Status'
+        },
+
+        created: function () {
+			if(activeStatus){
+				this.statusText = this.statusDropList[activeStatus]
+				this.statusDropCut = activeStatus
+			}
+		},
+
+        methods: {
+            statusDropClick(i){
+				var url = window.location.href
+				if(url.indexOf("?") != -1){
+				    url = url.split("?")[0];
+				    console.log(url);
+				}
+				
+				this.statusText = this.statusDropList[i]
+				this.statusDropCut = i
+				this.statusDropShow = false
+				window.location.href = url+'?active='+i
+			},
+			statusDropOpen(){
+				this.statusDropShow = !this.statusDropShow
+			}
+        }
+
+    })
+	
+</script>
+</html>

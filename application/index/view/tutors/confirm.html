@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?4a6c48c79b79effb3722c8e5e07f391f";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-190244183-1">
+</script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-190244183-1');
+</script>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"  content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no,initial-scale=1.0">
+    <title>Booking_{:config('web_site_title')}</title>
+    <link rel="stylesheet" href="__HOME_CSS__/swiper-bundle.min.css">
+    <link rel="stylesheet" href="__HOME_CSS__/layout.css">
+    <link rel="stylesheet" href="__HOME_CSS__/studsubtut.css">
+    <link rel="stylesheet" type="text/css" href="__HOME_CSS__/studsubtut_m.css" media="(max-width: 750px) "/>
+    {include file="public/header_js"}
+    <script src="__HOME_JS__/swiper-bundle.min.js"></script>
+		<!-- Google Tag Manager -->
+	<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+	new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+	j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+	'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+	})(window,document,'script','dataLayer','GTM-MTCT69F');</script>
+	<!-- End Google Tag Manager -->
+</head>
+<body class="usertype_{$user_type} partner{$is_partner|default=0}">
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MTCT69F"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+    <nav class="dif">
+        <div class="backar" onclick="history.go(-1)"></div>
+        <div class="ncenter">Booking Tutor</div>
+        {include file="public/nav_menu"}
+    </nav>
+<style>/* format for mouse hover */
+  .tooltip {
+    position: relative;
+    display: inline-block;
+    vertical-align: middle;
+    border-bottom: 1px dotted orange;
+  }
+  
+  .tooltip .tooltiptext {
+    visibility: hidden;
+    width: 280px;
+    background-color: #EAFAF1;
+    color: orange;
+    text-align: left;
+    border-radius: 6px;
+    padding: 5px 0;
+      padding-top:10px;
+  
+      padding-right:10px;
+  
+      padding-bottom:10px;
+  
+      padding-left:10px;
+    /* Position the tooltip */
+    position: absolute;
+    left: 0px;
+    z-index: 1;
+  
+    font-size: 14px;
+  }
+  .tooltip img {
+    margin-right: 5px; /* Adjust the margin as needed to place the image closer to the text */
+}
+  .tooltip:hover .tooltiptext {
+    visibility: visible;
+  }
+  
+     .exinfo a:hover {
+        color: #ff0000; /* Change to the desired hover color */
+        text-decoration: underline; /* Add underline on hover */
+    }
+  </style>
+  
+    
+    <form method="post" id="form_confirm" action="{:url('booked')}">
+<div class="main">
+<dif class="flow">
+    <div class="flowbox on">1 <span>Book a tutor</span></div><line></line>
+    <div class="flowbox"><span>Pay</span></div><line></line>
+    <div class="flowbox"><span>Go to Chatroom</span></div>
+</dif>
+<div class="boxt">Booking Information</div>
+<dif class="subinfo">
+    <lt style="color: #333;">Tutor</lt> <div><p class="red b">{$teacher.username}</p></div>
+</dif>
+<dif  class="subinfo">
+        <lt style="color: #333;">Total</lt> 
+		<div>
+			<p>{$cnt} Chat(s)</p>
+			
+		</div>
+</dif>
+
+<dif  class="subinfo" style="margin-top: -12px;">
+        <lt style="color: #333;">Time</lt> 
+		<div>
+		
+			{volist name="daytimes" id="date"}
+			<times>{$date}</times>
+			{/volist}
+		</div>
+</dif>
+
+
+<dif  class="subinfo">
+        <lt style="color: #333;">Subtotal</lt> <div><p  class="b">$ {$money|number_format=2}</p></div>
+</dif>
+    <div class="boxt">payment method</div>
+    <input name="pay_type" value="1" id="paypal" type="radio">
+    <label value="paypal" for="paypal"><img src="__HOME_IMG__/paypal.png" alt=""> <check></check> </label>
+    {if condition="config('custom.wechat_snap_state') eq 1"}
+    <input name="pay_type" value="2" id="wechat" type="radio">
+    <label value="wechat" for="wechat"><img src="__HOME_IMG__/Wechat.png" alt=""><check></check> </label>
+    {/if}
+    {if condition="config('custom.alipay_state') eq 1"}
+    <input name="pay_type" value="3" id="alipay" type="radio">
+    <label value="alipay" for="alipay"><img src="__HOME_IMG__/alipay.png" alt=""><check></check> </label>
+    {/if}
+    {if condition="config('custom.wechat_china_state') eq 1"}
+    <input name="pay_type" value="4" id="wechat2" type="radio">
+    <label value="wechat" for="wechat2"><img src="__HOME_IMG__/Wechat.png" alt=""><check></check> </label>
+    {/if}
+    <div class="boxt" style="margin-bottom: 0;">Payment Information</div>
+    {gt name="invitation_money_use" value="0"}
+    <div class="payinfo">
+        <dif><lt>Invitation code deduction</lt> <p>-$ {$invitation_money_use|number_format=2}</p></dif>
+        <div class="exinfo">The invitation code can be used to deduct the cost of the Lowest rate chat(${$invitation_money|number_format=2} / 30 mins)</div>
+    </div>
+    {/gt}
+    <div class="payinfo">
+        <dif><lt>Subtotal</lt> <p>$ {:number_format($money-$invitation_money_use,2)}</p></dif>
+    </div>
+    <div class="payinfo">
+        <dif><lt>
+            {gt name="user_info.moneys" value="0"}
+            <input name="use_money" value="1" id="ubalance" type="checkbox">
+            <label value="ubalance" class="ubalance" for="ubalance"></label>
+            {/gt}
+            Use account balance</lt> <p>$ {$use_money|number_format=2}</p></dif>
+        <p class="exinfo">Your balance is ${$user_info.moneys|number_format=2}. <a href="{:url('member/topup')}">Top up to get a surprising bonus.</a></p>
+
+    </div>
+    <div class="payinfo">
+        <dif><lt>Subtotal</lt> <p class="red pay_money">$ {$pay_money|number_format=2}</p></dif>
+    </div>
+    <div class="reservation">
+        <div><input name="agreen" value="1" id="reserva" type="checkbox">
+            <label  value="reserva" for="reserva"></label> I understand and accept the purchase rules.</div>
+        <p class="reservaTips">
+			<!-- <a href="javascript:;" class="reservaTipsClose"><i class="iconfont iconclose"></i></a> -->
+			After the order confirmation, if either the learner or the tutor cancel the chat(s), or quit the chatroom within 10 mins of the chat start, the tuition fee will go to your account as credit instead of a cash refund. You can use your credit to pay for other chats.</p>
+    </div>
+</div>
+        <div class="paypop">
+            <a href="javascript:;" class="closex"><i class="iconfont iconclose"></i></a>
+            <p>Thank you for your booking.<br>
+                You need to complete the payment within 10 minutes.<br>
+                If it is overdue, you need to make a new booking.</p>
+            <dif><a href="">pay again</a><a href="{:url('member/schedule')}">payment success</a></dif>
+        </div>
+   <div class="paybarouter fixed">
+       <dif class="paybar">
+           <a href="###" onclick="history.go(-1)"><img src="__HOME_IMG__/rback.png" alt=""></a>
+           <div class="btbox">
+                <dib><b class="pay_money">$ {$pay_money|number_format=2}</b>
+                <p>Order Total</p></dib>
+               <input type="button" class="submit_order" value="confirm">
+           </div>
+       </dif>
+   </div>
+        <input type="hidden" name="dayids" value="{$dayids|implode=','}">
+        <input type="hidden" name="dates" value="{$dates|implode=','}">
+        <input type="hidden" name="times" value="{$times|implode=','}">
+        <input type="hidden" name="teacher_id" value="{$teacher_id}">
+    </form>
+    <popbg></popbg>
+        {include file="public/footer"}
+<form id="goto_pay" target="_blank"></form>
+</body>
+<script>
+		var _reserva;
+		if (document.getElementById('reserva').checked) {
+		    _reserva = 1;
+		} else {
+		    _reserva = 0;
+		}
+		// $('#reserva').click(function () {
+		// 	if ($('#reserva').prop('checked') == true) {
+		// 		_reserva = 1;
+		// 		$('.reservaTips').fadeIn(200)
+		// 	} else {
+		// 		_reserva = 0;
+		// 		$('.reservaTips').fadeOut(200)
+		// 	}
+		// })
+		
+		// $('.reservaTipsClose').click(function () {
+		// 	$('.reservaTips').fadeOut(200)
+		// })
+		
+		
+		
+	
+	
+    var _pay_money = {$pay_money|default=0};
+    var _use_money = {$use_money|default=0};
+    var loading = 1;
+    $(document).on('click', '.ubalance', function () {
+        var _chk = document.getElementById('ubalance').checked;
+        if(_chk==true){
+            $('.pay_money').html('$ ' + _pay_money.toFixed(2));
+        }else {
+            $('.pay_money').html('$ ' + (_pay_money - _use_money).toFixed(2));
+
+        }
+    });
+    //提交订单
+    $(document).on('click', '.submit_order', function () {
+        if (!document.getElementById('reserva').checked) {
+            showmsg(" Please check “I understand and accept the chat purchase rules” ", 201);
+            return false;
+        }
+        if (loading == 0) {
+            return false;
+        }
+        loading = 0;
+        $('.submit_order').hide();
+        showloading();
+        var _data = $('#form_confirm').serialize();
+        $.ajax({
+            url: $('#form_confirm').attr('action'),
+            data: _data,
+            type: 'post',
+            dataType: 'json',
+            success: function (res) {
+                if (res.code == 200) {
+                    $(document).on('click', '.paybar input', function () {
+                        $("popbg").show();
+                        $(".paypop").show();
+                    });
+                    if (res.pay_money > 0) {
+                        $('#goto_pay').attr('action', res.pay_url).submit();
+                        setTimeout("location.href='/index/payment/payagain?order_id="  + res.order_id+"'", 1000);
+                    } else {
+                        setTimeout("location.href = '/index/tutors/succeed?order_id=" + res.order_id+"'", 0);
+                    }
+                } else {
+                    loading = 1;
+                    $('.submit_order').show();
+                    showmsg(res.msg, res.code);
+                }
+            }
+        })
+    })
+    $(window).scroll(function() {
+        //底浮动
+        if( $(document).height()-$(document).scrollTop()-$(window).height()>165){
+            $(".paybarouter").addClass("fixed")
+        }else {
+            $(".paybarouter").removeClass("fixed")
+        }
+    })
+    $(document).on('click', '.paypop .closex', function () {
+        $("popbg").hide();
+        $(".paypop").hide();
+    });
+</script>
+</html>

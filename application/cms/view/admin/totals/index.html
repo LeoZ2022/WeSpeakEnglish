@@ -1,0 +1,628 @@
+{extend name="$_admin_base_layout" /}
+{block name="plugins-css"}
+<link rel="stylesheet" href="__LIBS__/bootstrap-datepicker/bootstrap-datepicker3.min.css">
+<style type="text/css">
+    .builder-table-wrapper{
+        border-bottom: 1px solid #E9E9E9 !important;
+        border-right: 1px solid #E9E9E9 !important;
+    }
+</style>
+{/block}
+
+{block name="content"}
+<div class="row">
+    <div class="col-md-12">
+        <div class="block">
+
+            <div class="tab-content">
+                <div class="tab-pane active">
+                    <div class="block-content">
+                        <div class="row data-table-toolbar">
+                            <div class="col-sm-12">
+                                <form method="get" id="form_chart" action="{:url('index')}" >
+                                    <div class="pull-right search-bar">
+                                        <div class="toolbar-btn-action">
+                                        </div>
+                                    </div>
+                                    <div class="toolbar-btn-action">
+                                        <div class="form-inline time-filter">
+                                            <div class="time-filter">
+                                                <div class="input-daterange input-group" data-date-format="yyyy-mm-dd">
+                                                    <input class="form-control" type="text" id="_filter_time_from" name="date_start" value="{:input('date_start', date('Y-m-d', strtotime('-7 day')))}" placeholder="开始日期">
+                                                    <span class="input-group-addon"><i class="fa fa-chevron-right"></i></span>
+                                                    <input class="form-control" type="text" id="_filter_time_to" name="date_end" value="{:input('date_end', date('Y-m-d'))}" placeholder="结束日期">
+                                                </div>
+                                                <input type="hidden" id="_filter_time" name="_filter_time" value="o.create_time">
+                                                <button type="submit" class="btn btn-default">统计</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+
+                        <div class="builder-table-wrapper" id="builder-table-wrapper">
+                            <div class="col-sm-12">
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="block-header bg-gray-lighter">
+                <ul class="block-options">
+                    <li>
+                        <button type="button" class="page-reload"><i class="si si-refresh"></i></button>
+                    </li>
+                    <li>
+                        <button type="button" data-toggle="block-option" data-action="fullscreen_toggle"><i
+                                class="si si-size-fullscreen"></i></button>
+                    </li>
+                </ul>
+                <h3 class="block-title">统计人数</h3>
+            </div>
+
+            <div class="tab-content">
+                <div class="tab-pane active">
+                    <div class="block-content">
+                        <div class="builder-table-wrapper" style="height: auto;">
+                            <div class="col-sm-12">
+                                <div class="col-sm-6">
+                                    <div id="chart_teacher_cnt" style="height: 300px;"></div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div id="chart_student_cnt" style="height: 300px;"></div>
+                                </div>
+                            </div>
+                            <div class="col-sm-12">
+                                <div class="col-sm-6">
+                                    <table class="table table-builder table-hover table-bordered table-striped js-table-checkable">
+                                        <colgroup>
+                                        </colgroup>
+                                        <thead>
+                                        <tr>
+                                            <th></th>
+                                            <th>注册总数</th>
+                                            <th>老师（设）</th>
+                                            <th>占比</th>
+                                            <th>老师（未设）</th>
+                                            <th>占比</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        <tr>
+                                            <td>老师</td>
+                                            <td class="cnt_teacher_all"></td>
+                                            <td class="cnt_teacher_has"></td>
+                                            <td class="cnt_teacher_per_has"></td>
+                                            <td class="cnt_teacher_nohas"></td>
+                                            <td class="cnt_teacher_noper_has"></td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div class="col-sm-6">
+                                    <table class="table table-builder table-hover table-bordered table-striped js-table-checkable">
+                                        <thead>
+                                        <tr>
+                                            <th></th>
+                                            <th>注册总数</th>
+                                            <th>买课人数</th>
+                                            <th>占比</th>
+                                            <th>有课没上人数</th>
+                                            <th>占比</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        <tr>
+                                            <td>学生</td>
+                                            <td class="cnt_student_all"></td>
+                                            <td class="cnt_student_has"></td>
+                                            <td class="cnt_student_per_has"></td>
+                                            <td class="cnt_student_nohas"></td>
+                                            <td class="cnt_student_noper_has"></td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="block-header bg-gray-lighter">
+                <ul class="block-options">
+                    <li>
+                        <button type="button" class="page-reload"><i class="si si-refresh"></i></button>
+                    </li>
+                    <li>
+                        <button type="button" data-toggle="block-option" data-action="fullscreen_toggle"><i
+                                class="si si-size-fullscreen"></i></button>
+                    </li>
+                </ul>
+                <h3 class="block-title">老师可用时间+学生买课</h3>
+            </div>
+
+            <div class="tab-content">
+                <div class="tab-pane active">
+                    <div class="block-content">
+                        <div class="builder-table-wrapper" style="height: auto;">
+                            <div class="col-sm-12">
+                                <div id="bar_times" style="height: 400px;"></div>
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="block-header bg-gray-lighter">
+                <ul class="block-options">
+                    <li>
+                        <button type="button" class="page-reload"><i class="si si-refresh"></i></button>
+                    </li>
+                    <li>
+                        <button type="button" data-toggle="block-option" data-action="fullscreen_toggle"><i
+                                class="si si-size-fullscreen"></i></button>
+                    </li>
+                </ul>
+                <h3 class="block-title">注册活跃度</h3>
+            </div>
+
+            <div class="tab-content">
+                <div class="tab-pane active">
+                    <div class="block-content">
+                        <div class="builder-table-wrapper" style="height: auto;">
+                            <div class="col-sm-12">
+                                <div id="line_numbs" style="height: 400px;"></div>
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="block-header bg-gray-lighter">
+                <ul class="block-options">
+                    <li>
+                        <button type="button" class="page-reload"><i class="si si-refresh"></i></button>
+                    </li>
+                    <li>
+                        <button type="button" data-toggle="block-option" data-action="fullscreen_toggle"><i
+                                class="si si-size-fullscreen"></i></button>
+                    </li>
+                </ul>
+                <h3 class="block-title">当日统计</h3>
+            </div>
+
+            <div class="tab-content">
+                <div class="tab-pane active">
+                    <div class="block-content">
+                        <div class="builder-table-wrapper" style="height: auto;">
+                            <div class="col-sm-12">
+                                <table class="table table-builder table-hover table-bordered table-striped js-table-checkable">
+                                    <thead>
+                                    <tr>
+                                        <th></th>
+                                        <th>查询没买课人数</th>
+                                        <th>提交未付款人数</th>
+                                        <th>提交2次没成功</th>
+                                        <th>老师缺勤</th>
+                                        <th>缺勤率</th>
+
+                                        <th>学生缺勤</th>
+                                        <th>缺勤率</th>
+                                        <th>老师邀请码</th>
+                                        <th>学生邀请码</th>
+                                        <th>聊天数</th>
+
+                                        <th>成功完成</th>
+                                        <th>IM使用数</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr>
+                                        <td>当日</td>
+                                        <td class="today_cnt_1"></td>
+                                        <td class="today_cnt_2"></td>
+                                        <td class="today_cnt_3"></td>
+                                        <td class="today_cnt_4"></td>
+                                        <td class="today_cnt_5"></td>
+                                        <td class="today_cnt_6"></td>
+                                        <td class="today_cnt_7"></td>
+                                        <td class="today_cnt_8"></td>
+                                        <td class="today_cnt_9"></td>
+                                        <td class="today_cnt_10"></td>
+                                        <td class="today_cnt_11"></td>
+                                        <td class="today_cnt_12"></td>
+                                    </tr>
+                                    <tr>
+                                        <td>历史</td>
+                                        <td class="all_cnt_1"></td>
+                                        <td class="all_cnt_2"></td>
+                                        <td class="all_cnt_3"></td>
+                                        <td class="all_cnt_4"></td>
+                                        <td class="all_cnt_5"></td>
+                                        <td class="all_cnt_6"></td>
+                                        <td class="all_cnt_7"></td>
+                                        <td class="all_cnt_8"></td>
+                                        <td class="all_cnt_9"></td>
+                                        <td class="all_cnt_10"></td>
+                                        <td class="all_cnt_11"></td>
+                                        <td class="all_cnt_12"></td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            <div class="col-sm-12 active_nums">
+
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+{/block}
+
+{block name="script"}
+
+<script src="__LIBS__/bootstrap-datepicker/bootstrap-datepicker.min.js"></script>
+<script src="__LIBS__/bootstrap-datepicker/locales/bootstrap-datepicker.en-GB.min.js"></script>
+
+<script src="__LIBS__/jquery-tags-input/jquery.tagsinput.min.js"></script>
+<script src="__LIBS__/jquery-ui/jquery-ui.min.js"></script>
+<script src="__LIBS__/webuploader/webuploader.min.js"></script>
+<script src="__STATIC__/admin/js/echart/echarts.min.js" type="text/javascript"></script>
+<script src="__STATIC__/admin/js/echart/macarons.js"></script>
+<script src="__STATIC__/admin/js/echart/china.js"></script>
+<script>
+    var pie_teacher = echarts.init(document.getElementById('chart_teacher_cnt'),'macarons');
+    var pie_student = echarts.init(document.getElementById('chart_student_cnt'),'macarons');
+
+    var bar_times = echarts.init(document.getElementById('bar_times'),'macarons');
+    var line_numbs = echarts.init(document.getElementById('line_numbs'),'macarons');
+    var emphasisStyle = {
+        itemStyle: {
+            shadowBlur: 10,
+            shadowColor: 'rgba(0,0,0,0.3)'
+        }
+    };
+    function create_pie() {
+        //统计人数
+        $.ajax({
+            url: '{:url("ajax_member_cnt")}',
+            data: $('#form_chart').serialize(),
+            type: 'post',
+            dataType: 'json',
+            success: function (data) {
+                for(var i in data) {
+                    $('.' + i).html(data[i]);
+                }
+                option = {
+                    title: {
+                        text: '老师人数',
+                        subtext: '',
+                        left: 'center'
+                    },
+                    tooltip: {
+                        trigger: 'item',
+                        formatter: '{a} <br/>{b} : {c} ({d}%)'
+                    },
+                    legend: {
+                        type: 'scroll',
+                        orient: 'vertical',
+                        right: 10,
+                        top: 20,
+                        bottom: 20,
+                        data: data.cols,
+                        selected: data.cols
+                    },
+                    series: [
+                        {
+                            name: '人数',
+                            type: 'pie',
+                            radius: '55%',
+                            center: ['40%', '50%'],
+                            data: data.seriesData,
+                            emphasis: {
+                                itemStyle: {
+                                    shadowBlur: 10,
+                                    shadowOffsetX: 0,
+                                    shadowColor: 'rgba(0, 0, 0, 0.5)'
+                                }
+                            }
+                        }
+                    ]
+                };
+                pie_teacher.setOption(option);
+                option = {
+                    title: {
+                        text: '学生人数',
+                        subtext: '',
+                        left: 'center'
+                    },
+                    tooltip: {
+                        trigger: 'item',
+                        formatter: '{a} <br/>{b} : {c} ({d}%)'
+                    },
+                    legend: {
+                        type: 'scroll',
+                        orient: 'vertical',
+                        right: 10,
+                        top: 20,
+                        bottom: 20,
+                        data: data.cols,
+                        selected: data.cols
+                    },
+                    series: [
+                        {
+                            name: '人数',
+                            type: 'pie',
+                            radius: '55%',
+                            center: ['40%', '50%'],
+                            data: data.seriesData_student,
+                            emphasis: {
+                                itemStyle: {
+                                    shadowBlur: 10,
+                                    shadowOffsetX: 0,
+                                    shadowColor: 'rgba(0, 0, 0, 0.5)'
+                                }
+                            }
+                        }
+                    ]
+                };
+                pie_student.setOption(option);
+            }
+        })
+
+        //统计人数，根据日期
+        $.ajax({
+            url: '{:url("ajax_member_cnt")}',
+            data: $('#form_chart').serialize(),
+            type: 'post',
+            dataType: 'json',
+            success: function (data) {
+                option = {
+                    title: {
+                        text: '注册活跃率',
+                        subtext: '',
+                        left: 'center'
+                    },
+                    legend: {
+                        data: ['学生','老师'],
+                        left: '10%'
+                    },
+                    brush: {
+                        toolbox: ['rect', 'polygon', 'lineX', 'lineY', 'keep', 'clear'],
+                        xAxisIndex: 0
+                    },
+                    toolbox: {
+                        feature: {
+                            magicType: {
+                                type: ['stack', 'tiled']
+                            },
+                            dataView: {}
+                        }
+                    },
+                    tooltip: {},
+                    xAxis: {
+                        data: data.cols,
+                        name: '身份',
+                        axisLine: {onZero: true},
+                        splitLine: {show: false},
+                        splitArea: {show: false}
+                    },
+                    yAxis: {},
+                    grid: {
+                        bottom: 100
+                    },
+                    series: [
+                        {
+                            name: '活跃的',
+                            type: 'bar',
+                            stack: 'one',
+                            emphasis: emphasisStyle,
+                            data: data.line_data1
+                        },
+                        {
+                            name: '不活跃的',
+                            type: 'bar',
+                            stack: 'one',
+                            emphasis: emphasisStyle,
+                            data: data.line_data2
+                        }
+                    ]
+                };
+                line_numbs.setOption(option);
+            }
+        })
+
+        //老师可用时间+学生买课
+        $.ajax({
+            url: '{:url("worktimes")}',
+            data: $('#form_chart').serialize(),
+            type: 'post',
+            dataType: 'json',
+            success: function (data) {
+                option = {
+                    title: {
+                        text: '老师可用时间+学生买课',
+                        subtext: '',
+                        left: 'center'
+                    },
+                    legend: {
+                        data: ['学生买课','老师可用时间'],
+                        left: '10%'
+                    },
+                    brush: {
+                        toolbox: ['rect', 'polygon', 'lineX', 'lineY', 'keep', 'clear'],
+                        xAxisIndex: 0
+                    },
+                    toolbox: {
+                        feature: {
+                            magicType: {
+                                type: ['stack', 'tiled']
+                            },
+                            dataView: {}
+                        }
+                    },
+                    tooltip: {},
+                    xAxis: {
+                        data: data.cols,
+                        name: '日期',
+                        axisLine: {onZero: true},
+                        splitLine: {show: false},
+                        splitArea: {show: false}
+                    },
+                    yAxis: {},
+                    grid: {
+                        bottom: 100
+                    },
+                    series: [
+                        {
+                            name: '学生买课',
+                            type: 'bar',
+                            stack: 'one',
+                            emphasis: emphasisStyle,
+                            data: data.data1
+                        },
+                        {
+                            name: '老师可用时间',
+                            type: 'bar',
+                            stack: 'one',
+                            emphasis: emphasisStyle,
+                            data: data.data2
+                        }
+                    ]
+                };
+                bar_times.setOption(option);
+            }
+        })
+
+        //当日统计1
+        $.ajax({
+            url: '{:url("counts1")}',
+            data: $('#form_chart').serialize(),
+            type: 'post',
+            dataType: 'json',
+            success: function (data) {
+                for(i in data.alls) {
+                    $('.all_cnt_'+i).html(data.alls[i]);
+                }
+                for(i in data.cnts) {
+                    $('.today_cnt_'+i).html(data.cnts[i]);
+                }
+                console.log(data);
+            }
+        })
+
+        //当日统计1
+        $.ajax({
+            url: '{:url("active_nums")}',
+            data: $('#form_chart').serialize(),
+            type: 'post',
+            // dataType: 'json',
+            success: function (data) {
+                $('.active_nums').html(data);
+                console.log(data);
+            }
+        })
+        return false;
+    }
+
+    jQuery(function () {
+        create_pie();
+        App.initHelpers(["datepicker"]);
+    });
+    $(document).ready(function () {
+        var builder_table_head = $('#builder-table-head');
+        var builder_table_left_body = $('#builder-table-left-body');
+        var builder_table_right_body = $('#builder-table-right-body');
+        var table_main = $('#builder-table-main');
+        var table_body = $('#builder-table-body');
+        var table_right = $('#builder-table-right');
+        var table_head_col  = builder_table_head.find('col');
+        var table_body_col  = table_body.find('col');
+        var table_left_head_col  = $('#builder-table-left-head').find('col');
+        var table_right_head_col = $('#builder-table-right-head').find('col');
+        var table_left_body_col = builder_table_left_body.find('col');
+        var table_right_body_col = builder_table_right_body.find('col');
+
+        // $('#builder-table-wrapper').css('max-height', ($(window).height() - 80)+'px');
+
+        table_body.css('max-height', $('#builder-table-wrapper').outerHeight() - 50);
+
+        $.each(table_body_col, function (i, e) {
+            var width = $(this).attr('width');
+            table_head_col.eq(i).attr('width', width);
+            table_left_head_col.eq(i).attr('width', width);
+            table_left_body_col.eq(i).attr('width', width);
+            table_right_head_col.eq(i).attr('width', width);
+            table_right_body_col.eq(i).attr('width', width);
+        });
+
+        /* 监听滚动事件 */
+        table_body.on( 'scroll', function (e) {
+            builder_table_head.scrollLeft(this.scrollLeft);
+            builder_table_left_body.scrollTop(this.scrollTop);
+            builder_table_right_body.scrollTop(this.scrollTop);
+        });
+
+        if ($(window).width() > 768 && ($('#builder-table-main tbody').height() > table_body.height())) {
+            $('#builder-table-head').css('margin-right', '17px');
+            $('#builder-table-right').css('right', '17px');
+        } else {
+            $('.builder-table-right-header').hide();
+            $('#builder-table-left,#builder-table-right').hide();
+        }
+
+        if (table_body.width() < $('#builder-table-main').width()) {
+            builder_table_left_body.height(table_body.height() - 17);
+            builder_table_right_body.height(table_body.height() - 17);
+            table_right.height(table_body.height() + 33);
+        } else {
+            builder_table_left_body.height(table_body.height());
+            builder_table_right_body.height(table_body.height());
+            table_right.height(table_body.height() + 50);
+        }
+
+        /*行高亮*/
+        var table_main_tr = table_main.find('tbody tr');
+        var table_left_tr = builder_table_left_body.find('tbody tr');
+        var table_right_tr = builder_table_right_body.find('tbody tr');
+        table_main_tr.hover(function () {
+            table_left_tr.eq($(this).index()).addClass('hover');
+            table_right_tr.eq($(this).index()).addClass('hover');
+        }, function () {
+            table_left_tr.eq($(this).index()).removeClass('hover');
+            table_right_tr.eq($(this).index()).removeClass('hover');
+        });
+        table_left_tr.hover(function () {
+            table_main_tr.eq($(this).index()).addClass('hover');
+            table_right_tr.eq($(this).index()).addClass('hover');
+        }, function () {
+            table_main_tr.eq($(this).index()).removeClass('hover');
+            table_right_tr.eq($(this).index()).removeClass('hover');
+        });
+        table_right_tr.hover(function () {
+            table_main_tr.eq($(this).index()).addClass('hover');
+            table_left_tr.eq($(this).index()).addClass('hover');
+        }, function () {
+            table_main_tr.eq($(this).index()).removeClass('hover');
+            table_left_tr.eq($(this).index()).removeClass('hover');
+        });
+    });
+</script>
+
+{/block}

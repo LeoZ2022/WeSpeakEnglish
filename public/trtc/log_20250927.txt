@@ -1,0 +1,232 @@
+2025-09-27 00:00:29 callback
+{
+	"EventGroupId":	1,
+	"EventType":	101,
+	"CallbackTs":	1758902429050,
+	"EventInfo":	{
+		"RoomId":	14604,
+		"EventTs":	1758902428,
+		"EventMsTs":	1758902428970,
+		"UserId":	"2345"
+	}
+}
+
+2025-09-27 00:00:29 callback
+{
+	"EventGroupId":	1,
+	"EventType":	103,
+	"CallbackTs":	1758902429055,
+	"EventInfo":	{
+		"RoomId":	14604,
+		"EventTs":	1758902428,
+		"EventMsTs":	1758902428975,
+		"UserId":	"2345",
+		"Role":	20,
+		"TerminalType":	2,
+		"UserType":	3,
+		"Reason":	1,
+		"ClientIpv4":	"202.134.14.130"
+	}
+}
+
+2025-09-27 00:05:03 callback
+{
+	"EventGroupId":	1,
+	"EventType":	104,
+	"CallbackTs":	1758902703613,
+	"EventInfo":	{
+		"RoomId":	14604,
+		"EventTs":	1758902703,
+		"EventMsTs":	1758902703594,
+		"UserId":	"2345",
+		"Role":	20,
+		"Reason":	1
+	}
+}
+
+2025-09-27 00:05:03 callback
+{
+	"EventGroupId":	1,
+	"EventType":	102,
+	"CallbackTs":	1758902703730,
+	"EventInfo":	{
+		"RoomId":	14604,
+		"EventTs":	1758902703,
+		"EventMsTs":	1758902703657
+	}
+}
+
+2025-09-27 00:05:48 callback
+{
+	"EventGroupId":	1,
+	"EventType":	103,
+	"CallbackTs":	1758902748751,
+	"EventInfo":	{
+		"RoomId":	14604,
+		"EventTs":	1758902748,
+		"EventMsTs":	1758902748729,
+		"UserId":	"2345",
+		"Role":	20,
+		"TerminalType":	2,
+		"UserType":	3,
+		"Reason":	1,
+		"ClientIpv4":	"182.48.68.179"
+	}
+}
+
+2025-09-27 00:05:48 callback
+{
+	"EventGroupId":	1,
+	"EventType":	101,
+	"CallbackTs":	1758902748811,
+	"EventInfo":	{
+		"RoomId":	14604,
+		"EventTs":	1758902748,
+		"EventMsTs":	1758902748725,
+		"UserId":	"2345"
+	}
+}
+
+2025-09-27 00:05:56 callback
+{
+	"EventGroupId":	1,
+	"EventType":	104,
+	"CallbackTs":	1758902756552,
+	"EventInfo":	{
+		"RoomId":	14604,
+		"EventTs":	1758902756,
+		"EventMsTs":	1758902756475,
+		"UserId":	"2345",
+		"Role":	20,
+		"Reason":	1
+	}
+}
+
+2025-09-27 00:05:56 callback
+{
+	"EventGroupId":	1,
+	"EventType":	102,
+	"CallbackTs":	1758902756588,
+	"EventInfo":	{
+		"RoomId":	14604,
+		"EventTs":	1758902756,
+		"EventMsTs":	1758902756518
+	}
+}
+
+2025-09-27 00:58:47 callback
+{
+	"EventGroupId":	1,
+	"EventType":	103,
+	"CallbackTs":	1758905927129,
+	"EventInfo":	{
+		"RoomId":	14598,
+		"EventTs":	1758905927,
+		"EventMsTs":	1758905927041,
+		"UserId":	"2345",
+		"Role":	20,
+		"TerminalType":	2,
+		"UserType":	3,
+		"Reason":	1,
+		"ClientIpv4":	"182.48.68.179"
+	}
+}
+
+2025-09-27 00:58:47 callback
+{
+	"EventGroupId":	1,
+	"EventType":	101,
+	"CallbackTs":	1758905927109,
+	"EventInfo":	{
+		"RoomId":	14598,
+		"EventTs":	1758905927,
+		"EventMsTs":	1758905927035,
+		"UserId":	"2345"
+	}
+}
+
+2025-09-27 01:00:00 callback
+{
+	"EventGroupId":	1,
+	"EventType":	104,
+	"CallbackTs":	1758906000798,
+	"EventInfo":	{
+		"RoomId":	14598,
+		"EventTs":	1758906000,
+		"EventMsTs":	1758906000715,
+		"UserId":	"2345",
+		"Role":	20,
+		"Reason":	1
+	}
+}
+
+2025-09-27 01:00:00 callback
+{
+	"EventGroupId":	1,
+	"EventType":	102,
+	"CallbackTs":	1758906000847,
+	"EventInfo":	{
+		"RoomId":	14598,
+		"EventTs":	1758906000,
+		"EventMsTs":	1758906000759
+	}
+}
+
+2025-09-27 01:00:32 callback
+{
+	"EventGroupId":	1,
+	"EventType":	103,
+	"CallbackTs":	1758906032391,
+	"EventInfo":	{
+		"RoomId":	14598,
+		"EventTs":	1758906032,
+		"EventMsTs":	1758906032366,
+		"UserId":	"2345",
+		"Role":	20,
+		"TerminalType":	2,
+		"UserType":	3,
+		"Reason":	1,
+		"ClientIpv4":	"182.48.68.179"
+	}
+}
+
+2025-09-27 01:00:32 callback
+{
+	"EventGroupId":	1,
+	"EventType":	101,
+	"CallbackTs":	1758906032439,
+	"EventInfo":	{
+		"RoomId":	14598,
+		"EventTs":	1758906032,
+		"EventMsTs":	1758906032361,
+		"UserId":	"2345"
+	}
+}
+
+2025-09-27 01:00:39 callback
+{
+	"EventGroupId":	1,
+	"EventType":	104,
+	"CallbackTs":	1758906039696,
+	"EventInfo":	{
+		"RoomId":	14598,
+		"EventTs":	1758906039,
+		"EventMsTs":	1758906039607,
+		"UserId":	"2345",
+		"Role":	20,
+		"Reason":	1
+	}
+}
+
+2025-09-27 01:00:39 callback
+{
+	"EventGroupId":	1,
+	"EventType":	102,
+	"CallbackTs":	1758906039751,
+	"EventInfo":	{
+		"RoomId":	14598,
+		"EventTs":	1758906039,
+		"EventMsTs":	1758906039690
+	}
+}
+

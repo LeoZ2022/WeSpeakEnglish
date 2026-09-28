@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<script src="https://www.wespeakenglish.chat/public/home/style/js/jquery-3.5.1.min.js"></script>
+    <title>隐私政策</title>
+</head>
+<body>
+	<div style="text-align: center; padding: 10px 0 0 0; color: #999; font-size: 14px;">语言：<a href="policy.html" style="color: #5d73bc">English</a> / 中文</div>
+	<div class="policyText" id="content">
+		
+	</div>
+		<style>
+			.policyText{
+				max-width: 960px;
+				font-size: 16px;
+				color: #4e3d37;
+				line-height: 30px;
+				padding: 20px;
+				margin: 0 auto;
+			}
+			.policyText p{
+				padding: 0 0 20px 0;
+				margin: 0;
+				word-wrap:break-word; 
+			}
+			.policyText p:nth-child(1){
+				padding-top: 0;
+			}
+			p.listStyle{
+				position: relative;
+				padding-left: 18px; 
+				padding-bottom: 0;
+			}
+			.listStyle::after{
+				width: 4px;
+				height: 4px;
+				border-radius: 100%;
+				display: block;
+				position: absolute;
+				background: #4e3d37;
+				content: '';
+				left: 4px;
+				top: 13px;
+			}
+			.title{
+				text-align: center;
+				margin: 0;
+				padding: 40px 0 0 0;
+			}
+	</style>
+	<script>
+	$.ajax({
+		type: "GET",
+		url: "https://wespeakenglish.chat/api/index/get_article?act=2",
+		dataType: "json",
+		success: function(res){
+			console.log(res)
+			$('#content').html(res.data.cn)
+		}
+	});
+	</script>
+</body>
+</html>

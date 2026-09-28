@@ -1,0 +1,694 @@
+nav{background:#fff;box-shadow:0 5px 25px rgba(220,220,220,0.6);}
+nav a{vertical-align: middle;
+    color: #424242;}
+nav .logo {
+    background-image: url("../img/logoblue.png");
+}
+a{
+    color: #007edb;
+text-decoration: none}
+nav .logo{
+    background-image: url("../img/logoblue.png");
+}
+.logined{
+    width: 100px;}
+body{background: #f8f8f8}
+nav div span a{text-transform: none;text-decoration: none}
+nav div span line{
+    padding-left: 14px;
+    padding-right: 14px;}
+nav div span .blue{
+    color: #007edb;}
+nav div.who\?{
+    display: none;}
+nav .on{
+    color: #007edb;}
+nav .on::after {
+    background: #007edb;
+    width: 40px;
+    height: 2px;
+    content: " ";
+    top: 10px;
+    position: relative;
+}
+.logeduser{
+    background-image: url("../img/tutor_b.png");
+    /* background-size:auto 17px; */
+    
+}
+.main{
+    width: 100%;max-width: 1260px;
+    margin: 54px auto 0;
+}
+.side{
+    float: left;
+    width: 300px;
+    margin-bottom: 20px;
+}
+.side .tutor{
+    padding: 30px 24px 20px 24px;
+    background: #fff;
+    border-radius:10px ;
+    width: 100%;}
+.side .tutor a.setting{
+	position: absolute;
+    z-index: 1;
+    right: 24px;
+    top: 30px;
+	font-size: 32px;
+}
+.side .tutor a.setting i{
+	font-size: 28px;
+	color: #007edb;
+}
+.side .tutor b{
+    display: block;
+    font-size: 2.6rem;
+    margin-bottom: 10px;
+    font-family: Fjalla;
+}
+.side .tutor b+span{
+    font-size: 1.4rem;
+    color: #999;}
+.side .tutor name{
+    display: block;
+    clear: both;
+    margin-bottom: 18px;    }
+.side .tutor .color{
+    flex-direction: column;
+}
+.side .tutor .color stars{
+    margin-bottom:26px ;}
+.side .tutor .color stars img{
+    margin-right: 7px;
+    height: 16px;vertical-align: middle;
+}
+.side .tutor .color stars span{vertical-align: middle;
+    color: #e9ae54;}
+.side .tutor .color>dif{
+    justify-content: space-between;
+    align-items: center;
+}
+.side .tutor .color>dif b{
+      color: #ccc;
+    margin-bottom: 0;
+    text-transform: uppercase;
+    font-family: Fjalla;
+    font-size:2.6rem ;
+}
+.side .tutor .color>dif b.cur{
+    color: #007edb;
+}
+.side .tutor .color>dif input{
+    display: none;}
+.side .tutor .color>dif tip{
+    position: absolute;
+    display: none;
+}
+.side .tutor .color>dif label{
+    width: 70px;
+    cursor: pointer;
+    height: 28px;
+    background: #ececec;
+    padding: 5px;
+    border-radius: 14px;
+	margin-left: 4px;
+}
+.daybox{right: calc(var(--mdis) * 1px);
+    opacity:var(--opa);
+}
+.side .tutor .color>dif label:hover tip{
+    display: block;
+    font-size: 1.4rem;
+    color: #eea84a;
+    border: 1px dashed #f4d6a9;
+    right: 0;
+    top: 30px;
+    padding: 10px 12px 12px 12px;
+    background-color: #fdf7ee;
+    width: 206px;
+    border-radius: 6px; 
+    line-height: 20px;
+    z-index: 2;
+}
+.side .tutor .color>dif label r{
+    display: block;
+    border-radius: 10px;
+    width: 18px;
+    background: #d0d0d0;
+    height: 18px;
+}
+.side .tutor .color>dif input:checked +label{
+    background-color: #e3f1fb;
+}
+.side .tutor .color>dif input:checked +label r{
+    background-color: #007edb;
+    left: 42px;
+}
+.side .tutor .num{justify-content: space-between;
+    margin-top: 25px;}
+
+.side .tutor level{
+}
+.side .tutor learner{
+}
+.side .tutor class{
+}
+.side .tutor local{clear: both;
+    padding-top: 20px;
+    font-size: 1.2rem;
+    color: #aaa;
+    display: block;}
+.side .balance{ padding: 30px 24px;
+    background: #fff;
+    border-radius:10px ;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    width: 100%;}
+.side .balance t{
+    font-family: Fjalla;
+    color: #aaa;
+    font-size: 2rem ;
+}
+.side .balance a.abalance{
+    position: absolute;
+    z-index: 1;
+    right: 24px;
+    top: 30px;}
+.side .balance price{
+    display: block;
+    font-size:2.6rem;
+    color: #1b76b7;
+    margin-top: 12px;
+    font-family: Fjalla;
+}
+.side .balance dif{
+    margin-top: 18px;
+justify-content: space-between;
+    }
+.side .balance dif a{
+    width: 118px;
+    height: 36px;
+    line-height: 36px;
+    text-transform: uppercase;
+    text-decoration: none;
+    font-family: Fjalla;
+    font-size: 1.6rem;
+    text-align: center;
+    color: #fff;
+    background: #007edb;
+    border-radius: 6px;
+}
+.side .balance dif a:first-child{
+    color: #007edb;
+    border: 2px solid #007edb;
+    background: none;
+}
+
+.side .incode{ padding: 30px 24px;
+    background: #fff;
+    border-radius:10px ;
+    width: 100%;}
+.side .incode t{
+    font-family: Fjalla;
+    color: #aaa;
+    font-size: 2rem ;
+}
+.side .incode dif{
+    align-items: center;
+    justify-content: space-between;
+    margin: 15px auto;
+}
+.side .incode dif strong{
+    font-size: 2.6rem;
+    font-family: Fjalla;
+}
+.side .incode dif a{
+    border: 1px solid #007edb;
+    color: #007edb; text-align: center;
+    border-radius: 6px;
+    line-height: 36px; text-decoration: none;
+    padding:0 24px; text-transform: uppercase;
+    font-family: Fjalla;
+    height: 36px;
+}
+.side .incode p{
+    color: #bbb;
+    font-size: 1.4rem;
+	line-height: 20px;}
+
+
+.avtime{width: 100%;margin-bottom: 30px;background: #fff;
+    margin-top: 30px;
+    border-radius: 10px;padding:20px 10px;}
+.avtime ht{
+    font-size: 2.2rem;    color: #bbb;
+    font-family: Fjalla; margin-bottom: 20px;
+    margin: 0 auto 20px;
+    width: 92%;    display: flex;
+    justify-content: space-between;align-items: center;
+}
+.avtime ht a{
+    display: inline-block;
+   
+}
+.avtime ht a i{
+	font-size: 28px;
+	color: #007edb;
+}
+.avtime .title-month{
+    color: #bbb;
+    display: flex;justify-content: space-between;
+    font-size: 2rem;
+    font-family: Fjalla;
+}
+.avtime .title-month span{
+    cursor: pointer;    transition: all 0.001ms;
+	    font-size: 38px;
+	    line-height: 16px;
+	    margin: -4px 0 0 0;
+}
+.avtime .title-month .upm{
+    visibility: hidden;
+}
+.avtime .week{
+    width: 100%;
+    margin: 24px auto 10px;
+    display: flex;justify-content: space-between}
+.avtime .week li{
+    width: 14%;
+    text-align: center}
+.avtime .cal-day{
+    margin: 0 auto;
+    display: flex; flex-wrap: wrap;
+    width: 100%;}
+.avtime .cal-day li{
+    vertical-align: top;
+    width: 14%;
+    margin-bottom: 3px;
+    text-align: center;
+    display: inline-block;
+    cursor: not-allowed;
+    pointer-events:none
+}
+.avtime .cal-day li.booked{
+    cursor:pointer;
+    pointer-events:auto;
+}
+.avtime .cal-day li.booked::after{
+    content: " ";
+    display: block;
+    margin-top: -5px;
+    margin-left:  auto;
+    margin-right:  auto;
+    width: 6px; height: 6px;
+    border-radius: 3px;
+    background: #FFA37F;
+}
+.avtime .cal-day li>p{
+    width: 26px;
+    margin: 0 auto;
+    line-height: 26px;
+    height: 26px;border-radius:11px;
+    font-size: 1.4rem;
+}
+.avtime .cal-day li.today>p{
+    /* background: #6be0d3;color: #fff; */
+}
+.avtime .cal-day li.avitime>p{
+    background: #6be0d3;color: #fff;
+}
+.avtime .cal-day li.today::after{
+    display: none;}
+.avtime .cal-day li .gay{
+    color: #ccc;}
+.avtime  .cal-day li .ctime{
+    font-size: 1.6rem;
+    margin-bottom: 10px;
+}
+
+.mainly{
+    width: 930px;
+    float: right;}
+
+.mainly .timetable{
+    padding: 30px 24px;
+    background: #fff;
+    border-radius:10px ;
+    margin-bottom: 30px;
+    width: 100%;
+}
+.mainly .timetable t{clear: both;
+    width: 100%;    text-transform: uppercase;
+    font-size: 2rem;
+    color: #bcbcbc;
+    align-items: center;
+    font-family: Fjalla;
+    display: flex;justify-content: space-between;
+margin-bottom:20px }
+.timetable .cal-day{border-bottom: 1px solid #ebebeb;
+    display: flex;
+    padding-bottom:19px;
+width: 100%;overflow-x: auto;
+    align-items: center;
+    justify-content: space-between}
+.timetable .cal-day .upweek{
+    width: 16px;
+    cursor: pointer;
+    display: block;z-index: 1;
+    background: url("../img/bluear_l.png") no-repeat center center / 100% auto;
+    filter: grayscale(100%);
+    pointer-events: none;opacity: 0.2;
+    height: 28px;}
+.timetable .cal-day .upweek.go{
+    filter: grayscale(0%);
+    pointer-events: auto;opacity: 1;
+}
+.timetable .cal-day .downweek{
+    width: 16px;cursor: pointer;
+    display: block;
+    z-index: 1;
+    background: url("../img/bluear.png") no-repeat center center / 100% auto;
+    height: 28px;}
+.cal-day .downweek.stop{
+    filter: grayscale(100%);
+    pointer-events: none;opacity: 0.2;
+}
+.timetable .cal-day .day{
+    width: 100px;
+    cursor: pointer;
+    margin-left: 10px;
+    margin-right: 10px;
+    height: 70px;
+    padding-top: 12px;
+    border-radius: 10px;
+    display: inline-block;}
+.timetable >.cal-day .day.clicked{background: #8ab5ff;}
+.timetable >.cal-day .day.clicked .cdate .week{
+    color: #fff;
+}
+.timetable >.cal-day .day.clicked .cdate .date{
+    color: #fff;
+}
+.timetable >.cal-day .day.clicked .cdate .date span.m{
+    color: #fff;
+}
+.timetable  .cal-day .day.choosed::after{
+    content: " ";
+    display: block;
+    margin-top: 3px;
+    margin-left:  auto;
+    margin-right:  auto;
+    width: 6px; height: 6px;
+    border-radius: 3px;
+    background: #6288c9;
+}
+.timetable >.cal-day .day.grayo{
+    pointer-events: none;
+}
+.timetable >.cal-day .day.grayo .cdate .week{
+    color: #bababa;
+}
+.avtime .cal-day li.past p,.avtime .cal-day li.grayo p{
+    color: #ccc;
+    pointer-events: none;
+    background: none;
+}
+.timetable> .cal-day .day.grayo .cdate .date{
+    color: #bababa;
+}
+.timetable> .cal-day .day.grayo .cdate .date .m{
+    color: #bababa;
+}
+.timetable .cal-day .daybox{flex-grow: 1;
+    transition: all 0.2s;
+}
+.timetable .cal-day .day .cdate{
+    text-align: center;
+}
+.timetable .cal-day .day .cdate .week{
+    margin-top: 10px;}
+.timetable .cal-day .day .cdate .date{
+    font-family: Fjalla;
+    font-size: 2rem;}
+.timetable .cal-day .day.tgray .cdate .week{
+    color: #bababa;
+}
+.timetable .cal-day .day.tgray .cdate .date{
+    color: #bababa;
+}
+.timetable  .cal-day .day.today{
+    background: #6288c9;
+}
+.timetable .day.today.clicked.tgray>.cdate>.date,
+.timetable .day.today.tgray>.cdate>.date{
+	color: #fff;
+}
+.cal-day .day.today .cdate .week{
+    color: #fff;
+}
+.cal-day .day.today .cdate .date{
+    color: #fff;
+}
+.cal-day .day .cdate .date span.m{
+    font-family: Fjalla;
+}
+.timetable > .cal-day .day.tgray {
+    pointer-events: none;
+}
+.cal-day .day.tgray .cdate .date span.m{
+    color: #bababa;}
+.cal-day .day.today .cdate .date span.m{
+    color: #fff;}
+.timetable .r{text-align: right;
+    font-size: 1.4rem;
+    color: #bcbcbc;
+}
+.timetable .r img{
+    margin-right: 10px;
+    width:17px ;
+  margin-top: 20px;
+}
+.timetable .class{
+    padding-top: 20px;
+    padding-bottom: 20px;
+    justify-content: space-between;
+    align-items: center;
+    display: flex;}
+.timetable .class:after {
+    display: block;
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 1px;
+    background-image: linear-gradient(to right, #e3e3e3 0%, #e3e3e3 50%, transparent 0%);
+    background-size: 10px 1px;
+    background-repeat: repeat-x;
+}
+.timetable > .class_list .class > .namer {
+    padding-top: 10px;
+    width: 430px;
+}
+.timetable .class name{
+    font-size: 1.8rem;
+    display: block;
+    padding-right: 40px;
+    cursor: pointer;
+    margin-bottom: 14px;
+    color: #007edb;}
+.timetable .class time{
+    font-size: 1.6rem;
+}
+.timetable .class .btbox{
+    text-align: center;
+}
+.timetable .class .btbox a.bt{
+    border-radius: 6px;
+    display: block;text-align: center;
+    line-height: 36px;
+    background: #6288c9;
+    color: #fff;
+    font-family: Fjalla;
+    text-decoration: none;
+    font-size: 1.6rem;
+    width: 170px;
+    height: 36px;
+    margin-bottom: 15px;
+}
+.timetable>.class_list .class time{
+    font-family: Fjalla;}
+.timetable > .class_list .class > .namer .nameinfo {
+    float: left;
+}
+.timetable > .class_list .class > .namer > .price {
+    float: right;
+}
+.mainly .topic{
+    padding: 30px 24px 0 24px;
+    background: #fff;
+    border-radius:10px ;
+    margin-bottom: 30px;
+    width: 100%;
+}
+.mainly .topic t{clear: both;
+    width: 100%;
+    font-size: 2rem;
+    text-transform: uppercase;
+    color: #bcbcbc;
+    font-family: Fjalla;
+    display: block;}
+
+.mainly .topic .topicli{
+    overflow: hidden; transition: all 1s;box-sizing: content-box;
+    display: flex;
+    flex-wrap: wrap;
+}
+.mainly .topic .topicli li{
+    width: 49.9%;
+    margin-top: 50px;     
+    margin-top: 30px;
+	position: relative;
+}
+.mainly .topic .topicli li::after{
+	    display: block;
+	    content: '';
+	    position: absolute;
+	    left: 0;
+	    right: 0;
+	    bottom: 0;
+	    height: 1px;
+	    background-image: linear-gradient(to right, #e3e3e3 0%, #e3e3e3 50%, transparent 0%);
+	    background-size: 10px 1px;
+	    background-repeat: repeat-x;
+}
+/* .mainly .topic .topicli li:nth-last-child(2),
+.mainly .topic .topicli li:nth-last-child(1){
+	border: none;
+	padding-bottom: 0;
+}
+ */
+.mainly .topic{
+	overflow: hidden;
+}
+.mainly .topic .topicli{
+	margin-bottom: -1px;
+}
+.mainly .topic .topicli li dt{letter-spacing: 1.2px;
+    color: #555555;text-transform: uppercase;
+    font-family: Fjalla;
+    margin-bottom: 20px;z-index: 0;
+    font-size: 2.2rem;}
+.mainly .topic .topicli li dt::after{
+    display: block;z-index: -1;content: "";
+    background: #cce5f8;
+    position: absolute;
+    top: 11px;
+    left: 12px;
+    width: 37px;
+    height: 10px;
+}
+.mainly .topic .topicli li dd{
+    color: #555;
+    font-size: 1.6rem;
+	line-height: 22px;
+	height: 60px;
+	overflow: hidden;
+}
+
+.mainly .topic .topicli  .tridiv{
+    width: 0;
+    height: 0;
+    border-right: 10px solid transparent;
+    border-bottom: 15px solid #007edb;
+    border-left: 10px solid transparent;
+    vertical-align: text-top;
+}
+.mainly .topic .topicli .shrink .tridiv{
+    /*   width: 0;
+       height: 0;
+       border-right: 10px solid transparent;
+       border-top: 15px solid #007edb;
+       border-left: 10px solid transparent;*/
+    transform: rotate(180deg);
+}
+.mainly .topic .topicli>div>*{
+    bottom: 8px;}
+
+
+.btimg{background: url("../img/btpic1.jpg") center center no-repeat;
+    width: 100%;
+    height:400px;
+	margin-top: 80px;}
+.btimg p{
+    width:100% ;max-width: 1260px;
+    padding-top: 80px;
+    margin: 0 auto 20px;
+    color: #fff;
+    font-size: 2rem;
+    line-height: 36px;
+    font-style: italic}
+.btimg a{display: block;
+    width: 360px;
+    margin:40px auto 0;
+    height: 60px;text-align: center;
+    line-height: 58px;
+    color: #fff;
+    font-size: 2.4rem;
+    font-family: Fjalla;text-decoration: none;
+    border-radius:10px;border: 2px solid #fff}
+.popstu{
+    position: fixed;
+    padding: 40px 30px;
+    left: 50%;
+    width: 100%;background:#fff;
+    max-width: 1000px;
+    border-radius: 10px;
+    top: 50%;
+    display: none;
+    transform: translate(-50%,-50%);
+    z-index: 14;
+}
+.popstu >img{cursor: pointer;
+    width: 16px;
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    z-index: 1;
+}
+.popstu topt{
+    margin-bottom: 30px;
+    padding-bottom: 26px;
+    border-bottom: 1px solid #ddd;
+    align-items: center;
+    display: flex;}
+.popstu topt name{ color: #007edb;    vertical-align: middle;
+    margin-right: 20px;
+    margin-bottom: 0;
+    padding-right: 0;
+    font-size: 1.6rem;}
+.popstu topt name img{
+    margin-left: 10px;
+    vertical-align: center;
+    height: 20px;}
+.popstu topt vline{
+    vertical-align: middle;
+    margin-right: 20px;
+    display: inline-block;
+    width: 1px;
+    height: 16px;
+    background:#ddd
+}
+.popstu topt div{
+    white-space: nowrap;
+    padding-right: 40px;}
+.popstu topt div label{
+    color: #c1c1c1;
+    padding-right: 20px;
+}
+.popstu p{font-size: 1.4rem;line-height: 1.6; font-size: 16px;}
+.mainly .timetable t img{
+	width: 32px;
+}
+

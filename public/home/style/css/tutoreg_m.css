@@ -1,0 +1,69 @@
+nav{box-shadow: none}
+nav.wBG{box-shadow: 0 5px 25px rgba(220,220,220,0.6);}
+nav>div{display: none}
+nav .backar{background: url("../img/backar.png") center center no-repeat;
+    background-size: contain;
+    width: 13px;
+    height: 22px;}
+nav a.blue{text-transform: none;
+    font-size: 1.4rem;
+    color: #007edb;
+	font-style: oblique;}
+p.topT{
+    font-size: 4.6rem;
+    margin-top: 20px;}
+P.topT > a{
+    display: none;}
+p.topT::after {
+    top: -15px;}
+.reform{
+    margin-top: 30px;
+    padding-left: 20px;
+    margin-bottom: 30px;
+    padding-right: 20px;}
+.reform dib{
+    margin-bottom: 34px;}
+.reform dib label{
+	position: initial;
+}
+.reform dib label span{
+    font-size: 12px;
+	position: absolute;
+	left: 0;
+	bottom: -22px;
+	top: auto;
+	transform: translate(0);
+	font-size: 16px;
+	color: rgba(85,85,85,.5);
+	font-weight: normal;}
+
+.reform dib.w100{
+	margin-bottom: 45px;
+}
+.reform dib input{
+    width: 100%}
+.reform dib input.veri{
+    width: 70%;}
+.reform dib input#price{
+    width: 70%;}
+.reform dib>p.pn{
+    padding-left: 4px;
+    padding-top: 10px;
+}
+nav.wBG .hanbugrmenu{
+    display: none;}
+.footwrap{
+    display: none;}
+.formal{
+    margin-top: 28px;}
+	.reform dib span{
+		position: absolute;
+		right: 0;
+		top: 50%;
+		transform: translateY(-50%);
+	}
+.reform input[type="submit"]{
+	width: 100%;
+	height: 50px;
+	line-height: 50px;
+}

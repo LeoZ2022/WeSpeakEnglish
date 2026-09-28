@@ -1,0 +1,39 @@
+.indexT{
+    font-size: 4.6rem;
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-top: 32px;
+    margin-bottom: 32px;
+    line-height: 55px;
+}
+.main{
+    padding-left: 20px;
+    margin-bottom: 80px;
+    padding-right: 20px;}
+.tobe{
+    margin-top: 56px;
+    width: 100%;}.tobe t{
+                  font-size: 3.4rem;
+                 }
+.tobe t::before{
+    width: 290px;
+    left: 40px;
+    height: 10px;
+	bottom: 3px;
+	}
+.tobe t::after{
+    width: 120px;
+    left: -5px;
+    height: 90px;
+}
+.tobe p{
+    margin-top: 20px;
+    margin-bottom: 20px;}
+.tobe dif{flex-direction:column;text-align: center}
+.tobe dif a{line-height: 1.1}
+.tobe a>img{
+    width: 290px;
+    margin-right: 0;}
+.htxt{
+	top:46%;
+}

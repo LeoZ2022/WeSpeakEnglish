@@ -1,0 +1,297 @@
+nav{background:#fff;box-shadow:0 5px 25px rgba(220,220,220,0.6);}
+nav a{vertical-align: middle;
+    color: #424242;}
+nav .logo{
+    background-image: url("../img/logoblue.png");
+}
+.logined{
+    width: 100px;}
+.logined.user_type_1{
+    width:100px;
+}
+nav div span a{text-transform: none;text-decoration: none}
+nav div span line{
+    padding-left: 14px;
+    padding-right: 14px;}
+nav .on{color: #83523b; }
+nav .on::after{
+    background:#83523b;
+    width:40px;
+    height:2px;
+    content:" ";
+    top: 10px;
+    position: relative;
+}
+.usertype_1 nav .on{color: #83523b; }
+.usertype_1 nav .on::after{
+    background:#83523b;
+    width:40px;
+    height:2px;
+    content:" ";
+    top: 10px;
+    position: relative;
+}
+.usertype_1 .logeduser{
+    background-image: url("../img/partner_b.png");
+	padding-left: 25px;
+}
+.usertype_2 .logeduser{
+    background-image: url("../img/partner_b.png");
+	padding-left: 25px;
+    /* padding-left: 38px; */
+    /* background-size: auto 17px; */
+}
+.logined.user_type_2 .logeduser.click,
+.logined.user_type_1 .logeduser.click,
+.logeduser.click{
+	background-image: url("../img/partner_o.png") !important;
+}
+.logeduser.click .rar{
+	background-color: #83523b !important;
+}
+header nav.dif{background-image: url("../img/navbg_red.png")}
+a{color: #83523b;}
+.main{
+    margin: 56px auto 100px;
+    width: 1160px;}
+.main .ht{
+    padding-bottom: 15px;
+    border-bottom: 1px solid #ddd;
+    justify-content: space-between}
+.usertype_1  .main .ht{
+    border-bottom: 1px solid #ddd;
+}
+.main .ht b{
+    font-size: 2.6rem;
+    font-family: Fjalla;
+    text-transform: uppercase;
+    color: #83523b;}
+.usertype_1  .main .ht b{
+    color: #83523b;
+}
+.main .ht a{
+    font-size: 2rem;
+    color: #83523b;
+    font-family: Fjalla;
+    text-transform: uppercase;
+    padding-right: 20px;
+    text-decoration: none;
+    line-height: 34px;
+    padding-left: 36px;
+    background:url("../img/backarbrown.png") left center no-repeat;
+}
+.usertype_1 .main .ht a{
+    background-image: url("../img/backarbrown.png");
+    color: #83523b;
+}
+
+.withdrawinput{align-items:center;
+    margin-top: 40px;
+    padding-bottom: 70px;
+	position: relative;
+	}
+.withdrawinput:after {
+    display: block;
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 1px;
+    background-image: linear-gradient(to right, #e3e3e3 0%, #e3e3e3 50%, transparent 0%);
+    background-size: 10px 1px;
+    background-repeat: repeat-x;
+}
+.withdrawinput:last-child:after{
+	display: none;
+}
+.withdrawinput>label{
+    flex-shrink: 0;
+    text-align: left;
+    color: rgba(85,85,85,.5);
+    width: 205px;
+	font-size: 16px;}
+.withdrawinput.amount input{
+    border-radius: 6px;
+    border: 1px solid #e7eaef;
+    width: 100%; max-width:400px ;
+    line-height: 30px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+    padding-left: 46px;
+    font-size: 1.6rem;
+    background:url("../img/ms.png") 14px center no-repeat;
+    background-size: auto 17px;
+}
+.withdrawinput.amount input:focus{
+    border-color:#7fbeed;
+}
+.usertype_1 .withdrawinput.amount input:focus{
+    border-color:#83523b;
+}
+.usertype_1 img.b{
+    display: none;}
+.usertype_2 img.r{
+    display: none;}
+.withdrawinput .msinfo{position: absolute;
+    top:70px;
+    left: 210px;
+    color: #999;}
+.withdrawinput b{
+    font-family: Fjalla;
+    font-size: 2.2rem;}
+.withdrawinput b img{
+    margin-right:12px;}
+.withdrawinput b+.msinfo{
+    top: 45px;}
+input[type=radio]{
+    display: none;}
+.paymethod input+label{border: 1px solid #dadada;border-radius: 10px;
+    width: 180px;text-align: center;
+    line-height: 46px;
+    margin-left: 10px;cursor: pointer;
+    margin-right: 20px;
+    height: 60px;vertical-align: middle;
+    display: inline-block;}
+
+.paymethod input+label img{
+    height: 34px;}
+.paymethod input+label check{display: none;}
+.paymethod input:checked+label{border-color:#7fbeed;}
+.paymethod input:checked+label check{display: block;position: absolute;
+    width: 20px;
+    height: 20px;
+background:url("../img/bluecheck.png") center center no-repeat;background-size: contain;
+    top: -10px;
+    right: -10px; }
+.usertype_1 .paymethod input:checked+label{
+    border: 1px solid #83523b;
+}
+.usertype_1 .paymethod input:checked+label check{
+    background-image:url("../img/rcheck.png")
+}
+
+.payinfo{border-top: 1px dashed #e3e3e3;
+    margin-left: 10px;
+    margin-right: 10px;
+    padding: 20px 0;}
+.boxt +.payinfo{border-top: none}
+.payinfo lt{  font-size: 1.4rem;
+    flex-shrink: 0;
+    width: 220px;
+    color: #999;
+}
+.payinfo lt label{
+    margin-right: 10px;
+    display: inline-block;vertical-align: middle;
+    width: 20px;
+    height: 20px; border-radius: 10px;cursor: pointer;
+    background: transparent;    border:1px solid #b6b6b6;
+}
+.payinfo lt input:checked + label{
+    background:url("../img/rcheck.png") center center no-repeat;
+    background-size: contain;
+    border: none;
+}
+.payinfo div.exinfo{
+    padding-left: 220px;
+    font-size: 12px;
+    margin-top: 16px;
+    color: #999;
+}.payinfo p.exinfo{
+     padding-left: 30px;
+     font-size: 12px;
+     margin-top: 12px;
+ }
+.paybarouter{
+    width: 100%;z-index: 1;
+    background:#ebe7e3 ;
+    padding: 50px 0;
+    }
+.usertype_1 .paybarouter{
+background: #fbf3ef;
+}
+.paybarouter.fixed{
+    position: fixed;
+    bottom: 0;
+}
+.withdraw{
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border-radius: 12px;
+    cursor: pointer;
+    border: 1px solid #ddd;
+    vertical-align: middle;
+}
+.withdrawinput b input:checked+label{
+    background-size: contain;
+    border: none;
+}
+.usertype_1 .withdrawinput b input:checked+label{
+    background-image: url("../img/rcheck.png");
+}
+.usertype_2 .withdrawinput b input:checked+label{
+    background-image: url("../img/bluecheck.png");
+}
+.paybox{
+    text-align: center
+}
+.paybox .paywaypic{
+    background: #fef8f8;
+    padding: 20px 0;
+    border-radius: 6px;
+    margin-top: 70px;
+    margin-bottom: 30px;
+}
+.paybox .money{
+    font-size:40px;
+    color: #83523b;font-family: Fjalla;
+    margin:30px auto 15px;
+}
+.paybox .qrcode{
+    width: 100%;
+    max-width: 360px;
+    margin: 0 auto;
+    border-radius: 6px;
+    border: 1px solid #debcbc;
+    padding: 30px 50px;
+}
+.paybox .qrcode #code{
+    margin:25px 0;
+}
+.paybar{
+    justify-content: space-between;
+    align-items: center;
+   width: 100%;max-width:1160px;margin: 0 auto ; }
+.paybar input{
+    width: 260px;background: #83523b;
+    font-size: 2.4rem;
+    font-family: Fjalla;text-transform: uppercase;
+    box-shadow:0 6px 20px rgba(180,180,180,0.8);
+    cursor: pointer;
+    color: #fff;
+    border-radius: 10px;
+    text-align: center;
+    height: 60px;
+    display: inline-block;}
+.usertype_1 .paybar input{
+    background: #83523b;
+}
+.btbox dib{text-align: right;
+    padding-right: 30px;}
+.btbox dib b{
+    font-size: 2.8rem;
+    font-family: Fjalla;
+    color: #83523b;}
+.usertype_1  .btbox dib b{
+    color: #83523b;
+}
+.btbox dib p{
+    font-size: 14px;
+    color: #999;
+	padding: 8px 0 0 0;
+}
+nav div.who\? {
+    display: none;
+}

@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+    
+	<script>
+		var _hmt = _hmt || [];
+		(function() {
+			var hm = document.createElement("script");
+			hm.src = "https://hm.baidu.com/hm.js?4a6c48c79b79effb3722c8e5e07f391f";
+			var s = document.getElementsByTagName("script")[0];
+			s.parentNode.insertBefore(hm, s);
+		})();
+	</script>
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-190244183-1">
+	</script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+
+		function gtag() {
+			dataLayer.push(arguments);
+		}
+		gtag('js', new Date());
+
+		gtag('config', 'UA-190244183-1');
+	</script>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport"
+			content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no,initial-scale=1.0">
+		<title>Mcenter_{:config('web_site_title')}</title>
+		 <meta name="description" content="Find a native English speaker to practice speaking English online, improve speaking skills very fast.">
+		<link rel="stylesheet" href="__HOME_CSS__/layout.css">
+		<link rel="stylesheet" href="__HOME_CSS__/partnercentertut.css">
+		<link rel="stylesheet" type="text/css" href="__HOME_CSS__/partnercentertut_m.css" media="(max-width: 750px) " />
+		{include file="public/header_js"}
+		<script src="__HOME_JS__/vue.js"></script>
+		<!-- Google Tag Manager -->
+		<script>
+			(function(w, d, s, l, i) {
+				w[l] = w[l] || [];
+				w[l].push({
+					'gtm.start': new Date().getTime(),
+					event: 'gtm.js'
+				});
+				var f = d.getElementsByTagName(s)[0],
+					j = d.createElement(s),
+					dl = l != 'dataLayer' ? '&l=' + l : '';
+				j.async = true;
+				j.src =
+					'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+				f.parentNode.insertBefore(j, f);
+			})(window, document, 'script', 'dataLayer', 'GTM-MTCT69F');
+		</script>
+		<!-- End Google Tag Manager -->
+		{eq name="user_type" value="1"}
+		<style type="text/css">
+			.tutor_star {
+				display: none;
+			}
+		</style>
+		{/eq}
+	</head>
+	
+
+	
+	<body class="usertype_{$user_type} partner{$is_partner|default=0}">
+		<!-- Google Tag Manager (noscript) -->
+		<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MTCT69F" height="0" width="0"
+				style="display:none;visibility:hidden"></iframe></noscript>
+		<!-- End Google Tag Manager (noscript) -->
+		<nav class="dif">
+			<a class="backar pn" href="javascript:history.go(-1);"></a>
+			<div class="ncenter">ACCOUNT</div>
+			{include file="public/nav_menu"}
+		</nav>
+		<div class="main clearfix">
+			<div class="side">
+				<div class="tutor">
+					<a href="{:url('profile')}" class="setting">
+						<i class="iconfont iconsetting"></i>
+					</a>
+					<name><b>{$user_info.username}</b></name>
+					<div style="color: #999; padding-bottom: 10px;">Partner</div>
+					<!-- <dif class="color">
+                <stars>
+                    {php}echo str_repeat('<img src="/public/home/style/img/star.png" alt="">', $user_info['star']);{/php}
+                    <span>({$user_info.star})</span></stars>
+                <dif>
+            </dif> -->
+					<dif class="num">
+						{eq name="user_type" value="1"}
+						<class><b>{$user_num|default=0}</b><span>Learners</span></class>
+						{else}
+						<class><b>{$user_num|default=0}</b><span>Tutors</span></class>
+						{/eq}
+						<learner><b>{$class_num|default=0}</b><span>Chats</span></learner>
+						<level><b>${$user_info.price_partner}</b><span>Rate</span></level>
+					</dif>
+				</div>
+
+				<div class="balance">
+					<t>ACCOUNT BALANCE</t>
+					<a href="{:url('accounts')}" class="abalance">
+						<i class="iconfont iconaccount-balanceandtutor-list-price"></i>
+					</a>
+					<price style="color:#c16c43; font-size:2.6rem; padding: 10px 0 5px 0; font-family: Fjalla;">$
+						{$user_info.moneys}</price>
+					<!--<dif><a href="{:url('withdrawal')}">withdraw</a><a href="{:url('donate')}">Donate</a></dif>-->
+					<dif><a href="{:url('withdrawal')}">withdraw</a><a href="{:url('topup')}">topup</a></dif>
+				</div>
+
+				<div class="balance">
+					<t>ACCOUNT NO.</t>
+					<a class="abalance abalancePrice">{$user_info.classin_uid}</a>
+					<price class="share_url">{$reg_url}</price>
+					<dif style="color: #ccc; line-height: 150%; font-weight: normal;">Tell prospective tutors your
+						Partner No. or send this link containing your No.to them.</dif>
+				</div>
+
+				<div class="balance balanceNew">
+					<t>PARTNERSHIP AGREEMENT</t>
+					<dif><a class="abalance" href="{:url('pdf')}" target="_blank"><i
+								class="iconfont iconPDF"></i>DOWNLOAD</a></dif>
+				</div>
+
+			</div>
+			<div class="mainly">
+				<div class="timetable">
+					<t>Recent finshed chats <a href="{:url('chats')}"><img src="__HOME_IMG__/arbt_brown.png" alt=""></a>
+					</t>
+
+					<div class="chatsList">
+						<!-- <div class="nameinfo">No appointment today.</div> -->
+						<!--<a href="{:url('chats')}">more</a>-->
+						<ul class="clearfix">
+							{volist name="chat_lists" id="row"}
+							<li>
+								<div class="chatsListBox">
+									{eq name="user_type" value="2"}
+									<div class="chatsListUserName teacherName"><a
+											href="{:url('tutors/detail', ['teacher_id'=>$row.teacher_id])}"
+											target="_blank">{$row.username}</a></div>
+									{else}
+									<div class="chatsListUserName teacherName"><a href="javascript:;"
+											class="learnerNameClick">{$row.username}</a></div>
+									{/eq}
+									<div class="chatsListTime">
+										<?php echo date('d M', strtotime($row['book_date'])); ?></br>{$row.time_begin}-{$row.time_end}
+									</div>
+								</div>
+							</li>
+							{/volist}
+						</ul>
+					</div>
+
+				</div>
+
+
+				<div class="timetable">
+					<t>New {eq name="user_type" value="1"}Learners {else}tutors{/eq} <a href="{:url('members')}"><img
+								src="__HOME_IMG__/arbt_brown.png" alt=""></a></t>
+
+					<div class="tutorsList">
+						<div class="tutorsListPad">
+							<div class="tutorsListTitle clearfix">
+								<div class="tutorsListTitleTutor">{eq name="user_type" value="1"}Learner{else}Tutor{/eq}</div>
+								<div class="tutorsListTitleRate tutor_star">Rate</div>
+								<div class="tutorsListTitleChat">Chat(s)</div>
+								<div class="tutorsListTitleStatus">Status</div>
+							</div>
+							{volist name="childs" id="vo"}
+							<div class="tutorsListRow clearfix">
+								<i class="tutorsListRowLine"></i>
+								{eq name="user_type" value="2"}
+								<div class="tutorsListTitleTutor"><a
+										href="{:url('tutors/detail', ['teacher_id'=>$vo.id])}"
+										target="_blank">{$vo.username}</a></div>
+								{else}
+								<div class="tutorsListTitleTutor"><a href="javascript:;"
+										class="learnerNameClick" data-language="{$native_languages[$vo.native_language]|default=''}" data-level="{$english_levels[$vo.english_level]|default=''}" data-descr="{$vo.descr}" data-goals="{$vo.goals}" data-locaion="{$countrys[$vo.country_id]|default=''}">{$vo.username}</a></div>
+								{/eq}
+								<div class="tutorsListTitleRate tutor_star"><i
+										class="iconfont iconstar"></i>({$vo.star})</div>
+								<div class="tutorsListTitleChat">{$vo.class_num}</div>
+								<div class="tutorsListTitleStatus" {$vo.has_active>0 ? 'style="color: #22ac38;"' :
+									'style="color: #ccc;"'; }>{$vo.has_active>0 ? 'Active' : 'Inactive'}</div>
+							</div>
+							{/volist}
+						</div>
+					</div>
+
+				</div>
+
+				<div class="side balance_m">
+					<div class="balance balance_m">
+						<t>ACCOUNT NO.</t>
+						<a class="abalance abalancePrice">{$user_info.classin_uid}</a>
+						<price class="share_url">{$reg_url}</price>
+						<dif style="color: #ccc; line-height: 150%; font-weight: normal;">Tell prospective learners your
+							Partner No. or send this link containing your No.to them.</dif>
+					</div>
+
+					<div class="balance balanceNew balance_m">
+						<t>PARTNERSHIP AGREEMENT</t>
+						<dif><a class="abalance"><i class="iconfont iconPDF"></i>DOWNLOAD</a></dif>
+					</div>
+				</div>
+
+			</div>
+		</div>
+
+
+		<div class="popstuNew listPopstu"><img src="/public/home/style/img/closex.png" alt="">
+			<topt>
+				<name></name>
+				<vline></vline>
+				<div><label>First language</label><span class="language"></span></div>
+				<div><label>English proficiency level</label><span class="level"></span></div>
+				<div><label>Location</label><span class="location"></span><span class="descrText"
+						style="display: none;">Write</span></div>
+			</topt>
+			<div style="color: rgba(85, 85, 85, 0.5); padding-bottom: 20px;">Goal of speaking English &nbsp;&nbsp; <span
+					class="speaking goals"></span></div>
+			<p class="descr"></p>
+		</div>
+
+
+		{include file="member/footer_menu"}
+
+		{include file="public/footer"}
+		{include file="member/member_js"}
+		<script>
+			$(document).ready(function() {
+                host = window.location.host;
+                host2=document.domain;
+                $(".share_url").html('https://'+host2 + $(".share_url").html())
+
+				$(".learnerNameClick").click(function() {
+					$('.popstuNew name').html($(this).html());
+					$('.popstuNew .language').html($(this).data('language'));
+					$('.popstuNew .level').html($(this).data('level'));
+					$('.popstuNew .locaion').html($(this).data('locaion'));
+					$('.popstuNew .descr').html($(this).data('descr'));
+					$('.popstuNew .goals').html($(this).data('goals'));
+					$("popbg").show();
+					$(".popstuNew").show();
+					// if($(this).is('.show')){
+					//     $(this).removeClass("show")
+					// }else {
+					//     $(this).addClass("show")
+					// }
+					// $(this).next("div.help_body").toggle()//.siblings("div.help_body").hide();
+					// //$(this).siblings(".help_head").removeClass("show")
+				});
+				
+				$(".popstuNew>img").click(function() {
+					$("popbg").hide();
+					$(".popstuNew").hide();
+				});
+			});
+		</script> 
+	</body>
+</html>

@@ -1,0 +1,106 @@
+nav{background:#fff;box-shadow:0 5px 25px rgba(220,220,220,0.6);}
+.main{text-align: center;
+    width: 100%;
+    margin: 56px auto 100px;
+    min-height: calc(100vh - 320px);
+    /* display: flex; */
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.main .bz{
+    font-size:2.6rem ;
+    color: #42c9b9;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    line-height: 40px;
+    font-family: Fjalla;
+	padding-left: 20px;
+	padding-right: 20px;
+}
+.main b{
+    display: block;
+    font-size: 2.6rem;
+    font-family: Fjalla;
+    }
+.main gid{ display: block;
+    font-size: 1.4rem;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    color: #999;
+text-transform: uppercase;}
+.classtbox{
+    width: 100%;
+    max-width: 820px;
+    margin: 0 auto;
+}
+.main classt{
+    display: inline-block;
+    font-size: 1.4rem;
+    height: 30px;
+    background: #f5f5f5;
+    border-radius:10px;
+    line-height: 30px;
+    margin: 9px 10px;
+    white-space: nowrap;
+    padding-left:10px;
+    padding-right:10px;}
+.main .howto{line-height: 19px;
+    margin-top: 10px;
+    font-size: 14px;
+    color: #999;}
+.main .fixed{
+    margin-top: 36px;}
+.main .fixed a{text-align: center;
+    display: inline-block;
+    width: 260px;
+    height: 60px;
+    font-size: 2.4rem;
+    font-family: Fjalla;
+    text-decoration: none;
+    border-radius: 12px;
+    background: #e54a3a;
+    line-height: 60px;
+    margin-left: 15px;
+    margin-right: 15px;
+    color: #fff;
+    text-transform: uppercase;
+}
+.main .fixed a.borderbt{
+    background: none;
+    color: #e54a3a;
+    border: 2px solid #e54a3a;
+}
+nav >.who\?{
+    display: none;}
+nav a{vertical-align: middle;
+    color: #424242;}
+a{
+    color: #e54a3a;}
+nav .logo{
+    background-image: url("../img/logoblue.png");
+}
+nav div span .blue{
+    color: #e54a3a;}
+nav .on{
+    color: #e54a3a;}
+nav .on::after {
+    background: #e54a3a;
+    width: 40px;
+    height: 2px;
+    content: " ";
+    top: 10px;
+    position: relative;
+}
+input[type="submit"]{
+    width: 260px;background: #e54a3a;
+    font-size: 2.4rem;
+    font-family: Fjalla;text-transform: uppercase;
+    box-shadow:0 1px 20px rgba(220,220,220,0.8);
+    cursor: pointer;
+    color: #fff;
+    margin: 0 auto;border-radius: 10px;
+    text-align: center;
+    height: 60px;
+    flex-wrap: wrap;
+    display: block;}

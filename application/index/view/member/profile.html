@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"  content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no,initial-scale=1.0">
+    <title>Setting_{:config('web_site_title')}</title>
+    <link rel="stylesheet" href="__HOME_CSS__/easydropdown.css">
+    <link rel="stylesheet" href="__HOME_CSS__/layout.css">
+    <link rel="stylesheet" href="__HOME_CSS__/setting_pc.css">
+    <link rel="stylesheet" href="/public/home/css/audio.css">
+    {include file="public/header_js"}
+		<!-- Google Tag Manager -->
+	<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+	new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+	j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+	'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+	})(window,document,'script','dataLayer','GTM-MTCT69F');</script>
+	<!-- End Google Tag Manager -->
+    <style type="text/css">
+        {eq name="user_type" value="1"}
+        .agreementRow input:checked+label { background: url(/public/home/style/img/redche.png) no-repeat center center / 16px 16px; }
+        {else}
+        .agreementRow input:checked+label { background: url(/public/home/style/img/blueche.png) no-repeat center center / 16px 16px; }
+        {/eq}
+        .pwd_msg, .pwd_msg2{ display: block; }
+    </style>
+</head>
+<body class="usertype_{$user_type} partner{$is_partner|default=0}">
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MTCT69F"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+<nav class="dif">
+    {include file="public/nav_menu"}
+</nav>
+<div class="main">
+<div class="tabbox myclass">
+    <dif class="ht"><b>setting</b> <a href="{:url('index')}">back</a></dif>
+    <div class="profilebox">
+        <form method="post" action="{:url('profile')}" id="form_profile" onsubmit="return chk_profile()">
+        <bt>PROFILE</bt>
+        <div class="inputbox">
+            <label>Email</label>
+			<span>{$user_info.email}</span>
+        </div>
+        <div class="inputbox">
+            <label>Name</label>
+        	<input placeholder=" " name="username" id="username" value="{$user_info.username}" type="text" required><div class="border"></div>
+        </div>
+            {eq name="user_type" value="1"}
+        <div class="inputbox">
+                <label>Country Code</label>
+				<select name="country_id" id="country_id">
+                {volist name="countrys" id="vo"}
+                <option value="{$vo.id}" {eq name="user_info.country_id" value="$vo.id"}selected{/eq}>{$vo.country_name}(+{$vo.quhao})</option>
+                {/volist}
+            </select>
+        </div>
+            <div class="inputbox">
+                <label>Cell phone</label>
+                {empty name="user_info.mobile"}
+                <input type="text" name="mobile" value="{$user_info.mobile}" placeholder="Optional">
+                {else}
+				<span>{$user_info.mobile}</span>
+                {/empty}
+            </div>
+            <div class="inputbox">
+                <label>Time Zone</label>
+				<select name="location" id="location">
+                {volist name="locations" id="vo"}
+                <option value="{$vo.id}" {eq name="user_info.location" value="$vo.id"}selected{/eq}>(UTC{$vo.timezone|change_time}){$vo.location_name}</option>
+                {/volist}
+            </select>
+            </div>
+        <div class="inputbox">
+            <label>First language</label>
+			<select name="native_language" id="native_language">
+                {foreach $native_language as $k=>$vo }
+                <option value="{$k}" {eq name="user_info.native_language" value="$k"}selected{/eq} >{$vo}</option>
+                {/foreach}
+            </select>
+        </div>
+        <div class="inputbox">
+            <label>Goals of speaking English</label>
+			<input type="text" name="goals" value="{$user_info.goals}" placeholder="Improve speaking skills...">
+        </div>
+            <div class="inputbox">
+                <label>Years of learning English</label>
+				<input type="text" name="learn_years" required value="{$user_info.learn_years}" placeholder="10 year" >
+            </div>
+        <div class="inputbox">
+            <label>English proficiency level</label>
+            <dib>
+                {foreach $english_level as $k=>$vo }
+                <input name="english_level" value="{$k}" id="level_{$k}" type="radio" {eq name="user_info.english_level" value="$k"}checked{/eq}>
+                <label value="{$k}" for="level_{$k}" {eq name="user_info.english_level" value="$k"}class="checked"{/eq}>{$vo}</label>
+                {/foreach}
+            </dib>
+        </div>
+            {else}
+            <!--<div class="inputbox">
+                <label>Chat rate(USD/30 mins)</label>
+				<input type="text" name="price" value="{$user_info.price}" min="{:config('price_class_min')}" max="{:config('price_class_max')}" required placeholder="${:config('price_class_min')}-{:config('price_class_max')}. Lower rate More attention" onkeyup="value=value.replace(/[^\d.]/g,'')">
+            </div>-->
+            <div class="inputbox">
+                <label>Country Code</label>
+				<select name="country_id" id="country_id">
+                {volist name="countrys" id="vo"}
+                <option value="{$vo.id}" {eq name="user_info.country_id" value="$vo.id"}selected{/eq}>{$vo.country_name}(+{$vo.quhao})</option>
+                {/volist}
+            </select>
+            </div>
+            {empty name="user_info.class_sn"}
+            <div class="inputbox">
+                <label>Cell phone</label>
+				<span>{$user_info.mobile}</span>
+            </div>
+            {else}
+            <div class="inputbox">
+                <label>Account No.</label>
+                <span>{$user_info.class_sn}</span>
+            </div>
+            {/empty}
+            <div class="inputbox">
+                <label>Time Zone</label>
+				<select name="location" id="location">
+                {volist name="locations" id="vo"}
+                <option value="{$vo.id}" {eq name="user_info.location" value="$vo.id"}selected{/eq}>(UTC{$vo.timezone|change_time}){$vo.location_name}</option>
+                {/volist}
+            </select>
+            </div>
+            {/eq}
+            {eq name="user_type" value="1"}
+            <div class="inputbox">
+                <label class="top">Self-introduction</label>
+				<textarea name="descr">{$user_info.descr}</textarea>
+            </div>
+            {else}
+            <input type="hidden" name="desc_type" value="{$user_info.desc_type|default=2}" id="desc_type" />
+            <input type="hidden" name="duration" value="{$user_info.duration|default=0}" id="duration" />
+            <input type="hidden" name="filesize" value="{$user_info.filesize|default=0}" id="filesize" />
+            <input type="hidden" id="mp3file" name="mp3file" value="{$user_info.mp3file}">
+			<div class="inputbox introductionRow">
+			
+			    <label>Self-introduction</label>
+				<div class="selfBox audioBox">
+					<input type="file" id="file1" style="opacity: 0;z-index: -1; width:0;height:0;">
+					<!-- <h1>Introduce yourself briefly</h1> -->
+					<div class="selfCheck">
+						<div data-typeid="1" class="checkLi {if($user_info.desc_type == 1)}active{/if}">
+							<div class="checkLiHread">
+								<span class="checkIcon"></span>Audio
+							</div>
+							<div class="checkLiBody p_left20">
+								<div class="checkLiBodyOne flex_clounm" {notempty name="user_info.mp3file"}style="display: none"{/notempty}>
+									<a href="javascript:;" class="uploadBtn" id="btnUpload">Upload my audio</a> <span>Only m4a or mp3 format is acceptable. No more than 1 minute.</span>
+								</div>
+								<p class="uploadError"></p>
+								<div class="uploadBox" {notempty name="user_info.mp3file"}style="display: block;"{/notempty}>
+									<!-- <p id="audioName"></p> -->
+									<div class="audioRow" style="display: flex; align-items: center;">
+										<span id="audioName" style="margin-right: 10px;"><?php echo substr($user_info['mp3file'], -10); ?></span>
+										<span class="xk_play" data-mp3="{$user_info.mp3file}"></span>
+										<span class="playTime"></span>
+										<audio id="player" hidden></audio>
+									</div>
+									<div class="uploadBoxSetting">
+										<div class="uploadBoxSettingLeft">
+											<div class="expBox">
+												<div class="expItem"></div>
+											</div>
+											<span class="expNum">00:00:{$user_info.duration > 10 ? $user_info.duration : '0'.$user_info.duration}/{$user_info.filesize}MB</span>
+										</div>
+										<a href="javascript:;" id="cancelBtn" class="again">Upload again</a>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div data-typeid="2" class="checkLi {if($user_info.desc_type == 2)}active{/if}">
+							<div class="checkLiHread justifyBetween">
+								<div class="checkLiHreadLeft"><span class="checkIcon"></span>Text</div>
+								<!-- <span class="redTxt"><span class="red">*</span> Please do not exceed 100words</span> -->
+							</div>
+							<div class="checkLiBody p_left20">
+								<textarea name="descr" id="descr">{$user_info.descr}</textarea>
+							</div>
+						</div>
+					</div>
+				</div>			</div>
+            {/eq}
+
+            <div class="inputbox">
+                <label>Email chat reminder</label>
+                <div class="agreementRow">
+                    <input name="email_reminder" value="1" id="agreement" type="checkbox" {eq name="user_info.email_reminder" value="1"}checked{/eq}>
+                    <label class="chbox" value="1" for="agreement"></label>Get a reminder 30 mins before a chat starts
+                </div>
+            </div>
+        <div class="submit">
+			<div class="inputbox">
+				<label>&nbsp;</label>
+				<dib>
+					<input type="submit" value="Update">      
+				</dib>
+			</div>
+			
+		</div>
+            <input type="hidden" name="act" value="edit_profile">
+        </form>
+    </div>
+    <div class="chpassword">
+            <bt>Change Password</bt>
+        <form method="post" action="{:url('profile')}" id="form_pass" onsubmit="return chk_pass()">
+            <input type="hidden" name="act" value="edit_pass">
+        <div class="inputbox">
+            <label>Old Password</label>
+			<input type="password" name="old_pass" id required placeholder="Enter the old password">
+        </div>
+        <div class="inputbox">
+            <label>New Password</label>
+			<input type="password" name="new_pass" id="new_pass" required placeholder="Enter the new password">
+            <vtips class="pwd_msg"></vtips>
+        </div>
+        <div class="inputbox">
+            <label>Re-enter Password</label>
+			<input type="password" name="new_pass2" id="new_pass2" required placeholder="Repeat the new password">
+            <vtips class="pwd_msg2"></vtips>
+        </div>
+		
+        <div class="submit">
+			<div class="inputbox">
+				<label>&nbsp;</label>
+				<dib>
+					<input type="submit" value="Update">
+				</dib>
+			</div>
+		</div>
+        </form>
+    </div>
+
+</div>
+</div>
+{include file="public/footer"}
+{include file="member/member_js"}
+
+</body>
+<script src="__HOME_JS__/easydropdown.js"></script>
+<script>
+    $('#agreement').click(function () {
+        if ($('#agreement').prop('checked') == true) {
+            _agreement = 1;
+            $('.agreementRow').removeClass('red')
+        } else {
+            _agreement = 0;
+        }
+    })
+    easydropdown.all();
+    function chk_profile(){
+        showloading();
+        var _desc_type = $('#desc_type').val();
+        if (_desc_type == 1 && !$("#mp3file").val()) {
+            showmsg('Please upload mp3', 0);
+            return false;
+        } else if (_desc_type == 2 && !$("#descr").val()) {
+            showmsg('Please enter Self-introduction', 0);
+            return false;
+        }
+        $.ajax({
+            data: $('#form_profile').serialize(),
+            type: 'post',
+            url: $('#form_profile').attr('action'),
+            dataType: 'json',
+            success: function (res) {
+                showmsg(res.msg, res.code);
+                if (res.code == 200) {
+                    setTimeout("location.reload()", 2000);
+                }
+            }
+        })
+        return false;
+    }
+
+    $(document).on('input', '#new_pass', function () {
+        if ($(this).val().length<6 || $(this).val().length> 20){
+            $('.pwd_msg').html('Password must between 6-20 in length!').show();
+        }else {
+            $('.pwd_msg').hide();
+        }
+    });
+
+    function chk_pass(){
+        _new_pass = $('#new_pass').val();
+        if (_new_pass.length <6 || _new_pass.length > 20) {
+            $('.pwd_msg').html('Password length is between 6-20!').show();
+            return false;
+        } else {
+            $('.pwd_msg').hide();
+        }
+        _new_pass2 = $('#new_pass2').val();
+        if (_new_pass2.length <6 || _new_pass2.length > 20) {
+            $('.pwd_msg2').html('Password length is between 6-20!').show();
+            return false;
+        } else {
+            $('.pwd_msg2').hide();
+        }
+        if (_new_pass != _new_pass2) {
+            $('.pwd_msg2').html('Your passwords do not match!').show();
+            return false;
+        } else {
+            $('.pwd_msg2').hide();
+        }
+        showloading();
+        $.ajax({
+            data: $('#form_pass').serialize(),
+            type: 'post',
+            url: $('#form_pass').attr('action'),
+            dataType: 'json',
+            success: function (res) {
+                showmsg(res.msg, res.code);
+                if (res.code == 200) {
+                    setTimeout("location.reload()", 2000);
+                }
+            }
+        })
+        return false;
+    }
+</script>
+
+<script type="text/javascript">
+    $(function(){
+        function begin(exp){
+            if(exp!=100){
+                $(".expItem").css("width","0px");
+            }
+            var speed=20;
+            var bar=setInterval(function(){
+                let nowWidth = parseInt($(".expItem").width());
+                if(nowWidth<=exp){
+                    let barWidth=(nowWidth+1)+"px";
+                    $(".expItem").css("width",barWidth);
+                }else{		
+					if(exp==100){
+						$("#cancelBtn").html('Upload again');
+						$("#cancelBtn").removeClass('cancel');
+						$("#cancelBtn").addClass('again');
+					}					
+                    clearInterval(bar);
+                }
+            },speed);
+        }
+        $(".checkLi").on("click",function(){
+            $('#desc_type').val($(this).data('typeid'));
+            $(this).addClass("active").siblings().removeClass("active");
+        });		$('body').on('click',".cancel",function(){
+			$(".uploadBox").hide()
+			$('#mp3file').val('');
+			$('#duration').val('');
+			$('#filesize').val('');
+			$('.checkLiBodyOne').show();
+		})
+		function upload(e){
+			if (e.target.files.length === 0) return
+			$(".uploadError").hide();
+			let file = e.target.files[0];
+			var fileName = file.name.substring(file.name.lastIndexOf(".")+1).toLowerCase();
+			if(fileName !="m4a" && fileName !="mp3"){
+				$(".uploadError").show();
+				$(".uploadError").html('The audio format is unacceptable.');
+				return false;   //阻止submit提交
+			}			
+			var fileurl = URL.createObjectURL(file);
+			//经测试，发现audio也可获取视频的时长
+			var audioElement = new Audio(fileurl);
+		
+			var duration;
+		
+			audioElement.addEventListener("loadedmetadata", function (_event) {
+				duration = audioElement.duration;
+				if(duration>60){
+					$(".uploadError").show();
+					$(".uploadError").html('The audio file should be less than 1 minute.');
+					return false;
+				}else{
+					let fd = new FormData()
+					fd.append('mp3', file)
+					$("#audioName").html(file.name);
+					if(duration<10){
+						duration='0'+parseInt(duration)
+					}else{
+						duration=parseInt(duration)
+					}
+					$(".expNum").html('00:00:'+duration+'/'+(file.size/(1024 * 1024)).toFixed(2)+'MB');
+					$(".expItem").css("width",0);
+					$(".uploadBox").show();  
+					// 发起 jQuery 的 Ajax 请求, 上传文件
+					begin(70);
+					$("#cancelBtn").removeClass('again');
+					$("#cancelBtn").addClass('cancel');
+					$("#cancelBtn").html('Cancel');					
+					$(".xk_play").addClass("dis");
+					$.ajax({
+					  method: 'POST',
+					  url: '{:url("index/uploadmp3")}',
+					  data: fd,// 重要
+					  processData: false,
+					  contentType: false,
+					  dataType: 'json',
+					  success: function (res) {
+						if (res.code == 1) {
+							$('#mp3file').val(res.file);
+							$('#duration').val(duration);
+							$('#filesize').val(file.size/(1024 * 1024));
+							$('.checkLiBodyOne').hide();
+							$(".xk_play").removeClass('dis');
+							$(".xk_play").attr('data-mp3','https://wespeakenglish.chat/'+res.file);
+							begin(100);
+						} else {
+							showmsg(res.msg, res.code);
+							return false;
+						}
+					  }
+					})
+				}		
+			});  
+		}
+        $("#file1").on('change', function (e) {
+			upload(e);
+		})		
+		$('body').on('click','.again',function () {		
+			$('#file1').val('');
+			$(".xk_play").removeClass("pause");
+			$(".xk_play").addClass("dis");
+			var audio = $("#player")[0];
+			audio.pause();
+			setTimeout(function(){
+				$(".playTime").html(' ');
+			},300);			
+		    return $('#file1').click();		
+		    // 核心代码		
+		    let files = $('#file1')[0].files		
+		    if (files.length <= 0) {		
+		        return alert('请选择文件后再上传!')		
+		    }
+		})
+        $('#btnUpload').on('click', function () {
+            return $('#file1').click();
+            // 核心代码
+            let files = $('#file1')[0].files
+            if (files.length <= 0) {
+                return alert('请选择文件后再上传!')
+            }
+        })
+    });
+	$(function play(){
+			var videoUrl='';
+			$(".xk_play").unbind('click').click(function(){			
+				if($(this).hasClass("dis")){
+					return;
+				}
+				if($(this).hasClass("pause")){
+					$(this).removeClass("pause")
+					var audio = $("#player")[0];
+					audio.pause();
+					return;
+				}else{
+					var audio = $("#player")[0];
+					if($(this).attr('data-mp3')==videoUrl){
+						audio.play();
+						videoUrl=$(this).attr('data-mp3');
+						$(".xk_play").removeClass("pause");
+						$(this).addClass("pause")
+					}else{
+						videoUrl=$(this).attr('data-mp3');
+						$("#player").attr('src',$(this).attr('data-mp3'));
+						// $("#player").attr('src','http://test.wespeakenglish.chat/public/uploads/voices/20220814/4f2f678bdb1340e8988c0c526d26c1e1.mp3');	
+						let that=this;
+						setTimeout(function(){
+							audio.play();
+							timeFun(that);
+						},1000);			
+						
+						$(".playTime").removeClass("htmlTxt");
+						$(".playTime").empty();
+						$(this).siblings('.playTime').addClass("htmlTxt");		
+						$(".xk_play").removeClass("pause");
+						$(this).addClass("pause")
+					}
+				}
+			})
+		})
+		var audio = document.getElementById("player");
+		audio.addEventListener('ended', function () {
+			$(".xk_play").removeClass("pause");
+		}, false);
+		audio.onerror = function() {
+			alert("Error! Something went wrong");
+		}; 
+		function timeFun(e){		
+			audio.addEventListener("timeupdate",function(res){
+				let timeDisplay;
+				let musicDom = $("#player")[0];
+				timeDisplay = Math.floor(musicDom.currentTime);
+				let minute = timeDisplay / 60;
+				let minutes = parseInt(minute);
+				if (minutes < 10) {
+					minutes = "0" + minutes;
+				}
+				let second = timeDisplay % 60;
+				let seconds = Math.round(second);
+				if (seconds < 10) {
+					seconds = "0" + seconds;
+				}
+				if(!isNaN(parseFloat(musicDom.duration))){
+					let timeTxt=minutes+":"+seconds+"/00:"+(Math.floor(musicDom.duration)>9?Math.floor(musicDom.duration):('0'+Math.floor(musicDom.duration)));
+					$(".htmlTxt").html(timeTxt);				
+				}
+				// console.log(_this.$store.state.realMusicTime);
+			},false);
+		}
+</script>
+</html>

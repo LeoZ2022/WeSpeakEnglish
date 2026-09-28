@@ -1,0 +1,127 @@
+nav{box-shadow: none}
+nav.wBG{box-shadow: 0 5px 25px rgba(220,220,220,0.6);}
+nav>.logobox{display: none}
+nav .backar{background: url("../img/backar.png") center center no-repeat;
+    background-size: contain;
+    width: 13px;
+    height: 22px;}
+nav a.blue{text-transform: none;
+    font-size: 1.4rem;
+    color: #007edb;}
+nav .hanbugrmenu{
+    background-image: url("../img/habmenu_b.png");
+}
+nav div.who\? span a.sout{
+}
+p.topT{
+    font-size: 4.6rem;align-items: center;
+    text-align: center;
+    margin-top: 0px;}
+p.topT::after {
+    width: 180px;
+    height: 16px;}
+P.topT > a{
+    display: none;}
+.main{overflow-x: hidden;
+    width: 100%;
+    margin: 0;
+    padding-left: 0;
+    padding-right: 0;}
+.withdrawinput{
+    flex-wrap: wrap;
+    padding-bottom: 24px;
+}
+.withdrawinput > label{    margin-bottom: 15px;
+    width: 100%;}
+
+.withdrawinput .msinfo{
+    left: 0;
+    position: relative;
+    top: 10px;
+    padding-left: 5px;
+    text-align: left;
+    width: 100%;}
+.withdrawinput b + .msinfo{
+    top: 10px;}
+.paybarouter{
+    padding-top: 15px;
+    padding-bottom: 15px;}
+
+.paymethod input + label{
+    text-align: left;
+    padding-left: 12px;
+    background: #f8f8f8;
+    margin-right: 0;
+    margin-left:0;
+	height: 50px;
+    width: 100%;
+    margin-bottom: 16px;}
+
+.paymethod  input+label check{
+    margin-right: 10px;
+    display: inline-block;
+    float: right;
+    margin-top: 16px;
+    vertical-align: middle;
+    width: 24px;
+    height: 24px; border-radius:12px;cursor: pointer;
+    background: transparent;    border:1px solid #b6b6b6;
+}
+.paymethod  input:checked+label{background: #fff}
+
+.paymethod  input:checked+label check{display: block;border: none;
+    width: 24px;
+    height: 24px;
+    background:url("../img/bluecheck.png") center center no-repeat;background-size: contain;
+    top: initial;
+    position: relative;
+    right: initial; }
+
+
+.btbox dib{
+    padding-right: 15px;}
+
+.paybar{padding-right: 20px;}
+.paybar img{
+    display: none;}
+.paybar input{
+    width: 139px;
+    height: 50px;}
+.footwrap{
+    display: none;}
+.paymethod input+label img{
+	height: 24px;
+	vertical-align: middle;
+}
+.paymethod input+label check{
+	margin-top: 12px;
+}
+.btbox dib b{
+	font-size: 2.6rem;
+}
+.n_footerMain{
+	display: none;
+}
+.myclass .ht a{
+	display: none;
+}
+.main .ht{
+	border: none;
+	padding: 0;
+}
+.myclass{
+	padding: 20px;
+	border-radius: 0;
+}
+body{
+	background: #fff;
+}
+.learnerhelp .helpli .help_head,
+.help_body{
+	padding-left: 0;
+	
+}
+
+.learnerhelp .helpli .help_head{
+	padding-right: 50px;
+}

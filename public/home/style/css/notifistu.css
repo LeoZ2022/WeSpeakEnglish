@@ -1,0 +1,202 @@
+nav{background:#fff;box-shadow:0 5px 25px rgba(220,220,220,0.6);}
+nav a{vertical-align: middle;
+    color: #424242;}
+nav .logo {
+    background-image: url("../img/logoblue.png");
+}
+a{
+    color: #e54a3a;}
+
+nav .logo{
+    background-image: url("../img/logoblue.png");
+}
+body{background: #F8F8F8}
+nav div span a{text-transform: none;text-decoration: none}
+nav div span line{
+    padding-left: 14px;
+    padding-right: 14px;}
+nav div span .blue{
+    color: #e54a3a;}
+nav div.who\?{
+    display: none;}
+nav .on{
+    color: #e54a3a;}
+nav .on::after {
+    background: #e54a3a;
+    width: 40px;
+    height: 2px;
+    content: " ";
+    top: 10px;
+    position: relative;
+}
+.usertype_2 nav .on{
+    color: #1b76b7;}
+.usertype_2 nav .on::after {
+    background: #1b76b7;
+}
+.main{
+    width: 100%;max-width: 1260px;
+    margin: 56px auto 0;
+}
+.myclass{
+    width: 100%;
+    margin: 54px auto 100px auto;
+    max-width: 1260px;
+    border-radius: 10px;
+    padding:40px 46px;
+    box-shadow: 0 0 10px rgba(225,225,225,0.4);
+    background: #fff}
+.myclass .ht{
+    padding-bottom: 30px;
+    justify-content: space-between;
+border-bottom: 1px solid #f1f1f1}
+.myclass .ht b{
+    font-size: 2.6rem;
+    font-family: Fjalla;
+    text-transform: uppercase;
+    color: #e54a3a;}
+.usertype_2 .myclass .ht b{
+    color: #1b76b7;
+}
+.myclass .ht a{
+    font-size: 2rem;
+    color: #e54a3a;
+    font-family: Fjalla;
+    text-transform: uppercase;
+    text-decoration: none;
+    line-height: 34px;
+    padding-left: 36px;
+    background:url("../img/backarred.png") left center no-repeat;
+}
+.usertype_2 .myclass .ht a{
+    color: #1b76b7;
+    background-image: url("../img/backarblue.png");
+}
+.user_type_2 .logeduser{
+    background-image: url("../img/tutor_b.png");
+    /* background-size:auto 17px; */
+    /* padding-left: 38px; */
+}
+.notibox{
+    cursor: pointer;
+    background: url("../img/graysh.png") right 34px  no-repeat;
+    background-size:40px auto; 
+    color: #e54a3a;
+    padding:35px 0 30px 0;
+}
+.notibox.full{
+    background-image: url("../img/grayex.png");
+}
+.usertype_2 .notibox.unread{
+	background-image: url("../img/helpsh_blue.png") ;
+}
+.usertype_1 .notibox.unread{
+	background-image: url("../img/helpsh.png");
+}
+.usertype_2 .notibox.unread:last-child:after {
+	background:#e6f1fa;
+}
+.usertype_1 .notibox.unread:last-child:after {
+	background:#f5b7b0;
+}
+
+.notimsg{
+    padding-left: 70px;
+}
+.notibox::after{
+	display: block;
+	content: '';
+	position: absolute;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	height: 1px;
+	background-image: linear-gradient(to right, #e3e3e3 0%, #e3e3e3 50%, transparent 0%);
+	background-size: 10px 1px;
+	background-repeat: repeat-x;
+}
+.notibox:last-child::after{
+	background:#e3e3e3;
+}
+.usertype_1 .notibox.unread:after {
+    display: block;
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 1px;
+    background-image: linear-gradient(to right, #f5b7b0 0%, #f5b7b0 50%, transparent 0%);
+    background-size: 10px 1px;
+    background-repeat: repeat-x;
+}
+.usertype_2 .notibox.unread:after {
+    display: block;
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 1px;
+    background-image: linear-gradient(to right, #e6f1fa 0%, #e6f1fa 50%, transparent 0%);
+    background-size: 10px 1px;
+    background-repeat: repeat-x;
+}
+
+.notibox .iconfont{
+	position: absolute;
+	width: 50px;
+	height: 50px;
+	background: #f4f4f4;
+	border-radius: 100%;
+	text-align: center;
+	line-height: 50px;
+	font-size: 32px;
+	left: 0;
+	top: 0; 
+}
+ 
+.usertype_1 .notibox.unread .iconfont{
+	color: #e54a3a;
+	background: #fef7f6;
+}
+.usertype_2 .notibox.unread .iconfont{
+	color: #1b76b7;
+	background: #e6f1fa;
+}
+.notimsg msgt{
+    line-height: 25px;
+    font-family: Fjalla;
+    display: block;
+    margin-bottom: 10px;
+    font-size: 1.8rem;
+    width: 84%}
+.notimsg p{
+    overflow-y: hidden;
+    line-height: 26px;
+    width: 84%}
+.notimsg msgtime{
+    font-size: 1.4rem;
+    margin-top: 15px;
+    display: block;
+    color: #999;}
+
+.usertype_1 .notibox.unread .notimsg msgt{
+    color: #e54a3a;
+}
+.usertype_2 .notibox.unread .notimsg msgt{
+    color: #1b76b7;
+}
+.usertype_2 .notimsg msgt:hover{
+    color: #179dff;
+}
+.usertype_1 .notimsg msgt:hover{
+    color: #f05647;
+}
+.usertype_1 .notibox.unread  .notimsg p{
+    color: #e54a3a;}
+.usertype_2 .notibox.unread  .notimsg p{
+    color: #1b76b7;}
+.notibox.part .notimsg p{
+    height:30px;
+}

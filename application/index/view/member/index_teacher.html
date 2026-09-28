@@ -1,0 +1,850 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-190244183-1">
+</script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-190244183-1');
+</script>    
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no,initial-scale=1.0">
+    <title>Mcenter_{:config('web_site_title')}</title>
+    <link rel="stylesheet" href="__HOME_CSS__/layout.css">
+    <link rel="stylesheet" href="__HOME_CSS__/membercentertut.css">
+    <link rel="stylesheet" type="text/css" href="__HOME_CSS__/membercentertut_m.css" media="(max-width: 750px) "/>
+    {include file="public/header_js"}
+    <script src="__HOME_JS__/vue.js"></script>
+	<!-- Google Tag Manager -->
+	<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+	new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+	j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+	'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+	})(window,document,'script','dataLayer','GTM-MTCT69F');</script>
+	<!-- End Google Tag Manager -->
+</head>
+<body class="usertype_{$user_type} partner{$is_partner|default=0}">
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MTCT69F"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+<nav class="dif">
+    <a class="backar pn" href="javascript:history.go(-1);"></a>
+    <div class="ncenter">ACCOUNT</div>
+    {include file="public/nav_menu"}
+</nav>
+<div class="main clearfix">
+    <div class="side">
+        <div class="tutor">
+            <a href="{:url('profile')}" class="setting">
+				<i class="iconfont iconsetting"></i>
+			</a>
+            <name><b>{$user_info.username}</b></name>
+            <dif class="color">
+                <stars>
+                    {php}echo str_repeat('<img src="/public/home/style/img/star.png" alt="">', $user_info['star']);{/php}
+                    <span>({$user_info.star})</span></stars>
+                <dif>
+                    {eq name="user_info.close_state" value="0"}
+                    <b class="cur">visible</b> <input id="visul" checked type="checkbox">
+                    {else}
+                    <b>INVISIBLE</b> <input id="visul" type="checkbox">
+                    {/eq}
+                    <label for="visul"><tip>Visible or invisible to learners. Invisible means nobody can find you.</tip><r></r></label></dif>
+            </dif>
+<dif class="num">
+            <class><b>{$user_info.class_num}</b><span>Chat(s)</span></class>
+            <Learner><b>{$user_info.learner_num}</b><span>Learner(s)</span></Learner>
+            <!--<level><b>${$user_info.price}</b><span>/30 mins</span></level>-->
+</dif>
+            <local>Reside in the {$country.country_name}(UTC{$location.timezone|change_time})</local>
+        </div>
+        <div class="avtime">
+            <ht>MY AVAILABILITY <a href="{:url('member/calendar')}"><i class="iconfont iconpage-icon-5"></i></a></ht>
+            <p class="title-month"><span @click="upFun" class="upm">  < </span>{{dateYM | ntom}}<span @click="downFun"  class="downm"> >  </span></p>
+            <ul class="week"><li>S</li><li>M</li><li>T</li><li>W</li><li>T</li><li>F</li><li>S</li></ul>
+            <ul class="cal-day">
+                <template v-for="(item,index) in 42">
+                    <li v-if="item - beginDay <= 0">
+                        <p class="day-num gay"  >{{ item - beginDay + prevMdays }}</p>
+                    </li><li class="day" v-else-if="item - beginDay > 0 && item - beginDay <= nowMdays"  :class="{avitime:avtime(item- beginDay),today: initY==cy && initM==cm && (item - beginDay == initD),past: item - beginDay< initD && mindex==0, grayo: (item - beginDay> initD) && mindex==1}">
+
+                    <p class="day-num">{{item - beginDay}}</p>
+                </li><li v-else>
+                    <p class="day-num gay">{{ item - beginDay - nowMdays }}</p>
+                </li>
+                </template>
+            </ul>
+        </div>
+        <!--<div class="balance">-->
+        <!--    <t>ACCOUNT BALANCE</t>-->
+        <!--    <a href="{:url('accounts')}" class="abalance"><img src="__HOME_IMG__/abalance_blue.png" alt=""></a>-->
+        <!--    <price>$ {$user_info.moneys}</price>-->
+        <!--    <dif><a href="{:url('withdrawal')}">withdraw</a><a href="{:url('donate')}">Donate</a></dif>-->
+        <!--</div>20260428 removed-->
+        <div class="incode">
+            <t>INVITATION CODE</t>
+            <dif><strong>{$user_info.invitation_code}</strong> <!--<a class="copy" href="###">copy</a>--></dif>
+            {eq name="user_type" value="2"}
+            <!-- 老师 -->
+            <p>Copy and send this code to your friends who are prospective tutors. If they become a tutor, you could get a $1 reward in your account.</p>
+            {else}
+            <p>Send this code to your friends who can use it to redeem a free chat(the
+                lowest price only).</p>
+            {/eq}
+<!--    <div class="rightpop">
+                <img src="__HOME_IMG__/closex.png" class="closex"  alt="">
+                <img src="__HOME_IMG__/sucess.png" class="tico" width="32px" alt="">
+                <p>Copy successfully,<br>Please send your invitation code to your friends!</p>
+            </div>-->
+        </div>
+    </div>
+    <div class="mainly">
+        <div class="timetable">
+            <t>TIMETABLE <a href="{:url('member/schedule')}"><img src="__HOME_IMG__/arbt_blue.png" alt=""></a></t>
+            <div class="cal-day mn" style="display: none;">
+                <div class="upweek" @click="upWeek" :class="{ go: si>0 }" ></div>
+                <div class="daybox">
+                    <div class="day" v-for="(item,index) in TdateLists" v-if=" si<=index && index<= ei " :class="{today: item[0]==cy && item[1]==cm && item[2] == initD,clicked:item[0]==clicky && item[1]==clickm && item[2] == clickd , choosed:choosed(item[0],item[1],item[2]), tgray:item[4] < trueD-86400000, grayo: item[5]>nextMonth}"   @click="getlist(item[0],item[1],item[2])" >
+						<div class="cdate">
+                            <div class="date">{{item[2]}} <span class="m">{{item[1] | ntoenm}}</span></div>
+                            <div class="week">{{item[3] | ntoenw}}</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="downweek" @click="downWeek" :class="{ stop: ei>DaysBetw }" ></div>
+            </div>
+            <div class="cal-day pn" style="display: none;">
+                <div class="daybox">
+                    <div class="day" v-for="(classes,t) in tablestatus" :class="">
+                        <div class="cdate">
+                            <!--<div class="date">{{new Date(classes.datetime*1000).getDate()}} <span class="m">{{ new Date(classes.datetime*1000).getMonth()+1 | ntoenm}} </span></div>-->
+                            <!--<div class="week">{{new Date(classes.datetime*1000).getDay() | ntoenw}}</div>-->
+                            <div class="date">{{classes.day}} <span class="m">{{classes.month}} </span></div>
+                            <div class="week">{{classes.week}}</div>
+                        </div>
+                        <div class="namer pn"><name>{{classes.username}}</name><time>{{classes.time}}-{{classes.time_end}}</time>
+                            <p class="contentText" style="display: none" data-username="{{classes.username}}" data-img="">{{classes.descr}}</p>
+                            <topt style="display: none">
+                               <name> {{classes.username}}<img :src="classes.location_ico" :alt="classes.location_name" v-if="classes.location_ico"></name> <vline></vline> <div><label>First language</label><span>{{classes.first}}</span></div><div><label>English proficiency level</label><span>{{classes.levels}}</span></div><div><label>Location</label><span>{{classes.location_name}}</span><span class="descrText" style="display: none;">{{classes.goals}}</span></div>
+                            </topt>
+                        </div>
+						<div class="btbox pn"><a class="phoneChatIn" :data-id="classes.id" target="_blank">Chat room</a></div>
+                    </div>
+                </div>
+            </div>
+            <div class="class_list">
+
+            </div>
+            <div class="popstu">
+                <img src="__HOME_IMG__/closex.png" alt="">
+                <topt>StuBN</topt>
+				<div style="color: rgba(85,85,85,.5); padding-bottom: 20px;">Goal of speaking English &nbsp;&nbsp; <span class="speaking"></span></div>
+                <p></p>
+				
+			</div>
+            <div class="r"><i class="iconfont iconhelp" style="font-size: 18px; color: #007edb; font-weight: bold; vertical-align: middle;"></i> Don’t know how to start a chat? <a href="{:url('about/help')}"  style="font-style: oblique;">click here</a></div>
+        </div>
+
+        <div class="topic">
+            <t>Topic</t>
+            <ul class="topicli">
+                {volist name="topic" id="vo"}
+                <li><dl><dt>{$vo.topic_name}</dt><dd>{$vo.descr}</dd></dl></li>
+                {/volist}
+                <div class="shrink pn"><span>EXPAND</span><dib class="tridiv"></dib></div>
+            </ul>
+        </div>
+    </div>
+</div>
+{include file="member/footer_menu"}
+<div class="btimg">
+    <p>We Speak English Network is founded by a group of caring Canadians to help native English speakers and overseas young people to set up a fabulous connection, help the participants find more fun, and help young people improve their English at a very low cost. Whether our platform survives or not depends on how many users support us. As a not-for-profit organization, we cannot afford expensive advertisements for promotion. If you like us, feel free to reach out or tell your friends to join us as a tutor. Your support would encourage us to go further.
+    </p>
+<!--    <a href="{:url('member/donate')}">DONATE / SUPPORT US</a>-->
+</div>
+{include file="public/footer"}
+{include file="member/member_js"}
+
+<div class="classQrFix">
+	<div class="classQrFixPad">
+		<div class="classQrFixHead">
+			ENTER CHATROOM
+			<a href="javascript:;" class="classQrFixClose" onclick="hideClass()"><i class="iconfont iconclose"></i></a>
+		</div>
+		<div class="classQrText">
+			Please use En Chat App to scan the QR code to enter the chatroom. 
+		</div>
+		<div class="classQrMainInfo">
+			<div class="classQrImg" style="min-height: 100px;">
+				<img src="__HOME_IMG__/qrLogo.png" class="classQrLogo" />
+				<img src="" id="qrcode_img">
+			</div>
+			<div class="classQrId">
+				Log in to our APP and enter the chatroom ID
+				<div class="class_info_id"></div>
+				
+			</div>
+			<i class="classQrClear"></i>
+		</div>
+		<div class="classQrFoot">
+			If you have not installed our chat APP, please go to App Store(iPhone), Google Play, 360 store and search <b style="color: #615756;">En Chat</b> to download and install it. Or click <a href="https://wespeakenglish.{$webcom}/app.html" target="_blank">https://wespeakenglish.{$webcom}/app.html</a> to download.
+		</div> 
+	</div>
+</div>
+<style>
+.classQrImg{
+	display: block;
+	position: relative;
+}
+.classQrImg img{
+	display: block;
+}
+.classQrLogo{
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%,-50%);
+	width: 24px;
+	padding: 2px;
+	border-radius: 3px;
+	background: #fff;
+	overflow: hidden;
+	z-index: 99;
+}
+</style>
+</body>
+<script>
+    $(document).on('click', '#visul', function () {
+        if ( document.getElementById('visul').checked ) {
+            close_state = 0;
+        } else {
+            close_state = 1;
+        }
+        $.ajax({
+            data: {close_state: close_state},
+            type: 'post',
+            dataType: 'json',
+            url: '/index/member/set_state',
+        })
+    });
+</script>
+<script language="JavaScript">
+    //课程列表
+    var _tablestatus = {$datetime_txt|raw};
+    //设置了上课时间的日期
+    var _teacher_times = {$teacher_times|json_encode|raw};
+    //点击日期获取课程列表
+    function get_list(_date, _page) {
+        layer.closeAll();
+        $.ajax({
+            url: '/index/member/get_list',
+            data: {date: _date, page: _page},
+            type: 'post',
+            success: function (res) { 
+                $('.class_list').html(res);
+            }
+        })
+    }
+	
+	//跳转修改时间
+	function change_time(id){
+		var url = window.location.host
+		window.location.href = '/index/member/schedule?id=' + id;
+	}
+
+	//confirm appointment
+	function confirm_chat(id, page, date) {
+	    _id = id;
+		_page = page;
+	    _date = date;
+	    if (confirm('Will you show up for this appointment? Click OK to confirm your attendance. We will send an email notification to your partner.')) {
+	        showloading();
+	        $.ajax({
+	            data: {id: _id},
+	            url: '/index/member/confirm',
+	            type: 'post',
+	            dataType: 'json',
+                success: function (res) {
+                    showmsg(res.msg);
+                    if (res.code == 200) {
+                        get_list(_date, _page);
+						vm.$forceUpdate();
+						location.reload();
+                    }
+                }
+	        })
+	    }
+	}
+	
+	//取消课程
+	function confirm_cancel(id, page, date) {
+	    _id = id;
+	    _page = page;
+	    _date = date;
+	        var cancelMessage = prompt("Why do you cancel this meeting? Please leave a message which will be emailed to your partner.");
+
+    if (cancelMessage === null) {
+        // User clicked cancel or closed the prompt
+        return;
+    }
+	   // if (confirm('Do you want to cancel the chat?')) {
+	        showloading();
+	        $.ajax({
+	            data: {id: _id,cancel_message: cancelMessage},
+	            url: '/index/member/cancel',
+	            type: 'post',
+	            dataType: 'json',
+	            success: function (res) {
+	                showmsg(res.msg);
+	                if (res.code == 200) {
+	                    get_list(_date, _page);
+						vm.$forceUpdate();
+						//location.reload();
+	                }
+	            }
+	        })
+	    }
+// 	}
+	
+	
+	
+    var _date_sys = new Date({:date('Y', $time_now)},{:date('m', $time_now)-1},{:date('d', $time_now)},{:date('H', $time_now)},{:date('i', $time_now)},{:date('s', $time_now)});
+    initY = _date_sys.getFullYear();
+    initM = _date_sys.getMonth() + 1;
+    initD = _date_sys.getDate();
+    var _date_next_month = new Date({:date('Y', $time_now)},{:date('m', $time_now)-1},{:date('d', $time_now)},{:date('H', $time_now)},{:date('i', $time_now)},{:date('s', $time_now)});
+    console.log(_date_sys,'sys');
+    console.log('{$date_now}');
+    _date_next_month.setMonth(_date_next_month.getMonth()+1);
+    console.log(_date_next_month, 'next');
+
+    week_num = WeeksBetw(_date_sys, _date_next_month);
+    DaysBetw = DaysBetw(_date_sys, _date_next_month);
+</script>
+<script>
+    var vm = new Vue({
+        el: '.main',
+        data:{
+            preDate: 0, //上个月时间
+            _date: 0,
+            _datet: 0 ,
+            t_date: 0,
+            initY: 0, //当前 年
+            initM: 0, //当前 月
+            initD: 0, //当前 日
+            initW: 0, //当前 周
+            finitD: 0,
+            mindex:0,//标示是上月还是下月
+            si: 0,
+            ei: 6,
+            tinitD: _date_sys,
+            timehour: 0,
+            enMonth: '',
+            tablestatus:_tablestatus,
+            trueD:_date_sys.getTime(),
+            nextMonth: _date_next_month,
+            DaysBetw: DaysBetw,
+            tempdatelists:[],
+            timeclicked:[],
+            daynums: week_num * 7,
+            DateList: [],
+            Datelists: [],
+            TdateLists: [],
+            //  HourList: [],		//钟点时间 24小时  赋值写死
+            HourList: [
+                '00:00', '00:30', '01:00', '01:30', '02:00', '03:00', '03:30', '04:00', '04:30', '05:00', '05:00', '06:30', '06:00', '07:30', '07:00'
+                , '08:00', '08:30', '09:00', '09:30', '10:00', '10:30', '11:00', '11:30', '12:00', '12:30', '13:00', '13:30', '14:00', '14:30',
+                '15:00', '15:30', '16:00', '16:30', '17:00', '17:30', '18:00', '18:30', '19:00', '19:30', '20:00', '20:30', '21:00', '21:30',
+                '21:00', '21:30', '22:00', '22:30', '23:00', '23:30'
+            ],
+            cy: 0, //temp 上下年变化
+            cm: 0, //temp 上下月变化
+            cd: 0,
+            clicky:0,
+            clickm:0,
+            clickd:0,
+            dateYM: 0, // 标题显示
+            beginDay: 0, //当月开始是周几
+            prevMdays: 0, //上个月总天数
+            nowMdays: 0, // 当月天数
+        },
+        created: function () {
+            for(k in _teacher_times)
+            {
+                this.tempdatelists[k] = _teacher_times[k].date;
+            }
+            // this._date = new Date();
+            // this._datet=new Date();
+            this._date = _date_sys;
+            this._datet=new Date({:date('Y', $time_now)},{:date('m', $time_now)-1},{:date('d', $time_now)},{:date('H', $time_now)},{:date('i', $time_now)},{:date('s', $time_now)});;
+            // 初始化 当前时间 y-m-d
+            this.initY = this._date.getFullYear()
+            this.initM = this._date.getMonth() + 1
+            this.initD = this._date.getDate();
+            this.initW = this._date.getDay();
+            this.enMonth = this._date.toDateString().split(" ")[1];
+            this.timehour = this._date.getHours()
+            this.dateYM = this.initY + '-' + this.initM
+
+
+
+			console.log(_date_sys,'cd')
+
+			//today: item[0]==cy && item[1]==cm && item[2] == initD
+
+            // 初始化&切换上下月使用
+            this.cy = this._date.getFullYear()
+            this.cm = this._date.getMonth() + 1
+            this.cd = this._date.getDate();
+            this.finitD = new Date(this._datet.setDate(   this.initD  - this.initW  )).getDate()//算出当前日期的上一个周日的日期
+
+           //生成日期数组
+            for (i = 0; i < this.daynums; i++) {
+                // this.tinitD= _date_sys;
+				// this.t_date = new Date(this.tinitD.setDate(   this.initD - this.initW  ));//重置日期
+                // this.DateList[i] = this.t_date.setDate(this.finitD + i);//从重置日期处往后循环出日期
+                let td=new Date(initY,initM-1,initD)
+                this.t_date = new Date(td.setDate(   this.initD - this.initW  ));//重置日期
+                this.DateList[i] = this.t_date.setDate(this.finitD + i);  //从重置日期处往后循环出日期
+            }
+
+            //分年、月、日塞进数组
+            for (i = 0; i < this.daynums; i++) {
+                this.Datelists[i] = new Array();
+                this.Datelists[i][0] = new Date(this.DateList[i]).getFullYear();
+                //this. Datelists[i][1] =new Date(this.DateList[i]).toDateString().split(" ")[1];
+                this.Datelists[i][1] = new Date(this.DateList[i]).getMonth() + 1;
+                this.Datelists[i][2] = new Date(this.DateList[i]).getDate();
+                this.Datelists[i][3] = new Date(this.DateList[i]).getDay();
+                this.Datelists[i][5] = new Date(this.DateList[i]);
+                this.Datelists[i][4]=this.DateList[i]
+            }
+            this.TdateLists = this.Datelists;
+            console.log(this.Datelists);
+            // 当前日期
+            this.nowMdays = this.getGetDate(this.initY, this.initM)
+            this.beginDay = this.dayStart(this.initY, this.initM) || 7 ;
+
+            //计算上一月天数 填充当月
+            this.getPreMonthDay();
+            $('.cal-day').show();
+        },
+
+        mounted() {
+            this.screenWidth = document.body.clientWidth;
+            if (this.screenWidth<750){
+                this.si=0;
+                this.ei=this.daynums;
+            }
+       //     getlist(item[0],item[1],item[2])
+            this.getlist(this.initY ,this.initM,this.initD)
+        },
+
+        filters:{
+            ntom:function(num){
+                let enm;
+                switch (num.split("-")[1].trim()) {
+                    case "1":
+                        enm = "Jan";
+                        break;
+                    case "2":
+                        enm = "Feb";
+                        break;
+                    case "3":
+                        enm = "Mar";
+                        break;
+                    case "4":
+                        enm = "Apr";
+                        break;
+                    case "5":
+                        enm = "May";
+                        break;
+                    case "6":
+                        enm = "Jun";
+                        break;
+                    case "7":
+                        enm = "Jul";
+                        break;
+                    case "8":
+                        enm = "Aug";
+                        break;
+                    case "9":
+                        enm = "Sep";
+                        break;
+                    case "10":
+                        enm = "Oct";
+                        break;
+                    case "11":
+                        enm = "Nov";
+                        break;
+                    case "12":
+                        enm = "Dec";
+                        break;
+                }
+                return enm+". " + num.split("-")[0].trim();
+            },
+            ntoenm:function(num){
+                let enm;
+                switch (num) {
+                    case 1:
+                        enm = "Jan";
+                        break;
+                    case 2:
+                        enm = "Feb";
+                        break;
+                    case 3:
+                        enm = "Mar";
+                        break;
+                    case 4:
+                        enm = "Apr";
+                        break;
+                    case 5:
+                        enm = "May";
+                        break;
+                    case 6:
+                        enm = "Jun";
+                        break;
+                    case 7:
+                        enm = "Jul";
+                        break;
+                    case 8:
+                        enm = "Aug";
+                        break;
+                    case 9:
+                        enm = "Sep";
+                        break;
+                    case 10:
+                        enm = "Oct";
+                        break;
+                    case 11:
+                        enm = "Nov";
+                        break;
+                    case 12:
+                        enm = "Dec";
+                        break;
+                }
+                return enm;
+            },
+            ntoenw:function (num){
+                let enw;
+                switch (num) {
+                    case 0:
+                        enw = "SUNDAY";
+                        break;
+                    case 1:
+                        enw = "MONDAY";
+                        break;
+                    case 2:
+                        enw = "TUESDAY";
+                        break;
+                    case 3:
+                        enw = "WEDNESDAY";
+                        break;
+                    case 4:
+                        enw = "THURSDAY";
+                        break;
+                    case 5:
+                        enw = "FRIDAY";
+                        break;
+                    case 6:
+                        enw = "SATURDAY";
+                        break;
+                }
+                return enw;
+            }
+
+        },
+
+        methods: {
+            // 当前天数
+            getGetDate: function (year, month) {
+                var d = new Date(year, month, 0);
+                return d.getDate();
+            },
+            // 获取当月第一周几
+            dayStart: function (year, month) {
+                var tmpDate = new Date(year, month - 1, 1);
+                return (tmpDate.getDay());
+            },
+            upFun: function () {
+                $(".upm").css("visibility","hidden");
+                $(".downm").css("visibility","visible");
+                this.mChange(-1);
+                this.mindex=0;
+            },
+            //下个月
+            downFun: function () {
+                $(".downm").css("visibility","hidden");
+                $(".upm").css("visibility","visible");
+                this.mChange(1);
+                this.mindex=1;
+            },
+            // 上一周
+            upWeek: function () {
+                if( this.ei-this.si<6){
+                    this.ei=this.si+6
+                }
+                this.si = this.si - 7
+                this.ei = this.ei - 7
+                if (this.si < 0) {
+                    this.si = 0;
+                    this.ei = 6;
+                }
+            },
+            //下一周
+            downWeek: function () {
+                //  console.log(this.TdateLists.length)
+                let tsi = this.si + 7
+                let tei = this.ei + 7
+                if (tei >= this.TdateLists.length) {
+                    this.ei = this.TdateLists.length-1
+                } else {
+                    this.ei = this.ei + 7
+                }
+                this.si = this.si + 7
+            },
+            mChange: function (m){
+                // this._date.setMonth(this._date.getMonth() + m);
+                let td = window.initD;
+                let _newmonth = this._date.getMonth() + m;
+                console.log('month', _newmonth, this.initM, this.initD, window.initD);
+                if (td == 31 && _newmonth != 7) {
+                    td = 30;
+                    if (_newmonth == 1) {
+                        td = 28;
+                    }
+                }
+                this._date.setMonth(_newmonth, td);
+
+                this.dateYM = this._date.getFullYear() + '-' + (this._date.getMonth() + 1);
+                // 切换上下月，获取year \ month
+                this.cy = this._date.getFullYear();
+                this.cm = this._date.getMonth() + 1;
+                this.nowMdays = this.getGetDate(this.cy, this.cm)
+                this.beginDay = this.dayStart(this.cy, this.cm) || 7
+                this.getPreMonthDay();
+            },
+            //获取上个月天数
+            getPreMonthDay: function () {
+                // 当月
+                var cyear = this._date.getFullYear();
+                var cMonth = this._date.getMonth();
+                this.preDate = new Date(cyear, cMonth);
+                this.preDate.setMonth(this.preDate.getMonth());
+                this.prevMdays = this.getGetDate(this.preDate.getFullYear(), this.preDate.getMonth());
+            },
+            //判断侧栏小日历日期是否有被选
+            avtime:function(d){
+
+
+                let tof;
+                let   YMarr=this.dateYM.split("-");
+                for (k in this.tempdatelists){
+                    if(
+                        // YMarr[0] == new Date(this.tempdatelists[k]).getFullYear() &&
+                        // YMarr[1] == new Date(this.tempdatelists[k]).getMonth() + 1 &&
+                        // d=== new Date(this.tempdatelists[k]).getDate()
+
+						YMarr[0]*1 == this.tempdatelists[k].split("-")[0]*1 &&
+						YMarr[1]*1 == this.tempdatelists[k].split("-")[1]*1 &&
+						d*1=== this.tempdatelists[k].split("-")[2]*1
+
+
+
+                   //     &&this.tablestatus[k].booked==1
+                    ){
+                        tof = true
+                        return tof
+                    }
+                }
+            },
+
+            //判断主栏顶日历日期是否有被选
+            choosed:function(y,m,d){
+                let tof;
+                //  let   YMarr=this.dateYM.split("-");
+                for (k in this.tablestatus){
+                    if(
+                        // y == new Date(this.tablestatus[k].datetime*1000).getFullYear() &&
+                        // m == new Date(this.tablestatus[k].datetime*1000).getMonth() + 1 &&
+                        // d== new Date(this.tablestatus[k].datetime*1000).getDate()
+
+						y*1 == this.tablestatus[k].date.split("-")[0]*1 &&
+						m*1 == this.tablestatus[k].date.split("-")[1]*1 &&
+						d*1== this.tablestatus[k].date.split("-")[2]*1
+                      && this.tablestatus[k].booked==1
+                    ){
+                        tof = true
+                        return tof
+                    }
+                }
+            },
+            getlist:function (y,m,d){
+                let  YMarr=this.dateYM.split("-");
+                this.clicky = y
+                this.clickm = m
+                this.clickd = d
+                window._date = YMarr[0]+'-'+YMarr[1]+'-'+d;
+                window.get_list(y+'-'+m+'-'+d, 1);
+            }
+        }
+    })
+/*    $(document).on('click', '.copy', function () {
+        $(".rightpop").show();
+        $("popbg").show();
+    });*/
+/*    $(document).on('click', '.closex', function () {
+        $(".rightpop").hide();
+        $("popbg").hide();
+    });*/
+    var topheight
+    $(function(){
+        topheight = $(".topicli").height();
+        if($(window).width()<751){
+            $(".topicli").height(140);
+        }
+    });
+    $(document).on('click', '.topicli>div.expend', function () {
+        $(".topicli").animate({height:"140px"},200,"swing",function(){ $(".topicli span").text("EXPAND")});
+        $(".topicli>div").removeClass("expend").addClass("shrink");
+    });
+    $(document).on('click', '.topicli>div.shrink', function () {
+        //  $(".topicli").css({height:"auto"});
+        $(".topicli").animate({height:topheight},200,"swing",function(){ $(".topicli span").text("UP")});
+        $(".topicli>div").removeClass("shrink").addClass("expend");
+    });
+	$(document).on('click', '.side .tutor .color > dif label', function () {
+		if($("#visul").is(':checked')){
+			$(".side .tutor .color > dif b").removeClass("cur").html('INVISIBLE')
+		}else {
+			$(".side .tutor .color > dif b").addClass("cur").html('VISIBILE')
+		}
+    });
+    $(document).on('click', '.namer  name', function () {
+        // $(".popstu topt").html($(this).parent().find('p').data('username'));
+        $(".popstu topt").html($(this).parents().find('topt').html());
+        $(".popstu p").html($(this).parents().find('p.contentText').html());
+		$('.speaking').html($(this).parents().find('.descrText').html())
+        $("popbg").show();
+        $(".popstu").show();
+    });
+
+    $(document).on('click', '.popreview>img,.popstu>img', function () {
+        $("popbg").hide();
+        $(".popstu,.popreview").hide();
+    });
+	
+	function showclass(classin_id, class_id) {
+		$("popbg").show();
+		$('.classQrFix').fadeIn(300)
+	    $('.class_info_id').html(classin_id);
+	    $('#qrcode_img').attr('src', '{:url('member/get_room')}?class_id='+ class_id);
+	}
+	function hideClass(classin_id, class_id) {
+		$("popbg").hide();
+		$('.classQrFix').fadeOut(300)
+	}
+	
+	
+	
+	$(".phoneChatIn").click(function(event) {
+		
+		var id = $(this).attr("data-id")
+		console.log(id)
+		browserOpenApp(id)
+	});
+	function detectOS() {
+		var sUserAgent = navigator.userAgent;
+		var isWin = (navigator.platform == "Win32") || (navigator.platform == "Windows");
+		var isMac = (navigator.platform == "Mac68K") || (navigator.platform == "MacPPC") || (navigator.platform == "Macintosh") || (navigator.platform == "MacIntel");
+		if (isMac) return "Mac";
+	  
+		var isAndroid = (sUserAgent.indexOf('Android') > -1);
+		if (isAndroid) return "Android";
+	
+		var isIos = (sUserAgent.indexOf('iPhone') > -1 || sUserAgent.indexOf('iPad') > -1 || sUserAgent.indexOf('iPod') > -1);
+		if (isIos) return "iOS";
+	 
+		if (isWin) {
+		   var isWin2K = sUserAgent.indexOf("Windows NT 5.0") > -1 || sUserAgent.indexOf("Windows 2000") > -1;
+		   if (isWin2K) return "Win2000";
+		   var isWinXP = sUserAgent.indexOf("Windows NT 5.1") > -1 || sUserAgent.indexOf("Windows XP") > -1;
+		   if (isWinXP) return "WinXP";
+		   var isWin2003 = sUserAgent.indexOf("Windows NT 5.2") > -1 || sUserAgent.indexOf("Windows 2003") > -1;
+		   if (isWin2003) return "Win2003";
+		   var isWin7 = sUserAgent.indexOf("Windows NT 6.1") > -1 || sUserAgent.indexOf("Windows 7") > -1;
+		   if (isWin7) return "Win7";
+		}
+		return "other";
+	}
+	
+	
+	var appUrl = 'wespeakenglish://pages/index/index?id={$user_info.id}&email={$user_info.email}&password={$user_info.md5}&username={$user_info.username}'
+
+	var timer
+	
+	document.addEventListener("visibilitychange", function () {
+	  if (timer) {
+	    clearTimeout(timer)
+	  }
+	}, false);
+	
+	function browserOpenApp(id) {
+		var os = detectOS()
+		if(os == 'iOS'){
+	        var loadDateTime = new Date();
+	        // window.location = appUrl+'&class_id='+id; //schema链接或者universal link
+	        window.location = appUrl; //schema链接或者universal link
+	        // window.setTimeout(function() { //如果没有安装app,便会执行setTimeout跳转下载页
+	        //     var timeOutDateTime = new Date();
+	        //     if (timeOutDateTime - loadDateTime < 5000) {
+	        //         let r = confirm("En_chat is not installed on your phone. Do you want to go to the App Store to obtain it?")
+	        //         if (r) {
+	        //             window.location = 'https://itunes.apple.com/cn/app/id1564368120?mt=8'
+	        //         }
+	        //     } else {
+	        //         window.close();
+	        //     }
+	        // }, 1000);
+			window.setTimeout(function() {
+				window.location = '/app.html'
+			}, 200)
+			
+		}else{
+			// window.location =  appUrl+'&class_id='+id
+			window.location =  appUrl
+			timer = window.setTimeout(function () {  //  未安装的情况
+				 
+			  //  提示下载
+				let r = confirm("En Chat is not installed on your device. Do you want to download and install En Chat immediately?\n\nAndroid system might ask 'record audio' permission, we don't record anything actually.")
+				if (r) {
+					// window.location = '{$apk_downfile}'
+					window.location = '/app.html'
+				}
+			}, 300)
+			
+		}
+	}
+
+    //分页跳转
+    function goto(_obj) {
+        var _url = $(_obj).data('url');
+        $.ajax({
+            url: _url,
+            type: 'post',
+            success: function (res) {
+                $('.class_list').html(res);
+                window.scrollTo(0, 0)
+            }
+        })
+    }
+
+</script>
+</html>

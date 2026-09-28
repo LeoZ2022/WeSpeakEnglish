@@ -1,0 +1,30 @@
+2023-12-25 23:57:57 callback
+{
+	"EventGroupId":	1,
+	"EventType":	101,
+	"CallbackTs":	1703519877797,
+	"EventInfo":	{
+		"RoomId":	13202,
+		"EventTs":	1703519877,
+		"EventMsTs":	1703519877720,
+		"UserId":	"831"
+	}
+}
+
+2023-12-25 23:57:58 callback
+{
+	"EventGroupId":	1,
+	"EventType":	103,
+	"CallbackTs":	1703519877797,
+	"EventInfo":	{
+		"RoomId":	13202,
+		"EventTs":	1703519877,
+		"EventMsTs":	1703519877720,
+		"UserId":	"831",
+		"Role":	20,
+		"TerminalType":	2,
+		"UserType":	3,
+		"Reason":	1
+	}
+}
+

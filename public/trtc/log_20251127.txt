@@ -1,0 +1,496 @@
+2025-11-27 08:58:39 callback
+{
+	"EventGroupId":	1,
+	"EventType":	103,
+	"CallbackTs":	1764205119076,
+	"EventInfo":	{
+		"RoomId":	14795,
+		"EventTs":	1764205119,
+		"EventMsTs":	1764205119051,
+		"UserId":	"2345",
+		"Role":	20,
+		"TerminalType":	2,
+		"UserType":	3,
+		"Reason":	1,
+		"ClientIpv4":	"182.48.68.178"
+	}
+}
+
+2025-11-27 08:58:39 callback
+{
+	"EventGroupId":	1,
+	"EventType":	101,
+	"CallbackTs":	1764205119126,
+	"EventInfo":	{
+		"RoomId":	14795,
+		"EventTs":	1764205119,
+		"EventMsTs":	1764205119046,
+		"UserId":	"2345"
+	}
+}
+
+2025-11-27 09:01:20 callback
+{
+	"EventGroupId":	1,
+	"EventType":	103,
+	"CallbackTs":	1764205280742,
+	"EventInfo":	{
+		"RoomId":	14795,
+		"EventTs":	1764205280,
+		"EventMsTs":	1764205280562,
+		"UserId":	"2647",
+		"Role":	20,
+		"TerminalType":	2,
+		"UserType":	3,
+		"Reason":	1,
+		"ClientIpv4":	"72.143.214.205"
+	}
+}
+
+2025-11-27 09:21:59 callback
+{
+	"EventGroupId":	1,
+	"EventType":	104,
+	"CallbackTs":	1764206519240,
+	"EventInfo":	{
+		"RoomId":	14795,
+		"EventTs":	1764206519,
+		"EventMsTs":	1764206519054,
+		"UserId":	"2647",
+		"Role":	20,
+		"Reason":	1
+	}
+}
+
+2025-11-27 09:22:02 callback
+{
+	"EventGroupId":	1,
+	"EventType":	103,
+	"CallbackTs":	1764206522070,
+	"EventInfo":	{
+		"RoomId":	14795,
+		"EventTs":	1764206521,
+		"EventMsTs":	1764206521957,
+		"UserId":	"2647",
+		"Role":	20,
+		"TerminalType":	2,
+		"UserType":	3,
+		"Reason":	1,
+		"ClientIpv4":	"72.143.214.205"
+	}
+}
+
+2025-11-27 09:24:18 callback
+{
+	"EventGroupId":	1,
+	"EventType":	104,
+	"CallbackTs":	1764206658894,
+	"EventInfo":	{
+		"RoomId":	14795,
+		"EventTs":	1764206658,
+		"EventMsTs":	1764206658718,
+		"UserId":	"2647",
+		"Role":	20,
+		"Reason":	1
+	}
+}
+
+2025-11-27 09:24:21 callback
+{
+	"EventGroupId":	1,
+	"EventType":	103,
+	"CallbackTs":	1764206661767,
+	"EventInfo":	{
+		"RoomId":	14795,
+		"EventTs":	1764206661,
+		"EventMsTs":	1764206661586,
+		"UserId":	"2647",
+		"Role":	20,
+		"TerminalType":	2,
+		"UserType":	3,
+		"Reason":	1,
+		"ClientIpv4":	"72.143.214.205"
+	}
+}
+
+2025-11-27 09:36:09 callback
+{
+	"EventGroupId":	1,
+	"EventType":	104,
+	"CallbackTs":	1764207369163,
+	"EventInfo":	{
+		"RoomId":	14795,
+		"EventTs":	1764207369,
+		"EventMsTs":	1764207369090,
+		"UserId":	"2345",
+		"Role":	20,
+		"Reason":	1
+	}
+}
+
+2025-11-27 09:36:11 callback
+{
+	"EventGroupId":	1,
+	"EventType":	104,
+	"CallbackTs":	1764207370898,
+	"EventInfo":	{
+		"RoomId":	14795,
+		"EventTs":	1764207370,
+		"EventMsTs":	1764207370787,
+		"UserId":	"2647",
+		"Role":	20,
+		"Reason":	1
+	}
+}
+
+2025-11-27 09:36:11 callback
+{
+	"EventGroupId":	1,
+	"EventType":	102,
+	"CallbackTs":	1764207371042,
+	"EventInfo":	{
+		"RoomId":	14795,
+		"EventTs":	1764207370,
+		"EventMsTs":	1764207370958
+	}
+}
+
+2025-11-27 10:29:58 callback
+{
+	"EventGroupId":	1,
+	"EventType":	103,
+	"CallbackTs":	1764210598555,
+	"EventInfo":	{
+		"RoomId":	14819,
+		"EventTs":	1764210598,
+		"EventMsTs":	1764210598531,
+		"UserId":	"2345",
+		"Role":	20,
+		"TerminalType":	2,
+		"UserType":	3,
+		"Reason":	1,
+		"ClientIpv4":	"182.48.68.178"
+	}
+}
+
+2025-11-27 10:29:58 callback
+{
+	"EventGroupId":	1,
+	"EventType":	101,
+	"CallbackTs":	1764210598599,
+	"EventInfo":	{
+		"RoomId":	14819,
+		"EventTs":	1764210598,
+		"EventMsTs":	1764210598526,
+		"UserId":	"2345"
+	}
+}
+
+2025-11-27 10:32:07 callback
+{
+	"EventGroupId":	1,
+	"EventType":	104,
+	"CallbackTs":	1764210727078,
+	"EventInfo":	{
+		"RoomId":	14819,
+		"EventTs":	1764210727,
+		"EventMsTs":	1764210727000,
+		"UserId":	"2345",
+		"Role":	20,
+		"Reason":	2
+	}
+}
+
+2025-11-27 10:32:07 callback
+{
+	"EventGroupId":	1,
+	"EventType":	102,
+	"CallbackTs":	1764210727163,
+	"EventInfo":	{
+		"RoomId":	14819,
+		"EventTs":	1764210727,
+		"EventMsTs":	1764210727081
+	}
+}
+
+2025-11-27 10:32:07 callback
+{
+	"EventGroupId":	1,
+	"EventType":	101,
+	"CallbackTs":	1764210727847,
+	"EventInfo":	{
+		"RoomId":	14819,
+		"EventTs":	1764210727,
+		"EventMsTs":	1764210727779,
+		"UserId":	"2345"
+	}
+}
+
+2025-11-27 10:32:07 callback
+{
+	"EventGroupId":	1,
+	"EventType":	103,
+	"CallbackTs":	1764210727873,
+	"EventInfo":	{
+		"RoomId":	14819,
+		"EventTs":	1764210727,
+		"EventMsTs":	1764210727783,
+		"UserId":	"2345",
+		"Role":	20,
+		"TerminalType":	2,
+		"UserType":	3,
+		"Reason":	3,
+		"ClientIpv4":	"182.48.68.178"
+	}
+}
+
+2025-11-27 10:36:14 callback
+{
+	"EventGroupId":	1,
+	"EventType":	104,
+	"CallbackTs":	1764210974015,
+	"EventInfo":	{
+		"RoomId":	14819,
+		"EventTs":	1764210973,
+		"EventMsTs":	1764210973995,
+		"UserId":	"2345",
+		"Role":	20,
+		"Reason":	1
+	}
+}
+
+2025-11-27 10:36:14 callback
+{
+	"EventGroupId":	1,
+	"EventType":	102,
+	"CallbackTs":	1764210974126,
+	"EventInfo":	{
+		"RoomId":	14819,
+		"EventTs":	1764210974,
+		"EventMsTs":	1764210974061
+	}
+}
+
+2025-11-27 14:30:10 callback
+{
+	"EventGroupId":	1,
+	"EventType":	101,
+	"CallbackTs":	1764225010738,
+	"EventInfo":	{
+		"RoomId":	14817,
+		"EventTs":	1764225010,
+		"EventMsTs":	1764225010665,
+		"UserId":	"2345"
+	}
+}
+
+2025-11-27 14:30:10 callback
+{
+	"EventGroupId":	1,
+	"EventType":	103,
+	"CallbackTs":	1764225010689,
+	"EventInfo":	{
+		"RoomId":	14817,
+		"EventTs":	1764225010,
+		"EventMsTs":	1764225010669,
+		"UserId":	"2345",
+		"Role":	20,
+		"TerminalType":	2,
+		"UserType":	3,
+		"Reason":	1,
+		"ClientIpv4":	"182.48.68.178"
+	}
+}
+
+2025-11-27 14:30:36 callback
+{
+	"EventGroupId":	1,
+	"EventType":	103,
+	"CallbackTs":	1764225036517,
+	"EventInfo":	{
+		"RoomId":	14817,
+		"EventTs":	1764225036,
+		"EventMsTs":	1764225036348,
+		"UserId":	"2573",
+		"Role":	20,
+		"TerminalType":	2,
+		"UserType":	3,
+		"Reason":	1,
+		"ClientIpv4":	"41.210.159.79"
+	}
+}
+
+2025-11-27 14:31:18 callback
+{
+	"EventGroupId":	1,
+	"EventType":	104,
+	"CallbackTs":	1764225078833,
+	"EventInfo":	{
+		"RoomId":	14817,
+		"EventTs":	1764225078,
+		"EventMsTs":	1764225078811,
+		"UserId":	"2345",
+		"Role":	20,
+		"Reason":	1
+	}
+}
+
+2025-11-27 14:31:23 callback
+{
+	"EventGroupId":	1,
+	"EventType":	103,
+	"CallbackTs":	1764225083525,
+	"EventInfo":	{
+		"RoomId":	14817,
+		"EventTs":	1764225083,
+		"EventMsTs":	1764225083502,
+		"UserId":	"2345",
+		"Role":	20,
+		"TerminalType":	2,
+		"UserType":	3,
+		"Reason":	1,
+		"ClientIpv4":	"182.48.68.178"
+	}
+}
+
+2025-11-27 14:31:55 callback
+{
+	"EventGroupId":	1,
+	"EventType":	104,
+	"CallbackTs":	1764225115343,
+	"EventInfo":	{
+		"RoomId":	14817,
+		"EventTs":	1764225115,
+		"EventMsTs":	1764225115166,
+		"UserId":	"2573",
+		"Role":	20,
+		"Reason":	1
+	}
+}
+
+2025-11-27 14:32:00 callback
+{
+	"EventGroupId":	1,
+	"EventType":	103,
+	"CallbackTs":	1764225120274,
+	"EventInfo":	{
+		"RoomId":	14817,
+		"EventTs":	1764225120,
+		"EventMsTs":	1764225120095,
+		"UserId":	"2573",
+		"Role":	20,
+		"TerminalType":	2,
+		"UserType":	3,
+		"Reason":	1,
+		"ClientIpv4":	"41.210.159.79"
+	}
+}
+
+2025-11-27 14:42:15 callback
+{
+	"EventGroupId":	1,
+	"EventType":	104,
+	"CallbackTs":	1764225735084,
+	"EventInfo":	{
+		"RoomId":	14817,
+		"EventTs":	1764225734,
+		"EventMsTs":	1764225734903,
+		"UserId":	"2573",
+		"Role":	20,
+		"Reason":	1
+	}
+}
+
+2025-11-27 14:42:19 callback
+{
+	"EventGroupId":	1,
+	"EventType":	103,
+	"CallbackTs":	1764225739102,
+	"EventInfo":	{
+		"RoomId":	14817,
+		"EventTs":	1764225738,
+		"EventMsTs":	1764225738989,
+		"UserId":	"2573",
+		"Role":	20,
+		"TerminalType":	2,
+		"UserType":	3,
+		"Reason":	1,
+		"ClientIpv4":	"41.210.159.79"
+	}
+}
+
+2025-11-27 14:52:37 callback
+{
+	"EventGroupId":	1,
+	"EventType":	104,
+	"CallbackTs":	1764226356853,
+	"EventInfo":	{
+		"RoomId":	14817,
+		"EventTs":	1764226356,
+		"EventMsTs":	1764226356677,
+		"UserId":	"2573",
+		"Role":	20,
+		"Reason":	1
+	}
+}
+
+2025-11-27 14:52:41 callback
+{
+	"EventGroupId":	1,
+	"EventType":	103,
+	"CallbackTs":	1764226361100,
+	"EventInfo":	{
+		"RoomId":	14817,
+		"EventTs":	1764226360,
+		"EventMsTs":	1764226360977,
+		"UserId":	"2573",
+		"Role":	20,
+		"TerminalType":	2,
+		"UserType":	3,
+		"Reason":	1,
+		"ClientIpv4":	"41.210.159.79"
+	}
+}
+
+2025-11-27 15:02:59 callback
+{
+	"EventGroupId":	1,
+	"EventType":	104,
+	"CallbackTs":	1764226979595,
+	"EventInfo":	{
+		"RoomId":	14817,
+		"EventTs":	1764226979,
+		"EventMsTs":	1764226979472,
+		"UserId":	"2573",
+		"Role":	20,
+		"Reason":	1
+	}
+}
+
+2025-11-27 15:03:03 callback
+{
+	"EventGroupId":	1,
+	"EventType":	104,
+	"CallbackTs":	1764226983126,
+	"EventInfo":	{
+		"RoomId":	14817,
+		"EventTs":	1764226983,
+		"EventMsTs":	1764226983108,
+		"UserId":	"2345",
+		"Role":	20,
+		"Reason":	1
+	}
+}
+
+2025-11-27 15:03:03 callback
+{
+	"EventGroupId":	1,
+	"EventType":	102,
+	"CallbackTs":	1764226983260,
+	"EventInfo":	{
+		"RoomId":	14817,
+		"EventTs":	1764226983,
+		"EventMsTs":	1764226983173
+	}
+}
+

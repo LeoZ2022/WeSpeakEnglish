@@ -1,0 +1,124 @@
+2025-07-24 20:28:51 callback
+{
+	"EventGroupId":	1,
+	"EventType":	101,
+	"CallbackTs":	1753360130618,
+	"EventInfo":	{
+		"RoomId":	14268,
+		"EventTs":	1753360130,
+		"EventMsTs":	1753360130543,
+		"UserId":	"2241"
+	}
+}
+
+2025-07-24 20:28:51 callback
+{
+	"EventGroupId":	1,
+	"EventType":	103,
+	"CallbackTs":	1753360130822,
+	"EventInfo":	{
+		"RoomId":	14268,
+		"EventTs":	1753360130,
+		"EventMsTs":	1753360130642,
+		"UserId":	"2241",
+		"Role":	20,
+		"TerminalType":	3,
+		"UserType":	3,
+		"Reason":	1,
+		"ClientIpv4":	"105.120.7.133"
+	}
+}
+
+2025-07-24 20:30:20 callback
+{
+	"EventGroupId":	1,
+	"EventType":	103,
+	"CallbackTs":	1753360219975,
+	"EventInfo":	{
+		"RoomId":	14268,
+		"EventTs":	1753360219,
+		"EventMsTs":	1753360219952,
+		"UserId":	"2269",
+		"Role":	20,
+		"TerminalType":	2,
+		"UserType":	3,
+		"Reason":	1,
+		"ClientIpv4":	"171.232.112.165"
+	}
+}
+
+2025-07-24 20:46:05 callback
+{
+	"EventGroupId":	1,
+	"EventType":	104,
+	"CallbackTs":	1753361165146,
+	"EventInfo":	{
+		"RoomId":	14268,
+		"EventTs":	1753361165,
+		"EventMsTs":	1753361165120,
+		"UserId":	"2269",
+		"Role":	20,
+		"Reason":	1
+	}
+}
+
+2025-07-24 20:46:06 callback
+{
+	"EventGroupId":	1,
+	"EventType":	103,
+	"CallbackTs":	1753361166613,
+	"EventInfo":	{
+		"RoomId":	14268,
+		"EventTs":	1753361166,
+		"EventMsTs":	1753361166591,
+		"UserId":	"2269",
+		"Role":	20,
+		"TerminalType":	2,
+		"UserType":	3,
+		"Reason":	1,
+		"ClientIpv4":	"171.232.112.165"
+	}
+}
+
+2025-07-24 21:01:20 callback
+{
+	"EventGroupId":	1,
+	"EventType":	104,
+	"CallbackTs":	1753362080069,
+	"EventInfo":	{
+		"RoomId":	14268,
+		"EventTs":	1753362079,
+		"EventMsTs":	1753362079971,
+		"UserId":	"2269",
+		"Role":	20,
+		"Reason":	1
+	}
+}
+
+2025-07-24 21:01:21 callback
+{
+	"EventGroupId":	1,
+	"EventType":	104,
+	"CallbackTs":	1753362081681,
+	"EventInfo":	{
+		"RoomId":	14268,
+		"EventTs":	1753362081,
+		"EventMsTs":	1753362081498,
+		"UserId":	"2241",
+		"Role":	20,
+		"Reason":	1
+	}
+}
+
+2025-07-24 21:01:21 callback
+{
+	"EventGroupId":	1,
+	"EventType":	102,
+	"CallbackTs":	1753362081722,
+	"EventInfo":	{
+		"RoomId":	14268,
+		"EventTs":	1753362081,
+		"EventMsTs":	1753362081652
+	}
+}
+

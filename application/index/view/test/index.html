@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="__HOME_JS__/jquery-1.11.2.min.js"></script>
+</head>
+<body class="usertype_{$user_type} partner{$is_partner|default=0}">
+<img src="{:url('verify')}" width="120" id="code_img" onclick="change_code()" />
+<input id="shu" type="text" name="shu" />
+<button type="button" onclick="check()">检查</button>
+<script language="JavaScript">
+    function change_code() {
+        $('#code_img').attr('src', $('#code_img').attr('src') );
+    }
+    function check() {
+        var _shu = $('#shu').val();
+        $.ajax({
+            data: {shu: _shu},
+            url: '{:url("check_code")}',
+            success: function (res) {
+                console.log(res);
+            }
+        })
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="__HOME_JS__/jquery-1.11.2.min.js"></script>
+</head>
+<body class="usertype_{$user_type} partner{$is_partner|default=0}">
+<form method="post" id="form_reg" action="{:url('to_register')}" onsubmit="return chkform();">
+    Email：<input type="text" name="email" id="email" required /><br/>
+    Nickname：<input type="text" name="username" id="username" required /><br/>
+    Native language：<select name="native_language" id="native_language" required>
+    <option value="">Selected</option>
+    {volist name="native_language" id="val"}
+    <option value="{$i}">{$val}</option>
+    {/volist}
+</select>
+    <br/>
+    Location：<select name="location" id="location" required>
+    <option value="">Selected</option>
+    {volist name="location" id="val"}
+    <option value="{$val.id}">{$val.location_name}</option>
+    {/volist}
+</select>
+    <br/>
+    Year：<input type="text" name="learn_years" id="learn_years" required /><br/>
+    Goals：<input type="text" name="goals" id="goals" required /><br/>
+    English level：<select name="english_level" id="english_level" required>
+    <option value="">Selected</option>
+    {volist name="english_level" id="val"}
+    <option value="{$i}">{$val}</option>
+    {/volist}
+</select>
+    <br/>
+    Introduce：<textarea name="descr" id="descr"></textarea><br/>
+    Invitation code：<input type="text" name="elite_code" id="elite_code" /><br/>
+    Code：<img src="{:url('verify')}" width="120" id="code_img" onclick="change_code()" />
+    <input id="shu" type="text" name="shu" /><br/>
+    <input type="submit" name="submit" value="register">
+</form>
+<script language="JavaScript">
+    function change_code() {
+        $('#code_img').attr('src', $('#code_img').attr('src') );
+    }
+    
+    function chkform() {
+        var _data = $('#form_reg').serialize();
+        console.log(_data);
+        $.ajax({
+            url: $('#form_reg').attr('action'),
+            data: _data,
+            type: 'post',
+            dataType: 'json',
+            success: function (res) {
+                console.log(res);
+            }
+        })
+        return false;
+    }
+</script>
+</body>
+</html>

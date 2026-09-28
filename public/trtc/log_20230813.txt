@@ -1,0 +1,59 @@
+2023-08-13 00:00:22 callback
+{
+	"EventGroupId":	1,
+	"EventType":	103,
+	"CallbackTs":	1691856022610,
+	"EventInfo":	{
+		"RoomId":	12626,
+		"EventTs":	1691856022,
+		"EventMsTs":	1691856022529,
+		"UserId":	"736",
+		"Role":	20,
+		"TerminalType":	3,
+		"UserType":	3,
+		"Reason":	1
+	}
+}
+
+2023-08-13 00:46:17 callback
+{
+	"EventGroupId":	1,
+	"EventType":	104,
+	"CallbackTs":	1691858777562,
+	"EventInfo":	{
+		"RoomId":	12626,
+		"EventTs":	1691858777,
+		"EventMsTs":	1691858777478,
+		"UserId":	"736",
+		"Role":	20,
+		"Reason":	1
+	}
+}
+
+2023-08-13 00:46:19 callback
+{
+	"EventGroupId":	1,
+	"EventType":	102,
+	"CallbackTs":	1691858779570,
+	"EventInfo":	{
+		"RoomId":	12626,
+		"EventTs":	1691858779,
+		"EventMsTs":	1691858779495
+	}
+}
+
+2023-08-13 00:46:19 callback
+{
+	"EventGroupId":	1,
+	"EventType":	104,
+	"CallbackTs":	1691858779578,
+	"EventInfo":	{
+		"RoomId":	12626,
+		"EventTs":	1691858779,
+		"EventMsTs":	1691858779495,
+		"UserId":	"929",
+		"Role":	20,
+		"Reason":	1
+	}
+}
+

@@ -1,0 +1,31 @@
+2026-06-27 23:56:50 callback
+{
+	"EventGroupId":	1,
+	"EventType":	101,
+	"CallbackTs":	1782575810307,
+	"EventInfo":	{
+		"RoomId":	15735,
+		"EventTs":	1782575810,
+		"EventMsTs":	1782575810230,
+		"UserId":	"3558"
+	}
+}
+
+2026-06-27 23:56:50 callback
+{
+	"EventGroupId":	1,
+	"EventType":	103,
+	"CallbackTs":	1782575810497,
+	"EventInfo":	{
+		"RoomId":	15735,
+		"EventTs":	1782575810,
+		"EventMsTs":	1782575810325,
+		"UserId":	"3558",
+		"Role":	20,
+		"TerminalType":	2,
+		"UserType":	3,
+		"Reason":	1,
+		"ClientIpv4":	"41.140.56.117"
+	}
+}
+

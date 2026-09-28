@@ -1,0 +1,194 @@
+nav{background:#fff;box-shadow:0 5px 25px rgba(220,220,220,0.6);}
+nav a{vertical-align: middle;
+    color: #424242;}
+a{
+    color: #e54a3a;}
+nav .logo{
+    background-image: url("../img/logoblue.png");
+}
+nav div.who\? span a i{
+	/*color: #424242;*/
+}
+nav div span a{text-transform: none;text-decoration: none}
+nav div span line{
+    padding-left: 14px;
+    padding-right: 14px;}
+nav div span .blue{
+    color: #e54a3a;}
+/* nav div.who\? span a{background-image: url("../img/tutor_b.png");background-repeat: no-repeat;background-position: left center;
+    padding-left: 40px;} */
+/* nav div.who\? span a:first-child{ background-image: url("../img/learner_b.png");} */
+nav .on{
+    color: #e54a3a;}
+nav .on::after {
+    background: #e54a3a;
+    width: 40px;
+    height: 2px;
+    content: " ";
+    top: 10px;
+    position: relative;
+}
+.main{
+    width: 100%;max-width: 1260px;
+    margin: 56px auto 100px auto;
+	padding: 0 10px;
+}
+.logpic{
+    margin-right: 80px;
+    margin-bottom: 193px;}
+.logform{
+    width: 440px;vertical-align: top;
+    display: inline-block;}
+p.topT{
+    font-size: 6rem;text-transform: uppercase;
+    font-family: Fjalla;
+    align-items: center;
+    margin-top: 24px;
+    margin-bottom: 80px;
+    display: flex;flex-direction: column;
+    color: #4e3d37;}
+p.topT::after{
+    background: #ebe7e3;
+    width: 420px;
+    height: 16px;
+    top: -15px;position: relative;z-index: -1;
+   border-radius: 10px;content: "";display: inline-block;
+}
+dif.helpbt{justify-content: space-between;
+    margin-bottom: 50px;}
+
+.helpbt{
+	overflow: hidden;
+}
+.helpbt a{
+	width: 50%;
+	display: block;
+	float: left;
+    text-align: center;
+	text-decoration: none;
+	}
+.helpbt a span{
+	background:#f8f8f8;
+	height: 100px;
+	line-height: 100px;
+	border-radius: 10px;
+	display: block;
+	font-size: 24px;
+	font-family: Fjalla;
+	text-decoration: none;
+	color: #959595;
+}
+.helpbt a span i{
+	font-size: 32px;
+	font-weight: bold;
+	display: inline-block;
+	margin-right: 4px;
+	color: #959595;
+}
+.helpbt .tutor span{
+	margin-right: 20px;
+}
+.helpbt .learner span{
+    margin-left: 20px;
+}
+.helpbt .tutor.onbt span{
+    background-color:#f3f7fd;
+	color: #6288c9;
+}
+.helpbt .tutor.onbt span i{
+	color: #6288c9;
+}
+.helpbt .learner.onbt span{
+	color: #e54a3a;
+    background-color:#FEF5F1;
+}
+.helpbt .learner.onbt span i{
+	color: #e54a3a;
+}
+.help{
+    display: none;}
+.help .tabs{
+    margin-top: 22px;
+    float: left;}
+.help .helpli{
+    width: 100%;max-width: 1000px;
+    margin-bottom: 30px;
+    float: right;}
+.help .helpli .help_head{
+    cursor: pointer;
+    background: url("../img/helpsh_blue.png") center right no-repeat;
+    background-size: 40px auto;
+    border-bottom: 1px solid #F3F8FD;
+    color: #6489C9;    padding-left: 22px;
+    padding-bottom: 22px;
+    padding-top: 22px;
+}
+.help .helpli .help_head.show{
+    background-image: url("../img/helpex_blue.png");
+    border: none!important;
+}
+.help .boxt{
+    font-family: Fjalla;
+    cursor: pointer;
+    font-size: 2rem ;
+    margin-bottom: 40px;
+}
+.help .boxt::after{
+    display: block;
+    content: "";
+    position: absolute;
+    left: 10px;
+    bottom: 0;z-index: -2;
+    width: 160px;
+    height: 6px;background: #f3f3f3;
+    border-radius: 2px;
+}
+.help .boxt.g{
+    color: #6489C9;}
+.help .boxt.g::after{
+    background: #f3f8fd;
+}
+.learnerhelp  .boxt.g{
+    color: #e54a3a;}
+.learnerhelp  .boxt.g::after{
+    background: #fff5f2;
+}
+.learnerhelp .helpli .help_head{
+    border-bottom: 1px solid #fff5f2;
+    color: #e54a3a;
+    background-image: url("../img/helpsh.png");
+}
+.learnerhelp.help .helpli .help_head.show{
+    background-image: url("../img/helpex.png");
+}
+.helpli li{
+    display: none;}
+.helpli li:first-child{
+    display: block;}
+.help_body{
+    display: none;
+    font-size: 1.4rem;
+    padding-left: 22px;
+    padding-bottom: 22px;
+    border-bottom: 1px solid #fee3db;
+}
+.tutorhelp .help_body{
+    border-bottom: 1px solid #f3f8fd;
+}
+.help_body p{
+    line-height: 26px;
+}
+.usertype_2 .logeduser{
+    background-image: url("../img/tutor_b.png");
+    padding-left: 35px;
+    /* background-size: auto 17px; */
+}
+.pages{
+    margin-bottom: 30px;
+    padding-left: 300px;}
+nav div.who\? {
+    /* display: none; */
+}
+.logined+.who\?{
+    display: none;
+}

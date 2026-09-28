@@ -1,0 +1,27 @@
+2024-05-05 00:10:38 callback
+{
+	"EventGroupId":	1,
+	"EventType":	104,
+	"CallbackTs":	1714839038769,
+	"EventInfo":	{
+		"RoomId":	13771,
+		"EventTs":	1714839038,
+		"EventMsTs":	1714839038689,
+		"UserId":	"951",
+		"Role":	20,
+		"Reason":	1
+	}
+}
+
+2024-05-05 00:10:39 callback
+{
+	"EventGroupId":	1,
+	"EventType":	102,
+	"CallbackTs":	1714839038772,
+	"EventInfo":	{
+		"RoomId":	13771,
+		"EventTs":	1714839038,
+		"EventMsTs":	1714839038689
+	}
+}
+

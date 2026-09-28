@@ -1,0 +1,711 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-190244183-1">
+</script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-190244183-1');
+</script>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no,initial-scale=1.0">
+    <title>Mcenter_{:config('web_site_title')}</title>
+    <link rel="stylesheet" href="__HOME_CSS__/layout.css">
+    <link rel="stylesheet" href="__HOME_CSS__/membercenterstu.css">
+    <link rel="stylesheet" type="text/css" href="__HOME_CSS__/membercenterstu_m.css" media="(max-width: 750px) "/>
+    {include file="public/header_js"}
+    <script src="__HOME_JS__/vue.js"></script>
+		<!-- Google Tag Manager -->
+	<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+	new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+	j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+	'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+	})(window,document,'script','dataLayer','GTM-MTCT69F');</script>
+	<!-- End Google Tag Manager -->
+<style>	
+    .topup {
+    display: flex;
+    background-color: #fff;
+    color: #e54a3a;
+    padding: 10px 30px;
+    text-decoration: none;
+    border: 2px solid #e54a3a;
+    border-radius: 5px;
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-align: center;
+    width: 80%;
+    margin-top: 20px;
+    align-items: center;
+    justify-content: center; /* Center horizontally */
+    }
+    
+    .topup:hover::before {
+        content: "Top up and get a surprising bonus"; /* Tooltip text */
+        position: absolute; /* Absolute positioning for tooltip */
+        top: -30px; /* Adjust tooltip position */
+        left: calc(50% + 20px); /* Center the tooltip horizontally */
+        transform: translateX(-50% ); /* Center the tooltip horizontally */
+        background-color: #EAFAF1; /* Background color of tooltip */
+        color: orange; /* Text color of tooltip */
+        padding: 5px 10px; /* Padding of tooltip */
+        border-radius: 5px; /* Border radius of tooltip */
+        white-space: nowrap; /* Prevent tooltip from wrapping */
+        z-index: 1; /* Ensure tooltip appears above other content */
+    }
+</style>
+</head>
+<body class="usertype_{$user_type} partner{$is_partner|default=0}">
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MTCT69F"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+<nav class="dif">
+    <a class="backar pn" href="javascript:history.go(-1);"></a>
+    <div class="ncenter">ACCOUNT</div>
+    {include file="public/nav_menu"}
+</nav>
+<div class="main clearfix">
+    <div class="side">
+        <div class="learner">
+            <a href="{:url('profile')}" class="setting"><img height="21" src="__HOME_IMG__/asetting_o.png" alt=""></a>
+            <name><b>{$user_info.username}</b><span>Learner</span></name>
+            <level><b>{$english_level[$user_info.english_level]|default=''}</b><span>English level</span></level>
+            <class><b>{$user_info.class_num}</b><span>chat(s)</span></class>
+            <local>Reside in {$country.country_name}(UTC{$location.timezone|change_time})</local>
+        </div>
+		
+		<a class="searchTutor" href="{:url('tutors/index')}">
+			
+			<i class="iconfont iconleaner-tutor-list-bold"></i> SEARCH TUTORS
+		</a>
+		
+		
+		
+
+        <div class="incode">
+            <t>Invitation code</t>
+            <dif><strong id="biao1">{$user_info.invitation_code}</strong> <!--<a class="copy" onclick="copyToClipboard('{$user_info.invitation_code}')" href="###">copy</a>--></dif>
+            <p>Send this code to your friends. Both you and the beneficiary will get a reward to redeem a free chat.</p>
+   <!--         <div class="rightpop">
+                <img src="__HOME_IMG__/closex.png" class="closex"  alt="">
+                <img src="__HOME_IMG__/sucess.png" class="tico" width="32px" alt="">
+                <p>Copy successfully,<br>Please send your invitation code to your friends!</p>
+            </div>-->
+        </div>
+    </div>
+    <div class="mainly">
+        {if condition="$user_info.invitation_code_buy eq 0 && $user_info.parent_id gt 0"}
+        <div class="incard">
+            <div class="codeinfo">
+                <t><i class="iconfont icongift"></i> <span>Invitation reward</span>
+                    <num>1</num>
+                </t>
+                <p>You can redeem a free chat with your invitaion reward!</p>
+            </div>
+            <a href="{:url('tutors/index')}">Go to book</a>
+        </div>
+        {/if}
+
+        <div class="timetable">
+            <t>TIMETABLE <a href="{:url('member/schedule')}"><img src="__HOME_IMG__/arbt_r.png" alt=""></a></t>
+            <div class="cal-day mn" style="display: none;">
+                <div class="upweek" @click="upWeek"  :class="{ go: si>0 }"></div>
+                <div class="daybox">
+                    <div class="day" v-for="(item,index) in TdateLists" v-if=" si<=index && index<= ei " :class="{today: item[0]==cy && item[1]==cm && item[2] == initD,clicked:item[0]==clicky && item[1]==clickm && item[2] == clickd , gray: item[0]<= cy && item[1]<= cm && item[2]< initD,tgray:item[4]< trueD-86400000,  choosed:choosed(item[0],item[1],item[2]), grayo: item[5]>nextMonth }"   @click="getlist(item[0],item[1],item[2])">
+                        <div class="cdate">
+                            <div class="date">{{item[2]}} <span class="m">{{item[1] | ntoenm}}</span></div>
+                            <div class="week">{{item[3] | ntoenw}}</div>
+                            <div class="namer pn"><name>Brandy</name><time>05:30-06:00</time></div>
+                            <div class="btbox pn"><a href="">Chat room</a></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="downweek" @click="downWeek" :class="{ stop: ei>DaysBetw }" ></div>
+            </div>
+
+            <div class="cal-day pn" style="display: none;">
+                <div class="daybox">
+                    <div class="day" v-for="(classes,t) in tablestatus" :class="">
+                        <div class="cdate">
+                            <div class="date">{{classes.day}} <span class="m">{{classes.month}} </span></div>
+                            <div class="week">{{classes.week}}</div>
+                        </div>
+                        <div class="namer pn"><name><a :href="'/index/tutors/detail.html?teacher_id=' + classes.teacher_id">{{classes.username}}</a></name><time>{{classes.time}}-{{classes.time_end}}</time></div>
+                        <div class="btbox pn"><a class="phoneChatIn" :data-id="classes.id">Chat room</a></div>
+                    </div>
+                </div>
+            </div>
+            <div class="class_list">
+            {volist name="class_list" id="vo"}
+            <div class="class">
+                <div class="namer"><name>{$vo.username}</name><time>{php} echo date('d M ', strtotime($vo['book_date'])).' '; echo get_week(strtotime($vo['book_date'])); {/php} {$vo.time_begin}-{$vo.time_end}
+                </time></div>
+                <div class="btbox"><a href="{:url('enter_class', ['id' => $vo.id])}" target="_blank">Enter the chatroom</a></div>
+            </div>
+            {/volist}
+            </div>
+            <div class="r"><i class="iconfont iconhelp" style="font-size: 18px; color: #e54a3a; font-weight: bold; vertical-align: middle;"></i> Don’t know how to start a chat? <a href="{:url('about/help')}"  style="font-style: oblique;">click here</a></div>
+        </div>
+        <div class="balance">
+            <t>Account Balance</t>
+            <a href="{:url('accounts')}" class="abalance"><img src="__HOME_IMG__/abalance_red.png" alt=""></a>
+            <price>$ {$user_info.moneys}</price>
+            <a class="topup" href="{:url('member/topup')}">TOP UP</a>
+        </div>
+        <div class="mytutor clearfix">
+          <t>MY TUTOR ({$teacher_list|count})</t>
+            <div class="scrowrap">
+            {volist name="teacher_list" id="vo"}
+            <div class="namer"><name><a href="/index/tutors/detail/teacher_id/{$vo.teacher_id}">{$vo.username}</a>
+                {notempty name="vo.ico_file"}<img src="{$vo.ico_file}" alt="{$vo.country_name}">{/notempty}
+            </name> <stars>
+                {php}echo str_repeat('<img src="/public/home/style/img/star.png" alt="">', $vo['star']);{/php}
+                <span>({$vo.star})</span></stars></div>
+            {/volist}
+           </div>
+        </div>
+    </div>
+</div>
+{include file="member/footer_menu"}
+
+<div class="btimg">
+    <p>We Speak English Network is founded by a group of caring Canadians to help native English speakers and overseas young people to set up a fabulous connection, help the participants find more fun, and help young people improve their English at a very low cost. Whether our platform survives or not depends on how many users support us. As a not-for-profit organization, we cannot afford expensive advertisements for promotion. If you like us, feel free to reach out or tell your friends to join us as a learner. Your support would encourage us to go further.
+    </p>
+    <a href="{:url('member/donate')}">DONATE / SUPPORT US</a>
+</div>
+{include file="public/footer"}
+{include file="member/member_js"}
+<div class="classQrFix">
+	<div class="classQrFixPad">
+		<div class="classQrFixHead">
+			ENTER CHATROOM
+			<a href="javascript:;" class="classQrFixClose" onclick="hideClass()"><i class="iconfont iconclose"></i></a>
+		</div>
+		<div class="classQrText">
+			Please use En Chat app to scan the QR code to enter the chatroom. 
+		</div>
+		<div class="classQrMainInfo">
+			<div class="classQrImg" style="min-height: 100px;">
+				<img src="__HOME_IMG__/qrLogo.png" class="classQrLogo" />
+				<img src="" id="qrcode_img">
+			</div>
+			<div class="classQrId">
+				Log in to our app and enter the chatroom ID
+				<div class="class_info_id"></div>
+				
+			</div>
+			<i class="classQrClear"></i>
+		</div>
+		<div class="classQrFoot">
+			If you have not installed our chat app, please go to App Store(iPhone), Google Play, 360 store and search <b style="color: #615756;">En Chat</b>(Adroid) to download and install it. Or click <a href="https://wespeakenglish.{$webcom}/app.html" target="_blank">https://wespeakenglish.{$webcom}/app.html</a> to download.
+		</div> 
+	</div>
+</div>
+
+<style>
+.classQrImg{
+	display: block;
+	position: relative;
+}
+.classQrImg img{
+	display: block;
+}
+.classQrLogo{
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%,-50%);
+	width: 24px;
+	padding: 2px;
+	border-radius: 3px;
+	background: #fff;
+	overflow: hidden;
+	z-index: 99;
+}
+</style>
+</body>
+<script language="JavaScript">
+    //课程列表
+    var _tablestatus = {$datetime_txt|raw};
+    //点击日期获取课程列表
+    function get_list(_date, _page) {
+        layer.closeAll();
+        $.ajax({
+            url: '/index/member/get_list',
+            data: {date: _date, page: _page},
+            type: 'post',
+            success: function (res) {
+                $('.class_list').html(res);
+            }
+        })
+    }
+    var _date_sys = new Date({:date('Y', $time_now)},{:date('m', $time_now)-1},{:date('d', $time_now)},{:date('H', $time_now)},{:date('i', $time_now)},{:date('s', $time_now)});
+
+    var _date = _date_sys;
+    // 初始化 当前时间 y-m-d
+    initY = _date.getFullYear();
+    initM = _date.getMonth() + 1;
+    initD = _date.getDate();
+
+    var _date_next_month = new Date({:date('Y', $time_now)},{:date('m', $time_now)-1},{:date('d', $time_now)},{:date('H', $time_now)},{:date('i', $time_now)},{:date('s', $time_now)});
+    _date_next_month.setMonth(_date_next_month.getMonth()+1);
+    console.log(_date_next_month, 'next');
+
+    week_num = WeeksBetw(_date_sys, _date_next_month);
+    DaysBetw = DaysBetw(_date_sys, _date_next_month);
+    console.log('WeeksBetw', WeeksBetw(_date_sys, _date_next_month));
+
+    var _date = '{:input('date')}';
+    if (_date) {
+        get_list(_date, 1);
+    } else {
+        get_list(initY + '-' + initM + '-' + initD, 1);
+    }
+	
+	//跳转修改时间
+	function change_time(id){
+		var url = window.location.host
+		window.location.href = '/index/member/schedule?id=' + id;
+	}
+	
+	//取消课程
+	function confirm_cancel(id, page, date) {
+	    _id = id;
+	    _page = page;
+	    _date = date;
+	        var cancelMessage = prompt("Why do you cancel this meeting? Please leave a message which will be emailed to your partner.");
+
+    if (cancelMessage === null) {
+        // User clicked cancel or closed the prompt
+        return;
+    }
+	   // if (confirm('Do you want to cancel the chat?')) {
+	        showloading();
+	        $.ajax({
+	            data: {id: _id, cancel_message: cancelMessage},
+	            url: '/index/member/cancel',
+	            type: 'post',
+	            dataType: 'json',
+	            success: function (res) {
+	                showmsg(res.msg);
+	                if (res.code == 200) {
+	                    get_list(_date, _page);
+						vm.$forceUpdate();
+						//location.reload();
+	                }
+	            }
+	        })
+	    }
+// 	}
+	
+	
+	
+	var _date_sys = new Date({:date('Y', $time_now)},{:date('m', $time_now)-1},{:date('d', $time_now)},{:date('H', $time_now)},{:date('i', $time_now)},{:date('s', $time_now)});
+	initY = _date_sys.getFullYear();
+	initM = _date_sys.getMonth() + 1;
+	initD = _date_sys.getDate();
+	var _date_next_month = new Date({:date('Y', $time_now)},{:date('m', $time_now)-1},{:date('d', $time_now)},{:date('H', $time_now)},{:date('i', $time_now)},{:date('s', $time_now)});
+	console.log(_date_sys,'sys');
+	console.log('{$date_now}');
+	_date_next_month.setMonth(_date_next_month.getMonth()+1);
+	console.log(_date_next_month, 'next');
+	
+	week_num = WeeksBetw(_date_sys, _date_next_month);
+	DaysBetw = DaysBetw(_date_sys, _date_next_month);
+
+</script>
+<script>
+    var vm = new Vue({
+        el: '.timetable',
+        data:{
+            _date: 0,
+            t_date: 0,
+            _datet: 0 ,
+            initY: 0, //当前 年
+            initM: 0, //当前 月
+            initD: 0, //当前 日
+            initW: 0, //当前 周
+            finitD: 0,
+            trueD:_date_sys.getTime(),
+            si: 0,
+            ei: 6,
+            tinitD: _date_sys,
+            timehour: 0,
+            enMonth: '',
+            avaitime:true,
+            booktime:true,
+            tablestatus:_tablestatus,
+            nextMonth: _date_next_month,
+            DaysBetw: DaysBetw,
+            tempdatelists:[],
+            touchx:0,
+            docStyle : document.documentElement.style,
+            mflag:true,
+            timeclicked:[],
+            daynums: week_num * 7,
+
+            DateList: [],
+            Datelists: [],
+            TdateLists: [],
+            //  HourList: [],		//钟点时间 24小时  赋值写死
+            HourList: [
+                '00:00', '00:30', '01:00', '01:30', '02:00', '03:00', '03:30', '04:00', '04:30', '05:00', '05:00', '06:30', '06:00', '07:30', '07:00'
+                , '08:00', '08:30', '09:00', '09:30', '10:00', '10:30', '11:00', '11:30', '12:00', '12:30', '13:00', '13:30', '14:00', '14:30',
+                '15:00', '15:30', '16:00', '16:30', '17:00', '17:30', '18:00', '18:30', '19:00', '19:30', '20:00', '20:30', '21:00', '21:30',
+                '21:00', '21:30', '22:00', '22:30', '23:00', '23:30'
+            ],
+            cy: 0, //temp 上下年变化
+            cm: 0, //temp 上下月变化
+            cd: 0,
+            clicky:0,
+            clickm:0,
+            clickd:0,
+            dateYM: 0, // 标题显示
+            beginDay: 0, //当月开始是周几
+            prevMdays: 0, //上个月总天数
+            nowMdays: 0, // 当月天数
+        },
+        created: function () {
+            this._date = _date_sys;
+            this._datet =_date_sys;
+
+            // 初始化 当前时间 y-m-d
+            this.initY = this._date.getFullYear()
+            this.initM = this._date.getMonth() + 1
+            this.initD = this._date.getDate();
+            this.initW = this._date.getDay();
+            this.enMonth = _date_sys.toDateString().split(" ")[1];
+            this.timehour = _date_sys.getHours()
+            //永为当前天的定值
+            // 初始化&切换上下月使用
+            this.cy = this._date.getFullYear()
+            this.cm = this._date.getMonth() + 1
+            this.cd = this._date.getDate();
+
+            this.finitD = new Date(this._datet.setDate(   this.initD  - this.initW  )).getDate()//算出当前日期的上一个周日的日期
+
+//生成日期数组
+            for (i = 0; i < this.daynums; i++) {
+                // this.tinitD=_date_sys; this.t_date = new Date(this.tinitD.setDate(   this.initD - this.initW  ));//重置日期
+                // this.DateList[i] = this.t_date.setDate(this.finitD + i);//从重置日期处往后循环出日期
+                let td=new Date(initY,initM-1,initD)
+                this.t_date = new Date(td.setDate(   this.initD - this.initW  ));//重置日期
+                this.DateList[i] = this.t_date.setDate(this.finitD + i);  //从重置日期处往后循环出日期
+            }
+            console.log('DateList', this.DateList)
+            //分年、月、日塞进数组
+            for (i = 0; i < this.daynums; i++) {
+                this.Datelists[i] = new Array();
+                this.Datelists[i][0] = new Date(this.DateList[i]).getFullYear();
+                //  this.  Datelists[i][1] =new Date(this.DateList[i]).toDateString().split(" ")[1];
+                this.Datelists[i][1] = new Date(this.DateList[i]).getMonth() + 1;
+                this.Datelists[i][2] = new Date(this.DateList[i]).getDate();
+                this.Datelists[i][3] = new Date(this.DateList[i]).getDay();
+                this.Datelists[i][5] = new Date(this.DateList[i]);
+                this.Datelists[i][4]=this.DateList[i]
+            }
+               this.TdateLists = this.Datelists;
+            console.log('Datelists', this.TdateLists)
+            this.dateYM = this.initY + '-' + this.initM
+
+            for(k in this.tablestatus)
+            {
+                this.tempdatelists[k] = this.tablestatus[k].date;
+            }
+            $('.cal-day').show();
+        },
+        mounted() {
+            let screenWidth = document.body.clientWidth;
+            if (screenWidth<750){
+                this.si=0;
+                this.ei=42;
+            }
+            this.getlist(this.initY ,this.initM,this.initD)
+        },
+
+        filters:{
+            ntoenm:function(num){
+                let enm;
+                switch (num) {
+                    case 1:
+                        enm = "Jan";
+                        break;
+                    case 2:
+                        enm = "Feb";
+                        break;
+                    case 3:
+                        enm = "Mar";
+                        break;
+                    case 4:
+                        enm = "Apr";
+                        break;
+                    case 5:
+                        enm = "May";
+                        break;
+                    case 6:
+                        enm = "Jun";
+                        break;
+                    case 7:
+                        enm = "Jul";
+                        break;
+                    case 8:
+                        enm = "Aug";
+                        break;
+                    case 9:
+                        enm = "Sep";
+                        break;
+                    case 10:
+                        enm = "Oct";
+                        break;
+                    case 11:
+                        enm = "Nov";
+                        break;
+                    case 12:
+                        enm = "Dec";
+                        break;
+                }
+                return enm;
+            },
+            ntoenw:function (num){
+                let enw;
+                switch (num) {
+                    case 0:
+                        enw = "SUNDAY";
+                        break;
+                    case 1:
+                        enw = "MONDAY";
+                        break;
+                    case 2:
+                        enw = "TUESDAY";
+                        break;
+                    case 3:
+                        enw = "WEDNESDAY";
+                        break;
+                    case 4:
+                        enw = "THURSDAY";
+                        break;
+                    case 5:
+                        enw = "FRIDAY";
+                        break;
+                    case 6:
+                        enw = "SATURDAY";
+                        break;
+                }
+                return enw;
+            }
+        },
+
+        methods: {
+            // 上一周
+            upWeek: function () {
+                if( this.ei-this.si<6){
+                    this.ei=this.si+6
+                }
+                this.si = this.si - 7
+                this.ei = this.ei - 7
+                if (this.si < 0) {
+                    this.si = 0;
+                    this.ei = 6;
+                }
+            },
+
+            //下一周
+            downWeek: function () {
+                //  console.log(this.TdateLists.length)
+                let tsi = this.si + 7
+                let tei = this.ei + 7
+                if (tei >= this.TdateLists.length) {
+                    this.ei = this.TdateLists.length-1
+                } else {
+                    this.ei = this.ei + 7
+                }
+                this.si = this.si + 7
+            },
+
+            //判断主栏顶日历日期是否有被选
+            choosed:function(y,m,d){
+
+				console.log(this.tempdatelists,'tempdatelists')
+
+                let tof;
+                //  let   YMarr=this.dateYM.split("-");
+                for (k in this.tempdatelists){
+                    if(
+						y*1 == this.tempdatelists[k].split("-")[0]*1 &&
+						m*1 == this.tempdatelists[k].split("-")[1]*1 &&
+						d*1== this.tempdatelists[k].split("-")[2]*1 &&
+						this.tablestatus[k].booked==1
+                    ){
+                        tof = true
+                        return tof
+                    }
+                }
+            },
+
+            getlist:function (y,m,d){
+              //  let  YMarr=this.dateYM.split("-");
+                console.log(y,m,d)
+                this.clicky = y
+                this.clickm = m
+                this.clickd = d
+               window._date = y+'-'+m+'-'+d;
+                window.get_list(y+'-'+m+'-'+d, 1);
+            }
+        }
+
+    })
+/*    function copyToClipboard(txt) {
+        if (window.clipboardData) {
+            window.clipboardData.clearData();
+            clipboardData.setData("Text", txt);
+            alert("复制成功！");
+        } else if (navigator.userAgent.indexOf("Opera") != -1) {
+            window.location = txt;
+        } else if (window.netscape) {
+            try {
+                netscape.security.PrivilegeManager.enablePrivilege("UniversalXPConnect");
+            } catch (e) {
+                alert("被浏览器拒绝！\n请在浏览器地址栏输入'about:config'并回车\n然后将 'signed.applets.codebase_principal_support'设置为'true'");
+            }
+            var clip = Components.classes['@mozilla.org/widget/clipboard;1'].createInstance(Components.interfaces.nsIClipboard);
+            if (!clip)
+                return;
+            var trans = Components.classes['@mozilla.org/widget/transferable;1'].createInstance(Components.interfaces.nsITransferable);
+            if (!trans)
+                return;
+            trans.addDataFlavor("text/unicode");
+            var str = new Object();
+            var len = new Object();
+            var str = Components.classes["@mozilla.org/supports-string;1"].createInstance(Components.interfaces.nsISupportsString);
+            var copytext = txt;
+            str.data = copytext;
+            trans.setTransferData("text/unicode", str, copytext.length * 2);
+            var clipid = Components.interfaces.nsIClipboard;
+            if (!clip)
+                return false;
+            clip.setData(trans, null, clipid.kGlobalClipboard);
+            alert("复制成功！");
+        }
+        $(".rightpop").show();
+        $("popbg").show();
+    }
+    $(document).on('click', '.closex', function () {
+        $(".rightpop").hide();
+        $("popbg").hide();
+    });*/
+	function showclass(classin_id, class_id) {
+		$("popbg").show();
+		$('.classQrFix').fadeIn(300)
+	    $('.class_info_id').html(classin_id);
+	    $('#qrcode_img').attr('src', '{:url('member/get_room')}?class_id='+ class_id);
+	}
+	function hideClass(classin_id, class_id) {
+		$("popbg").hide();
+		$('.classQrFix').fadeOut(300)
+	}
+	
+	
+	$(".phoneChatIn").click(function(event) {
+		
+		var id = $(this).attr("data-id")
+		console.log(id)
+		browserOpenApp(id)
+	});
+	function detectOS() {
+		var sUserAgent = navigator.userAgent;
+		var isWin = (navigator.platform == "Win32") || (navigator.platform == "Windows");
+		var isMac = (navigator.platform == "Mac68K") || (navigator.platform == "MacPPC") || (navigator.platform == "Macintosh") || (navigator.platform == "MacIntel");
+		if (isMac) return "Mac";
+	  
+		var isAndroid = (sUserAgent.indexOf('Android') > -1);
+		if (isAndroid) return "Android";
+	
+		var isIos = (sUserAgent.indexOf('iPhone') > -1 || sUserAgent.indexOf('iPad') > -1 || sUserAgent.indexOf('iPod') > -1);
+		if (isIos) return "iOS";
+	 
+		if (isWin) {
+		   var isWin2K = sUserAgent.indexOf("Windows NT 5.0") > -1 || sUserAgent.indexOf("Windows 2000") > -1;
+		   if (isWin2K) return "Win2000";
+		   var isWinXP = sUserAgent.indexOf("Windows NT 5.1") > -1 || sUserAgent.indexOf("Windows XP") > -1;
+		   if (isWinXP) return "WinXP";
+		   var isWin2003 = sUserAgent.indexOf("Windows NT 5.2") > -1 || sUserAgent.indexOf("Windows 2003") > -1;
+		   if (isWin2003) return "Win2003";
+		   var isWin7 = sUserAgent.indexOf("Windows NT 6.1") > -1 || sUserAgent.indexOf("Windows 7") > -1;
+		   if (isWin7) return "Win7";
+		}
+		return "other";
+	}
+	
+	
+	var appUrl = 'wespeakenglish://pages/index/index?id={$user_info.id}&email={$user_info.email}&password={$user_info.md5}&username={$user_info.username}'
+	
+	console.log(appUrl)
+	
+	var timer
+	
+	document.addEventListener("visibilitychange", function () {
+	  if (timer) {
+	    clearTimeout(timer)
+	  }
+	}, false);
+    //分页跳转
+    function goto(_obj) {
+        var _url = $(_obj).data('url');
+        $.ajax({
+            url: _url,
+            type: 'post',
+            success: function (res) {
+                $('.class_list').html(res);
+                window.scrollTo(0, 0)
+            }
+        })
+    }
+
+	function browserOpenApp(id) {
+		var os = detectOS()
+		if(os == 'iOS'){
+            var loadDateTime = new Date();
+            // window.location.href = appUrl+'&class_id='+id; //schema链接或者universal link
+            window.location.href = appUrl; //schema链接或者universal link
+            // window.setTimeout(function() { //如果没有安装app,便会执行setTimeout跳转下载页
+            //     var timeOutDateTime = new Date();
+            //     if (timeOutDateTime - loadDateTime < 5000) {
+            //         let r = confirm("En_chat is not installed on your phone. Do you want to go to the App Store to obtain it?")
+            //         if (r) {
+            //             window.location = 'https://itunes.apple.com/cn/app/id1564368120?mt=8'
+            //         }
+            //     } else {
+            //         window.close();
+            //     }
+            // }, 1000);
+			window.setTimeout(function() {
+				window.location.href = '/app.html'
+			}, 200)
+			
+		}else{
+		    //
+		    // window.location = appUrl+'&class_id='+id
+		    window.location = appUrl
+			timer = window.setTimeout(function () {  //  未安装的情况
+				 
+			  //  提示下载
+				let r = confirm("En Chat is not installed on your device. Do you want to download and install En Chat immediately?\n\nAndroid system might ask for 'record audio' or 'record video' permission. That is a default Android question regarding accessing a microphone or camera. En Chat doesn't record anything actually.")
+				if (r) {
+					// window.location = '{$apk_downfile}'
+					window.location.href = '/app.html'
+				}
+			}, 300)
+			
+		}
+	}
+	
+	
+</script>
+</html>

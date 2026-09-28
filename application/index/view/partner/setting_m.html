@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"  content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no,initial-scale=1.0">
+    <title>Setting_{:config('web_site_title')}</title>
+    <link rel="stylesheet" href="__HOME_CSS__/layout.css">
+    <link rel="stylesheet" href="__HOME_CSS__/profile_m.css">
+    {include file="public/header_js"}
+	<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-MTCT69F');</script>
+<!-- End Google Tag Manager -->
+</head>
+<body class="usertype_{$user_type}">
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MTCT69F"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+<nav class="dif">
+    <a href="{:url('index')}" class="backar"></a>
+    <a class="stu" href="{:url('logout')}"><img height="24" src="__HOME_IMG__/sign_out_brown.png" alt=""></a>
+    <a  class="tut" href="{:url('logout')}"><img height="24" src="__HOME_IMG__/sign_out_brown.png" alt=""></a>
+</nav>
+
+<div class="tabbox myclass">
+    <dif class="ht"><b style="color: #685654;">setting</b></dif>
+    <a class="abt" href="{:url('profile',['act'=>'setting'])}">PROFILE <img src="__HOME_IMG__/backar.png" alt=""></a>
+    <a  class="abt"  href="{:url('profile',['act'=>'password'])}">CHANGE PASSWORD <img src="__HOME_IMG__/backar.png" alt=""></a>
+</div>
+
+{include file="public/footer"}
+
+</body>
+</html>

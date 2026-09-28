@@ -1,0 +1,7 @@
+{volist name="list" id="row"}
+<dif class="balancebox" data-id="{$row.id}">
+    <left>{lt name="row.money" value="0"}<img src="__HOME_IMG__/balancebag.png" alt="">{else}<img src="__HOME_IMG__/balancemoney.png" alt="">{/lt}
+        <pays>{$types[$row.type_id]}</pays> <time>{php} echo time_to_date($row['create_time'], $location_user, 'd M Y');{/php}  @  {php} echo time_to_date($row['create_time'], $location_user, 'H:i');{/php}</time></left>
+    <banlance>{lt name="row.money" value="0"}-{else}+{/lt} ${$row.money|abs}</banlance>
+</dif>
+{/volist}

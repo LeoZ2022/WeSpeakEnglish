@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?4a6c48c79b79effb3722c8e5e07f391f";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-190244183-1">
+</script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-190244183-1');
+</script>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="robots" content="noindex,nofollow">
+    <meta name="viewport"  content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no,initial-scale=1.0">
+    <title>Tutor_{:config('web_site_title')}</title>
+    <link rel="stylesheet" href="__HOME_CSS__/layout.css">
+    <link rel="stylesheet" href="__HOME_CSS__/tutorlist.css">
+    <link rel="stylesheet" type="text/css" href="__HOME_CSS__/tutorlist_m.css" media="(max-width: 750px) "/>
+    <link rel="stylesheet" href="/public/home/css/audio.css">
+    {include file="public/header_js"}
+    <script src="__HOME_JS__/vue.js"></script>
+		<!-- Google Tag Manager -->
+	<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+	new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+	j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+	'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+	})(window,document,'script','dataLayer','GTM-MTCT69F');</script>
+	<!-- End Google Tag Manager -->
+</head>
+<body class="usertype_{$user_type} partner{$is_partner|default=0}">
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MTCT69F"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+<nav class="dif">
+    <a class="backar pn" href="javascript:history.go(-1);"></a>
+    <div class="ncenter">tutor list</div>
+    {include file="public/nav_menu"}
+    <form method="get" action="{:url('index')}" id="form_search" onsubmit="return to_submit()" >
+        <input type="hidden" name="ajax" value="1">
+    <div class="filter">
+        <div class="nation">From
+            <div class="downpopmenu">
+                <div class="nacbox"> <input name="location" value="0" id="all" type="checkbox" checked><label class="chbox" value="all" for="all"></label><label class="f" value="all" for="all">all</label></div>
+                {volist name="countrys" id="vo"}
+                <div class="nacbox cli"> <input name="location[]" value="{$vo.id}" id="loca_{$vo.id}" type="checkbox" checked><label class="chbox" value="{$vo.id}" for="loca_{$vo.id}"></label><label class="f" value="{$vo.id}" for="loca_{$vo.id}">{$vo.country_name}</label></div>
+                {/volist}
+                <button>submit</button>
+            </div>
+        </div>
+        <div class="date">
+            Time <span class="n">{$times_count} <span class="mn">Periods</span></span>
+            <div class="downpopmenu">
+                <div class="title-month">
+                    <span @click="upWeek"   :class="{ go: si>0 }"  > < </span>
+                    <div class="title">
+                        {{TdateLists[si][2]}}
+                        <span v-if="TdateLists[si][1] == '1'">Jan</span>
+                        <span v-else-if="TdateLists[si][1] == '2'">Feb</span>
+                        <span v-else-if="TdateLists[si][1] == '3'">Mar</span>
+                        <span v-else-if="TdateLists[si][1] == '4'">Apr</span>
+                        <span v-else-if="TdateLists[si][1] == '5'">May</span>
+                        <span v-else-if="TdateLists[si][1] == '6'">Jun</span>
+                        <span v-else-if="TdateLists[si][1] == '7'">Jul</span>
+                        <span v-else-if="TdateLists[si][1] == '8'">Aug</span>
+                        <span v-else-if="TdateLists[si][1] == '9'">Sept</span>
+                        <span v-else-if="TdateLists[si][1] == '10'">Oct</span>
+                        <span v-else-if="TdateLists[si][1] == '11'">Nov</span>
+                        <span v-else-if="TdateLists[si][1] == '12'">Dec</span>
+                        {{TdateLists[si][0]}} -
+                        {{TdateLists[ei][2]}}
+                        <span v-if="TdateLists[ei][1] == '1'">Jan</span>
+                        <span v-else-if="TdateLists[ei][1] == '2'">Feb</span>
+                        <span v-else-if="TdateLists[ei][1] == '3'">Mar</span>
+                        <span v-else-if="TdateLists[ei][1] == '4'">Apr</span>
+                        <span v-else-if="TdateLists[ei][1] == '5'">May</span>
+                        <span v-else-if="TdateLists[ei][1] == '6'">Jun</span>
+                        <span v-else-if="TdateLists[ei][1] == '7'">Jul</span>
+                        <span v-else-if="TdateLists[ei][1] == '8'">Aug</span>
+                        <span v-else-if="TdateLists[ei][1] == '9'">Sept</span>
+                        <span v-else-if="TdateLists[ei][1] == '10'">Oct</span>
+                        <span v-else-if="TdateLists[ei][1] == '11'">Nov</span>
+                        <span v-else-if="TdateLists[ei][1] == '12'">Dec</span> {{TdateLists[ei][0]}}
+                    </div>
+                    <span @click="downWeek"  :class="{ stop: ei>initW+31 }"> > </span></div>
+
+                <ul class="cal-day">
+                    <li class="day" v-for="(item,index) in TdateLists" v-if=" si<=index && index<= ei ">
+                        <div class="week" v-if="item[3]==0" :class="{blue: item[0]==cy && item[1]==cm && item[2] == initD, gray: item[4]< trueD || item[5]>nextMonth }">S</div>
+                        <div class="week" v-else-if="item[3]==1" :class="{blue: item[0]==cy && item[1]==cm && item[2] == initD, gray:item[4]< trueD || item[5]>nextMonth }">M</div>
+                        <div class="week" v-else-if="item[3]==2" :class="{blue: item[0]==cy && item[1]==cm && item[2] == initD, gray: item[4]< trueD || item[5]>nextMonth }">T</div>
+                        <div class="week" v-else-if="item[3]==3" :class="{blue: item[0]==cy && item[1]==cm && item[2] == initD, gray: item[4]< trueD || item[5]>nextMonth }">W</div>
+                        <div class="week" v-else-if="item[3]==4" :class="{blue: item[0]==cy && item[1]==cm && item[2] == initD, gray: item[4]< trueD || item[5]>nextMonth }">T</div>
+                        <div class="week" v-else-if="item[3]==5" :class="{blue: item[0]==cy && item[1]==cm && item[2] == initD, gray: item[4]< trueD || item[5]>nextMonth }">F</div>
+                        <div class="week" v-else-if="item[3]==6" :class="{blue: item[0]==cy && item[1]==cm && item[2] == initD, gray: item[4]< trueD || item[5]>nextMonth }">S</div>
+
+                        <p class="day-num" :class="{blue: item[0]==cy && item[1]==cm && item[2] == initD, gray: item[4]< trueD || item[5]>nextMonth ,
+                        selectday:item[0]==sy && item[1]==sm && item[2] == sd }" @click="selectday(item[0],item[1],item[2])">{{ item[2] }}</p>
+                        <p style="display: none"> {{ item[5] }}==={{nextMonth}}</p>
+                    </li>
+                </ul>
+                <div class="timehour">
+                    <div class="day"><img height="26" src="__HOME_IMG__/sun.jpg" alt=""></div><div class="dayhour" v-for="(time, i) in HourList"  v-if=" 0<=i && i<= 23 "  :class="{selectime:selectHour[i]==1 }"  ><span  @click="selectime(time,i)">{{time}}</span></div>
+                    <div class="night"><img height="26" src="__HOME_IMG__/moon.jpg" alt=""></div><div class="nighthour"  v-for="(time, i) in HourList"  v-if=" 24<=i && i<= 48 " :class="{selectime:selectHour[i]==1 }" ><span @click="selectime(time,i)">{{time}}</span></div>
+                </div>
+                <div class="subbt">
+                    <div class="timez">Displays in your time zone (UTC{$location_current.timezone|change_time})</div>
+                    <div class="dif"><a href="###" @click="cleartime()" >CLEAR</a><a href="###" onclick="to_submit()">Submit</a></div>
+                </div>
+            </div>
+        </div>
+       <!-- <div class="price">
+            Price  <span class="mn">USD</span>
+            <div class="downpopmenu">
+                <dif class="priceinput"><input name="money_min" value="{:input('money_min')}" type="text">
+                    <line>-</line>
+                    <input type="text" name="money_max" value="{:input('money_max')}">
+                    <button>submit</button>
+                </dif>
+            </div>
+        </div>-->
+		<style>
+			.priceinput::after,
+			.priceinput::before{
+				display: block;
+				content: '$';
+				position: absolute;
+				left: 5px;
+				top: 50%;
+				transform: translateY(-50%);
+				z-index: 9;
+			}
+			.priceinput::before{
+				left: 115px;
+			}
+			.priceinput input{
+				padding-left: 15px !important;
+			}
+		</style>
+        <div class="score ">
+            Score {eq name="order" value="desc"}
+            <a class="desc c" href="###" onclick="removeOrder()"><i class="iconfont iconback-arrow1"></i></a>
+            {else}
+            <a class="desc" onclick="setOrder('asc')" href="###"><i class="iconfont iconback-arrow1"></i></a>{/eq}
+            {eq name="order" value="asc"}
+            <a class="asc c" onclick="removeOrder()" href="###"><i class="iconfont iconback-arrow1-copy"></i></a>
+            {else}
+            <a class="asc" onclick="setOrder('desc')" href="###"><i class="iconfont iconback-arrow1"></i></a>
+            {/eq}
+        </div>
+        <div class="search pn"></div>
+        <input type="hidden" name="order" id="order" value="{:input('order')}">
+        <input type="hidden" name="date_start" id="date_start" value="{:input('date_start')}">
+        <input type="hidden" name="date_end" id="date_end" value="{:input('date_end')}">
+        <input type="hidden" name="times" id="times" value="{:input('times')}">
+        <input type="hidden" name="page" id="page" value="1">
+        <!--<input type="hidden" name="timezone" id="timezone" value="{$location_current.timezone}">-->
+        <div class="lisearchbox">
+            <div class="lisearchinner"><input placeholder="Search tutors by name" name="keyword" value="{:input('keyword')}" type="text"> <input type="submit" class="searchBtn" value="SEARCH"></div>
+        </div>
+    </div>
+    </form>
+</nav>
+<div class="newMain">
+	<div class="main clearfix datalist">
+		{include file="tutors/list"}
+	</div>
+	<div class="vmore mn" style="display:none;">VIEW MORE</div>
+	<div class="bottom" style="text-align: center; margin: 0 auto;display:none;" ><hline></hline><span>{gt name="last_page" value="1"}LOAD MORE{else}bottom{/gt}</span><hline></hline></div>
+</div>
+<div class="btimg">
+    <p>We Speak English Network is founded by a group of caring Canadians to help native English speakers and overseas young people to set up a fabulous connection, help the participants find more fun, and help young people improve their English at a very low cost. Whether our platform survives or not depends on how many users support us. As a not-for-profit organization, we cannot afford expensive advertisements for promotion. If you like us, feel free to reach out or tell your friends to join us as a learner. Your support would encourage us to go further.
+    </p>
+<!--    <a href="{:url('member/donate')}">DONATE / SUPPORT US</a>-->
+</div>
+{eq name="user_type" value="1"}
+{include file="member/footer_menu"}
+{/eq}
+{include file="public/footer"}
+</body>
+
+<script>
+
+    $(document).ready(function () {
+        _page = _page + 1;
+        var _paras = $('#form_search').serialize();
+        _paras = _paras.replace('&page=1', '');
+        $.ajax({
+            url: '/index/tutors/index?page='+_page,
+            data: _paras,
+            success: function (res) {
+                if (res.length < 200) {
+                    $('.vmore').hide()
+                }
+            }
+        })
+    });
+
+
+    $('#foot_a_1').addClass('cur');
+    function removeOrder() {
+        $('#order').val('');
+        $('#form_search').submit();
+    }
+    function setOrder(_order) {
+        $('#order').val(_order);
+        $('#form_search').submit();
+        $("."+_order+"").addClass("s")
+        $("."+_order+"").siblings("a").removeClass("s")
+        $('.score').addClass("thison")
+    }
+	
+	
+	
+	$(document).on('click', '.nation,.date,.price', function () {
+	    $("popbg").show();
+	});
+	
+    // -----
+    $(document).on('click', '.nation', function () {
+        //alert(111)
+        $(".downpopmenu").hide();
+        $(this).children(".downpopmenu").show();
+        $(".filter>div").removeClass("thison")
+        $(this).addClass("thison")
+        $(".ms").hide();
+    });
+    $(document).on('click', '.date', function () {
+        $(".downpopmenu").hide();
+        $(this).children(".downpopmenu").show();
+        $(".filter>div").removeClass("thison")
+        $(this).addClass("thison")
+        $(".ms").hide();
+    });
+    $(document).on('click', '.price', function () {
+        $(".downpopmenu").hide();
+        $(this).children(".downpopmenu").show();
+        $(".filter>div").removeClass("thison")
+        $(this).addClass("thison")
+        $(".ms").hide();
+    });
+    $(document).on('click', '.price', function () {
+        $(".downpopmenu").hide();
+        $(this).children(".downpopmenu").show();
+        $(".filter>div").removeClass("thison")
+        $(this).addClass("thison")
+        $(".ms").hide();
+    });
+    $(document).on('click', '.score', function () {
+        $(".downpopmenu").hide();
+        $(".filter>div").removeClass("thison")
+        $(this).addClass("thison")
+        $(".ms").hide();
+    });
+
+	$(document).on('click', '.searchBtn', function () {
+	    $(".downpopmenu").hide();
+	    $(".filter>div").removeClass("thison")
+	    $(".ms").hide();
+	});
+
+    $(document).on('click', '.filter>.search', function () {
+        $("popbg").show();
+        $(".lisearchbox").show().addClass("ms");
+    });
+    $(document).on('click', 'popbg', function () {
+        $("popbg").hide();
+        $(".downpopmenu").hide();
+        $(".ms").hide();
+    });
+
+
+  $(document).on('click', '#all', function () {
+        if($(this).is(':checked')){
+                 $('.cli input:checkbox').prop("checked", true);
+              }else{
+                 $('.cli input:checkbox').prop("checked", false);
+    }
+    });
+
+
+$(document).on('click', '.cli input', function () {
+
+        var num=0
+        let linum = $(".cli").length;
+    setTimeout(function () {
+        // 这里就是处理的事件
+    }, 50);
+
+        $(".cli input").each(function () {
+            if ($(this).is(':checked')) {
+                num++;
+            }
+        });
+        if(linum===num){
+            $("#all").prop("checked", true);
+        } else {
+            $("#all").prop("checked", false);
+        }
+
+
+    });
+
+</script>
+<script>
+    var _date_next_month = new Date({:date('Y', $time_now)},{:date('m', $time_now)-1},{:date('d', $time_now)},{:date('H', $time_now)},{:date('i', $time_now)},{:date('s', $time_now)});
+    _date_next_month.setMonth(_date_next_month.getMonth()+1);
+    console.log(_date_next_month, 'next');
+
+    var _times, _selList;
+
+
+	var _date_sys = new Date({:date('Y', $time_now)},{:date('m', $time_now)-1},{:date('d', $time_now)},{:date('H', $time_now)},{:date('i', $time_now)},{:date('s', $time_now)});
+	var week_num = WeeksBetw(_date_sys, _date_next_month);
+	var DaysBetw = DaysBetw(_date_sys, _date_next_month);
+	var _date2 = _date_sys;
+	var	initY = _date2.getFullYear();
+	var	initM = _date2.getMonth() + 1;
+	var	initD = _date2.getDate();
+	var _date = '';
+var vm = new Vue({
+        el: '.date',
+        data: {
+            preDate: 0, //上个月时间
+            _date: 0,
+            _datet: 0 ,
+            t_date: 0,
+            initY: 0, //当前 年
+            initM: 0, //当前 月
+            initD: 0, //当前 日
+            initW: 0, //当前 周
+            finitD: 0,
+            si: 0,
+            ei: 6,
+            tinitD: _date_sys,
+            timehour: 0,
+            enMonth: '',
+            trueD:_date_sys.getTime(),
+            nextMonth: _date_next_month,
+			daynums: week_num * 7,
+            DateList: [],
+            selList: [],
+            Datelists: [],
+            TdateLists: [],
+         //钟点时间 24小时  赋值写死
+            HourList: [
+                '00:00', '00:30', '01:00', '01:30', '02:00', '02:30', '03:00','03:30', '04:00', '04:30', '05:00', '05:30', '06:00', '06:30', '07:00', '07:30'
+                , '08:00', '08:30', '09:00', '09:30', '10:00', '10:30', '11:00', '11:30', '12:00', '12:30', '13:00', '13:30', '14:00', '14:30',
+                '15:00', '15:30', '16:00', '16:30', '17:00', '17:30', '18:00', '18:30', '19:00', '19:30', '20:00', '20:30', '21:00', '21:30',
+                '22:00', '22:30', '23:00', '23:30'
+            ],
+            selectHour:[],
+
+            cy: 0, //temp 上下年变化
+            cm: 0, //temp 上下月变化
+            cd: 0,
+            sy: 0, //temp 上下年变化
+            sm: 0, //temp 上下月变化
+            sd: 0,
+            st: 0,
+            dateYM: 0, // 标题显示
+            beginDay: 0, //当月开始是周几
+            prevMdays: 0, //上个月总天数
+            nowMdays: 0, // 当月天数
+        },
+        created: function () {
+            this._date = _date_sys;
+            this._datet = _date_sys;
+           window._selList  =this.selList
+
+            for(t in this.HourList ){
+                this.selectHour[t]=0;
+            }
+            // 初始化 当前时间 y-m-d
+            this.initY = this._date.getFullYear()
+            this.initM = this._date.getMonth() + 1
+            this.initD = this._date.getDate();
+            this.initW = this._date.getDay();
+            this.enMonth = new Date().toDateString().split(" ")[1];
+            this.timehour = new Date().getHours()
+            // window._date = this.initY+'-'+this.initM+'-'+this.initD;
+
+            // 初始化&切换上下月使用
+            this.cy = this._date.getFullYear()
+            this.cm = this._date.getMonth() + 1
+            this.cd = this._date.getDate();
+
+            this.finitD = new Date(this._datet.setDate(   this.initD  - this.initW  )).getDate()//算出当前日期的上一个周日的日期
+
+            //生成日期数组
+            for (i = 0; i < this.daynums; i++) {
+                // this.tinitD=new Date(); this.t_date = new Date(this.tinitD.setDate(   this.initD - this.initW  ));//重置日期
+                // this.DateList[i] = this.t_date.setDate(this.finitD + i);//从重置日期处往后循环出日期
+				let td=new Date(initY,initM-1,initD)
+				this.t_date = new Date(td.setDate(   this.initD - this.initW  ));//重置日期
+				this.DateList[i] = this.t_date.setDate(this.finitD + i);  //从重置日期处往后循环出日期
+            }
+
+            //分年、月、日塞进数组
+
+            for (i = 0; i < this.daynums; i++) {
+                this.Datelists[i] = new Array();
+                this.Datelists[i][0] = new Date(this.DateList[i]).getFullYear();
+                //  this.  Datelists[i][1] =new Date(this.DateList[i]).toDateString().split(" ")[1];
+                this.Datelists[i][1] = new Date(this.DateList[i]).getMonth() + 1;
+                this.Datelists[i][2] = new Date(this.DateList[i]).getDate();
+                this.Datelists[i][3] = new Date(this.DateList[i]).getDay();
+                this.Datelists[i][5] = new Date(this.DateList[i]);
+                this.Datelists[i][4]=this.DateList[i]
+            }
+            this.TdateLists = this.Datelists;
+               step = Math.ceil(this.Datelists.length / 7)
+
+
+        },
+        mounted: function () {
+
+        },
+
+        methods: {
+            // 上一周
+            upWeek: function () {
+                if( this.ei-this.si<6){
+                    this.ei=this.si+6
+                }
+                this.si = this.si - 7
+                this.ei = this.ei - 7
+                if (this.si < 0) {
+                    this.si = 0;
+                    this.ei = 6;
+                }
+                //this.initD = this._date.getDate();
+				//console.log(this.initD+'/'+this.sy+'/'+this.sm)
+            },
+            //下一周
+            downWeek: function () {
+                let tsi = this.si + 7
+                let tei = this.ei + 7
+                if (tei >= this.TdateLists.length) {
+                    this.ei = this.TdateLists.length-1
+                } else {
+                    this.ei = this.ei + 7
+                }
+                this.si = this.si + 7
+                //this.initD = this._date.getDate();
+
+				//console.log(this.initD+'/'+this.sy+'/'+this.sm)
+            },
+            selectday: function(y,m,d){
+                console.log(y,m,d)//这里是选中的年,月,日
+                //赋值显示效果
+                this.sy=y
+                this.sm=m
+                this.sd=d
+                window._date2 = y+'-'+m+'-'+d
+                for(t in this.selectHour ){
+                   this.selectHour[t]=0;
+                }
+           },
+            selectime:function (t,i) {
+                console.log(t)//这里获取选中的时间
+                     if( this.selectHour[i]==0  ){
+                    this.$set(this.selectHour, i, '1');
+                }else {
+                    this.$set(this.selectHour, i, '0');
+                }
+                this.selList = [];
+                var _i = 0;
+                for(t in this.selectHour ){
+                    if (this.selectHour[t] == 1) {
+                        this.selList[_i] = t;
+                        _i++;
+                    }
+                }
+                window._times = this.selList;
+                $(".date span.n").text(this.selList.length);
+            },
+            cleartime:function (){
+                for(k in this.HourList ){
+                    this.selectHour[k]=0;
+                }
+                for(k in this.selList ){
+                    this.selList[k]=0;
+                }
+                window._times = this.selList;
+                $(".date span.n").text(0);
+                this.$forceUpdate();
+                event.stopPropagation(); //阻止事件冒泡
+            }
+        }
+    })
+/*  function hide_time() {
+     //   $("popbg").hide();
+      //  $(".downpopmenu").hide();
+        _selList=[];
+        _times = [];
+        $(".date span.n").text(_times.length);
+        event.stopPropagation();    //  阻止事件冒泡
+    }*/
+    function to_submit() {
+        $('#date_start').val(_date);
+        if (_times) {
+            _t = _times.join(',');
+        } else {
+            _t = '';
+        }
+        $('#times').val(_t);
+        $.ajax({
+            url: $('#form_search').attr('active'),
+            data: $('#form_search').serialize(),
+            type: 'post',
+            success: function (res) {
+                $('.datalist').html(res);
+                pagea();
+            }
+        })
+        $("popbg").hide();
+        $(".downpopmenu").hide();
+        event.stopPropagation();    //  阻止事件冒泡
+        return false;
+    }
+
+    function pagea() {
+        $('.pages a').click(function () {
+            var _url = $(this).attr('href');
+            if (_url) {
+            location.href = _url;
+            }
+            $.ajax({
+                url: _url,
+                data: {ajax: 1},
+                success: function (res) {
+                    $('.datalist').html(res);
+                    pagea();
+                    $("popbg").hide();
+                    $(".downpopmenu").hide();
+                }
+            })
+            console.log(_url);
+            return false;
+        })
+    }
+    $(function () {
+        pagea();
+    })
+    var start_y;
+    var end_y;
+    var _page = 0;
+    var _load = 1;
+    //滑动到底部加载
+    function get_cmt_list() {
+        if (_load == 0) {
+            return true;
+        }
+        _page = _page + 1;
+        var _paras = $('#form_search').serialize();
+        _paras = _paras.replace('&page=1', '');
+        $.ajax({
+            url: '/index/tutors/index?page='+_page,
+            data: _paras,
+            success: function (res) {
+                $('.pages').hide();
+                $('.datalist').append(res);
+                pagea();
+                if (res.length < 200) {
+                    $('.bottom span').text("BOTTOM");
+                    $('.vmore').hide()
+                    _load = 0;
+                }
+            }
+        })
+    }
+
+
+
+
+
+    $(document).on("touchstart", 'body,html', function(e){
+        var touch=e.touches[0];
+        start_y=touch.pageY;
+        //  alert(start_y)
+    })
+    // $(document).on("touchmove", 'body,html', function(e){
+    //     var touch=e.touches[0];
+    //     end_y=touch.pageY;
+    // })
+    // $(document).on("touchend", 'body,html', function(e){
+    //     if(start_y- end_y >10){
+    //         get_cmt_list()
+    //     }
+    // })
+    $(document).on("click", '.vmore', function(){
+            get_cmt_list()
+    })
+</script>
+
+<div class="audiopalyer">
+	<audio id="player" hidden></audio>
+</div>
+<script type="text/javascript">
+	$(function(){
+		var videoUrl='';
+		$(".xk_play").unbind('click').click(function(){				
+			if($(this).hasClass("pause")){
+				$(this).removeClass("pause")
+				var audio = $("#player")[0];
+				audio.pause();
+				return;
+			}else{
+				var audio = $("#player")[0];
+				if($(this).attr('data-mp3')==videoUrl){
+					audio.play();
+					videoUrl=$(this).attr('data-mp3');
+					$(".xk_play").removeClass("pause");
+					$(this).addClass("pause")
+				}else{
+					videoUrl=$(this).attr('data-mp3');
+					$("#player").attr('src',$(this).attr('data-mp3'));
+					// $("#player").attr('src','http://test.wespeakenglish.chat/public/uploads/voices/20220814/4f2f678bdb1340e8988c0c526d26c1e1.mp3');	
+					let that=this;
+					setTimeout(function(){
+						audio.play();
+						timeFun(that);
+					},1000);			
+					
+					$(".playTime").removeClass("htmlTxt");
+					$(".playTime").empty();
+					$(this).siblings('.playTime').addClass("htmlTxt");		
+					$(".xk_play").removeClass("pause");
+					$(this).addClass("pause")
+				}
+			}
+		})
+	})
+	var audio = document.getElementById("player");
+	audio.addEventListener('ended', function () {
+		$(".xk_play").removeClass("pause");
+	}, false);
+	audio.onerror = function() {
+		alert("Error! Something went wrong");
+	}; 
+	function timeFun(e){		
+		audio.addEventListener("timeupdate",function(res){
+			let timeDisplay;
+			let musicDom = $("#player")[0];
+			timeDisplay = Math.floor(musicDom.currentTime);
+			let minute = timeDisplay / 60;
+			let minutes = parseInt(minute);
+			if (minutes < 10) {
+				minutes = "0" + minutes;
+			}
+			let second = timeDisplay % 60;
+			let seconds = Math.round(second);
+			if (seconds < 10) {
+				seconds = "0" + seconds;
+			}
+			if(!isNaN(parseFloat(musicDom.duration))){
+				let timeTxt=minutes+":"+seconds+"/00:"+(Math.floor(musicDom.duration)>9?Math.floor(musicDom.duration):('0'+Math.floor(musicDom.duration)));
+				$(".htmlTxt").html(timeTxt);				
+			}
+			// console.log(_this.$store.state.realMusicTime);
+		},false);
+	}
+</script>
+
+</html>

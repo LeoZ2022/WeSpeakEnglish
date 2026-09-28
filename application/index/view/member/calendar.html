@@ -1,0 +1,795 @@
+<!DOCTYPE html>
+<html lang="en"><script>
+	var _hmt = _hmt || [];
+	(function() {
+		var hm = document.createElement("script");
+		hm.src = "https://hm.baidu.com/hm.js?4a6c48c79b79effb3722c8e5e07f391f";
+		var s = document.getElementsByTagName("script")[0];
+		s.parentNode.insertBefore(hm, s);
+	})();
+</script>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-190244183-1">
+</script>
+<script>
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+
+	gtag('config', 'UA-190244183-1');
+</script>
+<script>
+	var _hmt = _hmt || [];
+	(function() {
+		var hm = document.createElement("script");
+		hm.src = "https://hm.baidu.com/hm.js?4a6c48c79b79effb3722c8e5e07f391f";
+		var s = document.getElementsByTagName("script")[0];
+		s.parentNode.insertBefore(hm, s);
+	})();
+</script>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-190244183-1">
+</script>
+<script>
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+
+	gtag('config', 'UA-190244183-1');
+</script>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+		  content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no,initial-scale=1.0">
+	<title>Available Time_{:config('web_site_title')}</title>
+	<link rel="stylesheet" href="__HOME_CSS__/layout.css">
+	<link rel="stylesheet" href="__HOME_CSS__/avtime.css">
+	<link rel="stylesheet" type="text/css" href="__HOME_CSS__/avtime_m.css" media="(max-width: 750px) "/>
+	{include file="public/header_js"}
+	<script src="__HOME_JS__/vue.js"></script>
+	<script>
+		window.SafeDate = {
+		  create(y, m, d) {
+			return new Date(Number(y), Number(m) - 1, Number(d), 0, 0, 0, 0);
+		  },
+		  weekday(y, m, d) {
+			return this.create(y, m, d).getDay();
+		  },
+		  daysInMonth(y, m) {
+			return new Date(y, m, 0).getDate();
+		  },
+		  monthStartWeekday(y, m) {
+			return this.create(y, m, 1).getDay();
+		  }
+		};
+	  </script>
+	  
+</head>
+<body class="usertype_{$user_type} partner{$is_partner|default=0}">
+<nav class="dif">
+	<a class="backar pn" href="{:url('index')}"></a>
+	{include file="public/nav_menu"}
+</nav>
+<div class="main clearfix">
+	<dif class="ht"><b >My availability</b> <a href="{:url('index')}">back</a></dif>
+	<div class="avtime">
+		<p class="title-month" ><span @click="upFun" class="upm hid"></span>{{dateYM | ntoenm}}<span @click="downFun"  class="downm"></span></p>
+		<ul class="week"><li>Sunday</li><li>Monday</li><li>Tuesday</li><li>Wednesday</li><li>Thursday</li><li>Friday</li><li>Staturday</li></ul>
+		<ul class="cal-day">
+			<template v-for="(item,index) in 42">
+				<li v-if="item - beginDay <= 0" class="mn" >
+					<p class="day-num gay">{{ item - beginDay + prevMdays }}</p>
+				</li>
+				<li class="day" :class="{blue: initY==cy && initM==cm && (item - beginDay== initD),past: item - beginDay< initD && mindex==0,
+                 grayo: (item - beginDay> initD) && mindex==1}" v-else-if="item - beginDay > 0 && item - beginDay <= nowMdays" @click="dayFun(index, $event)">
+					<p class="day-num"><span class="pn w">{{ SafeDate.weekday(cy, cm, item - beginDay) | ntoenw }}</span>{{item - beginDay}}</p>
+					<div class="timeli">
+
+						<div class="ctime " :class="{booked: hours.booked==1, grayht: (endtime(hours,dateYM.split('-')[0],dateYM.split('-')[1], item-beginDay) < initT) &&initY==cy && initM==cm && (item - beginDay < initD) }" v-for="(hours, i) in selectHourNew[cm][(item - beginDay)]" :key='hours.id'>
+							{{hours | hourstartime(dateYM.split('-')[0],dateYM.split('-')[1], item-beginDay)}}
+							{{hours | hourendtime(dateYM.split('-')[0],dateYM.split('-')[1], item-beginDay)}}
+							<p>{{hours | hourbooked(dateYM.split('-')[0],dateYM.split('-')[1], item-beginDay)}}</p>
+						</div>
+					</div>
+					<a href="###" class="set" @click.self="showset(index,item-beginDay,dateYM)">SET</a>
+
+					<div class="setpop" v-if="index==showsetn">
+
+						<div class="setpopMain" :class="{'active':anotherdayShow && _times[0]}">
+
+							<div class="setpopBox setpopBoxA">
+								<i class="closex iconfont iconclose" alt="" @click.self="closeset"></i>
+								<dif class="headt"><h2>set availability <span class="today">{{item-beginDay}} {{dateYM | ntoenm}}</span></h2>  <div class="staues"><span>Available</span><span>Booked</span></div></dif>
+								<div class="setpopMainOv">
+									<div class="timehour">
+										<div class="day"><img height="26" src="__HOME_IMG__/sun.jpg" alt=""></div><div class="dayhour" v-for="(time, i) in HourList"  v-if="0<=i && i<= 23"  :class="[avday(dateYM.split('-')[0],dateYM.split('-')[1], item-beginDay,time,index,i), {grayht:(startime(time) < initT)&&initY==cy && initM==cm && (item - beginDay== initD)}]">
+										<span  @click.self="selectime(item-beginDay,time,index,i)">{{time}}</span></div>
+										<div class="night"><img height="26" src="__HOME_IMG__/moon.jpg" alt=""></div>
+										<div class="nighthour"  v-for="(time, i) in HourList"  v-if="24<=i && i<= 48"  :class="[avday(dateYM.split('-')[0],dateYM.split('-')[1], item-beginDay,time,index,i), {grayht: (startime(time) < initT)&&initY==cy && initM==cm && (item - beginDay== initD)}]" ><span @click.self="selectime(item-beginDay,time,index,i)">{{time}}</span></div>
+									</div>
+								</div>
+							</div>
+
+							<div class="anotherday setpopBox setpopBoxB">
+								<div class="anotherdayHeader">
+									<img src="__HOME_IMG__/backar.png" style="margin-left: 2px; width: 12px;"  class="closex" alt="" @click="anotherdayClick">
+									<dif class="headt anotherdayHeader"><h2>Copy to other days</h2></dif>
+								</div>
+								<div class="setpopMainOv">
+									<div style="padding:15px 0 0 0;">
+										<day :class="{tday: item-beginDay==ditem[2] && dateYM.split('-')[1]==ditem[1], cthis: ditem[5]==1}" v-for="(ditem,dindex) in TdateLists" @click="getlist(dindex)">
+											<span  v-if="showm(dindex,TdateLists[dindex-1],TdateLists[dindex])">{{ditem[1]|ntoenmm}}</span>
+											{{ditem[2]}}
+										</day>
+									</div>
+								</div>
+							</div>
+
+						</div>
+
+						<div class="anotherdayFoot">
+							<button @click.self="confirmset" class="confirm">Confirm</button>
+							<p class="toweek" v-show="!anotherdayShow">
+								<input name="toweek" value="toweek" id="toweek" type="checkbox">
+								<label class="chbox" value="toweek" for="toweek"></label>Automatically copy to next week
+							</p>
+							<div v-if="!anotherdayShow" style="position: initial;">
+								<p class="ctoanother" @click="anotherdayClick" v-if="_times[0]">COPY AVAILIBILITY TO OTHER DAY</p>
+								<p class="ctoanother" style="color: #ccc; cursor: default;" v-if="!_times[0]">COPY AVAILIBILITY TO OTHER DAY</p>
+							</div>
+						</div>
+					</div>
+				</li><li class="mn" v-else>
+				<p class="day-num gay">{{item - beginDay - nowMdays}}</p>
+			</li>
+			</template>
+		</ul>
+		<dif class="avbt"><a href="###" class="avbtDel"><i class="iconfont iconshanchu-0208-tr1"></i> CANCEL ALL AVAILABILITY SETTING</a>
+			<div class="confirmclear"><img  class="closex" src="__HOME_IMG__/closex.png"> <p>Are you sure to cancel <br>all availabilities?</p>
+				<dib><button class="closex">NO</button> <button class="confirmc" @click="clearar()">CONFIRM</button></dib>
+			</div> <span class="avbtTips">Time displays in your timezone (UTC{$location.timezone|change_time})</span></dif>
+	</div>
+</div>
+<style>
+	.avtime .title-month .upm.hid,
+	.avtime .title-month .downm.hid{
+		filter: grayscale(100%);
+		z-index: 0;
+		cursor: none;
+		pointer-events: none;
+	}
+</style>
+{include file="member/footer_menu"}
+{include file="public/footer"}
+{include file="member/member_js"}
+</body>
+<script>
+	$('#foot_a_1').addClass('cur');
+	function set_time(_date, _times, _days) {
+		/*
+        _date = '2020-12-12';
+        _times = [
+            '02:00 - 02:30', '06:00 - 06:30', '10:00 - 10:30', '14:00 - 14:30', '15:30 - 16:00'
+        ];
+        */
+
+		var _toweek;
+		if (document.getElementById('toweek').checked) {
+			_toweek = 1;
+		} else {
+			_toweek = 0;
+		}
+		$.ajax({
+			url: '/index/member/set_times',
+			data: {date: _date, times: _times, days: _days, toweek: _toweek},
+			type: 'post',
+			dataType: 'json',
+			success: function (res) {
+				if (res.code = 200) {
+					if (res.reload == 1) {
+						location.reload();
+					}
+				} else {
+					showmsg(res.msg, 201);
+				}
+			}
+		})
+	}
+
+	//清除所有未预约的时间和自动续周功能
+	function clearar() {
+		$.get({
+			url:'/index/member/clearar',
+			success: function (res) {
+				location.reload();
+			}
+		});
+	}
+	// $(document).on('click', '.ctoanother', function () {
+	//     $(".anotherday").show()
+	// });
+	$(document).on('click', '.avbt>a', function () {
+		$(".confirmclear").show()
+		$("popbg").show()
+	});
+	$(document).on('click', '.closex,.confirmc', function () {
+		$("popbg").hide()
+		$(".confirmclear").hide()
+	});
+
+	var _date_sys = new Date({:date('Y', $time_now)},{:date('m', $time_now)-1},{:date('d', $time_now)},{:date('H', $time_now)},{:date('i', $time_now)},{:date('s', $time_now)});
+	initY = _date_sys.getFullYear();
+	initM = _date_sys.getMonth() + 1;
+	initD = _date_sys.getDate();
+	var dddddd= {:date('d', $time_now)};
+	var tempharry=[]
+	var _times = [];
+	var _teacher_times = {$datetimes|json_encode|raw};
+	var _date_next_month = new Date({:date('Y', $time_now)},{:date('m', $time_now)-1},{:date('d', $time_now)},{:date('H', $time_now)},{:date('i', $time_now)},{:date('s', $time_now)});
+	_date_next_month.setMonth(_date_next_month.getMonth()+1);
+	console.log(_date_next_month, 'next');
+
+	var vm = new Vue({
+				el: '.avtime',
+				data: {
+				    SafeDate: window.SafeDate,
+					preDate: 0, //上个月时间
+					_date: 0,
+					_datet: 0 ,
+					_date_sel: '',
+					_times:[],
+					initY: 0, //当前 年
+					initM: 0, //当前 月
+					initD: 0, //当前 日
+					initT:0,// 当前 时间
+					finitD: 0,
+					tinitD: _date_sys,
+					nextMonth: _date_next_month,
+					cy: 0, //temp 上下年变化
+					cm: 0, //temp 上下月变化
+					dateYM: 0, // 标题显示
+					DateList: [],
+					Datelists: [],
+					TdateLists: [],
+					toweekdays:[],// 所选的要带过去的日期
+					mindex:0,//标示是上月还是下月
+					showsetn:-1,
+					clicki:-1,
+					clickindex:-1,
+					beginDay: 0, //当月开始是周几
+					prevMdays: 0, //上个月总天数
+					nowMdays: 0, // 当月天数
+					clickday:0,//所选日期
+					clickmonth:0,//所选月份
+					clickyear:0,//所选年
+					HourList: [
+						'00:00 - 00:30', '00:30 - 01:00', '01:00 - 01:30', '01:30 - 02:00', '02:00 - 02:30', '02:30 - 03:00', '03:00 - 03:30','03:30 - 04:00', '04:00 - 04:30', '04:30 - 05:00', '05:00 - 05:30', '05:30 - 06:00', '06:00 - 06:30', '06:30 - 07:00', '07:00 - 07:30', '07:30 - 08:00', '08:00 - 08:30', '08:30 - 09:00','09:00 - 09:30', '09:30 - 10:00', '10:00 - 10:30', '10:30 - 11:00','11:00 - 11:30', '11:30 - 12:00', '12:00 - 12:30','12:30 - 13:00', '13:00 - 13:30', '13:30 - 14:00','14:00 - 14:30','14:30 - 15:00', '15:00 - 15:30','15:30 - 16:00','16:00 - 16:30', '16:30 - 17:00', '17:00 - 17:30', '17:30 - 18:00', '18:00 - 18:30', '18:30 - 19:00', '19:00 - 19:30', '19:30 - 20:00', '20:00 - 20:30', '20:30 - 21:00', '21:00 - 21:30', '21:30 - 22:00', '22:00 - 22:30', '22:30 - 23:00', '23:00 - 23:30', '23:30 - 00:00'
+					],
+					selectHour:[],
+					selectHourNew:[],
+					anotherdayShow:false
+				},
+				created: function () {
+					this._times =[];
+
+					this._date = _date_sys;
+					this._datet=_date_sys;
+					this.initD = this._date.getDate();
+
+					//生成日期数组
+					let td=new Date({:date('Y', $time_now)},{:date('m', $time_now)-1},{:date('d', $time_now)},{:date('H', $time_now)},{:date('i', $time_now)},{:date('s', $time_now)});
+					let dtt = td;
+					let _next = new Date(dtt.getFullYear(), dtt.getMonth() + 2, 1, 12)
+					console.log('next', _next)
+					console.log('now', td);
+					i=0;
+					while (dtt < _next) {
+						var _month = new Date(dtt).getMonth() + 1;
+						var _date = new Date(dtt).getDate();
+						if (!this.selectHourNew[_month]) {
+							this.selectHourNew[_month] = new Array();
+						}
+						if (!this.selectHourNew[_month][_date]) {
+							this.selectHourNew[_month][_date] = new Array();
+						}
+						dtt = new Date(dtt.getFullYear(), dtt.getMonth(), dtt.getDate() + 1, 12)
+					}
+					for (i = 0; i < 30 ; i++) {
+						// this.DateList[i] = td.setDate(dddddd + i);  //从重置日期处往后循环出日期
+						this.DateList[i] = td;  //从重置日期处往后循环出日期
+						td = new Date(td.getFullYear(), td.getMonth(), td.getDate() + 1, 12)
+					}
+
+					//分年、月、日塞进数组
+					for (i = 0; i < 30 ; i++) {
+						this.Datelists[i] = new Array();
+						var _month = new Date(this.DateList[i]).getMonth() + 1;
+						var _date = new Date(this.DateList[i]).getDate();
+						this.Datelists[i][0] = new Date(this.DateList[i]).getFullYear();
+						//this. Datelists[i][1] =new Date(this.DateList[i]).toDateString().split(" ")[1];
+						this.Datelists[i][1] = _month;
+						this.Datelists[i][2] = _date;
+						this.Datelists[i][3] = new Date(this.DateList[i]).getDay();
+						this.Datelists[i][6] = new Date(this.DateList[i]);
+						this.Datelists[i][4] = this.DateList[i]
+						this.Datelists[i][5]=0
+
+					}
+
+					for(t in _teacher_times ){
+						this.selectHour[t]=_teacher_times[t];
+						_date0 = _teacher_times[t]['date'].split("-");
+
+						_month = parseInt(_date0[1]);
+						_date = parseInt(_date0[2]);
+						if (!this.selectHourNew[_month]) {
+							this.selectHourNew[_month] = new Array();
+						}
+						if (!this.selectHourNew[_month][_date]) {
+							this.selectHourNew[_month][_date] = new Array();
+						}
+						_length = Object.values(this.selectHourNew[_month][_date]).length;
+						this.selectHourNew[_month][_date][_length] = _teacher_times[t];
+						// console.log('isArray', Array.isArray(_teacher_times[t]), t, _teacher_times[t].id);
+						// this.selectHourNew[parseInt(_date0.split("-")[1].trim())][_date0.split("-")[2].trim()][t] = JSON.parse(JSON.stringify(_teacher_times[t]));
+					}
+
+					console.log(this.selectHourNew);
+					console.log(this.selectHour);
+					console.log('Datelists', this.Datelists);
+					this.TdateLists = this.Datelists;
+					this.initT=  "'"+((_date_sys.getHours()<10?'0':'')+_date_sys.getHours())+":"+((_date_sys.getMinutes()<10?'0':'')+_date_sys.getMinutes())+"'"
+				},
+
+				mounted: function () {
+					// 初始化 当前时间 y-m-d
+					this.initY = this._date.getFullYear()
+					this.initM = this._date.getMonth() + 1
+					this.initD = this._date.getDate();
+
+					// 初始化&切换上下月使用
+					this.cy = this._date.getFullYear()
+					this.cm = this._date.getMonth() + 1
+
+					// 标题
+					this.dateYM = this.initY + '-' + ((this.initM<10?'0':'')+this.initM)
+
+					// 当前日期
+					//this.nowMdays = this.getGetDate(this.initY, this.initM)
+					this.nowMdays = SafeDate.daysInMonth(this.cy, this.cm) //20251217 Days in month calculation
+
+					this.beginDay = SafeDate.monthStartWeekday(this.cy, this.cm) ;
+
+					//计算上一月天数 填充当月
+					this.getPreMonthDay();
+				},
+				filters:{
+					ntoenm:function(num){
+						let numArr = num + ''
+						let enm;
+						console.log(numArr.split("-"));
+						switch (numArr.split("-")[1].trim()) {
+							case "01":
+								enm = "Jan";
+								break;
+							case "02":
+								enm = "Feb";
+								break;
+							case "03":
+								enm = "Mar";
+								break;
+							case "04":
+								enm = "Apr";
+								break;
+							case "05":
+								enm = "May";
+								break;
+							case "06":
+								enm = "Jun";
+								break;
+							case "07":
+								enm = "Jul";
+								break;
+							case "08":
+								enm = "Aug";
+								break;
+							case "09":
+								enm = "Sep";
+								break;
+							case "10":
+								enm = "Oct";
+								break;
+							case "11":
+								enm = "Nov";
+								break;
+							case "12":
+								enm = "Dec";
+								break;
+						}
+						return enm + ". " + numArr.split("-")[0].trim();
+					},
+					ntoenmm:function(numArr){
+						let enm;
+						switch (numArr) {
+							case 1:
+								enm = "Jan";
+								break;
+							case 2:
+								enm = "Feb";
+								break;
+							case 3:
+								enm = "Mar";
+								break;
+							case 4:
+								enm = "Apr";
+								break;
+							case 5:
+								enm = "May";
+								break;
+							case 6:
+								enm = "Jun";
+								break;
+							case 7:
+								enm = "Jul";
+								break;
+							case 8:
+								enm = "Aug";
+								break;
+							case 9:
+								enm = "Sep";
+								break;
+							case 10:
+								enm = "Oct";
+								break;
+							case 11:
+								enm = "Nov";
+								break;
+							case 12:
+								enm = "Dec";
+								break;
+						}
+						return enm;
+					},
+					ntoenw:function (numArr){
+						let enw;
+						switch (numArr) {
+							case 0:
+								enw = "S";
+								break;
+							case 1:
+								enw = "M";
+								break;
+							case 2:
+								enw = "T";
+								break;
+							case 3:
+								enw = "W";
+								break;
+							case 4:
+								enw = "T";
+								break;
+							case 5:
+								enw = "F";
+								break;
+							case 6:
+								enw = "S";
+								break;
+						}
+						return enw;
+					},
+					hourstartime:function (shour,y,m,d) {
+						if(
+								y==  shour.date.split("-")[0].trim()
+								&&   m== shour.date.split("-")[1].trim()
+								&&  d== shour.date.split("-")[2].trim()
+						){
+							return shour.time+"-"
+						}
+					},
+					hourendtime:function(shour,y,m,d) {
+						if(
+								y ==  shour.date.split("-")[0].trim()
+								&&   m   == shour.date.split("-")[1].trim()
+								&&  d== shour.date.split("-")[2].trim()
+						){
+							return shour.time_end
+						}
+					},
+					hourbooked:function(shour,y,m,d) {
+						if(
+								y==  shour.date.split("-")[0].trim()
+								&&   m    == shour.date.split("-")[1].trim()
+								&&  d== shour.date.split("-")[2].trim()
+						){
+							return "BOOKED"
+						}
+					},
+				},
+				methods: {
+					anotherdayClick:function(){
+						this.anotherdayShow = !this.anotherdayShow
+					},
+					avday:function(ye,m,d,t,index,i){
+						console.log('avday');
+						for (k in this.selectHourNew[parseInt(m)][parseInt(d)]){
+							if(
+									ye==  this.selectHourNew[parseInt(m)][parseInt(d)][k].date.split("-")[0].trim()
+									&&   m== this.selectHourNew[parseInt(m)][parseInt(d)][k].date.split("-")[1].trim()
+									&&  d== this.selectHourNew[parseInt(m)][parseInt(d)][k].date.split("-")[2].trim()
+									&&   t.split("-")[0].trim()  == this.selectHourNew[parseInt(m)][parseInt(d)][k].time
+							// &&  1== this.selectHour[k].booked
+							){
+								console.log('booked', this.selectHourNew[parseInt(m)][parseInt(d)][k].booked)
+								if( this.selectHourNew[parseInt(m)][parseInt(d)][k].booked==0 ){
+									return "avai"
+								}else {
+									return "sbooked"
+								}
+							}
+						}
+					},
+
+					endtime:function(shour,y,m,d) {
+						if(
+								y==  shour.date.split("-")[0].trim()
+								&&   m== shour.date.split("-")[1].trim()
+								&&  d== shour.date.split("-")[2].trim()
+						){
+							return  "'"+shour.time_end+"'"
+						}
+					},
+
+					startime:function (t){
+						return  "'"+t.split("-")[0].trim()+"'"
+					},
+
+					clearar:function (){
+						this.selectHour.splice(0,this.selectHour.length);
+						window.clearar();
+					},
+
+					// 当前天数
+					getGetDate: function (year, month) {
+						var d = new Date(year, month, 0);
+						return d.getDate();
+					},
+					// 获取当月第一周几
+					dayStart: function (year, month) {
+						var tmpDate = new Date(year, month - 1, 1);
+						return (tmpDate.getDay());
+					},
+					dayFun: function (idx, e) {
+						// console.log(e.currentTarget)
+					},
+					showset:function (index,d){
+						let  YMarr=this.dateYM.split("-");
+						this.clickday=d;
+						this.clickmonth=YMarr[1];
+						this.clickyear=YMarr[0];
+						this.showsetn=index;
+						$("popbg").show();
+						tempharry= JSON.parse(JSON.stringify(this.selectHour))
+						this._times=[];
+						console.log('showset', parseInt(YMarr[1]), d);
+						console.log('showset', this.selectHourNew, this.selectHourNew[parseInt(YMarr[1])][parseInt(d)]);
+						if (this.selectHourNew[parseInt(YMarr[1])][parseInt(d)]) {
+							for (k in this.selectHourNew[parseInt(YMarr[1])][parseInt(d)]) {
+								if (
+										//如果有,删除
+										YMarr[0] == this.selectHourNew[parseInt(YMarr[1])][parseInt(d)][k].date.split("-")[0].trim()
+										&& YMarr[1] == this.selectHourNew[parseInt(YMarr[1])][parseInt(d)][k].date.split("-")[1].trim()
+										&& d == this.selectHourNew[parseInt(YMarr[1])][parseInt(d)][k].date.split("-")[2].trim()
+								) {
+									this._times.push({
+										"time": this.selectHourNew[parseInt(YMarr[1])][parseInt(d)][k].time,
+										"time_end": this.selectHourNew[parseInt(YMarr[1])][parseInt(d)][k].time_end
+									})
+								}
+							}
+						}
+						for (l in this.TdateLists){ this.TdateLists[l][5]=0 }
+						console.log(this._times)
+					},
+					closeset:function (){
+						this.showsetn=-1;
+						$("popbg").hide()
+						this.selectHour=tempharry;
+						this.$forceUpdate();
+						this.anotherdayShow = false
+					},
+					showm:function (dindex,mprev,mthis){
+						if(dindex==0){
+							return true
+						} else if (mthis[1]!=mprev[1]){
+							return true
+						}
+					},
+					// 上个月
+					upFun: function () {
+						this.mChange(-1);
+						this.mindex=0;
+						$(".upm").addClass("hid");
+						$(".downm").removeClass("hid");
+					},
+					//下个月
+					downFun: function () {
+						this.mChange(1);
+						this.mindex=1;
+						$(".downm").addClass("hid");
+						$(".upm").removeClass("hid");
+					},
+					mChange: function (m) {
+						// this._date.setMonth(this._date.getMonth() + m);
+						let td = window.initD;
+						let _newmonth = this._date.getMonth() + m;
+						console.log('month', _newmonth, this.initM, this.initD, window.initD);
+						if (_newmonth == 1) {
+							td = 28;
+						} else if (td == 31 && _newmonth != 7) {
+							td = 30;
+						}
+						console.log('month', _newmonth, this.initM, this.initD, window.initD);
+						this._date.setMonth(_newmonth, td);
+
+						//this.dateYM = this._date.getFullYear()+'-'+(((_newmonth+1)<10?'0':'')+(_newmonth+1)); 20251229 disabled to fix undefined.2026
+
+						this.dateYM =
+						this._date.getFullYear() + '-' +
+						((this._date.getMonth() + 1 < 10 ? '0' : '') + (this._date.getMonth() + 1));
+						console.log('new date', this._date);
+						// 切换上下月，获取year \ month
+						this.cy = this._date.getFullYear();
+						this.cm = this._date.getMonth() + 1;
+						//this.nowMdays = this.getGetDate(this.cy, this.cm)
+						this.nowMdays = SafeDate.daysInMonth(this.cy, this.cm)
+
+						this.beginDay = SafeDate.monthStartWeekday(this.cy, this.cm);
+						this.getPreMonthDay();
+					},
+					//获取上个月天数
+					getPreMonthDay: function () {
+						// 当月
+						var cyear = this._date.getFullYear();
+						var cMonth = this._date.getMonth();
+						this.preDate = new Date(cyear, cMonth);
+						this.preDate.setMonth(this.preDate.getMonth());
+						this.prevMdays = this.getGetDate(this.preDate.getFullYear(), this.preDate.getMonth());
+					},
+					getlist:function (i){
+						if(
+								this.TdateLists[i][5]==1
+						){ this.TdateLists[i][5]=0 }
+						else {
+							this.TdateLists[i][5]=1;
+						}
+						this.$forceUpdate();
+					},
+					//操作可选日期
+					selectime:function(d,t,index,i){
+
+						let newitem=true;
+						let  YMarr=this.dateYM.split("-");
+						this.cyw = YMarr[0]
+						this.cmw = YMarr[1]
+						// _array = Object.values(this.selectHourNew[parseInt(YMarr[1])][parseInt(d)]);
+						// this.selectHourNew[parseInt(YMarr[1])][parseInt(d)] = new Object();
+						//找是否有该时间数据
+						for (k in this.selectHourNew[parseInt(YMarr[1])][parseInt(d)]){
+							if(
+									//如果有,删除
+									YMarr[0] ==  this.selectHourNew[parseInt(YMarr[1])][parseInt(d)][k].date.split("-")[0].trim()
+									&&  YMarr[1] == this.selectHourNew[parseInt(YMarr[1])][parseInt(d)][k].date.split("-")[1].trim()
+									&&  d== this.selectHourNew[parseInt(YMarr[1])][parseInt(d)][k].date.split("-")[2].trim()
+									&&  t.split("-")[0].trim()  == this.selectHourNew[parseInt(YMarr[1])][parseInt(d)][k].time
+									&& 0  == this.selectHourNew[parseInt(YMarr[1])][parseInt(d)][k].booked
+							){
+								// _array.splice(k,1);
+								this.selectHourNew[parseInt(YMarr[1])][parseInt(d)].splice(k,1);
+								newitem=false
+								break
+							}
+						}
+						//找是否有该时间数据
+						for (k in this._times){
+							if(
+									//如果有,删除
+									t.split("-")[0].trim()  == this._times[k].time
+							){
+								this._times.splice(k,1);
+								break
+							}
+						}
+
+						//如果没有
+						if(newitem){
+							//增加一条时间数据
+							//   _array.push( {  "booked": 0, "date":YMarr[0]+"-"+YMarr[1]+"-"+d , "time":t.split("-")[0].trim(), "time_end":t.split("-")[1].trim() } );
+							this.selectHourNew[parseInt(YMarr[1])][parseInt(d)].push( {  "booked": 0, "date":YMarr[0]+"-"+YMarr[1]+"-"+d , "time":t.split("-")[0].trim(), "time_end":t.split("-")[1].trim() } );
+							console.log(this.selectHourNew[parseInt(YMarr[1])][parseInt(d)].length);
+							this._times.push({"time":t.split("-")[0].trim(), "time_end":t.split("-")[1].trim()});
+						}
+						console.log(this._times)
+						this._date_sel = YMarr[0]+"-"+YMarr[1]+"-"+d;
+
+						// 排序////
+						this.selectHourNew[parseInt(YMarr[1])][parseInt(d)].sort(function(a,b) {
+							return Date.parse(a.time.replace(/:/g,"")) - Date.parse(b.time.replace(/:/g,""));
+						});
+						var _hour_new = this.selectHourNew[parseInt(YMarr[1])];
+						this.$set(this.selectHourNew, parseInt(YMarr[1]), _hour_new)
+						// for(let key in _array) { //这里key索引
+						//     this.selectHourNew[parseInt(YMarr[1])][parseInt(d)][key] = _array[key]
+						// }
+
+						console.log(this.selectHourNew,'2313131')
+					},
+
+
+					//复制时间功能
+					otherweektime:function (){
+						let tarry=[]
+						let tdatearry=[]
+//取出要带过去的日期
+						for (i in this.TdateLists) {
+							if(this.TdateLists[i][5]==1){
+								tdatearry.push(this.TdateLists[i])
+							}
+						}
+						if (!tdatearry.length) {
+							return true;
+						}
+						let tsh=  this.selectHourNew[tdatearry[0][1]][tdatearry[0][2]];
+						//整理出所有带过去的日期&时间
+						for (i in tdatearry){
+							for(t in this._times){
+								tarry.push(
+										{"date":tdatearry[i][0]+"-"+tdatearry[i][1]+"-"+tdatearry[i][2] , "time":this._times[t]["time"], "time_end":this._times[t]["time_end"]}
+								)
+							}
+						}
+
+						//存数据
+						for( j in tarry){
+							let f=false
+							for(k in tsh){
+								if(
+										//判断是否已有该日期&时间
+										tarry[j]["date"] ===  tsh[k]["date"]
+										&&  tarry[j]["time"] ===  tsh[k]["time"]
+								){
+									//如果有什么都不做
+									break
+								}
+								f=true
+							}
+							//写入原数组数据
+							if(f){
+								this.selectHourNew[parseInt(tarry[j]["date"].split('-')[1])][parseInt(tarry[j]["date"].split('-')[2])].push( {"booked": 0, "date":tarry[j]["date"] , "time":tarry[j]["time"], "time_end":tarry[j]["time_end"] } )
+							}
+						}
+						console.log(this.selectHourNew)
+						this.$forceUpdate();
+					},
+
+					confirmset:function (){
+						//选择的时间点进行保存
+						/*       this.initY = this._date.getFullYear()
+                                this.initM = this._date.getMonth() + 1
+                                this.initD = this._date.getDate();*/
+						this.otherweektime();
+						console.log('Confirm:',this.clickyear, this.clickmonth,this.clickday,this._times);
+						console.log('selectHour', this.selectHour);
+						console.log('anotherday', this.TdateLists);
+						this._date_sel = this.clickyear + '-' + this.clickmonth + '-' +this.clickday;
+						window.set_time(this._date_sel, this._times, this.TdateLists);
+						this.showsetn=-1;
+
+						$("popbg").hide();
+						this.$forceUpdate();
+						this.anotherdayShow = false
+					}
+				}
+			}
+	)
+</script>
+</html>

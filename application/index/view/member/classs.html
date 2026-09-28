@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"  content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no,initial-scale=1.0">
+    <title>Mychat_{:config('web_site_title')}</title>
+    <link rel="stylesheet" href="__HOME_CSS__/layout.css">
+    <link rel="stylesheet" href="__HOME_CSS__/myclassstu.css">
+    <link rel="stylesheet" type="text/css" href="__HOME_CSS__/myclassstu_m.css" media="(max-width: 750px) "/>
+{include file="public/header_js"}</head>
+<script src="__HOME_JS__/vue.js"></script>
+<body class="usertype_{$user_type}">
+<nav class="dif">
+    <a class="backar pn" href="javascript:history.go(-1);"></a>
+    {include file="public/nav_menu"}
+</nav>
+<div class="main">
+	<!-- date start -->
+	
+	<div class="calendar" v-if="isShowDate">
+	    <!-- 年份 月份 -->
+	    <div class="month">
+	        <ul>
+	            <!--点击会触发pickpre函数，重新刷新当前日期 @click(vue v-on:click缩写) -->
+	            <li class="arrowLeft" @click="pickPre(currentYear,currentMonth)">❮</li>
+	            <li class="year-month" @click="pickYear(currentYear,currentMonth)">
+	                <span class="choose-year">{{ currentYear }}</span> - <span class="choose-month">{{ currentMonth }}</span>
+	            </li>
+	            <li class="arrowRight" @click="pickNext(currentYear,currentMonth)" :class="{'disable':currentMonth>=webMonth && currentYear>=webYear}">❯</li>
+	        </ul>
+	    </div>
+	    <!-- 星期 -->
+	    <ul class="weekdays">
+	        <li>S</li>
+	        <li>M</li>
+	        <li>T</li>
+	        <li>W</li>
+	        <li>T</li>
+	        <li>F</li>
+	        <li>S</li>
+	    </ul>
+	    <!-- 日期 -->
+	    <ul class="days">
+	        <li  v-for="(dayobject,index) in days" @click="daysClick(dayobject)" 
+			:class="{'cut': dayobject.day.getFullYear() == cutDays.getFullYear() && dayobject.day.getMonth() == cutDays.getMonth() && dayobject.day.getDate() == cutDays.getDate(),'disable':currentMonth>=webMonth && currentYear>=webYear && webDay < dayobject.day.getDate() }" >
+	            <span v-if="dayobject.day.getMonth()+1 != currentMonth" class="other-month">{{ dayobject.day.getDate() }}</span>
+	            <span v-else>
+	                <span v-if="dayobject.day.getFullYear() == new Date().getFullYear() && dayobject.day.getMonth() == new Date().getMonth() && dayobject.day.getDate() == new Date().getDate()" class="active">{{ dayobject.day.getDate() }}</span>
+	                <span v-else>{{ dayobject.day.getDate() }}</span>
+	            </span>
+	
+	        </li>
+	    </ul>
+	</div>
+	
+	<!-- date end -->
+	
+	<div class="popstu" id="calendar" style="max-width: 480px;">
+	    <img src="__HOME_IMG__/closex.png" alt="">
+		{eq name="user_type" value="2"}
+	    <div class="tabBoxTitle">generate my tutoring report</div>
+		{/eq}
+		<form method="post" action="{:url('pdf')}" id="form_pdf" target="_blank">
+		<div class="tabBoxDateMain">
+			<div class="tabBoxRow"><input name="name" type="text" id="realname" required class="tabBoxInput" placeholder="Name" /></div>
+		</div>
+		<div class="tabBoxDateBor">
+			<input type="text" id="date_start" name="date_start" placeholder="Start time" required v-model="startDateNum" @click="openDate('start')" autocomplete="off"/>
+			<input type="text" id="date_end" name="date_end" placeholder="End time" required v-model="endDateNum" @click="openDate('end')"  autocomplete="off"/>
+		</div>
+		
+		<div class="tabBoxFoot">
+			<a href="javascript:;" class="tabBoxFootBtn">download</a>
+			<input type="hidden" name="act" id="pdf_act" value="download" />
+			<div class="tabBoxFootText"><a href="javascript:;" onclick="$('#pdf_act').val('email'); document.getElementById('form_pdf').submit();">send to Email</a></div>
+		</div>
+		</form>
+	</div>
+<div class="tabbox myclass">
+    <dif class="ht"><b>my chats</b> <a href="{:url('index')}">back</a></dif>
+	<div class="tabBoxHead">
+		<div class="tabs">
+			<div class="boxt {empty name="state_id"}g{/empty}" title="tab1" data-status="0">All</div>
+			{foreach $status_list as $k=>$vo}
+				{gt name="k" value="1"}
+					<div class="boxt {eq name="state_id" value="$k"}g{/eq}" title="tab2" data-status="{$k}">{$vo}</div>
+				{/gt}
+			{/foreach}
+		</div>
+		<a href="javascript:;" class="tabBoxDateBtn"><i class="iconfont iconcertifi"></i> generate report</a>
+	</div>
+    <ul class="classli comment_list"  id="boxtab">
+        <li id="tab1">
+            {include file="member/class_ajax"}
+        </li>
+    </ul>
+
+<div class="popstu listPopstu">
+    <img src="__HOME_IMG__/closex.png" alt="">
+    <topt>Stu</topt>
+	<div style="color: rgba(85,85,85,.5); padding-bottom: 20px;">Goal of speaking English &nbsp;&nbsp; <span class="speaking"></span></div>
+    <p>Stu info</p></div>
+
+    <div class="pages">
+        {$order_list->render()|raw}
+    </div>
+    <div class="bottom"><hline></hline><span>{gt name="last_page" value="1"}LOAD MORE{else}bottom{/gt}</span><hline></hline></div>
+</div>
+</div>
+</div>
+{include file="member/footer_menu"}
+{include file="public/footer"}
+{include file="member/member_js"}
+
+<style>
+		.arrowLeft.disable,
+		.arrowRight.disable{
+			cursor: default;
+			opacity: .4;
+			pointer-events: none;
+		}
+		li.disable{
+			cursor: default;
+			opacity: .4;
+			pointer-events: none;
+		}
+		li.disable span{
+			cursor: default;
+		}
+		li.disable .other-month{
+			color: #333 !important;
+		}
+	</style>
+</body>
+<script>
+	var _pdf_url = "{:url('pdf')}";
+	$(function () {
+		$('.tabBoxFootBtn').click(function () {
+			if (!$('#realname').val()) {
+				$('#realname').focus();
+				return false;
+			}
+			if (!$('#date_start').val()) {
+				$('#date_start').focus();
+				return false;
+			}
+			if (!$('#date_end').val()) {
+				$('#date_end').focus();
+				return false;
+			}
+			$('#pdf_act').val('download')
+			document.getElementById('form_pdf').submit();
+			// location.href = _pdf_url + '?realname=' + $('#realname').val() +"&date_start=" + $('#date_start').val() +"&date_end=" + $('#date_end').val();
+		})
+	})
+    var _page = {:input('page', 1)};
+    var _state_id = {:input('state_id', 0)};
+    var _load = 1;
+    var start_y;
+    var end_y;
+        {eq name="is_wap" value="1"}
+    //滑动到底部加载
+    function get_cmt_list() {
+        if (_load == 0) {
+            return true;
+        }
+        _page = _page + 1;
+        $.ajax({
+            url: '/index/member/classs',
+            data: {state_id: _state_id, page: _page, ajax: 1},
+            success: function (res) {
+                $('.comment_list').append(res);
+                opendiv();
+                if (!res) {
+                    $('.bottom span').text("BOTTOM");
+                    _load = 0;
+                }
+            }
+        })
+    }
+    $(document).on("touchstart", 'body,html', function(e){
+        var touch=e.touches[0];
+        start_y=touch.pageY;
+      //  alert(start_y)
+    })
+    $(document).on("touchmove", 'body,html', function(e){
+        var touch=e.touches[0];
+        end_y=touch.pageY;
+    })
+    $(document).on("touchend", 'body,html', function(e){
+        if(start_y- end_y >10){
+          get_cmt_list()
+        }
+    })
+  {/eq}
+        $('#foot_a_3').addClass('cur');
+        $(function() {
+            $(".boxt").click(function() {
+                var _status = $(this).data('status');
+                var _url = '{:url("classs")}?state_id='+_status;
+                location.href = _url;
+            });
+        })
+        function opendiv() {
+            $(document).on('click', 'comminfo.green', function () {
+                var _id = $(this).data('id');
+                console.log(".pop_" +_id)//这个id值是10 但页面的id是18 所以弹不出来
+                if ($(".pop_" +_id).length) {
+                    $("popbg").show();
+                    $(".pop_" +_id).show();
+                }
+            });
+            $(document).on('click', '.popreview>img', function () {
+                $("popbg").hide();
+                $(".popreview").hide();
+            });
+        }
+          $(document).on('click', 'comminfo.green', function () {
+
+                var _sid = $(this).data('id');
+				// console.log(_sid,'_sid')
+              $("popbg").show();
+              $(".pop_" + _sid).show();
+			  // _topt = $(this).parents().find('topt').html();
+			  // $('.popreview topt').html(_topt);
+			  // _topt = $(this).parents().find('p').html();
+			  // $('.popreview p').html(_topt);
+			  // $('.speaking').html($(this).parents().find('.descrText').html())
+			  //console.log($(this).parents().find('topt').html())
+     //          if (_sid) {
+
+     //                _topt = $(this).parent().find('topt').html();
+     //                $('.popreview topt').html(_topt);
+     //                _topt = $(this).parent().find('p').html();
+     //                $('.popreview p').html(_topt);
+     //                     }
+            });
+            $(document).on('click', '.usertype_2 headinfo name', function () {
+                // $(".popstu topt").html($(this).parent().find('p').data('username'));
+                $(".listPopstu topt").html($(this).parents().find('topt').html());
+            
+                $(".listPopstu p").html($(this).parents().find('p').html());
+            	$('.speaking').html($(this).parents().find('.descrText').html())
+                $("popbg").show();
+                $(".listPopstu").show();
+            });
+			
+			$(document).on('click', '.tabBoxDateBtn', function () {
+			    // $(".popstu topt").html($(this).parent().find('p').data('username'));
+			   
+			    $("popbg").show();
+			    $("#calendar").show();
+			});
+			
+			
+			
+
+           $(document).on('click', '.popreview>img,.popstu>img', function () {
+                $("popbg").hide();
+                $(".popstu,.popreview").hide();
+				closeDate()
+            });
+</script>
+
+<script>
+var _date_now = '{$date_now}'
+var dateJson = new Date(_date_now.replace(/-/g,"/"))
+var webYear = dateJson.getFullYear()
+var webMonth = dateJson.getMonth()
+
+console.log(_date_now,'_date_now----')
+console.log(dateJson,'dateJson----')
+var webDay = dateJson.getDate()
+    var vm = new Vue({
+        el: '.main',
+        data:{
+			webYear:webYear,
+			webMonth:webMonth+1,
+			webDay:webDay,
+            currentDay: 1,
+            currentMonth: 1,
+            currentYear: 2019,
+            currentWeek: 1,
+            days: [],
+            cutDays:dateJson,
+            isShowDate:false,
+            endDate:dateJson,
+            startDate:dateJson,
+            dateType:'',
+            startDateNum:'',
+            endDateNum:'',
+			s_year:'',
+			s_month:'',
+			s_day:'',
+			e_year:'',
+			e_month:'',
+			e_day:''
+			
+        },
+        created: function () {
+			var d_date = dateJson.getFullYear() +'/'+ (dateJson.getMonth() + 1)+'/1'
+           
+			this.initData(d_date);
+        },
+       
+        filters:{
+            
+        },
+		mounted(){
+			window.closeDate = this.closeDate;
+		},
+        methods: {
+			closeDate(){
+					this.isShowDate = false
+			},
+            initData: function(cur) {
+				console.log(cur,'initData---')
+                var date;
+                date = new Date(cur);
+                this.currentDay = date.getDate();
+                this.currentYear = date.getFullYear();
+                this.currentMonth = date.getMonth() + 1;
+                console.log(date)
+                console.log(this.currentMonth ,'this.currentMonth ')
+                
+                this.currentWeek = date.getDay(); // 1...6,0
+                if (this.currentWeek == 0) {
+                    this.currentWeek = 7;
+                }
+                var str = this.currentYear+'/'+this.currentMonth+'/'+this.currentDay;
+                this.days.length = 0;
+                // 今天是周日，放在第一行第7个位置，前面6个
+                //初始化本周
+                for (var i = this.currentWeek - 1; i >= 0; i--) {
+                    var d = new Date(str);
+                    d.setDate(d.getDate() - i);
+                    var dayobject={}; //用一个对象包装Date对象  以便为以后预定功能添加属性
+                    dayobject.day=d;
+                    this.days.push(dayobject);//将日期放入data 中的days数组 供页面渲染使用
+                }
+                //其他周
+                for (var i = 1; i <= 42 - this.currentWeek; i++) {
+                    var d = new Date(str);
+                    d.setDate(d.getDate() + i);
+                    var dayobject={};
+                    dayobject.day=d;
+                    this.days.push(dayobject);
+                }
+            		
+            },
+            pickPre: function(year, month) {
+            	console.log(year+'/'+month)
+            	var n_year = year, n_month = month - 1;
+            	if(n_month<1){
+            		n_month = 12
+            		n_year = year-1
+            	}
+                var d = new Date(year+'/'+month+'/'+'1');
+                d.setDate(0);
+                this.initData(n_year+'/'+n_month+'/'+'1');
+            },
+            pickNext: function(year, month) {
+            	var n_year = year, n_month = month + 1;
+				console.log(n_month,'n_monthn_monthn_month')
+            	if(n_month>12){
+            		n_month = 1
+            		n_year = year+1
+            	}
+                var d = new Date(year+'/'+month+'/'+'1');
+                d.setDate(42);
+                this.initData(n_year+'/'+n_month+'/'+'1');
+            },
+            pickYear: function(year, month) {
+               // alert(year + "," + month);
+            },
+            		
+            // 返回 类似 2016-01-02 格式的字符串
+            formatDate: function(year,month,day){
+                var y = year;
+                var m = month;
+                if(m<10) m = "0" + m;
+                var d = day;
+                if(d<10) d = "0" + d;
+                return y+"-"+m+"-"+d
+            },
+            daysClick(date){
+            	this.cutDays = date.day 
+            	var month = date.day.getMonth() + 1
+            	if(this.dateType === 'start'){
+            		this.startDate = date.day
+            		this.startDateNum = date.day.getFullYear() +'/' + month +'/'+date.day.getDate()
+					
+					this.s_year = this.startDate.getFullYear(),
+					this.s_month = this.startDate.getMonth()+1,
+					this.s_day = this.startDate.getDate()
+            	}else{
+            		this.endDate = date.day
+            		this.endDateNum = date.day.getFullYear() +'/' + month +'/'+date.day.getDate()
+					
+					this.e_year = this.endDate.getFullYear(),
+					this.e_month = this.endDate.getMonth()+1,
+					this.e_day = this.endDate.getDate()
+            	}
+            	this.isShowDate = false
+				
+				
+            },
+            openDate(type){
+            	if(type === 'start'){
+            		this.dateType = 'start'
+            		this.cutDays = this.startDate
+					
+					console.log(this.cutDays,'this.cutDays--')
+            	}else{
+            		this.dateType = 'end'
+            		this.cutDays = this.endDate
+            	}
+            	this.isShowDate = true
+            }
+        }
+
+    })
+	
+</script>
+</html>

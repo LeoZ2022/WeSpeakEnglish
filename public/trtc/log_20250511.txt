@@ -1,0 +1,116 @@
+2025-05-11 23:26:32 callback
+{
+	"EventGroupId":	1,
+	"EventType":	101,
+	"CallbackTs":	1746977191916,
+	"EventInfo":	{
+		"RoomId":	14243,
+		"EventTs":	1746977191,
+		"EventMsTs":	1746977191833,
+		"UserId":	"2154"
+	}
+}
+
+2025-05-11 23:26:32 callback
+{
+	"EventGroupId":	1,
+	"EventType":	103,
+	"CallbackTs":	1746977191922,
+	"EventInfo":	{
+		"RoomId":	14243,
+		"EventTs":	1746977191,
+		"EventMsTs":	1746977191836,
+		"UserId":	"2154",
+		"Role":	20,
+		"TerminalType":	2,
+		"UserType":	3,
+		"Reason":	1,
+		"ClientIpv4":	"103.124.251.232"
+	}
+}
+
+2025-05-11 23:26:50 callback
+{
+	"EventGroupId":	1,
+	"EventType":	104,
+	"CallbackTs":	1746977210391,
+	"EventInfo":	{
+		"RoomId":	14243,
+		"EventTs":	1746977210,
+		"EventMsTs":	1746977210311,
+		"UserId":	"2154",
+		"Role":	20,
+		"Reason":	1
+	}
+}
+
+2025-05-11 23:26:50 callback
+{
+	"EventGroupId":	1,
+	"EventType":	102,
+	"CallbackTs":	1746977210479,
+	"EventInfo":	{
+		"RoomId":	14243,
+		"EventTs":	1746977210,
+		"EventMsTs":	1746977210403
+	}
+}
+
+2025-05-11 23:29:20 callback
+{
+	"EventGroupId":	1,
+	"EventType":	101,
+	"CallbackTs":	1746977360917,
+	"EventInfo":	{
+		"RoomId":	14243,
+		"EventTs":	1746977360,
+		"EventMsTs":	1746977360836,
+		"UserId":	"2154"
+	}
+}
+
+2025-05-11 23:29:21 callback
+{
+	"EventGroupId":	1,
+	"EventType":	103,
+	"CallbackTs":	1746977360924,
+	"EventInfo":	{
+		"RoomId":	14243,
+		"EventTs":	1746977360,
+		"EventMsTs":	1746977360839,
+		"UserId":	"2154",
+		"Role":	20,
+		"TerminalType":	2,
+		"UserType":	3,
+		"Reason":	1,
+		"ClientIpv4":	"103.124.251.232"
+	}
+}
+
+2025-05-11 23:31:09 callback
+{
+	"EventGroupId":	1,
+	"EventType":	104,
+	"CallbackTs":	1746977469049,
+	"EventInfo":	{
+		"RoomId":	14243,
+		"EventTs":	1746977469,
+		"EventMsTs":	1746977469022,
+		"UserId":	"2154",
+		"Role":	20,
+		"Reason":	1
+	}
+}
+
+2025-05-11 23:31:09 callback
+{
+	"EventGroupId":	1,
+	"EventType":	102,
+	"CallbackTs":	1746977469171,
+	"EventInfo":	{
+		"RoomId":	14243,
+		"EventTs":	1746977469,
+		"EventMsTs":	1746977469094
+	}
+}
+

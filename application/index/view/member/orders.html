@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?4a6c48c79b79effb3722c8e5e07f391f";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-190244183-1">
+</script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-190244183-1');
+</script>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no,initial-scale=1.0">
+    <title>My Order_{:config('web_site_title')}</title>
+    <link rel="stylesheet" href="__HOME_CSS__/layout.css">
+    <link rel="stylesheet" href="__HOME_CSS__/myclassstu.css">
+    <link rel="stylesheet" type="text/css" href="__HOME_CSS__/myclassstu_m.css" media="(max-width: 750px) "/>
+    {include file="public/header_js"}
+		<!-- Google Tag Manager -->
+	<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+	new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+	j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+	'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+	})(window,document,'script','dataLayer','GTM-MTCT69F');</script>
+	<!-- End Google Tag Manager -->
+</head>
+<body class="usertype_{$user_type} partner{$is_partner|default=0}">
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MTCT69F"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+<nav class="dif">
+    <a class="backar pn" href="{:url('member/index')}"></a>
+    {include file="public/nav_menu"}
+</nav>
+
+<div class="main mycart">
+    <div class="tabbox myclass">
+        <dif class="ht "><b>my cart</b> <a href="###" onclick="history.go(-1);">back</a></dif>
+        <ul class="classli" id="boxtab">
+            <li id="tab1" class="comment_list">
+                <!--学生-->
+                {include file="member/orders_ajax"}
+            </li>
+            <div class="canelorder">
+                <img class="closex" src="__HOME_IMG__/closex.png" alt="">
+                <p>Cancel this order?</p>
+                <button class="no">NO</button><button class="confirm">CONFIRM</button>
+            </div>
+        </ul>
+        <div class="pages">
+            {$lists->render()|raw}
+        </div>
+        <div class="bottom"  onclick=""><hline></hline><span>LOAD MORE</span><hline></hline></div>
+    </div>
+
+</div>
+{include file="member/footer_menu"}
+{include file="public/footer"}
+{include file="member/member_js"}
+</body>
+<script>
+    $('#foot_a_6').addClass('cur');
+
+    var oid;
+    $(document).on('click', '.closex, .no', function () {
+        $("popbg").hide()
+        $(".canelorder").hide()
+    });
+
+    $(document).on('click', '.confirm', function () {
+        $("popbg").hide()
+        $(".canelorder").hide()
+        $.ajax({
+            url: '/index/member/to_cancel',
+            data: {order_id: oid},
+            dataType: 'json',
+            success: function (res) {
+                if (res.code == 1) {
+                    showmsg(res.msg, 200)
+                    setTimeout("location.reload()", 2000);
+                } else {
+                    showmsg(res.msg, 201)
+                }
+            }
+        })
+    });
+
+    function cancel(_oid) {
+        oid = _oid;
+        $("popbg").show()
+        $(".canelorder").show()
+    }
+    $(document).on('click', '.expend', function () {
+$(this).text("up").removeClass("expend").addClass("shrink").siblings("headinfo").children("time").css("display","block")
+    });
+    $(document).on('click', '.shrink', function () {
+        $(this).text("expend").removeClass("shrink").addClass("expend").siblings("headinfo").children("time").css("display","none")
+    });
+
+    var _page = {:input('page', 1)};
+    var _state_id = {:input('state_id', 0)};
+    var _load = 1;
+    var start_y;
+    var end_y;
+    {eq name="is_wap" value="1"}
+    //滑动到底部加载
+    function get_cmt_list() {
+        if (_load == 0) {
+            return true;
+        }
+        _page = _page + 1;
+        $.ajax({
+            url: '/index/member/orders',
+            data: {state_id: _state_id, page: _page, ajax: 1},
+            success: function (res) {
+                $('.comment_list').append(res);
+            //    opendiv();
+                console.log(!res)
+                if (!res) {
+                    $('.bottom span').text("BOTTOM");
+                    _load = 0;
+                }
+            }
+        })
+    }
+
+    $(document).on("touchstart", 'body,html', function(e){
+        var touch=e.touches[0];
+        start_y=touch.pageY;
+    })
+    $(document).on("touchmove", 'body,html', function(e){
+        var touch=e.touches[0];
+        end_y=touch.pageY;
+    })
+    $(document).on("touchend", 'body,html', function(e){
+        if(start_y- end_y >10){
+            get_cmt_list()
+        }
+    })
+    {/eq}
+</script>
+</html>

@@ -1,0 +1,30 @@
+2024-02-10 23:58:57 callback
+{
+	"EventGroupId":	1,
+	"EventType":	103,
+	"CallbackTs":	1707580737527,
+	"EventInfo":	{
+		"RoomId":	13353,
+		"EventTs":	1707580737,
+		"EventMsTs":	1707580737449,
+		"UserId":	"831",
+		"Role":	20,
+		"TerminalType":	2,
+		"UserType":	3,
+		"Reason":	1
+	}
+}
+
+2024-02-10 23:58:57 callback
+{
+	"EventGroupId":	1,
+	"EventType":	101,
+	"CallbackTs":	1707580737539,
+	"EventInfo":	{
+		"RoomId":	13353,
+		"EventTs":	1707580737,
+		"EventMsTs":	1707580737449,
+		"UserId":	"831"
+	}
+}
+
