@@ -52,6 +52,32 @@ class Index extends Base
     }
 
     /**
+     * 社交登录配置（供 App 内嵌网页使用）
+     * 返回已启用的登录渠道及其授权入口，以及带 inapp=1 的注册页/首页地址
+     */
+    public function social_config()
+    {
+        $cfg = config('social_auth.');
+        $names = ['google' => 'Google', 'apple' => 'Apple', 'microsoft' => 'Outlook', 'facebook' => 'Facebook'];
+        $providers = [];
+        foreach (['google', 'apple', 'microsoft', 'facebook'] as $p) {
+            if (!empty($cfg[$p]['enabled']) && !empty($cfg[$p]['client_id'])) {
+                $providers[] = [
+                    'provider' => $p,
+                    'name' => $names[$p],
+                    'start_url' => url('index/social_auth/start', ['provider' => $p, 'inapp' => 1], '', true),
+                ];
+            }
+        }
+        $data = [
+            'providers' => $providers,
+            'register_url' => url('index/register/learner', ['inapp' => 1], '', true),
+            'home_url' => url('index/index/index', [], '', true),
+        ];
+        $this->returnJson(['code'=>200, 'data'=>$data]);
+    }
+
+    /**
      * APP最新安装包
      */
     public function get_upgrade()

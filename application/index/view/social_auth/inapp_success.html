@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<title>Signed in</title>
+<script src="https://js.cdn.aliyun.dcloud.net.cn/dev/uni-app/uni.webview.1.5.2.js"></script>
+<style>
+body{margin:0;padding:0;background:#f8f8f8;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;}
+.box{max-width:420px;margin:0 auto;padding:80px 24px;text-align:center;}
+.ok{width:72px;height:72px;margin:0 auto 20px;border-radius:50%;background:#5d73bc;color:#fff;font-size:36px;line-height:72px;}
+h2{font-size:20px;color:#333;margin:0 0 10px;}
+p{font-size:14px;color:#999;margin:0 0 24px;}
+#backBtn{display:none;background:#5d73bc;color:#fff;border:0;border-radius:8px;font-size:16px;padding:12px 40px;}
+</style>
+</head>
+<body>
+<div class="box">
+  <div class="ok">&#10003;</div>
+  <h2>Signed in successfully</h2>
+  <p>Returning you to the app&hellip;</p>
+  <button id="backBtn" type="button">Return to app</button>
+</div>
+<script>
+var payload = {$app_user_json|raw};
+var done = false;
+function sendBack() {
+  if (done) return;
+  done = true;
+  try {
+    if (window.uni && uni.postMessage) {
+      uni.postMessage({data: {type: 'wespeak-social-login', user: payload}});
+    }
+  } catch (e) {}
+  setTimeout(function () {
+    try {
+      if (window.uni && uni.navigateBack) { uni.navigateBack(); return; }
+    } catch (e) {}
+    //自动返回失败时，显示手动按钮
+    document.getElementById('backBtn').style.display = 'inline-block';
+  }, 600);
+}
+document.getElementById('backBtn').onclick = function () { done = false; sendBack(); };
+if (document.readyState === 'complete') { sendBack(); }
+else { window.addEventListener('load', sendBack); }
+setTimeout(sendBack, 2500);
+</script>
+</body>
+</html>

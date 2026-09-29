@@ -613,6 +613,30 @@ class Users extends Model
         return $ret;
     }
 
+    //签发 App 端登录 token（供 App 内嵌网页社交登录成功后回传使用）
+    //逻辑与 signin($app=1) 的 token 签发部分一致
+    public function issueAppToken($userId)
+    {
+        $user = $this->where('id', $userId)->find();
+        if (!$user) {
+            return null;
+        }
+        if ($user['token']) {
+            cache('app_user_'.$user['token'], null);
+        }
+        $md5 = md5($user['email'].time());
+        $this->where('id', $user['id'])->setField('token', $md5);
+        $location = Location::find($user['location']);
+        $data = $user->toArray();
+        unset($data['password']);
+        $data['token'] = $md5;
+        $data['location'] = $location ? $location->toArray() : null;
+        cache('app_user_'.$md5, $data);
+        $update = ['login_ip' => get_client_ip(), 'login_time' => time(), 'last_login_time' => $user['login_time'], 'last_login_ip' => $user['login_ip']];
+        $this->where('id', $user['id'])->update($update);
+        return $data;
+    }
+
     //验证邮箱
     public static function check_email($uid, $code)
     {

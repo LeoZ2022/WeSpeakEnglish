@@ -10,7 +10,7 @@ use think\helper\Hash;
 
 class SocialAuth extends Home
 {
-    private $providers = ['google', 'apple', 'microsoft'];
+    private $providers = ['google', 'apple', 'microsoft', 'facebook'];
 
     public function start($provider = '')
     {
@@ -18,17 +18,21 @@ class SocialAuth extends Home
         $state = bin2hex(random_bytes(24));
         session('social_oauth_state', $state);
         session('social_oauth_provider', $provider);
+        //标记是否来自 App 内嵌网页，回调成功后把登录态回传给 App
+        session('social_oauth_inapp', input('inapp') ? 1 : 0);
 
         $params = [
             'client_id' => $config['client_id'],
             'redirect_uri' => $this->callbackUrl($provider),
             'response_type' => 'code',
-            'response_mode' => 'query',
-            'scope' => $provider === 'microsoft' ? 'openid profile email User.Read' : 'openid email profile',
+            'scope' => $this->scope($provider),
             'state' => $state,
         ];
         if ($provider === 'apple') {
             $params['response_mode'] = 'form_post';
+        } elseif ($provider !== 'facebook') {
+            // Facebook's dialog endpoint does not accept response_mode.
+            $params['response_mode'] = 'query';
         }
         $this->redirect($this->authorizationUrl($provider, $config) . '?' . http_build_query($params));
     }
@@ -59,8 +63,30 @@ class SocialAuth extends Home
         if (empty($profile['id']) || empty($profile['email'])) {
             throw new HttpException(400, 'Your account did not provide a verified email address.');
         }
-        $this->signIn($provider, $profile);
+        $userId = $this->signIn($provider, $profile);
+        if (session('social_oauth_inapp')) {
+            //App 内嵌网页：签发 App token，通过成功页回传给 App
+            session('social_oauth_inapp', null);
+            $appUser = (new Users())->issueAppToken($userId);
+            if (!$appUser) {
+                throw new HttpException(500, 'Could not start your app session. Please try again.');
+            }
+            session('social_inapp_user', $appUser);
+            $this->redirect(url('social_auth/inapp_success'));
+        }
         $this->redirect('member/index');
+    }
+
+    //App 内嵌网页登录成功页：把用户信息 postMessage 给 App 的 web-view
+    public function inappSuccess()
+    {
+        $user = session('social_inapp_user');
+        session('social_inapp_user', null);
+        if (!$user) {
+            $this->redirect('sign/learner');
+        }
+        $this->assign('app_user_json', json_encode($user));
+        return $this->fetch();
     }
 
     private function signIn($provider, array $profile)
@@ -110,10 +136,22 @@ class SocialAuth extends Home
         if ($location) {
             session('member_timezone', $location['timezone']);
         }
+        return $user['id'];
     }
 
     private function profile($provider, array $token, array $config)
     {
+        if ($provider === 'facebook') {
+            $data = $this->getJson(
+                'https://graph.facebook.com/' . $this->graphVersion($config) . '/me?fields=id,name,email',
+                $token['access_token']
+            );
+            $email = $data['email'] ?? '';
+            if (empty($data['id']) || !filter_var($email, FILTER_VALIDATE_EMAIL)) {
+                throw new HttpException(400, 'Facebook did not provide a verified email address.');
+            }
+            return ['id' => $data['id'], 'email' => $email, 'name' => $data['name'] ?? ''];
+        }
         if ($provider === 'google') {
             $data = $this->getJson('https://openidconnect.googleapis.com/v1/userinfo', $token['access_token']);
             if (empty($data['email_verified'])) throw new HttpException(400, 'Google did not verify this email address.');
@@ -145,14 +183,23 @@ class SocialAuth extends Home
     {
         if ($provider === 'google') return 'https://accounts.google.com/o/oauth2/v2/auth';
         if ($provider === 'apple') return 'https://appleid.apple.com/auth/authorize';
+        if ($provider === 'facebook') return 'https://www.facebook.com/' . $this->graphVersion($config) . '/dialog/oauth';
         return 'https://login.microsoftonline.com/' . rawurlencode($config['tenant']) . '/oauth2/v2.0/authorize';
     }
     private function tokenUrl($provider, array $config)
     {
         if ($provider === 'google') return 'https://oauth2.googleapis.com/token';
         if ($provider === 'apple') return 'https://appleid.apple.com/auth/token';
+        if ($provider === 'facebook') return 'https://graph.facebook.com/' . $this->graphVersion($config) . '/oauth/access_token';
         return 'https://login.microsoftonline.com/' . rawurlencode($config['tenant']) . '/oauth2/v2.0/token';
     }
+    private function scope($provider)
+    {
+        if ($provider === 'facebook') return 'email';
+        if ($provider === 'microsoft') return 'openid profile email User.Read';
+        return 'openid email profile';
+    }
+    private function graphVersion(array $config) { return $config['graph_version'] ?? 'v21.0'; }
     private function callbackUrl($provider) { return url('social_auth/callback', ['provider' => $provider], '', true); }
     private function postForm($url, array $fields)
     {

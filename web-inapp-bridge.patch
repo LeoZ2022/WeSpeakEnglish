@@ -1,0 +1,218 @@
+From 01b573c1a2230e70b312d610866499d4318fd98d Mon Sep 17 00:00:00 2001
+From: Muse <muse@local>
+Date: Mon, 28 Sep 2026 17:29:21 -0400
+Subject: [PATCH] App web-view integration: in-app social login bridge
+
+---
+ application/api/home/Index.php                | 26 ++++++++++
+ application/index/controller/SocialAuth.php   | 27 +++++++++-
+ application/index/model/Users.php             | 24 +++++++++
+ .../index/view/sign/social_buttons.html       |  8 +--
+ .../index/view/social_auth/inapp_success.html | 49 +++++++++++++++++++
+ 5 files changed, 129 insertions(+), 5 deletions(-)
+ create mode 100644 application/index/view/social_auth/inapp_success.html
+
+diff --git a/application/api/home/Index.php b/application/api/home/Index.php
+index 5eea608..9ceabb4 100644
+--- a/application/api/home/Index.php
++++ b/application/api/home/Index.php
+@@ -51,6 +51,32 @@ class Index extends Base
+         $this->returnJson(['code'=>200, 'data'=>$cfg]);
+     }
+ 
++    /**
++     * 社交登录配置（供 App 内嵌网页使用）
++     * 返回已启用的登录渠道及其授权入口，以及带 inapp=1 的注册页/首页地址
++     */
++    public function social_config()
++    {
++        $cfg = config('social_auth.');
++        $names = ['google' => 'Google', 'apple' => 'Apple', 'microsoft' => 'Outlook', 'facebook' => 'Facebook'];
++        $providers = [];
++        foreach (['google', 'apple', 'microsoft', 'facebook'] as $p) {
++            if (!empty($cfg[$p]['enabled']) && !empty($cfg[$p]['client_id'])) {
++                $providers[] = [
++                    'provider' => $p,
++                    'name' => $names[$p],
++                    'start_url' => url('index/social_auth/start', ['provider' => $p, 'inapp' => 1], '', true),
++                ];
++            }
++        }
++        $data = [
++            'providers' => $providers,
++            'register_url' => url('index/register/learner', ['inapp' => 1], '', true),
++            'home_url' => url('index/index/index', [], '', true),
++        ];
++        $this->returnJson(['code'=>200, 'data'=>$data]);
++    }
++
+     /**
+      * APP最新安装包
+      */
+diff --git a/application/index/controller/SocialAuth.php b/application/index/controller/SocialAuth.php
+index 3f7c08a..a4d0b0c 100644
+--- a/application/index/controller/SocialAuth.php
++++ b/application/index/controller/SocialAuth.php
+@@ -18,6 +18,8 @@ class SocialAuth extends Home
+         $state = bin2hex(random_bytes(24));
+         session('social_oauth_state', $state);
+         session('social_oauth_provider', $provider);
++        //标记是否来自 App 内嵌网页，回调成功后把登录态回传给 App
++        session('social_oauth_inapp', input('inapp') ? 1 : 0);
+ 
+         $params = [
+             'client_id' => $config['client_id'],
+@@ -61,10 +63,32 @@ class SocialAuth extends Home
+         if (empty($profile['id']) || empty($profile['email'])) {
+             throw new HttpException(400, 'Your account did not provide a verified email address.');
+         }
+-        $this->signIn($provider, $profile);
++        $userId = $this->signIn($provider, $profile);
++        if (session('social_oauth_inapp')) {
++            //App 内嵌网页：签发 App token，通过成功页回传给 App
++            session('social_oauth_inapp', null);
++            $appUser = (new Users())->issueAppToken($userId);
++            if (!$appUser) {
++                throw new HttpException(500, 'Could not start your app session. Please try again.');
++            }
++            session('social_inapp_user', $appUser);
++            $this->redirect(url('social_auth/inapp_success'));
++        }
+         $this->redirect('member/index');
+     }
+ 
++    //App 内嵌网页登录成功页：把用户信息 postMessage 给 App 的 web-view
++    public function inappSuccess()
++    {
++        $user = session('social_inapp_user');
++        session('social_inapp_user', null);
++        if (!$user) {
++            $this->redirect('sign/learner');
++        }
++        $this->assign('app_user_json', json_encode($user));
++        return $this->fetch();
++    }
++
+     private function signIn($provider, array $profile)
+     {
+         $identity = Db::name('cms_social_identity')->where([
+@@ -112,6 +136,7 @@ class SocialAuth extends Home
+         if ($location) {
+             session('member_timezone', $location['timezone']);
+         }
++        return $user['id'];
+     }
+ 
+     private function profile($provider, array $token, array $config)
+diff --git a/application/index/model/Users.php b/application/index/model/Users.php
+index 31cb586..aeb2802 100644
+--- a/application/index/model/Users.php
++++ b/application/index/model/Users.php
+@@ -613,6 +613,30 @@ class Users extends Model
+         return $ret;
+     }
+ 
++    //签发 App 端登录 token（供 App 内嵌网页社交登录成功后回传使用）
++    //逻辑与 signin($app=1) 的 token 签发部分一致
++    public function issueAppToken($userId)
++    {
++        $user = $this->where('id', $userId)->find();
++        if (!$user) {
++            return null;
++        }
++        if ($user['token']) {
++            cache('app_user_'.$user['token'], null);
++        }
++        $md5 = md5($user['email'].time());
++        $this->where('id', $user['id'])->setField('token', $md5);
++        $location = Location::find($user['location']);
++        $data = $user->toArray();
++        unset($data['password']);
++        $data['token'] = $md5;
++        $data['location'] = $location ? $location->toArray() : null;
++        cache('app_user_'.$md5, $data);
++        $update = ['login_ip' => get_client_ip(), 'login_time' => time(), 'last_login_time' => $user['login_time'], 'last_login_ip' => $user['login_ip']];
++        $this->where('id', $user['id'])->update($update);
++        return $data;
++    }
++
+     //验证邮箱
+     public static function check_email($uid, $code)
+     {
+diff --git a/application/index/view/sign/social_buttons.html b/application/index/view/sign/social_buttons.html
+index d8bdd06..8087706 100644
+--- a/application/index/view/sign/social_buttons.html
++++ b/application/index/view/sign/social_buttons.html
+@@ -1,10 +1,10 @@
+ <div class="social-login" aria-label="Sign in or sign up with an account">
+     <p>Or continue with</p>
+     <div class="social-login__buttons">
+-        <a href="{:url('social_auth/start', ['provider' => 'google'])}" class="social-login__button social-login__button--google"><b>G</b><span>Google</span></a>
+-        <a href="{:url('social_auth/start', ['provider' => 'apple'])}" class="social-login__button social-login__button--apple"><b></b><span>Apple</span></a>
+-        <a href="{:url('social_auth/start', ['provider' => 'microsoft'])}" class="social-login__button social-login__button--microsoft"><b>⊞</b><span>Outlook</span></a>
+-        <a href="{:url('social_auth/start', ['provider' => 'facebook'])}" class="social-login__button social-login__button--facebook"><b>f</b><span>Facebook</span></a>
++        <a href="{:url('social_auth/start', ['provider' => 'google', 'inapp' => input('inapp', '')])}" class="social-login__button social-login__button--google"><b>G</b><span>Google</span></a>
++        <a href="{:url('social_auth/start', ['provider' => 'apple', 'inapp' => input('inapp', '')])}" class="social-login__button social-login__button--apple"><b></b><span>Apple</span></a>
++        <a href="{:url('social_auth/start', ['provider' => 'microsoft', 'inapp' => input('inapp', '')])}" class="social-login__button social-login__button--microsoft"><b>⊞</b><span>Outlook</span></a>
++        <a href="{:url('social_auth/start', ['provider' => 'facebook', 'inapp' => input('inapp', '')])}" class="social-login__button social-login__button--facebook"><b>f</b><span>Facebook</span></a>
+     </div>
+ </div>
+ <style>
+diff --git a/application/index/view/social_auth/inapp_success.html b/application/index/view/social_auth/inapp_success.html
+new file mode 100644
+index 0000000..e021673
+--- /dev/null
++++ b/application/index/view/social_auth/inapp_success.html
+@@ -0,0 +1,49 @@
++<!DOCTYPE html>
++<html>
++<head>
++<meta charset="utf-8">
++<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
++<title>Signed in</title>
++<script src="https://js.cdn.aliyun.dcloud.net.cn/dev/uni-app/uni.webview.1.5.2.js"></script>
++<style>
++body{margin:0;padding:0;background:#f8f8f8;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;}
++.box{max-width:420px;margin:0 auto;padding:80px 24px;text-align:center;}
++.ok{width:72px;height:72px;margin:0 auto 20px;border-radius:50%;background:#5d73bc;color:#fff;font-size:36px;line-height:72px;}
++h2{font-size:20px;color:#333;margin:0 0 10px;}
++p{font-size:14px;color:#999;margin:0 0 24px;}
++#backBtn{display:none;background:#5d73bc;color:#fff;border:0;border-radius:8px;font-size:16px;padding:12px 40px;}
++</style>
++</head>
++<body>
++<div class="box">
++  <div class="ok">&#10003;</div>
++  <h2>Signed in successfully</h2>
++  <p>Returning you to the app&hellip;</p>
++  <button id="backBtn" type="button">Return to app</button>
++</div>
++<script>
++var payload = {$app_user_json|raw};
++var done = false;
++function sendBack() {
++  if (done) return;
++  done = true;
++  try {
++    if (window.uni && uni.postMessage) {
++      uni.postMessage({data: {type: 'wespeak-social-login', user: payload}});
++    }
++  } catch (e) {}
++  setTimeout(function () {
++    try {
++      if (window.uni && uni.navigateBack) { uni.navigateBack(); return; }
++    } catch (e) {}
++    //自动返回失败时，显示手动按钮
++    document.getElementById('backBtn').style.display = 'inline-block';
++  }, 600);
++}
++document.getElementById('backBtn').onclick = function () { done = false; sendBack(); };
++if (document.readyState === 'complete') { sendBack(); }
++else { window.addEventListener('load', sendBack); }
++setTimeout(sendBack, 2500);
++</script>
++</body>
++</html>
+-- 
+2.43.0
+

@@ -1,0 +1,116 @@
+From 8d6d88d0527dfbdfa501643590be4f53454115ff Mon Sep 17 00:00:00 2001
+From: Muse <muse@local>
+Date: Mon, 28 Sep 2026 15:55:19 -0400
+Subject: [PATCH] Add Facebook as fourth social login provider
+
+- SocialAuth controller: facebook authorize/token/profile flow via Graph API
+- config/social_auth.php: facebook entry (disabled by default, needs credentials)
+- social_buttons.html: Facebook button on learner login/register pages
+---
+ application/index/controller/SocialAuth.php   | 28 +++++++++++++++++--
+ .../index/view/sign/social_buttons.html       |  3 +-
+ config/social_auth.php                        |  3 ++
+ 3 files changed, 30 insertions(+), 4 deletions(-)
+
+diff --git a/application/index/controller/SocialAuth.php b/application/index/controller/SocialAuth.php
+index 5104d23..3f7c08a 100644
+--- a/application/index/controller/SocialAuth.php
++++ b/application/index/controller/SocialAuth.php
+@@ -10,7 +10,7 @@ use think\helper\Hash;
+ 
+ class SocialAuth extends Home
+ {
+-    private $providers = ['google', 'apple', 'microsoft'];
++    private $providers = ['google', 'apple', 'microsoft', 'facebook'];
+ 
+     public function start($provider = '')
+     {
+@@ -23,12 +23,14 @@ class SocialAuth extends Home
+             'client_id' => $config['client_id'],
+             'redirect_uri' => $this->callbackUrl($provider),
+             'response_type' => 'code',
+-            'response_mode' => 'query',
+-            'scope' => $provider === 'microsoft' ? 'openid profile email User.Read' : 'openid email profile',
++            'scope' => $this->scope($provider),
+             'state' => $state,
+         ];
+         if ($provider === 'apple') {
+             $params['response_mode'] = 'form_post';
++        } elseif ($provider !== 'facebook') {
++            // Facebook's dialog endpoint does not accept response_mode.
++            $params['response_mode'] = 'query';
+         }
+         $this->redirect($this->authorizationUrl($provider, $config) . '?' . http_build_query($params));
+     }
+@@ -114,6 +116,17 @@ class SocialAuth extends Home
+ 
+     private function profile($provider, array $token, array $config)
+     {
++        if ($provider === 'facebook') {
++            $data = $this->getJson(
++                'https://graph.facebook.com/' . $this->graphVersion($config) . '/me?fields=id,name,email',
++                $token['access_token']
++            );
++            $email = $data['email'] ?? '';
++            if (empty($data['id']) || !filter_var($email, FILTER_VALIDATE_EMAIL)) {
++                throw new HttpException(400, 'Facebook did not provide a verified email address.');
++            }
++            return ['id' => $data['id'], 'email' => $email, 'name' => $data['name'] ?? ''];
++        }
+         if ($provider === 'google') {
+             $data = $this->getJson('https://openidconnect.googleapis.com/v1/userinfo', $token['access_token']);
+             if (empty($data['email_verified'])) throw new HttpException(400, 'Google did not verify this email address.');
+@@ -145,14 +158,23 @@ class SocialAuth extends Home
+     {
+         if ($provider === 'google') return 'https://accounts.google.com/o/oauth2/v2/auth';
+         if ($provider === 'apple') return 'https://appleid.apple.com/auth/authorize';
++        if ($provider === 'facebook') return 'https://www.facebook.com/' . $this->graphVersion($config) . '/dialog/oauth';
+         return 'https://login.microsoftonline.com/' . rawurlencode($config['tenant']) . '/oauth2/v2.0/authorize';
+     }
+     private function tokenUrl($provider, array $config)
+     {
+         if ($provider === 'google') return 'https://oauth2.googleapis.com/token';
+         if ($provider === 'apple') return 'https://appleid.apple.com/auth/token';
++        if ($provider === 'facebook') return 'https://graph.facebook.com/' . $this->graphVersion($config) . '/oauth/access_token';
+         return 'https://login.microsoftonline.com/' . rawurlencode($config['tenant']) . '/oauth2/v2.0/token';
+     }
++    private function scope($provider)
++    {
++        if ($provider === 'facebook') return 'email';
++        if ($provider === 'microsoft') return 'openid profile email User.Read';
++        return 'openid email profile';
++    }
++    private function graphVersion(array $config) { return $config['graph_version'] ?? 'v21.0'; }
+     private function callbackUrl($provider) { return url('social_auth/callback', ['provider' => $provider], '', true); }
+     private function postForm($url, array $fields)
+     {
+diff --git a/application/index/view/sign/social_buttons.html b/application/index/view/sign/social_buttons.html
+index b3d067a..d8bdd06 100644
+--- a/application/index/view/sign/social_buttons.html
++++ b/application/index/view/sign/social_buttons.html
+@@ -4,8 +4,9 @@
+         <a href="{:url('social_auth/start', ['provider' => 'google'])}" class="social-login__button social-login__button--google"><b>G</b><span>Google</span></a>
+         <a href="{:url('social_auth/start', ['provider' => 'apple'])}" class="social-login__button social-login__button--apple"><b></b><span>Apple</span></a>
+         <a href="{:url('social_auth/start', ['provider' => 'microsoft'])}" class="social-login__button social-login__button--microsoft"><b>⊞</b><span>Outlook</span></a>
++        <a href="{:url('social_auth/start', ['provider' => 'facebook'])}" class="social-login__button social-login__button--facebook"><b>f</b><span>Facebook</span></a>
+     </div>
+ </div>
+ <style>
+-.social-login{margin:24px 0 20px;text-align:center}.social-login p{color:#888;font-size:14px;margin:0 0 12px}.social-login__buttons{display:flex;gap:8px}.social-login__button{align-items:center;border:1px solid #ddd;border-radius:5px;color:#444;display:flex;flex:1;font:14px Arial,sans-serif;gap:7px;justify-content:center;min-height:40px;text-decoration:none}.social-login__button:hover{border-color:#999;color:#222}.social-login__button b{font-size:20px;line-height:1}.social-login__button--google b{color:#4285f4}.social-login__button--apple b{color:#111}.social-login__button--microsoft b{color:#00a4ef}@media(max-width:480px){.social-login__buttons{flex-direction:column}}
++.social-login{margin:24px 0 20px;text-align:center}.social-login p{color:#888;font-size:14px;margin:0 0 12px}.social-login__buttons{display:flex;gap:8px}.social-login__button{align-items:center;border:1px solid #ddd;border-radius:5px;color:#444;display:flex;flex:1;font:14px Arial,sans-serif;gap:7px;justify-content:center;min-height:40px;text-decoration:none}.social-login__button:hover{border-color:#999;color:#222}.social-login__button b{font-size:20px;line-height:1}.social-login__button--google b{color:#4285f4}.social-login__button--apple b{color:#111}.social-login__button--microsoft b{color:#00a4ef}.social-login__button--facebook b{color:#1877f2}@media(max-width:480px){.social-login__buttons{flex-direction:column}}
+ </style>
+diff --git a/config/social_auth.php b/config/social_auth.php
+index 9294544..e85f399 100644
+--- a/config/social_auth.php
++++ b/config/social_auth.php
+@@ -8,4 +8,7 @@ return [
+     'apple' => ['enabled' => false, 'client_id' => '', 'client_secret' => ''],
+     // 'consumers' accepts personal Outlook accounts. Use 'common' for both.
+     'microsoft' => ['enabled' => false, 'client_id' => '', 'client_secret' => '', 'tenant' => 'consumers'],
++    // Facebook needs the 'email' permission; public use requires Facebook app review.
++    // Bump graph_version when Facebook deprecates the pinned version.
++    'facebook' => ['enabled' => false, 'client_id' => '', 'client_secret' => '', 'graph_version' => 'v21.0'],
+ ];
+-- 
+2.43.0
+
